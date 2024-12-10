@@ -2,6 +2,7 @@ import express from "express";
 import session from "express-session";
 import * as dotenv from "dotenv"; // On importe dotenv pour pouvoir lire le fichier.env
 import router from "./app/router.js"; // On importe notre router créé et paramétré dans le fichier router.js
+import  sequelize  from "./app/config/database.js"; // On importe l'instance de sequelize créée dans le fichier database.js
 
 // Rends disponible la variable process.env.PORT, parce qu'on a dans le .env une chaine de caractère PORT=3000
 dotenv.config();
