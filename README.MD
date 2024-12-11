@@ -251,3 +251,150 @@ FROM
 GROUP BY 
     <!-- id_user; -->
     ```
+
+Configuration Sequelize
+Dans le fichier database.js :
+
+import { Sequelize } from "sequelize";
+import * as dotenv from "dotenv";
+
+dotenv.config();
+
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    dialect: "postgres",
+  }
+);
+
+export default sequelize;
+
+
+Variables d'/environnement
+ fichier .env :
+
+PORT=3000             #  ✅ Port de l'application (ex : serveur Node.js)
+DB_HOST=localhost      # ✅ L'hôte de PostgreSQL (local si sur ta machine)
+DB_USER=la_pince      #  ✅ Nom d'utilisateur PostgreSQL (utilisateur admin ici)
+DB_PASSWORD=lapince   #  ✅// Mot de passe de l'utilisateur PostgreSQL
+DB_NAME=lapince        # ✅ Nom de la base de données que tu veux utiliser.
+JWT_SECRET=mysecretkey # ✅ Clé secrète utilisée pour générer des tokens (JWT).
+
+
+Initialisation de Sequelize
+Dans index.js :
+
+import sequelize from "./app/config/database.js";
+
+sequelize.authenticate()
+  .then(() => console.log("Connexion à la base de données réussie !"))
+  .catch(err => console.error("Erreur de connexion :", err));
+
+
+
+  2. Création des modèles
+
+Modèle User
+Fichier user.js :
+
+import { DataTypes } from "sequelize";
+import sequelize from "../config/database.js";
+
+const User = sequelize.define("users", {
+  id_user: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  first_name: { type: DataTypes.STRING, allowNull: false },
+  last_name: { type: DataTypes.STRING, allowNull: false },
+  email: { type: DataTypes.STRING, unique: true, allowNull: false },
+  password: { type: DataTypes.STRING, allowNull: false },
+  date_of_birth: { type: DataTypes.DATEONLY, allowNull: false },
+  user_type: { type: DataTypes.STRING, defaultValue: "standard" },
+  language: { type: DataTypes.STRING, defaultValue: "en" },
+  currency: { type: DataTypes.STRING, defaultValue: "USD" },
+});
+
+export default User;
+Synchronisation des modèles
+Ajoutez dans index.js :
+
+sequelize.sync({ force: false })
+  .then(() => console.log("Les modèles sont synchronisés avec la base de données."))
+  .catch(err => console.error("Erreur de synchronisation :", err));
+
+
+  3. Implémentation des fonctionnalités CRUD
+
+Création d'un utilisateur
+Dans userController.js :
+
+export const createTestUser = async () => {
+  const email = "newtest@example.com";
+  const existingUser = await User.findOne({ where: { email } });
+  if (!existingUser) {
+    const newUser = await User.create({
+      first_name: "Test",
+      last_name: "User",
+      email,
+      password: "password123",
+      date_of_birth: "2000-01-01",
+    });
+    console.log("Nouvel utilisateur créé :", newUser);
+  } else {
+    console.log("Un utilisateur avec cet email existe déjà :", existingUser);
+  }
+};
+Récupération d'un utilisateur
+export const getUserByEmail = async (email) => {
+  const user = await User.findOne({ where: { email } });
+  if (user) {
+    console.log("Utilisateur trouvé :", user);
+  } else {
+    console.log("Aucun utilisateur trouvé pour cet email :", email);
+  }
+};
+Mise à jour d'un utilisateur
+export const updateUser = async (email, updates) => {
+  const [updated] = await User.update(updates, { where: { email } });
+  if (updated) {
+    console.log("Utilisateur mis à jour avec succès.");
+  } else {
+    console.log("Aucun utilisateur trouvé pour cet email.");
+  }
+};
+Suppression d'un utilisateur
+export const deleteUser = async (email) => {
+  const deleted = await User.destroy({ where: { email } });
+  if (deleted) {
+    console.log("Utilisateur supprimé avec succès.");
+  } else {
+    console.log("Aucun utilisateur trouvé pour cet email.");
+  }
+};
+
+
+Test : Création d'utilisateur
+Ajoutez dans index.js :
+
+import { createTestUser } from "./app/controllers/userController.js";
+createTestUser();
+Test : Récupération d'utilisateur
+Ajoutez dans index.js :
+
+import { getUserByEmail } from "./app/controllers/userController.js";
+getUserByEmail("newtest@example.com");
+Test : Mise à jour d'utilisateur
+Ajoutez dans index.js :
+
+import { updateUser } from "./app/controllers/userController.js";
+updateUser("newtest@example.com", { first_name: "UpdatedName" });
+Test : Suppression d'utilisateur
+Ajoutez dans index.js :
+
+import { deleteUser } from "./app/controllers/userController.js";
+deleteUser("newtest@example.com");

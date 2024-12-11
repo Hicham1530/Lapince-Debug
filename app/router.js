@@ -1,33 +1,33 @@
 import express from "express";  // On importe express
 
 // Importer les contrôleurs
-import authController from "./controllers/authControllers.js";   // On importe le contrôleur Auth
-import dashboardController from "./controllers/dashboardControllers.js"; // On importe le contrôleur Dashboard
-import profileController from "./controllers/profileControllers.js"; // On importe le contrôleur Profile
-import mainController from "./controllers/mainControllers.js"; // On importe le contrôleur Main
+import authControllers from "./controllers/authControllers.js";   // On importe le contrôleur Auth
+import dashboardControllers from "./controllers/dashboardControllers.js"; // On importe le contrôleur Dashboard
+import profileControllers from "./controllers/profileControllers.js"; // On importe le contrôleur Profile
+import mainControllers from "./controllers/mainControllers.js"; // On importe le contrôleur Main
 
 
 const router = express.Router(); // On créé un router express
 
 
 // Routes générales
-router.get("/", mainController.home);   // Page d'accueil
-router.get("/about", mainController.about); // Page à propos
-router.get("/contact", mainController.contact); // Page contact
+router.get("/", mainControllers.home);   // Page d'accueil // On dit à notre router que si on est sur la route /, on appelle la méthode home du mainControllers
+router.get("/about", mainControllers.about); // Page à propos
+router.get("/contact", mainControllers.contact); // Page contact
 
 
 // Routes principales 
-router.get("/auth/signup", authController.signup);      // Page d'inscription
-router.get("/auth/login", authController.login);    // Page de connexion
-router.get("/auth/reset-password", authController.resetPassword);   // Réinitialisation
+router.get("/auth/signup", authControllers.signup);      // Page d'inscription
+router.get("/auth/login", authControllers.login);    // Page de connexion
+router.get("/auth/reset-password", authControllers.resetPassword);   // Réinitialisation
 // Routes Dashboard
-router.get("/dashboard/overview", dashboardController.overview);    // Page tableau de bord
-router.get("/dashboard/expenses", dashboardController.expenses);    // Page dépenses
-router.get("/dashboard/income", dashboardController.income);        // Page revenus
+router.get("/dashboard/overview", dashboardControllers.overview);    // Page tableau de bord
+router.get("/dashboard/expenses", dashboardControllers.expenses);    // Page dépenses
+router.get("/dashboard/income", dashboardControllers.income);        // Page revenus
 // Routes Profile
-router.get("/profile/settings", profileController.settings);    // Page paramètres
-router.get("/profile/email", profileController.email);      // Page email
-router.get("/profile/password", profileController.password);        // Page mot de passe
+router.get("/profile/settings", profileControllers.settings);    // Page paramètres
+router.get("/profile/email", profileControllers.email);      // Page email
+router.get("/profile/password", profileControllers.password);        // Page mot de passe
 
 
 
