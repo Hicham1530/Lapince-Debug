@@ -3,6 +3,8 @@
 import { Sequelize } from "sequelize"; // On importe la classe Sequelize depuis le package sequelize.
 import * as dotenv from "dotenv"; // On importe dotenv pour pouvoir lire le fichier.env 
 
+
+
 dotenv.config(); // On importe dotenv pour pouvoir lire le fichier.env et pour charger les variables d'environnement.
 
 // On créé une instance de sequelize en lui passant les informations de connexion à la base de données.
