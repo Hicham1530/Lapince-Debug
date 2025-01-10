@@ -8,8 +8,8 @@ const profileController = {
   password: (req, res) => {
     res.render("profile/password", { title: "Changement de mot de passe" });
   },
-  subscription: (req, res) => {
-    res.render("profile/subscription", { title: "Gestion des abonnements" });
+  profile: (req, res) => {
+    res.render("profile/profile", { title: "Gestion de profile" });
   },
 };
 

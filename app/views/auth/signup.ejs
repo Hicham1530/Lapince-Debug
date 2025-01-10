@@ -1,23 +1,31 @@
+<%- include('../partials/header') %> <!-- Inclut le fichier header -->
 
-
-
-
-
-
-
-<%- include('../partials/header') %> <!-- Inclut le fichier header dans cette page -->
-
-<main>
-  <section class="hero">
-    <h1><%= title %></h1>
-    <form action="/auth/signup" method="POST">
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" required>
-      <label for="password">Mot de passe :</label>
-      <input type="password" id="password" name="password" required>
-      <button type="submit">S'inscrire</button>
+<main class="global-container">
+  <section class="signup-form-container box-border"> <!-- Ajout de la classe box-border -->
+    <h1 class="signup-form-title">Créer un compte</h1>
+    
+    <form>
+      <div class="signup-form-inputs">
+        <label for="email" class="signup-label">Votre Adresse e-mail :</label>
+        <input type="email" id="email" class="signup-input" placeholder="Votre email">
+        
+        <label for="password" class="signup-label">Votre mot de passe :</label>
+        <input type="password" id="password" class="signup-input" placeholder="Créez votre mot de passe">
+        
+        <label for="confirm-password" class="signup-label">Confirmez le mot de passe :</label>
+        <input type="password" id="confirm-password" class="signup-input" placeholder="Confirmez votre mot de passe">
+      </div>
+      
+      <div class="signup-form-submit">
+        <button type="submit" class="signup-button">Créer mon espace</button>
+      </div>
     </form>
+    
+    <p class="signup-form-footer">
+      Vous avez déjà un compte ? 
+      <a href="/auth/login" class="signup-link">Se connecter</a>.
+    </p>
   </section>
 </main>
 
-<%- include('../partials/footer') %> <!-- Inclut le fichier footer dans cette page -->
+<%- include('../partials/footer') %>

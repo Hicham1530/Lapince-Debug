@@ -1,0 +1,293 @@
+/* ============================
+   Importation de la police
+============================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); /* Importation de la police Roboto */
+
+/* ============================
+   Style global du body
+============================= */
+body {
+  font-family: 'Roboto', sans-serif; /* Applique la police Roboto au document */
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0; /* Supprime les paddings par défaut */
+  background-color: #f5f5f5; /* Applique un fond gris clair */
+}
+
+/* ============================
+   Conteneur général du formulaire
+============================= */
+.login-form-container {
+  margin: auto; /* Centre le formulaire horizontalement et verticalement */
+  padding: 19px; /* Ajoute de l'espace interne */
+  max-width: 800px; /* Limite la largeur maximale du formulaire */
+  background-color: #ffffff; /* Applique un fond blanc */
+  border-radius: 8px; /* Arrondit les coins */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+  border: 2px solid #f29c38; /* Bordure orange fine */
+  margin-top: 90px; /* Espacement au-dessus du formulaire */
+}
+
+/* ============================
+   Titre du formulaire
+============================= */
+.login-form-title {
+  font-size: 1.8rem; /* Taille du texte */
+  font-weight: bold; /* Texte en gras */
+  color: #f29c38; /* Couleur orange */
+  text-align: center; /* Centre le texte */
+  margin-bottom: 20px; /* Espacement en dessous du titre */
+}
+
+/* ============================
+   Section des réseaux sociaux
+============================= */
+.login-form-social {
+  display: flex; /* Active Flexbox pour l'agencement horizontal */
+  justify-content: center; /* Centre les icônes horizontalement */
+  gap: 15px; /* Espacement entre les icônes */
+  margin-bottom: 20px; /* Espacement en dessous de la section */
+}
+
+.login-social-icon {
+  width: 40px; /* Largeur de chaque icône */
+  height: 40px; /* Hauteur de chaque icône */
+  border-radius: 50%; /* Forme circulaire */
+  border: 1px solid #ddd; /* Bordure grise légère */
+  display: flex; /* Flexbox pour centrer le contenu */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  color: #545454; /* Couleur grise des icônes */
+  cursor: pointer; /* Change le curseur en pointeur au survol */
+  transition: background-color 0.3s, color 0.3s; /* Transition fluide sur le fond et la couleur */
+}
+
+.login-social-icon:hover {
+  background-color: #f29c38; /* Fond orange au survol */
+  color: #fff; /* Texte blanc au survol */
+}
+
+/* ============================
+   Texte séparateur
+============================= */
+.login-form-separator {
+  text-align: center; /* Centre le texte */
+  margin: 20px 0; /* Espacement vertical autour du texte */
+  font-size: 1rem; /* Taille du texte */
+  color: #333; /* Couleur grise foncée */
+}
+
+/* ============================
+   Champs du formulaire
+============================= */
+.login-form-inputs {
+  display: flex; /* Active Flexbox pour l'organisation verticale */
+  flex-direction: column; /* Aligne les champs verticalement */
+  gap: 6px; /* Espacement entre les champs */
+  text-align: left; /* Aligne le texte à gauche */
+
+}
+
+.login-label {
+  font-size: 1rem; /* Taille standard de la police */
+  color: #333; /* Couleur grise foncée */
+  margin-bottom: 5px; /* Espacement sous l'étiquette */
+  text-align: left; /* Alignement du texte à gauche */
+}
+
+.login-input {
+  padding: 12px; /* Ajoute de l'espace interne */
+  border: 1px solid #ddd; /* Bordure grise légère */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 1rem; /* Taille standard du texte */
+  background-color: #f9f9f9; /* Couleur de fond gris clair */
+  outline: none; /* Supprime le contour par défaut */
+  transition: border-color 0.3s; /* Transition fluide pour la bordure */
+}
+
+.login-input:focus {
+  border-color: #f29c38; /* Change la bordure en orange au focus */
+}
+
+/* ============================
+   Footer du formulaire
+============================= */
+.login-form-footer {
+  text-align: center; /* Centre le texte */
+  margin-top: 20px; /* Espacement au-dessus */
+  font-size: 14px; /* Taille du texte */
+  color: #878787; /* Couleur grise claire */
+}
+
+.login-highlight {
+  color: #f29c38; /* Texte orange pour attirer l'attention */
+  font-weight: bold; /* Texte en gras */
+}
+
+.login-link {
+  text-decoration: none; /* Supprime le soulignement */
+  color: #5398be; /* Couleur bleue pour les liens */
+  font-weight: bold; /* Texte en gras */
+}
+
+.login-link:hover {
+  text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+/* ============================
+   Bouton de soumission
+============================= */
+.login-form-submit {
+  text-align: center; /* Centre le bouton horizontalement */
+  margin-top: 10px; /* Espacement au-dessus */
+}
+
+.login-button {
+  padding: 12px 25px; /* Espacement interne autour du texte */
+  font-size: 1rem; /* Taille du texte */
+  color: #fff; /* Texte blanc */
+  background-color: #f29c38; /* Fond orange */
+  border: 2px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur au survol */
+  transition: all 0.3s ease; /* Transition fluide pour tous les effets */
+  font-weight: bold; /* Texte en gras */
+}
+
+.login-button:hover {
+  background-color: #fff; /* Change le fond en blanc au survol */
+  color: #f29c38; /* Change le texte en orange au survol */
+  border: 2px solid #f29c38; /* Maintient la bordure orange */
+}
+
+/* ============================
+   Footer général
+============================= */
+footer {
+  position: fixed; /* Fixe le footer en bas de l'écran */
+  bottom: 0; /* Positionné au bas de la fenêtre */
+  left: 0; /* Aligné à gauche */
+  width: 100%; /* Occupe toute la largeur */
+  background-color: #f29c38; /* Fond orange */
+  color: white; /* Texte blanc */
+  text-align: center; /* Centre le texte */
+  padding: 10px 0; /* Espacement vertical */
+  z-index: 10; /* Priorité visuelle pour rester au-dessus des autres éléments */
+}
+
+
+/* ============================
+   Responsive Design
+============================= */
+
+/* Téléphones (max-width: 768px) */
+@media (max-width: 768px) {
+  .login-form-container {
+    padding: 15px; /* Réduit les marges internes */
+    max-width: 70%; /* Réduit la largeur maximale */
+    box-shadow: none; /* Supprime l'ombre */
+    margin-top: 8rem; /* Réduit l'espacement en haut */
+  }
+
+  .login-form-title {
+    font-size: 1.5rem; /* Réduit la taille du titre */
+  }
+
+  .login-form-social {
+    gap: 10px; /* Réduit l'espacement entre les icônes */
+  }
+
+  .login-social-icon {
+    width: 35px; /* Réduit la taille des icônes */
+    height: 35px;
+  }
+
+  .login-input {
+    font-size: 0.9rem; /* Réduit légèrement la taille des champs */
+    padding: 10px; /* Réduit le padding */
+  }
+
+  .login-button {
+    font-size: 0.9rem; /* Réduit la taille du texte */
+    padding: 10px 20px; /* Réduit le padding du bouton */
+  }
+
+  footer {
+    flex-direction: column; /* Aligne les éléments verticalement */
+    padding: 5px 10px; /* Réduit le padding global */
+    font-size: 0.8rem; /* Réduit la taille du texte */
+  }
+
+  .social-media {
+    justify-content: center; /* Centre les icônes des réseaux sociaux */
+    gap: 5px; /* Réduit l'espacement entre les icônes */
+  }
+}
+
+/* Tablettes (769px à 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .login-form-container {
+    padding: 20px; /* Marges légèrement augmentées */
+    max-width: 600px; /* Limite la largeur du formulaire */
+    margin-top: 7rem; /* Ajuste l'espacement en haut */
+  }
+
+  .login-form-title {
+    font-size: 1.7rem; /* Taille légèrement réduite */
+  }
+
+  .login-input {
+    font-size: 1rem; /* Taille standard des champs */
+    padding: 12px; /* Padding standard */
+  }
+
+  .login-button {
+    font-size: 1rem; /* Taille normale du texte */
+    padding: 12px 25px; /* Ajuste le padding */
+  }
+
+  footer {
+    flex-direction: row; /* Aligne les éléments horizontalement */
+    justify-content: space-between; /* Espace entre les sections */
+    padding: 10px 20px; /* Padding modéré */
+  }
+
+  .social-media {
+    justify-content: flex-start; /* Réalignement à gauche */
+    gap: 10px; /* Espacement standard entre les icônes */
+  }
+}
+
+/* Desktops (min-width: 993px) */
+@media (min-width: 993px) {
+  .login-form-container {
+    padding: 25px; /* Ajoute un peu plus de marges internes */
+    max-width: 800px; /* Largeur maximale définie */
+    margin-top: 7rem /* Espacement supérieur standard */
+  }
+
+  .login-form-title {
+    font-size: 1.8rem; /* Taille normale du titre */
+  }
+
+  .login-input {
+    font-size: 1rem; /* Taille standard */
+    padding: 12px; /* Padding standard */
+  }
+
+  .login-button {
+    font-size: 1rem; /* Taille normale du texte */
+    padding: 12px 25px; /* Padding standard */
+  }
+
+  footer {
+    flex-direction: row; /* Maintient l'alignement horizontal */
+    justify-content: space-between; /* Équilibre entre les sections */
+    padding: 10px 20px; /* Padding confortable */
+    font-size: 1rem; /* Taille standard du texte */
+  }
+
+  .social-media {
+    justify-content: flex-end; /* Aligne à droite les icônes sociales */
+    gap: 15px; /* Espacement standard entre les icônes */
+  }
+}

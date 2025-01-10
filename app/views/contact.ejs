@@ -1,13 +1,44 @@
+<%- include('partials/header') %> <!-- Inclut le fichier header -->
 
-
-
-<%- include('./partials/header') %> <!-- Inclut le fichier header dans cette page -->
-
-<main>
+<main class="contact-page">
   <section class="hero">
     <h1><%= title %></h1>
-<p>Cette page est dédiée au contact. Vous pouvez nous envoyer un message !</p>
+ 
+    <p>Une question ou un besoin d’information ? Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.</p>
+  </section>
+
+  <section class="contact-form-section">
+    <h2>Formulaire de contact</h2>
+    <form action="/contact" method="POST" class="contact-form">
+      <!-- Nom -->
+      <div class="form-group-inline">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group-inline">
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+      </div>
+
+      <!-- Sujet -->
+      <div class="form-group-inline">
+        <label for="subject">Sujet :</label>
+        <input type="text" id="subject" name="subject" placeholder="Sujet du message" required>
+      </div>
+
+      <!-- Message -->
+      <div class="form-group-inline">
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">Envoyer</button>
+      </div>
+    </form>
   </section>
 </main>
 
-<%- include('./partials/footer') %> <!-- Inclut le fichier footer dans cette page -->
+<%- include('partials/footer') %> <!-- Inclut le fichier footer -->

@@ -1,0 +1,427 @@
+/* ============================
+   Conteneur des catégories
+   ============================ */
+
+/* Définit le style et la position des catégories dans la barre latérale */
+.expenses-categoriees {
+  position: fixed; /* Le conteneur reste visible pendant le défilement */
+  left: 12%; /* Place le conteneur à droite de la barre latérale */
+  top: 58px; /* Ajuste la position verticale par rapport au header */
+  padding: 10px; /* Ajoute un espacement interne */
+  display: flex; /* Utilise Flexbox pour aligner les éléments */
+  flex-direction: column; /* Aligne les catégories en colonne */
+  gap: 7px; /* Ajoute un espace entre les catégories */
+  overflow-y: hidden; /* Permet le défilement vertical si le contenu dépasse */
+  width: 250px; /* Largeur fixe du conteneur */
+  border-right: 4px solid #f29c38; /* Ligne séparatrice orange à droite */
+  padding-right: 15px; /* Espace entre les catégories et la bordure */
+  bottom: 51px; /* Ajuste la position par rapport au bas */
+}
+
+/* Style au survol des sélecteurs dans le calendrier */
+.expenses-calendar-select:hover {
+  border-color: #d67d34; /* Change la couleur de bordure au survol */
+}
+
+/* Style des éléments individuels de catégorie */
+.expenses-category-items {
+  padding: 8px 10px; /* Ajoute un espacement interne */
+  background-color: white; /* Définit un fond blanc */
+  border: 1px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 1.2rem; /* Taille de police légèrement agrandie */
+  cursor: pointer; /* Curseur en pointeur */
+  transition: all 0.3s ease; /* Ajoute une transition fluide au survol */
+}
+
+/* Applique des effets au survol des catégories */
+.expenses-category-items:hover {
+  background-color: #f29c38; /* Fond orange au survol */
+  color: white; /* Texte blanc au survol */
+}
+
+/* Ajustement du contenu principal pour éviter de chevaucher les catégories */
+.expenses-main-content {
+  margin-left: 250px; /* Décale le contenu principal à droite des catégories */
+  padding-left: 20px; /* Ajoute un espacement interne à gauche */
+}
+
+/* ============================
+   Conteneur du calendrier
+   ============================ */
+/* Définit le style général du calendrier */ 
+   .expenses-calendar-container {
+     background-color: white; /* Fond blanc du calendrier */
+     border: 1px solid #f29c38; /* Bordure orange */
+     border-radius: 8px; /* Coins arrondis */
+     padding: 20px; /* Ajoute de l'espace interne */
+     width: 100%; /* Largeur fixe */
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+     position: relative; /* Position relative pour des ajustements internes */
+     /* bottom: 5px; Réinitialise la position verticale */
+     right: auto; /* Réinitialise la position horizontale */
+     transform: none; /* Supprime les transformations */
+     z-index: auto; /* Ordre d'empilement par défaut */
+     max-width: 600px; /* Largeur maximale */
+     margin-top: 20px; /* Ajoute un espace entre l'icône et le calendrier */
+     
+   }
+
+/* En-tête du calendrier (sélecteurs de mois et d'année) */
+.expenses-calendar-header {
+  display: flex; /* Place les sélecteurs en ligne */
+  justify-content: space-between; /* Ajoute de l'espace entre les sélecteurs */
+  margin-bottom: 15px; /* Espace sous l'en-tête */
+  gap: 15px; /* Ajoute de l'espace entre les sélecteurs */
+  padding: 5px; /* Ajoute un espacement interne */
+}
+
+/* Style des sélecteurs de mois et d'année */
+.expenses-calendar-select {
+  padding: 8px 15px; /* Ajoute de l'espace interne */
+  border: 1px solid #f29c38; /* Bordure orange */
+  border-radius: 4px; /* Coins arrondis */
+  background-color: white; /* Fond blanc */
+  color: #333; /* Texte gris foncé */
+  cursor: pointer; /* Curseur en pointeur */
+  flex: 1; /* Permet au sélecteur de s'étirer si nécessaire */
+  font-size: 1rem; /* Taille standard */
+  width: 120px; /* Largeur fixe */
+  height: 40px; /* Hauteur fixe */
+}
+
+/* ============================
+   Grille des jours du calendrier
+   ============================ */
+
+/* Style des jours de la semaine */
+.expenses-calendar-weekdays {
+  display: grid; /* Affiche les jours sous forme de grille */
+  grid-template-columns: repeat(7, 1fr); /* Crée 7 colonnes égales */
+  text-align: center; /* Centre le texte horizontalement */
+  margin-bottom: 10px; /* Espace sous les jours de la semaine */
+}
+
+/* Style des jours de la semaine (texte) */
+.expenses-calendar-weekdays span {
+  padding: 5px; /* Ajoute un espacement interne */
+  font-weight: bold; /* Texte en gras */
+  color: #f29c38; /* Couleur orange */
+}
+
+/* Grille des jours du mois */
+.expenses-calendar-grid {
+  display: grid; /* Affiche les jours sous forme de grille */
+  grid-template-columns: repeat(7, 1fr); /* Crée 7 colonnes égales */
+  gap: 2px; /* Ajoute de l'espace entre les jours */
+}
+
+/* Style des cases représentant les jours */
+.expenses-calendar-day {
+  aspect-ratio: 1; /* Garantit des cases carrées */
+  display: flex; /* Active Flexbox */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  border: 1px solid #eee; /* Bordure gris clair */
+  border-radius: 4px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur */
+  transition: all 0.2s ease; /* Transition fluide */
+  font-size: 0.9rem; /* Taille réduite pour les numéros */
+}
+
+/* Applique des effets au survol des jours */
+.expenses-calendar-day:hover {
+  background-color: #fff3e6; /* Fond beige au survol */
+  border-color: #f29c38; /* Bordure orange au survol */
+}
+
+/* Jour actif (aujourd'hui) */
+.expenses-calendar-day.today {
+  background-color: #f29c38; /* Fond orange pour le jour actuel */
+  color: white; /* Texte blanc */
+  border-color: #f29c38; /* Bordure orange */
+  font-weight: bold; /* Texte en gras */
+}
+
+/* Jours des autres mois */
+.expenses-calendar-day.other-month {
+  color: #ccc; /* Couleur gris clair pour les jours hors du mois */
+}
+
+/* ============================
+   Centrage de l'icône et du calendrier
+   ============================ */
+
+/* Conteneur centré pour l'icône et le calendrier */
+.centered-container {
+  position: absolute; /* Position absolue par rapport au parent */
+  top: 48%; /* Ajuste la position verticale */
+  left: 62%; /* Ajuste la position horizontale */
+  transform: translate(-50%, -50%); /* Centre parfaitement l'élément */
+  display: flex; /* Active Flexbox */
+  flex-direction: column; /* Aligne les enfants en colonne */
+  align-items: center; /* Centre horizontalement */
+}
+
+.category-btn {
+margin-right: 87px;
+
+}
+
+.expenses-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+
+
+
+
+/* ============================
+   Responsive : desktop
+============================= */
+
+@media (min-width: 993px) {
+
+
+  .categorys {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f29c38;
+    color: white;
+    border-radius: 5px;
+    margin-left: 74px;
+    margin-top: 12px;
+    
+    }
+    .expenses-calendar-container {
+      background-color: white;
+      border: 1px solid #f29c38;
+      border-radius: 8px;
+      padding: 15px;
+      width: 500px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      top: 7px;
+      left: 38px;
+      transform: none;
+      z-index: auto;
+  }
+  
+
+}
+
+
+
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* Positionne le menu burger */
+  .burger-menu {
+  display: block; /* Affiche le menu burger */
+  position: absolute; /* Permet un positionnement précis */
+  top: 5px; /* Position verticale */
+  right: 10px; /* Position horizontale à droite */
+  transform: none; /* Supprime tout ajustement */
+  z-index: 1000; /* Assure qu'il est au-dessus d'autres éléments */
+  }
+  
+  
+  /* Positionne le solde à côté du menu burger */
+  .total-balance {
+    position: flex; /* Positionnement précis */
+    top: 19px ; /* Aligne verticalement avec le menu burger */
+    left: 58%; /* Décale à droite du menu burger */
+    font-size: 1.2rem; /* Taille intermédiaire */
+    text-align: left; /* Texte aligné à gauche */
+    margin: 0; /* Supprime les marges */
+  }
+  
+  /* Centre le profile-balance au milieu */
+  .profile-balance {
+    position: absolute; /* Position précise */
+    top: 64%; /* Centre verticalement */
+    right: 31%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste pour un centrage exact */
+    text-align: center; /* Centre le texte à l'intérieur */
+    font-size: 1.2rem; /* Taille légèrement réduite */
+    margin: 0; /* Supprime tout espacement externe */
+  }
+  
+  /* Assure que le header est relatif pour les positions absolues */
+  header {
+    position: relative; /* Définit un conteneur parent pour les positions absolues */
+  }
+  
+  .category-btn{
+    display: none; /* Cache le bouton catégorie sur mobile et tablette */
+  }
+  
+   .dashboard-sidebar{
+  display: none; /*  Cache le bouton catégorie sur la tablette */
+  }
+  
+  
+  
+  
+  .expenses-categoriees {
+    position: fixed;
+    left: 0%;
+    top: 58px;
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    overflow-y: hidden;
+    width: 250px;
+    border-right: 4px solid #f29c38;
+    padding-right: 15px;
+    bottom: 51px;
+    }
+
+  
+
+
+    .profile-balance {
+        position: absolute; /* Position précise */
+        top: 57%; /* Centre verticalement */
+        left: 41%; /* Centre horizontalement */
+        transform: translate(-50%, -50%); /* Ajuste pour un centrage exact */
+        text-align: center; /* Centre le texte à l'intérieur */
+        font-size: 1.2rem; /* Taille légèrement réduite */
+        margin: 0; /* Supprime tout espacement externe */
+    }
+    .categorys {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f29c38;
+      color: white;
+      border-radius: 5px;
+      margin-left: 73px;
+      margin-bottom: 0px;
+      }
+  }
+
+
+
+
+
+
+
+
+  /* --------------------- responsive telephone ----------------- */
+  .centered-container {
+    width: 90%; /* Taille par défaut */
+    margin: 0 auto; /* Centrage horizontal */
+  }
+  
+  @media (max-width: 768px) {
+    .centered-container {
+      width: 90%; /* Réduit la largeur pour les petits écrans */
+      padding: 10px; /* Ajoute un padding pour une meilleure lisibilité */
+    }
+
+  /* Positionne le menu burger */
+.burger-menu {
+  display: block; /* Affiche le menu burger */
+  position: absolute; /* Permet un positionnement précis */
+  top: 8px; /* Position verticale */
+  right: 10px; /* Position horizontale à droite */
+  transform: none; /* Supprime tout ajustement */
+  z-index: 1000; /* Assure qu'il est au-dessus d'autres éléments */
+ 
+}
+/* Assure que le header est relatif pour les positions absolues */
+header {
+  position: relative; /* Définit un conteneur parent pour les positions absolues */
+}
+
+.category-btn{
+  display: none; /* Cache le bouton catégorie sur mobile et tablette */
+}
+
+.dashboard-sidebar{
+display: none;  } /* Cache le bouton catégorie sur mobile et tablette  */
+
+
+.expenses-category-items {
+  padding: 7px 4px;
+  background-color: white;
+  border: 1px solid #f29c38;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  }
+
+  .expenses-calendar-container {
+    background-color: white;
+    border: 1px solid #f29c38;
+    border-radius: 8px;
+    padding: 20px;
+    width: 77%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 15px;
+    z-index: auto;
+    max-width: 400px;
+    margin-top: 20px;
+    left: 12px;
+    }
+
+
+    .expenses-calendar-select {
+      /* padding: 4px 60px; */
+      border: 1px solid #f29c38;
+      border-radius: 4px;
+      background-color: white;
+      color: #333;
+      cursor: pointer;
+      flex: 1;
+      font-size: 0.8rem;
+      width: 62px;
+      /* height: 30px; */
+      }
+
+
+
+  .expenses-categoriees {
+    position: fixed;
+    left: 1%;
+    top: 73px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    width: 90px;
+    border-right: 4px solid #f29c38;
+    padding-right: 15px;
+    bottom: 51px;
+    }
+    .expenses-calendar-container {
+      background-color: white;
+      border: 1px solid #f29c38;
+      border-radius: 8px;
+      padding: 20px;
+      width: 77%;
+      max-width: 400px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      margin-bottom: 27px;
+      left: 12px;
+  }
+      .category {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f29c38;
+        color: white;
+        border-radius: 5px;
+        margin-left: 10px;
+        margin-bottom: 2rem;
+
+        }
+}

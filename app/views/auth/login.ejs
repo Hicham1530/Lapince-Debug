@@ -1,17 +1,59 @@
-
-
-
-
-
-
-
 <%- include('../partials/header') %> <!-- Inclut le fichier header dans cette page -->
 
-<main>
-  <section class="hero">
-    <h1>Page de connexion</h1>
-    <p>Bienvenue sur la page de connexion.</p>
-  </section>
+<main class="global-container">  <!-- Conteneur global de la page -->
+<section class="box-border">
+<form action="/login" method="POST" class="login-form-container">
+  <h1 class="login-form-title"> Connexion</h1>
+
+  <!-- Réseaux sociaux -->
+  <div class="login-form-social">
+    <p class="login-social-icon"><i class="fab fa-google" aria-hidden="true"></i><span class="sr-only">Se connecter avec Google</span></p>
+    <p class="login-social-icon"><i class="fab fa-youtube" aria-hidden="true"></i><span class="sr-only">Se connecter avec YouTube</span></p>
+    <p class="login-social-icon"><i class="fab fa-facebook-f" aria-hidden="true"></i><span class="sr-only">Se connecter avec Facebook</span></p>
+    <p class="login-social-icon"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Se connecter avec Twitter</span></p>
+  </div>
+
+  <p class="login-form-separator">ou utiliser mon adresse e-mail :</p>
+
+  <!-- Champs d'entrée avec labels -->
+  <div class="login-form-inputs">
+    <label for="email" class="login-label">Votre email :</label>
+    <input 
+      type="email" 
+      id="email" 
+      name="email" 
+      placeholder="Entrez votre email" 
+      required 
+      class="login-input" 
+      aria-required="true" 
+    />
+
+    <label for="password" class="login-label">Votre mot de passe :</label>
+    <input 
+      type="password" 
+      id="password" 
+      name="password" 
+      placeholder="Entrez votre mot de passe" 
+      required 
+      class="login-input" 
+      aria-required="true" 
+    />
+  </div>
+
+  <!-- Lien pour inscription -->
+  <p class="login-form-footer">
+    <a href="/auth/reset-password" class="login-link" aria-label="Mot de passe oublié">Mot de passe oublié</a>
+    &nbsp;ou&nbsp;
+    <a href="/auth/signup" class="login-link" aria-label="Créer un compte">Inscription</a>.
+</p>
+
+
+  <!-- Bouton -->
+  <div class="login-form-submit">
+    <button type="submit" class="login-button">Me connecter</button>
+  </div>
+</form>
+</section>
 </main>
 
 <%- include('../partials/footer') %> <!-- Inclut le fichier footer dans cette page -->

@@ -1,17 +1,47 @@
+<%- include('partials/header') %> <!-- Inclut le fichier d'en-tête global -->
 
-
-
-
-
-
-
-<%- include('./partials/header') %> <!-- Inclut le fichier header dans cette page -->
-
-<main>
+<main class="about-container">
+  <!-- Section Hero -->
   <section class="hero">
-    <h1><%= title %></h1>
-  <p>Bienvenue sur ma première page avec Express et EJS !</p>
+    <h1 id="page-title">À propos de La Pince : </h1>
+    <p>La Pince est une plateforme conçue pour simplifier la gestion financière et promouvoir une organisation optimale.</p>
+  </section>
+
+  <!-- Projet pédagogique -->
+  <section class="about-section">
+    <h2 class="h2">Un projet pédagogique :</h2>
+    <p class="p">
+      Ce projet s'inscrit dans le cadre d'une formation de  <strong>Développeur Web et Accessibilité</strong>. 
+      Il constitue le projet de fin d'étude d'une application dédiée à la <strong>gestion de finances personnelles</strong>, 
+      avec un accent particulier sur l'accessibilité pour tous.
+    </p>
+  </section>
+
+  <!-- Notre mission -->
+  <section class="about-section">
+    <h2 class="h2">Nos missions :</h2>
+    <p class="p">Notre objectif principal est de fournir aux utilisateurs un outil intuitif pour gérer leurs finances personnelles, tout en mettant en avant la simplicité et l'efficacité.</p>
+  </section>
+
+  <!-- Pourquoi "La Pince" ? -->
+  <section class="about-section">
+    <h2 class="h2">Pourquoi "La Pince" ?</h2>
+    <p class="p">Le nom "La Pince" reflète notre philosophie : maîtriser les ressources avec précision et organiser les finances pour éviter le superflu.</p>
+  </section>
+
+  <!-- Nos fonctionnalités principales -->
+  <section class="about-section">
+    <h2 class="h2">Nos fonctionnalités principales : </h2>
+    <ul>
+      <li>Suivi des dépenses et des revenus, Création de budgets personnalisés, Alertes pour éviter les dépassements financiers.</li>
+    </ul>
+  </section>
+
+  <!-- Engagements -->
+  <section class="about-section">
+    <h2 class="h2">Nos Engagements :</h2>
+    <p class="p">La Pince s'engage à respecter la confidentialité de vos données et à vous fournir un service sécurisé pour gérer vos informations financières en toute sérénité.</p>
   </section>
 </main>
 
-<%- include('./partials/footer') %> <!-- Inclut le fichier footer dans cette page -->
+<%- include('partials/footer') %> <!-- Inclut le fichier de pied de page global -->

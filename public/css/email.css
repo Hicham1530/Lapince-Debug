@@ -1,0 +1,125 @@
+
+
+   /* contenu principal */  
+
+.form-container {
+  max-width: 40%;
+  margin: 105px auto;
+  padding: 50px;
+  border: 4px solid #F29C38;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Roboto, sans-serif;
+  position: relative;
+  left: 106px;
+}
+
+ 
+.hero h1 {
+  color: #f29c38;
+  font-size: 29px;
+  margin-top: 10px;
+  left: 0px;
+  position: relative;
+  top: 92px;
+}
+.form-row label {
+  font-size: 1.3rem;
+  color: #05204A;
+  width: 100%;
+  text-align: left;
+}
+.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
+  width: 132%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+   /* responsive desktop   */
+
+@media (min-width: 993px) {
+
+  .form-container {
+    max-width: 40%;
+    margin: 103px auto;
+    padding: 50px;
+    border: 4px solid #F29C38;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    position: relative;
+    left: 91px;
+  }
+
+  /* idem que ci-dessus */
+
+}
+
+    /* responsive tablette   */
+ 
+@media (min-width: 768px) and (max-width: 992px) {
+
+  .form-container {
+    max-width: 55%;
+    padding: 50px;
+    border: 4px solid #F29C38;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    left: 0px;
+}
+.form-row label {
+  font-size: 1.1rem;
+  color: #05204A;
+  width: 69%;
+  text-align: left;
+}
+.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
+  width: 84%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+
+}
+
+
+}
+
+    /* responsive mobile   */
+
+@media (max-width: 767px) {
+  .form-container {
+    max-width: 60%;
+    border: 4px solid #F29C38;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    top: 18px;
+    left: 0px;
+    min-height: 139px;
+    max-height: 171px;
+}
+.form-row label {
+  font-size: 0.8rem;
+  color: #05204A;
+  width: 65%;
+  text-align: left;
+}
+
+.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
+  width: 84%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+
+}
+
+
+
+}

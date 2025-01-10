@@ -1,0 +1,209 @@
+/* ============================
+   Styles globaux
+============================= */
+.body {
+  overflow: hidden; /* Désactive le scroll pour empêcher l'utilisateur de scroller sur la page */
+}
+
+main {
+  text-align: center; /* Centre le texte horizontalement */
+  flex: 1; /* Permet au contenu de prendre tout l'espace disponible */
+  background-color: #fff; /* Définit un fond blanc pour la page */
+  overflow: hidden; /* Empêche le débordement du contenu */
+}
+
+/* ============================
+ Conteneur du formulaire
+============================= */
+.signup-form-container {
+margin: 58px auto; /* Centre le formulaire horizontalement et ajoute un espacement vertical */
+padding: 20px; /* Ajoute de l'espace interne autour du formulaire */
+max-width: 800px; /* Limite la largeur du formulaire à 600px */
+background-color: #ffffff; /* Fond blanc du formulaire */
+border-radius: 8px; /* Coins arrondis */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère autour du conteneur */
+border: 2px solid #f29c38; /* Bordure orange */
+margin-top: 7rem; /* Corrige un éventuel décalage vertical du formulaire */
+}
+
+/* ============================
+ Titre du formulaire
+============================= */
+.signup-form-title {
+font-size: 1.8rem; /* Taille de la police pour le titre */
+font-weight: bold; /* Texte en gras */
+color: #f29c38; /* Couleur orange pour le titre */
+text-align: center; /* Centre le texte horizontalement */
+margin-bottom: 20px; /* Ajoute un espacement sous le titre */
+}
+
+/* ============================
+ Champs du formulaire
+============================= */
+.signup-form-inputs {
+display: flex; /* Active Flexbox pour organiser les champs */
+flex-direction: column; /* Aligne les champs verticalement */
+gap: 6px; /* Ajoute un espacement vertical entre les champs */
+text-align: left; /* Aligne le texte des champs à gauche */
+
+}
+
+.signup-label {
+font-size: 1rem; /* Taille standard pour les étiquettes */
+color: #333; /* Couleur grise pour le texte */
+margin-bottom: 5px; /* Espacement sous l'étiquette */
+text-align: left; /* Aligne le texte à gauche */
+}
+
+.signup-input {
+padding: 12px; /* Ajoute de l'espace interne */
+border: 1px solid #ddd; /* Bordure grise légère */
+border-radius: 5px; /* Coins légèrement arrondis */
+font-size: 1rem; /* Taille standard de la police */
+background-color: #f9f9f9; /* Couleur de fond gris clair */
+outline: none; /* Supprime le contour par défaut */
+transition: border-color 0.3s; /* Transition douce pour les changements de bordure */
+}
+
+/* Effet de focus sur les champs */
+.signup-input:focus {
+border-color: #f29c38; /* Change la bordure en orange au focus */
+}
+
+/* ============================
+ Footer du formulaire
+============================= */
+.signup-form-footer {
+text-align: center; /* Centre le texte horizontalement */
+margin-top: 20px; /* Ajoute un espacement au-dessus du footer */
+font-size: 14px; /* Taille de la police */
+color: #878787; /* Couleur grise claire */
+}
+
+.signup-highlight {
+color: #f29c38; /* Couleur orange pour mettre en avant certains textes */
+font-weight: bold; /* Texte en gras */
+}
+
+.signup-link {
+text-decoration: none; /* Supprime le soulignement des liens */
+color: #5398be; /* Couleur bleue pour les liens */
+font-weight: bold; /* Texte en gras */
+}
+
+/* Effet hover sur les liens */
+.signup-link:hover {
+text-decoration: underline; /* Ajoute un soulignement au hover */
+}
+
+/* ============================
+ Boutons
+============================= */
+.signup-form-submit {
+text-align: center; /* Centre le contenu horizontalement */
+margin-top: 20px; /* Ajoute un espacement au-dessus */
+}
+
+.signup-button {
+padding: 8px 4px; /* Ajoute de l'espace interne autour du texte */
+font-size: 1rem; /* Taille standard de la police */
+color: #fff; /* Texte blanc par défaut */
+background-color: #f29c38; /* Fond orange par défaut */
+border: 2px solid #f29c38; /* Bordure orange */
+border-radius: 5px; /* Coins arrondis */
+cursor: pointer; /* Change le curseur en pointeur */
+transition: all 0.3s ease; /* Transition douce pour les effets */
+font-weight: bold; /* Texte en gras */
+}
+
+/* Effet hover sur le bouton */
+.signup-button:hover {
+background-color: #fff; /* Change le fond en blanc au hover */
+color: #f29c38; /* Change le texte en orange au hover */
+border: 2px solid #f29c38; /* Garde la bordure orange */
+}
+
+
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+
+@media (max-width: 768px) {
+  .signup-form-container {
+    padding: 15px; /* Réduit les marges internes */
+    max-width: 65%; /* Ajuste la largeur à 90% de l'écran */
+    margin-top: 8rem; /* Réduction de l'espace vertical */
+  }
+
+  .signup-form-title {
+    font-size: 1.5rem; /* Réduit la taille du titre */
+    margin-bottom: 15px; /* Réduit l'espacement en bas */
+  }
+
+  .signup-form-inputs {
+    gap: 4px; /* Réduction de l'espacement vertical */
+  }
+
+  .signup-input {
+    font-size: 0.9rem; /* Réduit légèrement la taille des champs */
+    padding: 10px; /* Réduit le padding */
+  }
+
+  .signup-button {
+    font-size: 0.9rem; /* Réduit la taille du texte */
+    padding: 8px 15px; /* Ajuste le padding interne */
+  }
+
+  .signup-form-footer {
+    font-size: 0.8rem; /* Réduction de la taille du texte */
+  }
+}
+
+/* ============================
+   Responsive : Tablette (769px à 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+  .signup-form-container {
+    max-width: 70%; /* Ajuste la largeur pour tablettes */
+    margin-top: 7rem; /* Ajuste l'espacement vertical */
+    padding: 30px; /* Ajuste légèrement le padding */
+  }
+
+  .signup-form-title {
+    font-size: 1.6rem; /* Réduit légèrement la taille du titre */
+  }
+
+  .signup-input {
+    font-size: 1rem; /* Taille légèrement réduite */
+    padding: 10px; /* Ajuste le padding */
+  }
+
+  .signup-button {
+    font-size: 1rem; /* Taille standard */
+    padding: 10px 20px; /* Ajuste légèrement le padding */
+  }
+}
+
+/* ============================
+   Responsive : Desktop (min-width: 993px)
+============================= */
+@media (min-width: 993px) {
+  .signup-form-container {
+    max-width: 800px; /* Limite la largeur à 600px pour desktop */
+    margin-top: 7rem; /* Ajuste l'espace vertical */
+  }
+
+  .signup-form-title {
+    font-size: 1.8rem; /* Taille standard pour le titre */
+  }
+
+  .signup-input {
+    font-size: 1rem; /* Taille standard */
+    padding: 12px; /* Padding standard */
+  }
+
+  .signup-button {
+    font-size: 1rem; /* Taille standard */
+    padding: 12px 25px; /* Padding standard */
+  }
+}

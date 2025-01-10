@@ -1,0 +1,109 @@
+/* === Navigation === */
+/* Conteneur des liens de navigation */
+.nav-link {
+  position: absolute; /* Permet un positionnement précis par rapport au conteneur parent */
+  left: 14%; /* Positionné à 14% du bord gauche */
+  top: 50%; /* Centre verticalement dans le conteneur */
+  transform: translateY(-50%); /* Ajuste le centrage pour un alignement parfait */
+  display: flex; /* Aligne les éléments enfants horizontalement */
+  gap: 10px; /* Ajoute un espacement entre chaque lien */
+}
+
+/* Style des liens de navigation */
+.nav-link a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  display: inline-block; /* Les liens occupent uniquement l'espace de leur contenu */
+  padding: 5px 10px; /* Ajoute un espace interne pour rendre les liens plus cliquables */
+  font-size: 1.2rem; /* Augmente la taille du texte pour une meilleure lisibilité */
+  font-weight: normal; /* Garde le texte avec un poids standard */
+  white-space: nowrap; /* Empêche les retours à la ligne sur plusieurs mots */
+  background-color: #F29C38; /* Couleur de fond pour les liens */
+  color: #fff; /* Texte blanc pour un bon contraste */
+  border-radius: 5px; /* Coins arrondis pour un style moderne */
+  font-size: 1.2rem; /* Taille de police adaptée */
+
+}
+
+/* === Formulaire === */
+/* Conteneur principal du formulaire */
+
+
+/* Titre du formulaire */
+legend {
+  font-size: 1.5rem; /* Taille de police plus grande pour un titre important */
+  color: #05204A; /* Couleur principale pour le texte */
+  text-align: center; /* Centre le titre horizontalement */
+  margin-bottom: 20px; /* Espacement sous le titre */
+}
+
+/* Conteneur pour une ligne de formulaire */
+.form-row {
+  display: flex; /* Aligne les éléments enfants sur une ligne */
+  align-items: center; /* Centre verticalement les éléments */
+  justify-content: space-between; /* Place les éléments aux extrémités */
+  margin-bottom: 15px; /* Espacement entre les lignes du formulaire */
+}
+
+/* Style des labels */
+.form-row label {
+  font-size: 1.3rem; /* Taille de police réduite pour les étiquettes */
+  color: #05204A; /* Couleur principale pour les labels */
+   width: 100%; /*Largeur fixe pour un alignement uniforme */
+  text-align: left; /* Aligne le texte à gauche */
+}
+
+/* Champs de saisie et sélecteurs */
+.form-row input[type="email"],
+.form-row input[type="password"],
+.form-row input[type="text"],
+.form-row select {
+  width: 70%; /* Largeur des champs */
+  padding: 5px; /* Espacement interne */
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  /* font-size: 1rem; Taille de police uniforme */
+  box-sizing: border-box;
+}
+
+/* Groupe de date (ex. jour, mois, année) */
+.date-group {
+  display: flex; /* Dispose les éléments horizontalement */
+  gap: 10px; /* Espacement entre les sélecteurs */
+  width: 71%; /* Largeur alignée avec les autres champs */
+}
+
+/* Sélecteurs de date */
+.date-group select {
+  /* width: auto; Taille automatique en fonction du contenu */
+  min-width: 30%; /* Largeur minimum pour occuper un tiers du conteneur */
+  padding: 5px; /* Espacement interne pour le confort de sélection */
+  border: 1px solid #F29C38; /* Bordure grise claire */
+  border-radius: 5px; /* Coins légèrement arrondis */
+  font-size: 0.9rem; /* Taille de police adaptée */
+}
+
+/* === Bouton === */
+/* Conteneur du bouton pour le centrer */
+.form-button {
+  display: flex; /* Aligne les éléments horizontalement */
+  justify-content: center; /* Centre le bouton dans le conteneur */
+  margin-top: 46px; /* Espacement au-dessus du bouton */
+}
+
+/* Style du bouton */
+button {
+  padding: 8px 20px; /* Espacement interne pour un bouton confortable */
+  background-color: #F29C38; /* Couleur principale pour le fond */
+  color: #fff; /* Texte blanc pour un bon contraste */
+  border: none; /* Supprime les bordures par défaut */
+  border-radius: 5px; /* Coins légèrement arrondis */
+  font-size: 0.9rem; /* Taille de police adaptée */
+  cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+/* Interaction au survol du bouton */
+button:hover {
+  background-color: #ffffff; /* Change la couleur de fond en blanc */
+  color: #F29C38; /* Change la couleur du texte en orange */
+  border: 2px solid #F29C38; /* Ajoute une bordure orange pour un effet visuel */
+}

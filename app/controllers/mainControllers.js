@@ -8,6 +8,12 @@ const mainController = {
   contact: (req, res) => {
     res.render("contact", { title: "Contactez-nous" });
   },
+  legalMentions: (req, res) => {
+    res.render("legal-mentions", { title: "Mentions légales" });
+  },
+  policy: (req, res) => {
+    res.render("policy", { title: "Politique de confidentialité" });
+  },
 };
 
 export default mainController;

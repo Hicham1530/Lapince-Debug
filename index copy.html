@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Media Query</title>
+    <style>
+        .expenses-categories {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+            body {
+                background-color: yellow; /* Test de changement de couleur */
+            }
+
+            .expenses-categories {
+                background-color: red;
+                position: fixed;
+                left: 0%;
+                top: 58px;
+                padding: 17px;
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                overflow-y: auto;
+                width: 250px;
+                border-right: 4px solid #f29c38;
+                padding-right: 15px;
+                bottom: 51px;
+            }
+
+            .dashboard-sidebar, 
+            .profile-balance, 
+            .category-btn, 
+            .sidebar-link.logout {
+                display: none;
+            }
+
+            .expenses-main-content {
+                margin-left: 270px; /* Ajustez selon la largeur de .expenses-categories */
+                padding-left: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .expenses-categories {
+                position: fixed;
+                left: 0%;
+                top: 58px;
+                padding: 17px;
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                overflow-y: auto;
+                width: 100%; /* Pleine largeur pour les téléphones */
+                border-right: none; /* Retire la bordure droite */
+                border-bottom: 4px solid #f29c38; /* Ajoute une bordure en bas pour séparation visuelle */
+                padding-right: 15px;
+                bottom: 51px;
+            }
+
+            .dashboard-sidebar, 
+            .profile-balance, 
+            .category-btn, 
+            .sidebar-link.logout {
+                display: none;
+            }
+
+            .expenses-main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .category-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="expenses-categories">Test</div>
+</body>
+</html>
