@@ -6,7 +6,7 @@
   <aside class="dashboard-sidebar" role="navigation" aria-label="Menu principal"> <!-- Barre latérale pour la navigation principale -->
     <nav class="sidebar-menu"> <!-- Menu contenant des liens vers différentes sections -->
       <a href="/dashboard/overview" class="sidebar-link">Compte</a> <!-- Lien pour accéder à la page "Compte" -->
-      <a href="/dashboard/income" class="sidebar-link">Analyse</a><!-- Lien pour accéder à la page "Analyse" -->
+      <a href="/dashboard/incomes" class="sidebar-link">Analyse</a><!-- Lien pour accéder à la page "Analyse" -->
       <a href="/profile/profile" class="sidebar-link">Profil</a><!-- Lien pour accéder à la page "Profil" --> </nav>
       <a href="/" class="sidebar-link logout">Déconnexion</a> <!-- Lien pour se déconnecter, probablement lié à une session utilisateur --> </aside>
 
@@ -17,29 +17,47 @@
 
   <section class="hero">
     <h1>Modification de l'email</h1>
-    <div class="form-container">
-      <form>
-        <div class="form-row">
-          <label for="new-email">Nouvel Email :</label>
-          <input type="email" id="new-email" placeholder="Entrez votre email actuel" name="new-email" required />
-        </div>
-        <div class="form-row">
-          <label for="confirm-email">Confirmation Email :</label>
-          <input type="email" id="confirm-email" placeholder="Entrer votre nouveau email" name="confirm-email" required />
-        </div>
-        <div class="form-row">
-          <label for="password">Mot de passe :</label>
-          <input type="password" id="password" placeholder="xxxxxxxxx" name="password" required />
-        </div>
-        <div class="form-button">
-          <button type="submit">Confirmer</button>
-        </div>
-      </form>
+      <!-- Message de succès -->
+  <% if (successMessage) { %>
+    <div id="success-message" class="alert alert-success">
+      <%= successMessage %>
     </div>
-  </section>
+  <% } %>
+
+  <!-- Message d'erreur -->
+  <% if (errors && errors.email) { %>
+    <div class="alert alert-danger"><%= errors.email %></div>
+  <% } %>
+
+  <div class="form-container">
+    <form action="/profile/email" method="POST">
+      <div class="form-row">
+        <label for="new-email">Nouvel Email :</label>
+        <input type="email" id="new-email" placeholder="Entrez votre email actuel" name="new_email"required/>
+      </div>
+      <div class="form-row">
+        <label for="confirm-email">Confirmation Email :</label>
+        <input 
+          type="email" id="confirm-email" placeholder="Entrez votre nouveau email" name="confirm_email" required/>
+      </div>
+      <div class="form-row">
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" placeholder="xxxxxxxxx" name="password" required/>
+      </div>
+      <div class="form-button">
+        <button type="submit">Confirmer</button>
+      </div>
+    </form>
+  </div>
+</section>
 </main>
 
 <%- include('../partials/footer') %> <!-- Inclut le fichier footer dans cette page -->
 
-
+<script>
+  const successMessage = document.getElementById("success-message");
+  if (successMessage) {
+    setTimeout(() => successMessage.style.display = "none", 1000);
+  }
+</script>
 

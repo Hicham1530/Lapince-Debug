@@ -1,0 +1,107 @@
+<%- include('../partials/header-dash') %>
+
+<main class="dashboard-container" aria-labelledby="dashboard-title">
+
+  <!-- Barre latérale -->
+  <aside class="dashboard-sidebar" role="navigation" aria-label="Menu principal">
+    <nav class="sidebar-menu">
+      <a href="/dashboard/overview" class="sidebar-link">Compte</a>
+      <a href="/dashboard/incomes" class="sidebar-link">Analyses</a>
+      <a href="/profile/profile" class="sidebar-link">Profil</a>
+    </nav>
+    <a href="/" class="sidebar-link logout">Déconnexion</a>
+  </aside>
+
+  <!-- Conteneur principal -->
+  <div class="centered-container">
+
+    <!-- Titre principal -->
+    <h1>Gestion des revenus</h1>
+
+    <!-- Affichage du total des revenus -->
+    <h2>Total des revenus : € <%= totalRevenus.toFixed(2) %></h2>
+
+    <!-- Étape 1 : Choisir une catégorie -->
+    <section class="expenses-categories">
+      <h3>Choisissez une catégorie :</h3>
+      <div>
+        <% categories.forEach(category => { %>
+          <div class="expenses-category-items">
+            <button class="category-button"><%= category %></button>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+
+    <!-- Étape 2 : Sélectionner une date -->
+    <div class="expenses-calendares-container">
+      <div class="expenses-calendar-header">
+        <select class="expenses-calendares-select" id="year-select">
+          <% for (let year = 2022; year <= 2027; year++) { %>
+            <option value="<%= year %>" <%= year === currentYear ? 'selected' : '' %>><%= year %></option>
+          <% } %>
+        </select>
+
+        <select class="expenses-calendares-select" id="month-select">
+          <% months.forEach((month, index) => { %>
+            <option value="<%= index + 1 %>" <%= index + 1 === currentMonth ? 'selected' : '' %>><%= month %></option>
+          <% }); %>
+        </select>
+      </div>
+
+      <div class="expenses-calendar-weekdays">
+        <span>Lun</span>
+        <span>Mar</span>
+        <span>Mer</span>
+        <span>Jeu</span>
+        <span>Ven</span>
+        <span>Sam</span>
+        <span>Dim</span>
+      </div>
+
+      <div class="expenses-calendar-grid">
+        <% calendar.forEach(day => { %>
+          <button 
+            class="expenses-calendar-day <%= day.isOtherMonth ? 'other-month' : '' %> <%= day.isToday ? 'today' : '' %>" 
+            data-date="<%= day.date || '' %>">
+            <%= day.date ? day.date.split('-')[2] : '' %>
+          </button>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- Étape 3 : Ajouter une dépense -->
+    <section class="expenses-form">
+      <h3>Ajoutez une dépense :</h3>
+      <form id="expense-form" action="/dashboard/incomes/add" method="POST">
+        <input type="hidden" name="category" id="selected-category">
+        <input type="hidden" name="date" id="selected-date">
+        <label for="description">description :</label>
+        <input type="text" name="description" id="description">
+        <label for="amount">Montant (€) :</label>
+        <input type="number" name="amount" id="amount" min="0" step="0.01" required>
+        <button type="submit">Enregistrer</button>
+      </form>
+    </section>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
+
+<script>
+  // Interaction pour sélectionner une catégorie
+  document.querySelectorAll('.category-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedCategory = button.textContent;
+      document.getElementById('selected-category').value = selectedCategory;
+    });
+  });
+
+  // Interaction pour sélectionner une date
+  document.querySelectorAll('.expenses-calendar-day').forEach(day => {
+    day.addEventListener('click', () => {
+      const selectedDate = day.dataset.date;
+      document.getElementById('selected-date').value = selectedDate;
+    });
+  });
+</script>

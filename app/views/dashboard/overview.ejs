@@ -7,7 +7,7 @@
   <aside class="overview-dashboard-sidebar" role="navigation" aria-label="Menu principal">
     <nav class="overview-sidebar-menu">
       <a href="/dashboard/overview" class="overview-sidebar-link">Compte</a>
-      <a href="/dashboard/income" class="overview-sidebar-link">Analyse</a>
+      <a href="/dashboard/incomes" class="overview-sidebar-link">Analyse</a>
       <a href="/profile/profile" class="overview-sidebar-link">Profil</a>
     </nav>
     <a href="/" class="overview-sidebar-link overview-logout">Déconnexion</a>
@@ -20,8 +20,35 @@
     <span class="sr-only">Progression : 80% </span> <!-- Texte accessible pour les lecteurs d'écran -->
   </div>
 
+
   <!-- Titre de bienvenue -->
-  <h1 id="dashboard-title" class="welcome-text">Bienvenue sur la nouvelle version La Pince</h1> <!-- Titre principal de la page -->
+  <h1 id="dashboard-title" class="welcome-text">Bienvenue sur La Pince : <%= user.email %> !</h1>
+
+
+
+<!-- Message de succès -->
+<% if (successMessage) { %>
+  <div id="successMessage" class="alert alert-success">
+    <%= successMessage %>
+  </div>
+<% } %> <!-- Affiche un message de succès si une variable successMessage est définie -->
+
 </main>
 
 <%- include('../partials/footer') %> <!-- Inclut le footer global depuis un fichier partiel -->
+
+
+
+
+
+<script>
+  // Faire disparaître le message après 2 secondes
+  window.onload = () => {
+    const successMessage = document.getElementById('successMessage');
+    if (successMessage) {
+      setTimeout(() => {
+        successMessage.classList.add('hide'); // Appliquer la classe CSS pour cacher
+      }, 2000);
+    }
+  };
+</script>

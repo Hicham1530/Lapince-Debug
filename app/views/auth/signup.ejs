@@ -1,19 +1,25 @@
 <%- include('../partials/header') %> <!-- Inclut le fichier header -->
 
 <main class="global-container">
-  <section class="signup-form-container box-border"> <!-- Ajout de la classe box-border -->
+  <section class="signup-form-container box-border">
     <h1 class="signup-form-title">Créer un compte</h1>
     
-    <form>
+    <form action="/auth/signup" method="POST">
       <div class="signup-form-inputs">
+        <label for="first_name" class="signup-label">Prénom :</label>
+        <input type="text" id="first_name" name="first_name" class="signup-input" placeholder="Votre prénom" required>
+        
+        <label for="last_name" class="signup-label">Nom :</label>
+        <input type="text" id="last_name" name="last_name" class="signup-input" placeholder="Votre nom" required>
+
         <label for="email" class="signup-label">Votre Adresse e-mail :</label>
-        <input type="email" id="email" class="signup-input" placeholder="Votre email">
+        <input type="email" id="email" name="email" class="signup-input" placeholder="Votre email" required>
         
         <label for="password" class="signup-label">Votre mot de passe :</label>
-        <input type="password" id="password" class="signup-input" placeholder="Créez votre mot de passe">
+        <input type="password" id="password" name="password" class="signup-input" placeholder="Créez votre mot de passe" required>
         
         <label for="confirm-password" class="signup-label">Confirmez le mot de passe :</label>
-        <input type="password" id="confirm-password" class="signup-input" placeholder="Confirmez votre mot de passe">
+        <input type="password" id="confirm-password" name="confirmPassword" class="signup-input" placeholder="Confirmez votre mot de passe" required>
       </div>
       
       <div class="signup-form-submit">

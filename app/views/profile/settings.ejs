@@ -1,45 +1,53 @@
 <%- include('../partials/header-profiles') %> <!-- Inclut le fichier header dans cette page -->
 <main class="global-container">
-
-
   <aside class="dashboard-sidebar" role="navigation" aria-label="Menu principal"> <!-- Barre latérale pour la navigation principale -->
     <nav class="sidebar-menu"> <!-- Menu contenant des liens vers différentes sections -->
       <a href="/dashboard/overview" class="sidebar-link">Compte</a> <!-- Lien pour accéder à la page "Compte" -->
-      <a href="/dashboard/income" class="sidebar-link">Analyse</a><!-- Lien pour accéder à la page "Analyse" -->
+      <a href="/dashboard/incomes" class="sidebar-link">Analyse</a><!-- Lien pour accéder à la page "Analyse" -->
       <a href="/profile/profile" class="sidebar-link">Profil</a><!-- Lien pour accéder à la page "Profil" --> </nav>
       <a href="/" class="sidebar-link logout">Déconnexion</a> <!-- Lien pour se déconnecter, probablement lié à une session utilisateur --> </aside>
 
 <section class="hero">
   <h1>Modification des paramètres</h1>
+  <% if (successMessage) { %>
+    <div id="success-message" class="alert alert-success">
+      <%= successMessage %>
+    </div>
+  <% } %> <!-- Affiche un message de succès si la variable successMessage est définie -->
+  
   <div class="form-container">
     <form action="/settings" method="post">
+      <!-- Langue de l'interface -->
       <div class="form-row">
-        <label for="interface-langue">Langue de l'interface :</label>
-        <select id="interface-langue" name="langue">
-          <option value="fr">Français</option>
-          <option value="en">English</option>
-          <option value="es">Español</option>
+        <label for="interface-langue">Langue de l'interface:</label>
+        <select id="interface-langue" name="interface-langue">
+          <option value="fr" <%= user.language === "fr" ? "selected" : "" %>>Français</option>
+          <option value="en" <%= user.language === "en" ? "selected" : "" %>>English</option>
+          <option value="es" <%= user.language === "es" ? "selected" : "" %>>Español</option>
         </select>
       </div>
   
-      <div class="form-row">
-        <label for="devise" class="adjust-label">Devise par défaut :</label>
-        <select id="devise" name="devise">
-          <option value="eur">Euro (€)</option>
-          <option value="usd">Dollar ($)</option>
-          <option value="mad">Dirham (MAD)</option>
-        </select>
-      </div>
+    <!-- Devise par défaut -->
+    <div class="form-row">
+      <label for="devise">Devise :</label>
+      <select id="devise" name="devise">
+        <option value="eur" <%= user.currency === "eur" ? "selected" : "" %>>Euro (€)</option>
+        <option value="usd" <%= user.currency === "usd" ? "selected" : "" %>>Dollar ($)</option>
+        <option value="mad" <%= user.currency === "mad" ? "selected" : "" %>>Dirham (MAD)</option>
+      </select>
+    </div>
   
-      <div class="form-row">
-        <label for="convert-montants">Convertir tous les montants :</label>
-        <input type="checkbox" id="convert-montants" name="convertir_montants" />
-      </div>
+  <!-- Convertir tous les montants -->
+  <div class="form-row">
+    <label for="convert-montants">Convertir tous les montants :</label>
+    <input type="checkbox" id="convert-montants" name="convertir_montants" />
+  </div>
   
-      <div class="form-row-btn">
-        <button type="submit" class="btn-confirmer">Confirmer</button>
-      </div>
-    </form>
+    <!-- Bouton de confirmation -->
+    <div class="form-row-btn">
+      <button type="submit" class="btn-confirmer">Confirmer</button>
+    </div>
+  </form>
   </div>
 </section>
 </main>
@@ -47,9 +55,24 @@
 
 
 
-<!-- <main>
-  <section class="hero">
-    <h1>Paramètres du profil</h1>
-    <p>Bienvenue sur la page des paramètres généraux.</p>
-  </section>
-</main> -->
+
+<!-- faire disparaître le message de confirmation de changement d information profile  après 2 secondes -->
+<script>
+  // Attendre que la page soit chargée
+  document.addEventListener("DOMContentLoaded", () => {
+    const successMessage = document.querySelector(".alert.alert-success");
+
+    if (successMessage) {
+      // Faire disparaître le message après  secondes
+      setTimeout(() => {
+        successMessage.style.transition = "opacity 0.5s ease";
+        successMessage.style.opacity = "0";
+
+        // Supprimer complètement le message après l'animation (2.5s)
+        setTimeout(() => {
+          successMessage.remove();
+        }, 500);
+      }, 700);
+    }
+  });
+</script>

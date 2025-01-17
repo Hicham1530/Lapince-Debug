@@ -27,7 +27,7 @@ Contient les informations des utilisateurs :
 - `email` : Adresse e-mail unique.
 - `date_of_birth` : Date de naissance.
 - `password` : Mot de passe (à hacher pour la production).
-- `user_type` : Type d'utilisateur (ex. : `standard` ou `admin`).
+- `user_type` : Type d'utilisateur (ex. : `utilisateur ` ou `admin`).
 - `language` : Langue préférée.
 - `currency` : Devise préférée.
 - `account_creation_date` : Date de création du compte.

@@ -13,12 +13,12 @@
 .nav-link a {
   text-decoration: none; /* Supprime le soulignement des liens */
   display: inline-block; /* Les liens occupent uniquement l'espace de leur contenu */
-  padding: 5px 10px; /* Ajoute un espace interne pour rendre les liens plus cliquables */
+  /* padding: 5px 10px; Ajoute un espace interne pour rendre les liens plus cliquables */
   font-size: 1.2rem; /* Augmente la taille du texte pour une meilleure lisibilité */
   font-weight: normal; /* Garde le texte avec un poids standard */
   white-space: nowrap; /* Empêche les retours à la ligne sur plusieurs mots */
-  background-color: #F29C38; /* Couleur de fond pour les liens */
-  color: #fff; /* Texte blanc pour un bon contraste */
+  /* background-color: #F29C38; Couleur de fond pour les liens */
+  color: #05204A; /* Texte blanc pour un bon contraste */
   border-radius: 5px; /* Coins arrondis pour un style moderne */
   font-size: 1.2rem; /* Taille de police adaptée */
 
@@ -69,7 +69,12 @@ legend {
 .date-group {
   display: flex; /* Dispose les éléments horizontalement */
   gap: 10px; /* Espacement entre les sélecteurs */
-  width: 71%; /* Largeur alignée avec les autres champs */
+  width: 57%; /* Largeur alignée avec les autres champs */
+}
+.form-label {
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: block;
 }
 
 /* Sélecteurs de date */

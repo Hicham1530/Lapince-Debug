@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize"; // On importe la classe DataTypes depuis le package sequelize
-import sequelize from "../config/database.js"; // On importe l'instance de sequelize créée dans le fichier database.js
-import db from '../config/database.js';
+import sequelize from "../../config/database.js"; // On importe l'instance de sequelize créée dans le fichier database.js
+import db from '../../config/database.js';
 
 
 // On créé un modèle user pour définir la structure de la table users dans la base de données.
@@ -17,6 +17,10 @@ const User = sequelize.define("users", { // On définit le modèle user avec la 
         autoIncrement: true,                // On précise que l'attribut id est auto-incrémenté
         primaryKey: true,                  // On précise que l'attribut id est la clé primaire de la table
     }, 
+    genre: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
     first_name: {                          // On définit l'attribut first_name
         type: DataTypes.STRING,           // On précise le type de l'attribut username (STRING)
         allowNull: false,                // On précise que l'attribut username ne peut pas être nul (obligatoire).
@@ -37,22 +41,26 @@ const User = sequelize.define("users", { // On définit le modèle user avec la 
     
     date_of_birth: {                          // On définit l'attribut date_of_birth
         type: DataTypes.DATEONLY,            // On précise le type de l'attribut date_of_birth (DATEONLY)
-        allowNull: false,                   // On précise que l'attribut date_of_birth ne peut pas être nul (obligatoire).
+        allowNull: true,                   // On précise que l'attribut date_of_birth ne peut pas être nul (obligatoire).
     },
 
     user_type: {                             // On définit l'attribut user_type
         type: DataTypes.STRING,             // On précise le type de l'attribut user_type (STRING)
-        allowNull: false,                  // On précise que l'attribut user_type ne peut pas être nul (obligatoire).
+        allowNull: true,                  // On précise que l'attribut user_type ne peut pas être nul (obligatoire).
     },
 
     language: {                           // On définit l'attribut language
         type: DataTypes.STRING,          // On précise le type de l'attribut language (STRING)
-        allowNull: false,               // On précise que l'attribut language ne peut pas être nul (obligatoire).
+        allowNull: true,               // On précise que l'attribut language ne peut pas être nul (obligatoire).
+    },
+    pays: {
+        type: DataTypes.STRING,
+        allowNull: true,
     },
 
     currency : {                       // On définit l'attribut currency
         type: DataTypes.STRING,       // On précise le type de l'attribut currency (STRING)
-        allowNull: false,            // On précise que l'attribut currency ne peut pas être nul (obligatoire).
+        allowNull: true,            // On précise que l'attribut currency ne peut pas être nul (obligatoire).
                   
     },
   }, { 

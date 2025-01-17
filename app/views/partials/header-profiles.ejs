@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/signup.css"> <!-- Lien vers la feuille de style spécifique à la page d'inscription -->
     <link rel="stylesheet" href="/css/overview.css"> <!-- Lien vers la feuille de style pour la page du tableau de bord -->
     <link rel="stylesheet" href="/css/reset-password.css"> <!-- Lien vers la feuille de style pour la page de réinitialisation du mot de passe -->
-    <link rel="stylesheet" href="/css/income.css"> <!-- Lien vers la feuille de style spécifique à la page des declaration -->
+    <link rel="stylesheet" href="/css/incomes.css"> <!-- Lien vers la feuille de style spécifique à la page des declaration -->
     <link rel="stylesheet" href="/css/expenses.css"> <!-- Lien vers la feuille de style spécifique à la page des dépenses -->
     <link rel="stylesheet" href="/css/settings-header.css"><!--  Lien vers la feuille de style spécifique à la page settings -->
     <link rel="stylesheet" href="/css/profile.css"> <!-- Lien vers la feuille de style spécifique à la page profile -->
@@ -34,8 +34,8 @@
 
     <!-- Liens de navigation -->
     <div class="nav-links">
-        <a href="/auth/signup" aria-label="Page d'inscription">Inscription</a>
-        <a href="/auth/login" aria-label="Page de connexion">Connexion</a>
+        <!-- <a href="/auth/signup" aria-label="Page d'inscription">Inscription</a>
+        <a href="/auth/login" aria-label="Page de connexion">Connexion</a> -->
     </div>
 
     <!-- Menu burger -->
@@ -47,13 +47,21 @@
 
 
 
-            <div class="nav-link"> <!-- Conteneur pour les liens de navigation -->
-                <a href="/profile/Profile" aria-label="Page d'inscription">Profile</a> <!-- Lien vers la page d'inscription -->
-                <a href="/profile/settings" aria-label="Page de connexion">Parametre</a> <!-- Lien vers la page de connexion -->
-                <a href="/profile/email" aria-label="Page de connexion">Email</a> <!-- Lien vers la page de connexion -->
-                <a href="/profile/password" aria-label="Page de connexion">Mot de passe</a> <!-- Lien vers la page de connexion -->
+    <div class="nav-link">
+        <!-- Bouton principal -->
+        <div class="dropdown">
+            <button class="dropdown-btn">Profiles</button>
+            <!-- Menu déroulant -->
+            <div class="dropdown-menu">
+                <a href="/profile/profile" class="dropdown-item">Profile</a>
+                <a href="/profile/settings" class="dropdown-item">Paramètre</a>
+                <a href="/profile/password" class="dropdown-item">Mot de passe</a>
+                <a href="/profile/email"     class="dropdown-item">Email</a>
             </div>
+        </div>
+    </div>
         </nav>
     </header>
 
-    <script src="/js/menu.js" defer></script><!-- Lien vers le script JavaScript pour le menu burger -->
+    <script src="/js/menu.js" defer>
+    </script><!-- Lien vers le script JavaScript pour le menu burger -->

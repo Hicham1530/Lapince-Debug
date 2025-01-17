@@ -1,37 +1,62 @@
-import express from "express";  // On importe express
+import express from "express";
+import { ensureAuthenticated } from "./middlewares/authMiddleware.js";
 
 // Importer les contrôleurs
-import authControllers from "./controllers/authControllers.js";   // On importe le contrôleur Auth
-import dashboardControllers from "./controllers/dashboardControllers.js"; // On importe le contrôleur Dashboard
-import profileControllers from "./controllers/profileControllers.js"; // On importe le contrôleur Profile
-import mainControllers from "./controllers/mainControllers.js"; // On importe le contrôleur Main
+import authControllers from "./controllers/authControllers.js";
+import dashboardControllers from "./controllers/dashboardControllers.js";
+import profileController from "./controllers/profileControllers.js";
+import mainControllers from "./controllers/mainControllers.js";
+import settingsController from "./controllers/settingsControllers.js";
+import alert from "./models/alert.js";
 
-
-const router = express.Router(); // On créé un router express
-
+const router = express.Router();
 
 // Routes générales
-router.get("/", mainControllers.home);   // Page d'accueil // On dit à notre router que si on est sur la route /, on appelle la méthode home du mainControllers
-router.get("/about", mainControllers.about); // Page à propos
-router.get("/contact", mainControllers.contact); // Page contact
-router.get("/legal-mentions", mainControllers.legalMentions); // Page mentions légales
-router.get("/policy", mainControllers.policy); // Page politique de confidentialité
+router.get("/", mainControllers.home);
+router.get("/about", mainControllers.about);
+router.get("/contact", mainControllers.contact);
+router.get("/legal-mentions", mainControllers.legalMentions);
+router.get("/policy", mainControllers.policy);
 
+// Routes principales
+router.get("/auth/login", authControllers.login);
+router.post("/auth/login", authControllers.loginUser);
+router.get("/auth/signup", authControllers.signup);
+router.post("/auth/signup", authControllers.signupUser);
+router.get("/auth/reset-password", authControllers.resetPassword);
+router.get("/auth/logout", authControllers.logoutUser);
 
-
-// Routes principales 
-router.get("/auth/signup", authControllers.signup);      // Page d'inscription
-router.get("/auth/login", authControllers.login);    // Page de connexion
-router.get("/auth/reset-password", authControllers.resetPassword);   // Réinitialisation
 // Routes Dashboard
-router.get("/dashboard/overview", dashboardControllers.overview);        // Page tableau de bord
-router.get("/dashboard/expenses", dashboardControllers.expenses);        // Page dépenses
-router.get("/dashboard/income", dashboardControllers.income);            // Page revenus
+router.get("/dashboard", ensureAuthenticated, (req, res) => {res.redirect("/dashboard/overview");});
+router.get("/dashboard/overview", dashboardControllers.overview);
+router.get("/dashboard/expenses", dashboardControllers.expenses);
+router.get("/dashboard/incomes", dashboardControllers.incomes);
+
+
+
+
+
 // Routes Profile
-router.get("/profile/settings", profileControllers.settings);          // Page paramètres
-router.get("/profile/email", profileControllers.email);               // Page email
-router.get("/profile/password", profileControllers.password);        // Page mot de passe
-router.get("/profile/profile", profileControllers.profile);         // Page profile
+router.use("/profile", ensureAuthenticated); // Middleware pour vérifier si l'utilisateur est connecté
+
+
+router.get("/profile/settings", profileController.settings);
+router.post("/settings", ensureAuthenticated, settingsController.updateSettings); // Met à jour les paramètres de l'utilisateur
+router.get("/profile/email", profileController.email);
+router.post("/profile/email", profileController.updateEmail); // Traitement du changement d'email
+router.get("/profile/password", profileController.password);
+router.post("/update-password", profileController.updatePassword); // Mise à jour du mot de passe
+router.get("/profile/profile", profileController.showProfile);
+router.post("/profile/update", profileController.updateProfile);
+
+
+// Gestion des mouvements (revenus et dépenses)
+router.get('/dashboard/incomes', ensureAuthenticated, dashboardControllers.incomes);
+
+router.get('/dashboard/expenses', ensureAuthenticated, dashboardControllers.expenses);
+
+router.post('/dashboard/incomes/add', ensureAuthenticated, dashboardControllers.addIncome);
+router.post('/dashboard/expenses/add', ensureAuthenticated, dashboardControllers.addExpense);
 
 
 

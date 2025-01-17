@@ -1,87 +1,107 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Media Query</title>
-    <style>
-        .expenses-categories {
-            width: 100px;
-            height: 100px;
-            background-color: blue;
-        }
+<%- include('../partials/header-dash') %>
 
-        @media (min-width: 601px) and (max-width: 1024px) {
-            body {
-                background-color: yellow; /* Test de changement de couleur */
-            }
+<main class="dashboard-container" aria-labelledby="dashboard-title">
 
-            .expenses-categories {
-                background-color: red;
-                position: fixed;
-                left: 0%;
-                top: 58px;
-                padding: 17px;
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-                overflow-y: auto;
-                width: 250px;
-                border-right: 4px solid #f29c38;
-                padding-right: 15px;
-                bottom: 51px;
-            }
+  <!-- Barre latérale -->
+  <aside class="dashboard-sidebar" role="navigation" aria-label="Menu principal">
+    <nav class="sidebar-menu">
+      <a href="/dashboard/overview" class="sidebar-link">Compte</a>
+      <a href="/dashboard/incomes" class="sidebar-link">Revenus</a>
+      <a href="/profile/profile" class="sidebar-link">Profil</a>
+    </nav>
+    <a href="/" class="sidebar-link logout">Déconnexion</a>
+  </aside>
 
-            .dashboard-sidebar, 
-            .profile-balance, 
-            .category-btn, 
-            .sidebar-link.logout {
-                display: none;
-            }
+  <!-- Conteneur principal -->
+  <div class="centered-container">
 
-            .expenses-main-content {
-                margin-left: 270px; /* Ajustez selon la largeur de .expenses-categories */
-                padding-left: 20px;
-            }
-        }
+    <!-- Titre principal -->
+    <h1>Gestion des revenus</h1>
 
-        @media (max-width: 600px) {
-            .expenses-categories {
-                position: fixed;
-                left: 0%;
-                top: 58px;
-                padding: 17px;
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-                overflow-y: auto;
-                width: 100%; /* Pleine largeur pour les téléphones */
-                border-right: none; /* Retire la bordure droite */
-                border-bottom: 4px solid #f29c38; /* Ajoute une bordure en bas pour séparation visuelle */
-                padding-right: 15px;
-                bottom: 51px;
-            }
+    <!-- Affichage du total des revenus -->
+    <h2>Total des revenus : € <%= totalRevenus.toFixed(2) %></h2>
 
-            .dashboard-sidebar, 
-            .profile-balance, 
-            .category-btn, 
-            .sidebar-link.logout {
-                display: none;
-            }
+    <!-- Étape 1 : Choisir une catégorie -->
+    <section class="expenses-categories">
+      <h3>Choisissez une catégorie :</h3>
+      <div>
+        <% categories.forEach(category => { %>
+          <div class="expenses-category-items">
+            <button class="category-button"><%= category %></button>
+          </div>
+        <% }); %>
+      </div>
+    </section>
 
-            .expenses-main-content {
-                margin-left: 0;
-                padding: 20px;
-            }
+    <!-- Étape 2 : Sélectionner une date -->
+    <div class="expenses-calendares-container">
+      <div class="expenses-calendar-header">
+        <select class="expenses-calendares-select" id="year-select">
+          <% for (let year = 2022; year <= 2027; year++) { %>
+            <option value="<%= year %>" <%= year === currentYear ? 'selected' : '' %>><%= year %></option>
+          <% } %>
+        </select>
 
-            .category-btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="expenses-categories">Test</div>
-</body>
-</html>
+        <select class="expenses-calendares-select" id="month-select">
+          <% months.forEach((month, index) => { %>
+            <option value="<%= index + 1 %>" <%= index + 1 === currentMonth ? 'selected' : '' %>><%= month %></option>
+          <% }); %>
+        </select>
+      </div>
+
+      <div class="expenses-calendar-weekdays">
+        <span>Lun</span>
+        <span>Mar</span>
+        <span>Mer</span>
+        <span>Jeu</span>
+        <span>Ven</span>
+        <span>Sam</span>
+        <span>Dim</span>
+      </div>
+
+      <div class="expenses-calendar-grid">
+        <% calendar.forEach(day => { %>
+          <button 
+            class="expenses-calendar-day <%= day.isOtherMonth ? 'other-month' : '' %> <%= day.isToday ? 'today' : '' %>" 
+            data-date="<%= day.date || '' %>">
+            <%= day.date ? day.date.split('-')[2] : '' %>
+          </button>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- Étape 3 : Ajouter une dépense -->
+    <section class="expenses-form">
+      <h3>Ajoutez une dépense :</h3>
+      <form id="expense-form" action="/dashboard/expenses/add" method="POST">
+        <input type="hidden" name="category" id="selected-category">
+        <input type="hidden" name="date" id="selected-date">
+        <label for="amount">Montant (€) :</label>
+        <input type="number" name="amount" id="amount" min="0" step="0.01" required>
+        <button type="submit">Enregistrer</button>
+      </form>
+    </section>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
+
+<script>
+  // Interaction pour sélectionner une catégorie
+  document.querySelectorAll('.category-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedCategory = button.textContent;
+      document.getElementById('selected-category').value = selectedCategory;
+      alert(`Catégorie choisie : ${selectedCategory}`);
+    });
+  });
+
+  // Interaction pour sélectionner une date
+  document.querySelectorAll('.expenses-calendar-day').forEach(day => {
+    day.addEventListener('click', () => {
+      const selectedDate = day.dataset.date;
+      document.getElementById('selected-date').value = selectedDate;
+      alert(`Date choisie : ${selectedDate}`);
+    });
+  });
+</script>

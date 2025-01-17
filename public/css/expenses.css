@@ -7,21 +7,21 @@
   position: fixed; /* Le conteneur reste visible pendant le défilement */
   left: 12%; /* Place le conteneur à droite de la barre latérale */
   top: 58px; /* Ajuste la position verticale par rapport au header */
-  padding: 10px; /* Ajoute un espacement interne */
+  padding: 7px; /* Ajoute un espacement interne */
   display: flex; /* Utilise Flexbox pour aligner les éléments */
   flex-direction: column; /* Aligne les catégories en colonne */
   gap: 7px; /* Ajoute un espace entre les catégories */
   overflow-y: hidden; /* Permet le défilement vertical si le contenu dépasse */
-  width: 250px; /* Largeur fixe du conteneur */
+  width: 237px; /* Largeur fixe du conteneur */
   border-right: 4px solid #f29c38; /* Ligne séparatrice orange à droite */
-  padding-right: 15px; /* Espace entre les catégories et la bordure */
+  padding-right: 7px; /* Espace entre les catégories et la bordure */
   bottom: 51px; /* Ajuste la position par rapport au bas */
 }
 
 /* Style au survol des sélecteurs dans le calendrier */
-.expenses-calendar-select:hover {
+ .expenses-calendar-select:hover {
   border-color: #d67d34; /* Change la couleur de bordure au survol */
-}
+ } 
 
 /* Style des éléments individuels de catégorie */
 .expenses-category-items {
@@ -82,7 +82,7 @@
   border: 1px solid #f29c38; /* Bordure orange */
   border-radius: 4px; /* Coins arrondis */
   background-color: white; /* Fond blanc */
-  color: #333; /* Texte gris foncé */
+  color: #05204a; /* Texte gris foncé */
   cursor: pointer; /* Curseur en pointeur */
   flex: 1; /* Permet au sélecteur de s'étirer si nécessaire */
   font-size: 1rem; /* Taille standard */

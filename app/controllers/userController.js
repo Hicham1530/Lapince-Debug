@@ -49,9 +49,9 @@ export const getUserByEmail = async (email) => {
     const user = await User.findOne({ where: { email } });
     if (user) {
       console.log("Utilisateur trouvé :", user.toJSON());
-      return user;
-    } else {
-      console.log("Aucun utilisateur trouvé avec cet email.");
+  } else {
+      console.log("Utilisateur introuvable.");
+  
       return null;
     }
   } catch (error) {
@@ -77,7 +77,7 @@ export async function createTestUser(emailToTest = "newtest@example.com") {
         password: "password123",
         date_of_birth: "2000-01-01",
         user_type: "standard",
-        language: "en",
+        language: "English",
         currency: "USD",
       });
       console.log("Nouvel utilisateur créé :", newUser.toJSON());
@@ -90,6 +90,7 @@ export async function createTestUser(emailToTest = "newtest@example.com") {
     }
   }
 }
+
 
 
 export default { createTestUser };

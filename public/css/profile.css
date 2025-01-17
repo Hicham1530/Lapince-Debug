@@ -77,6 +77,107 @@ input[type="checkbox"] {
   background-color: #e58931;
 }
 
+
+
+
+/* ----------------- Menu deroulant Profile ----------------- */ 
+
+
+/* Conteneur principal */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Bouton du dropdown */
+.dropdown-btn {
+  background-color: #f29c38;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Menu déroulant caché par défaut */
+/* Menu déroulant */
+.dropdown-menu {
+  display: none; /* Cacher par défaut */
+  flex-direction: column; /* Organise les éléments verticalement */
+  gap: 12px; /* Applique l'espacement entre les éléments */
+  position: absolute;
+  top: 150%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #f29c38;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  min-width: 120px;
+  padding: 10px;
+}
+
+/* Items du menu déroulant */
+.dropdown-item {
+  display: flex; /* Change de block à flex */
+  align-items: center; /* Centre verticalement */
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #05204a;
+  font-size: 1rem;
+}
+
+/* Style des items au survol */
+.dropdown-item:hover {
+  background-color: #f29c38;
+  color: white;
+}
+
+/* Menu visible */
+.dropdown-menu.show {
+  display: flex; /* Affiche le men lorqu il est visible */
+}
+
+
+/* ------------------------------------------------- */ 
+
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ============================
    Responsive : Téléphone (max-width: 768px)
 ============================= */

@@ -155,9 +155,11 @@ header {
 ============================= */
 /* Style pour l'affichage du profil utilisateur */
 .profile-balance {
-  width: 80%; /* Largeur relative */
-  font-size: 1.2rem; /* Taille du texte */
-  margin-right: 154px;
+  width: 55%;/*  Largeur relative */
+  font-size: 1.4rem; /* Taille du texte */
+  /* margin-right: 79px; */
+  color: #05204a; /* Couleur du texte */
+
 }
 /* ============================
    Conteneur principal (dashboard)
@@ -205,6 +207,54 @@ header {
   transform: translate(-50%, -50%); /* Centre le texte précisément */
   margin: 0; /* Supprime les marges inutiles */
 }
+
+
+
+
+
+
+/* Styles pour le message de succès */
+.alert-success {
+  position: fixed;
+  bottom: 256px;
+  left: 55%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  z-index: 1000;
+}
+.alert-success.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -384,9 +434,6 @@ header {
     padding: 10px;
     z-index: 10;
   }
-
-
-
 
   .profile-balance,
   .total-balance {
