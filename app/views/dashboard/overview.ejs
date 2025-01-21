@@ -13,13 +13,13 @@
     <a href="/" class="overview-sidebar-link overview-logout">Déconnexion</a>
   </aside>
 
-  <!-- Cercle de progression -->
-  <div class="progress-circle" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-    <!-- Indicateur de progression -->
-    <div class="progress-inner">80%</div> <!-- Valeur affichée au centre du cercle -->
-    <span class="sr-only">Progression : 80% </span> <!-- Texte accessible pour les lecteurs d'écran -->
-  </div>
-
+<!-- Cercle de progression -->
+<div 
+  class="progress-circle"
+  data-percentage="<%= pourcentageRevenus %>" 
+  style="--progress: <%= pourcentageRevenus %>%;">
+  <div class="progress-inner"><%= pourcentageRevenus %>%</div>
+</div>
 
   <!-- Titre de bienvenue -->
   <h1 id="dashboard-title" class="welcome-text">Bienvenue sur La Pince : <%= user.email %> !</h1>

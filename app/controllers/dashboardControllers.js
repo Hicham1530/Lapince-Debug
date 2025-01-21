@@ -1,21 +1,52 @@
 import Mouvement from '../models/mouvement.js'; // Modèle pour la table 'mouvement'
 import alert from '../models/alert.js'; // Modèle pour la table 'alert'
-import User from '../models/user.js'; // Modèle pour la table 'user'
+import user from '../models/user.js'; // Modèle pour la table 'user'
 import dayjs from 'dayjs';
+import { validationResult } from "express-validator";
 
+// Contrôleur principal
 const dashboardController = {
-  // Vue d'ensemble
-  overview: (req, res) => {
-    const successMessage = req.session.successMessage || null;
-    req.session.successMessage = null;
-
-    res.render("dashboard/overview", {
-      title: "Vue globale",
-      successMessage,
-      user: req.session.user,
-    });
+  overview: async (req, res) => {
+    try {
+      const userId = req.session.user?.id;
+  
+      if (!userId) {
+        return res.status(401).render("error", { message: "Utilisateur non connecté." });
+      }
+  
+      // Récupérer les revenus et dépenses de l'utilisateur
+      const revenus = await Mouvement.findAll({
+        where: { id_user: userId, transaction_type: "credit" },
+      });
+  
+      const depenses = await Mouvement.findAll({
+        where: { id_user: userId, transaction_type: "debit" },
+      });
+  
+      // Calcul des totaux
+      const totalRevenus = revenus.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
+      const totalDepenses = depenses.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
+      const soldeTotal = totalRevenus - totalDepenses;
+  
+      // Calcul du pourcentage basé sur le salaire
+      const pourcentageRevenus =
+        totalRevenus > 0 ? Math.max((1 - totalDepenses / totalRevenus) * 100, 0).toFixed(2) : 0;
+  
+      console.log("Pourcentage restant du salaire :", pourcentageRevenus);
+  
+      // Rendre la vue avec les données nécessaires
+      res.render("dashboard/overview", {
+        user: req.session.user,
+        totalRevenus,
+        totalDepenses,
+        soldeTotal, // Assurez-vous de passer soldeTotal ici
+        pourcentageRevenus,
+      });
+    } catch (error) {
+      console.error("Erreur dans overview :", error);
+      res.status(500).render("error", { message: "Erreur interne." });
+    }
   },
-
   // Gestion des dépenses
   expenses: async (req, res) => {
     try {
@@ -25,13 +56,14 @@ const dashboardController = {
         return res.status(401).render("error", { message: "Utilisateur non connecté." });
       }
 
-      // Récupérer les revenus de l'utilisateur
-      const revenus = await Mouvement.findAll({
-        where: { id_user: userId, transaction_type: 'debit' },
-      });
+      // Récupérer les revenus et les dépenses de l'utilisateur
+      const revenus = await Mouvement.findAll({ where: { id_user: userId, transaction_type: "credit" } });
+      const depenses = await Mouvement.findAll({ where: { id_user: userId, transaction_type: "debit" } });
 
-      // Calcul du total des revenus
+      // Calculs des totaux
       const totalRevenus = revenus.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
+      const totalDepenses = depenses.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
+      const soldeTotal = totalRevenus - totalDepenses;
 
       // Obtenir l'année et le mois actuels
       const currentYear = new Date().getFullYear();
@@ -43,23 +75,15 @@ const dashboardController = {
         "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
       ];
 
-      // Obtenir le jour de la semaine pour le premier jour du mois
-      const firstDayOfMonth = dayjs(`${currentYear}-${currentMonth + 1}-01`).day(); // Dimanche = 0
+      // Générer le calendrier
+      const firstDayOfMonth = dayjs(`${currentYear}-${currentMonth + 1}-01`).day();
       const daysInMonth = dayjs(`${currentYear}-${currentMonth + 1}-01`).daysInMonth();
-
-      // Calculer les jours à afficher du mois précédent
       const prevMonthDays = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
 
-      // Générer le calendrier
       const calendar = [];
       for (let i = 0; i < prevMonthDays; i++) {
-        calendar.push({
-          date: null,
-          isOtherMonth: true,
-          isToday: false,
-        });
+        calendar.push({ date: null, isOtherMonth: true, isToday: false });
       }
-
       for (let day = 1; day <= daysInMonth; day++) {
         const date = dayjs(`${currentYear}-${currentMonth + 1}-${day}`);
         calendar.push({
@@ -69,43 +93,35 @@ const dashboardController = {
         });
       }
 
-      const categories = ["toto1", "toto2", "toto3", "toto4", "toto5"];
+      // Liste des catégories pour les dépenses
+      const categories = [
+        "Abonnement", "Achat & Shopping", "Alimentation & Restau",
+        "Auto & Transports", "Retraits, Chq, et vir.", "Epargne & Investissements",
+        "Loisirs et Sortie", "Depense pro", "Logement", "Banque", "Santé",
+        "Scolarité", "Divers", "Famille & Enfants", "Impôts & taxes",
+        "Voyages", "Autres dépenses"
+      ];
 
-/*
-      
-      <div class="expenses-category-list">
-        <div class="expenses-category-items">Abonnement</div>
-        <div class="expenses-category-items">Achat & Shopping</div>
-        <div class="expenses-category-items">Alimentation & Restau</div>
-        <div class="expenses-category-items">Auto & Transports</div>
-        <div class="expenses-category-items">Retraits, Chq, et vir.</div>
-        <div class="expenses-category-items">Epargne & Investissements</div>
-        <div class="expenses-category-items">Loisirs et Sortie</div>
-        <div class="expenses-category-items">Depense pro</div>
-        <div class="expenses-category-items">Logement</div>
-        <div class="expenses-category-items">Banque</div>
-        <div class="expenses-category-items">Santé</div>
-        <div class="expenses-category-items">Scolarité</div>
-        <div class="expenses-category-items">Divers</div>
-        <div class="expenses-category-items">Famille & Enfants</div>
-        <div class="expenses-category-items">Impôts & taxes</div>
-        <div class="expenses-category-items">Voyages</div>
-      </div>
-*/
+      // Log pour le débogage
+      console.log({ totalRevenus, totalDepenses, soldeTotal });
+
+      // Rendre la vue
       res.render("dashboard/expenses", {
         user: req.session.user,
         revenus,
+        depenses,
         totalRevenus,
+        totalDepenses,
+        soldeTotal,
         currentYear,
         currentMonth,
         months,
         calendar,
-        categories, // Ajouter les catégories ici
+        categories,
       });
-
     } catch (error) {
-      console.error("Erreur lors de l'affichage des depenses :", error);
-      res.status(500).render("error", { message: "Erreur interne lors de l'affichage des depenses." });
+      console.error("Erreur lors de l'affichage des dépenses :", error);
+      res.status(500).render("error", { message: "Erreur interne lors de l'affichage des dépenses." });
     }
   },
 
@@ -119,12 +135,15 @@ const dashboardController = {
       }
 
       // Récupérer les revenus de l'utilisateur
-      const revenus = await Mouvement.findAll({
-        where: { id_user: userId, transaction_type: 'credit' },
-      });
-
-      // Calcul du total des revenus
+      const revenus = await Mouvement.findAll({ where: { id_user: userId, transaction_type: "credit" } });
       const totalRevenus = revenus.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
+
+      // Récupérer les dépenses de l'utilisateur
+      const depenses = await Mouvement.findAll({ where: { id_user: userId, transaction_type: "debit" } });
+      const totalDepenses = depenses.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
+
+      // Calcul du solde total
+      const soldeTotal = totalRevenus - totalDepenses;
 
       // Obtenir l'année et le mois actuels
       const currentYear = new Date().getFullYear();
@@ -136,23 +155,15 @@ const dashboardController = {
         "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
       ];
 
-      // Obtenir le jour de la semaine pour le premier jour du mois
-      const firstDayOfMonth = dayjs(`${currentYear}-${currentMonth + 1}-01`).day(); // Dimanche = 0
+      // Générer le calendrier
+      const firstDayOfMonth = dayjs(`${currentYear}-${currentMonth + 1}-01`).day();
       const daysInMonth = dayjs(`${currentYear}-${currentMonth + 1}-01`).daysInMonth();
-
-      // Calculer les jours à afficher du mois précédent
       const prevMonthDays = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
 
-      // Générer le calendrier
       const calendar = [];
       for (let i = 0; i < prevMonthDays; i++) {
-        calendar.push({
-          date: null,
-          isOtherMonth: true,
-          isToday: false,
-        });
+        calendar.push({ date: null, isOtherMonth: true, isToday: false });
       }
-
       for (let day = 1; day <= daysInMonth; day++) {
         const date = dayjs(`${currentYear}-${currentMonth + 1}-${day}`);
         calendar.push({
@@ -162,25 +173,32 @@ const dashboardController = {
         });
       }
 
-      const categories = ["Salaire", "Virement", "Revenus Locatifs", "Abonnement", "Alimentation", "Achat"];
+      // Liste des catégories pour les revenus
+      const categories = [
+        "Salaire", "Virement", "Revenus Locatifs", "Revenus freelancing",
+        "Investissements", "Dividendes", "Bonus", "Primes",
+        "Remboursements", "Pensions", "Allocations", "Subventions",
+        "Gains de loterie", "Revente d'objets", "Gains d'entrepreneuriat",
+        "Héritage", "Autres revenus"
+      ];
 
+      // Rendre la vue
       res.render("dashboard/incomes", {
         user: req.session.user,
         revenus,
         totalRevenus,
+        soldeTotal,
         currentYear,
         currentMonth,
         months,
         calendar,
-        categories, // Ajouter les catégories ici
+        categories,
       });
-
     } catch (error) {
       console.error("Erreur lors de l'affichage des revenus :", error);
       res.status(500).render("error", { message: "Erreur interne lors de l'affichage des revenus." });
     }
   },
-
 
   // Ajouter un revenu
   addIncome: async (req, res) => {
@@ -189,27 +207,22 @@ const dashboardController = {
       const userId = req.session.user?.id;
 
       if (!userId) {
-        return res.status(401).render("error", { message: "Utilisateur non connecté." });
+        return res.status(401).json({ success: false, message: "Utilisateur non connecté." });
       }
 
-      if (!category || !amount || !date) {
-        return res.status(400).render("error", { message: "Tous les champs sont obligatoires." });
-      }
-
-      await Mouvement.create({
+      const income = await Mouvement.create({
         category,
         amount,
         date,
-        description: description || null,
+        description,
         transaction_type: 'credit',
         id_user: userId,
       });
 
-      req.session.successMessage = "Revenu ajouté avec succès !";
-      res.redirect("/dashboard/incomes");
+      res.json({ success: true, message: "Revenu ajouté avec succès." });
     } catch (error) {
       console.error("Erreur lors de l'ajout d'un revenu :", error);
-      res.status(500).render("error", { message: "Erreur interne lors de l'ajout d'un revenu." });
+      res.status(500).json({ success: false, message: "Erreur interne." });
     }
   },
 
@@ -220,31 +233,25 @@ const dashboardController = {
       const userId = req.session.user?.id;
 
       if (!userId) {
-        return res.status(401).render("error", { message: "Utilisateur non connecté." });
+        return res.status(401).json({ success: false, message: "Utilisateur non connecté." });
       }
 
-      if (!category || !amount || !date) {
-        return res.status(400).render("error", { message: "Tous les champs sont obligatoires." });
-      }
-
-      await Mouvement.create({
+      const expense = await Mouvement.create({
         category,
         amount,
         date,
-        description: description || null,
+        description,
         transaction_type: 'debit',
         id_user: userId,
       });
 
-      req.session.successMessage = "Dépense ajoutée avec succès !";
-      res.redirect("/dashboard/expenses");
+      res.json({ success: true, message: "Dépense ajoutée avec succès." });
     } catch (error) {
       console.error("Erreur lors de l'ajout d'une dépense :", error);
-      res.status(500).render("error", { message: "Erreur interne lors de l'ajout d'une dépense." });
+      res.status(500).json({ success: false, message: "Erreur interne." });
     }
   },
 };
 
+console.log("DashboardControllers chargé !");
 export default dashboardController;
-
-

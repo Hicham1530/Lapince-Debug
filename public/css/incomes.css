@@ -31,7 +31,10 @@
   font-size: 1.2rem; /* Taille de police légèrement agrandie */
   cursor: pointer; /* Curseur en pointeur */
   transition: all 0.3s ease; /* Ajoute une transition fluide au survol */
+  margin: 7px 0; /* Ajoute un espacement vertical */
 }
+
+
 
 /* Applique des effets au survol des catégories */
 .expenses-category-items:hover {
@@ -119,6 +122,129 @@
 .dropdown-menu.show {
   display: flex; /* Affiche le menu */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================
+   Section d'enregistrement des opérations
+============================= */
+.operation-item {
+  display: flex;
+  justify-content: space-between; /* Positionne les détails à gauche et le bouton à droite */
+  align-items: center; /* Aligne verticalement */
+  padding: 10px;
+  margin-bottom: 10px; /* Espace entre chaque opération */
+  background-color: #f9f9f9; /* Couleur de fond légère */
+  border: 1px solid #ddd; /* Bordure subtile */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.operation-item .operation-details {
+  flex-grow: 1; /* Occupe tout l'espace disponible à gauche */
+}
+.operation-item p {
+  margin: 5px 0; /* Espace entre les lignes */
+}
+.operation-item span {
+  white-space: nowrap; /* Empêche les retours à la ligne */
+  overflow: hidden; /* Cache le texte qui dépasse */
+  text-overflow: ellipsis; /* Ajoute des points de suspension si le texte dépasse */
+}
+.operations-section h3 {
+  font-size: 1.8rem; /* Taille du titre */
+  color: #05204A; /* Couleur principale */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ============================
+   Liste des opérations
+============================= */
+#operations-list {
+  display: flex;
+  flex-direction: column; /* Les opérations s'empilent verticalement */
+  gap: 20px; /* Espacement entre chaque opération */
+}
+
+.operation {
+  padding: 15px;
+  background-color: #fff; /* Fond blanc pour chaque opération */
+  border: 1px solid #ddd; /* Bordure légère */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.operation p {
+  margin: 5px 0; /* Espacement entre les paragraphes */
+  font-size: 1rem;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
+
+.operations-section {
+  max-height: 200px; /* Limite la hauteur de la section */
+  overflow-y: auto; /* Ajoute une barre de défilement verticale */
+  position: absolute; /* Permet de fixer la section */
+  top: 20%; /* Ajuste la position verticale */
+  left: 5%; /* Ajuste la position horizontale */
+  right: 5%; /* Ajuste la position horizontale */
+  background: white; /* Couleur de fond pour visibilité */
+  border: 1px solid #ccc; /* Bordure légère */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 10px; /* Espace interne */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+
+
+#operations-list {
+  max-height: 300px; /* Hauteur maximale pour la liste */
+  /*overflow-y: auto;  Barre de défilement verticale */
+  padding-right: 10px; /* Espace à droite pour la barre de défilement */
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -340,14 +466,14 @@
 @media (min-width: 1025px) {
   .expenses-categories {
     position: fixed;
-    top: 61px;
-    left: -30%;
+    top: -103px;
+    left: -51%;
     width: 236px;
     padding: 7px;
-    gap: 10px;
+    gap: 14px;
     overflow-y: hidden;
     border-right: 4px solid #f29c38;
-    bottom: 51px;
+    bottom: -45px;
     background-color: white;
 }
 
@@ -375,11 +501,11 @@
     border: 1px solid #f29c38;
     border-radius: 8px;
     padding: 15px;
-    width: 500px;
+    width: 266px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
-    top: 7px;
-    left: 38px;
+    top: 10px;
+    left: -34px;
     transform: none;
     z-index: auto;
 
