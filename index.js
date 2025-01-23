@@ -10,10 +10,12 @@ import userController from "./app/controllers/userController.js";
 import session from "express-session"; // Importation du module express-session pour gérer les sessions
 import validator from "validator";  // Importation du module validator pour valider les données
 
+dotenv.config();
 
 
 
-
+// On créé l'application express
+const app = express();
 
 // Importation des contrôleurs pour les tests : 
 import {
@@ -26,13 +28,10 @@ import {
 
 
 // Rends disponible la variable process.env.PORT, parce qu'on a dans le .env une chaine de caractère PORT=3000
-dotenv.config();
+
 
 // Definition du port (soit celui du .env soit 3000)
 const port = process.env.PORT || 3000;
-
-// On créé l'application express
-const app = express();
 
 
 

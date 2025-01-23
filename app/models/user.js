@@ -63,6 +63,14 @@ const User = sequelize.define("users", { // On définit le modèle user avec la 
         allowNull: true,            // On précise que l'attribut currency ne peut pas être nul (obligatoire).
                   
     },
+    resetPasswordToken: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      resetPasswordExpires: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
   }, { 
     tableName: "users" , // On précise le nom de la table (users) dans la base de données
     timestamps: false, // On désactive createdAT et updatedAt dans la table users pour ne pas avoir de colonnes supplémentaires dans la table users
