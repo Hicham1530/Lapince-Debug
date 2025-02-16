@@ -1,12 +1,9 @@
 import validator from 'validator'; // Pour valider les données des utilisateurs
 import bcrypt from 'bcrypt'; // Pour chiffrer les mots de passe
 import User from '../models/user.js'; // Importer le modèle User
-import alert from '../models/alert.js'; // Modèle pour la table 'alerte'
-import nodemailer from 'nodemailer'; // Pour envoyer des emails
 import crypto from "crypto"; // Pour générer des tokens
 import { sendEmail } from "../../utils/mailer.js"; // Importer la fonction sendEmail
 import { Op } from 'sequelize';
-import jwt from "jsonwebtoken";
 
 const authController = {
   // Pages existantes
@@ -14,19 +11,40 @@ const authController = {
     res.render("auth/signup", { title: "Inscription" });
   },
   login: (req, res) => {
-    res.render("auth/login", { title: "Connexion" });
+    res.render("auth/login", {
+      title: "Connexion",
+      successMessage: req.session.successMessage || null, // Passe le message de succès
+      errorMessage: req.session.errors || null, // Passe les erreurs
+    });
+  
+    // Réinitialise les messages après affichage
+    req.session.successMessage = null;
+    req.session.errors = null;
   },
   resetPassword: (req, res) => {
-    const token = req.params.token || null; // Récupère le token depuis les paramètres ou null si absent
-    res.render("auth/reset-password", {
+    const token = req.params.token || null;
+    res.render("auth/forgot-password", {
       title: "Réinitialisation du mot de passe",
-      testVar: "Variable test", // Ajoutez testVar ici
-      error: req.session.errors || null, // Passe une erreur s'il y en a
-      token, // Passe le token s'il est défini, sinon null
+      errorMessage: req.session.errors || null,
+      successMessage: req.session.successMessage || null,
     });
+    req.session.errors = null;
+    req.session.successMessage = null;
   },
   forgotPassword: (req, res) => {
-    res.render("auth/forgot-password", { title: "Réinitialisation du mot de passe" });
+    // Assure que le message d'erreur ou de succès n'est défini que s'il existe déjà dans la session
+    const errorMessage = req.session.errors || null;
+    const successMessage = req.session.successMessage || null;
+  
+    res.render("auth/forgot-password", {
+      title: "Réinitialisation du mot de passe",
+      errorMessage, // Passe l'erreur uniquement si elle existe
+      successMessage, // Passe le succès uniquement si défini
+    });
+  
+    // Réinitialise les messages après affichage
+    req.session.errors = null;
+    req.session.successMessage = null;
   },
 
   // Afficher le formulaire de connexion
@@ -34,9 +52,6 @@ const authController = {
     res.render('login'); // Une vue simple pour tester
   },
 
-
-
-  
   
   // Afficher le formulaire d'inscription ----------------------------------------------
   signupUser: async (req, res) => {
@@ -169,27 +184,28 @@ const authController = {
  const forgotPassword = async (req, res) => {
   console.log("Accès à la page /auth/forgot-password");
   console.log("Session actuelle :", req.session);
-  
+
   const { email } = req.body;
 
-if (!email) {
-  req.session.errors = "Veuillez fournir un email.";
-  return res.render("auth/forgot-password", { 
-    title: "Réinitialisation du mot de passe",
-    error: req.session.errors, // Affiche l'erreur sur la page
-  });
-  
-}
+  if (!email) {
+    req.session.errors = "Veuillez fournir un email valide.";
+    return res.render("auth/forgot-password", {
+      title: "Réinitialisation du mot de passe",
+      errorMessage: req.session.errors,
+      successMessage: null,
+    });
+  }
+
   try {
     const user = await User.findOne({ where: { email } });
     if (!user) {
       req.session.errors = "Aucun utilisateur trouvé avec cet email.";
       return res.render("auth/forgot-password", {
         title: "Réinitialisation du mot de passe",
-        error: req.session.errors, // Affiche l'erreur sur la page
+        errorMessage: req.session.errors,
+        successMessage: null,
       });
     }
-
 
     // Générer un token unique
     const token = crypto.randomBytes(32).toString("hex");
@@ -207,45 +223,49 @@ if (!email) {
       html: `<p>Cliquez ici pour réinitialiser votre mot de passe : <a href="${resetLink}">${resetLink}</a></p>`,
     });
 
-    req.session.successMessage = "Email envoyé pour réinitialisation.";
-    res.redirect("/auth/login");
+    req.session.successMessage = "Un email de réinitialisation a été envoyé. Veuillez vérifier votre boîte mail.";
+    res.render("auth/forgot-password", {
+      title: "Réinitialisation du mot de passe",
+      errorMessage: null,
+      successMessage: req.session.successMessage, // Passe le message de succès à la vue
+    });
   } catch (error) {
     console.error("Erreur dans forgotPassword :", error);
     res.status(500).render("error", { message: "Erreur lors de la demande de réinitialisation." });
   }
 };
+
+
    // Affichage de la page de réinitialisation
    const resetPasswordPage = async (req, res) => {
     const { token } = req.params;
-    console.log("Accès à la page de réinitialisation avec token :", token);
   
     try {
       const user = await User.findOne({
         where: {
           resetPasswordToken: token,
-          resetPasswordExpires: { [Op.gt]: Date.now() }, // Vérifie si le token est valide
+          resetPasswordExpires: { [Op.gt]: Date.now() },
         },
       });
-    
+  
       if (!user) {
         req.session.errors = "Lien invalide ou expiré.";
-        console.log("Réinitialisation échouée : Lien invalide ou expiré");
         return res.redirect("/auth/forgot-password");
       }
-    
-      console.log("Utilisateur trouvé pour réinitialisation :", user.email);
-    
-    // Afficher la page avec le formulaire de réinitialisation
-    res.render("auth/reset-password", {
-      title: "Réinitialisation du mot de passe",
-      token, // Passe le token à la vue
-      error: null, // Pas d'erreur initialement
-    });
-  } catch (error) {
-    console.error("Erreur dans resetPasswordPage :", error);
-    res.status(500).render("error", { message: "Erreur lors de la vérification du lien." });
-  }
-};
+  
+      res.render("auth/reset-password", {
+        title: "Réinitialisation du mot de passe",
+        token,
+        errorMessage: req.session.errors || null, // Affiche un message d'erreur s'il existe
+        successMessage: req.session.successMessage || null, // Affiche un message de succès
+      });
+      req.session.errors = null; // Réinitialiser après affichage
+      req.session.successMessage = null;
+    } catch (error) {
+      console.error("Erreur dans resetPasswordPage :", error);
+      res.status(500).render("error", { message: "Erreur lors de la vérification du lien." });
+    }
+  };
 
 
 
@@ -255,34 +275,61 @@ const resetPasswordAction = async (req, res) => {
   const { token } = req.params;
   const { password, confirmPassword } = req.body;
 
-  // Vérification des mots de passe
+  // Vérification des champs
   if (!password || !confirmPassword) {
-    req.session.errors = "Les champs de mot de passe sont obligatoires.";
-    return res.redirect(`/auth/reset-password/${token}`);
+    return res.render("auth/reset-password", {
+      title: "Réinitialisation du mot de passe",
+      token,
+      errorMessage: "Les champs de mot de passe sont obligatoires.",
+    });
   }
+
   if (password !== confirmPassword) {
-    req.session.errors = "Les mots de passe ne correspondent pas.";
-    return res.redirect(`/auth/reset-password/${token}`);
+    return res.render("auth/reset-password", {
+      title: "Réinitialisation du mot de passe",
+      token,
+      errorMessage: "Les mots de passe ne correspondent pas.",
+    });
+  }
+
+  // Vérification des règles de sécurité du mot de passe
+  if (!validator.isStrongPassword(password, {
+    minLength: 12,
+    minLowercase: 1,
+    minUppercase: 1,
+    minNumbers: 1,
+    minSymbols: 1, // Force au moins un symbole
+  })) {
+    console.log("Mot de passe non valide :", password); // Debug
+    return res.render("auth/reset-password", {
+      title: "Réinitialisation du mot de passe",
+      token,
+      errorMessage: "Le mot de passe doit contenir au moins 8 caractères, avec des lettres majuscules, minuscules, des chiffres et des symboles.",
+    });
   }
 
   try {
     const user = await User.findOne({
       where: {
         resetPasswordToken: token,
-        resetPasswordExpires: { [Op.gt]: Date.now() }, // Vérifie si le token est encore valide
+        resetPasswordExpires: { [Op.gt]: Date.now() },
       },
     });
 
     if (!user) {
-      req.session.errors = "Lien invalide ou expiré.";
-      return res.redirect("/auth/forgot-password");
+      return res.render("auth/forgot-password", {
+        title: "Réinitialisation du mot de passe",
+        errorMessage: "Lien invalide ou expiré.",
+      });
     }
-    // Mise à jour du mot de passe et suppression du token
-    user.password = await bcrypt.hash(password, 10); // Hash le nouveau mot de passe
+
+    // Mise à jour du mot de passe
+    user.password = await bcrypt.hash(password, 10);
     user.resetPasswordToken = null;
     user.resetPasswordExpires = null;
     await user.save();
 
+   
     req.session.successMessage = "Mot de passe réinitialisé avec succès.";
     res.redirect("/auth/login");
   } catch (error) {
@@ -296,37 +343,43 @@ const resetPasswordRequest = async (req, res) => {
 
   try {
     const user = await User.findOne({ where: { email } });
+
     if (!user) {
       req.session.errors = "Aucun utilisateur trouvé avec cet email.";
-      return res.redirect("/auth/reset-password");
+      return res.redirect("/auth/forgot-password");
     }
 
+    // Invalider les anciens tokens
+    user.resetPasswordToken = null;
+    user.resetPasswordExpires = null;
+
+    // Générer un nouveau token
     const token = crypto.randomBytes(32).toString("hex");
     user.resetPasswordToken = token;
     user.resetPasswordExpires = Date.now() + 3600000; // 1 heure
     await user.save();
 
     const resetLink = `http://localhost:3000/auth/reset-password/${token}`;
-
     await sendEmail({
       to: user.email,
-      subject: "Réinitialisation de mot de passe",
-      html: `<p>Cliquez sur ce lien pour réinitialiser votre mot de passe : <a href="${resetLink}">${resetLink}</a></p>`,
+      subject: "Réinitialisation de votre mot de passe",
+      html: `<p>Cliquez ici pour réinitialiser votre mot de passe : <a href="${resetLink}">${resetLink}</a></p>`,
     });
 
-    req.session.successMessage = "Un email de réinitialisation a été envoyé.";
+    // Ajouter un message de succès dans la session
+    req.session.successMessage = "Un email de réinitialisation a été envoyé. Veuillez vérifier votre boîte mail.";
     res.redirect("/auth/login");
   } catch (error) {
     console.error("Erreur dans resetPasswordRequest :", error);
     req.session.errors = "Une erreur est survenue. Veuillez réessayer.";
-    res.redirect("/auth/reset-password");
+    res.redirect("/auth/forgot-password");
   }
 };
 
 
 
-
 export default { ...authController, resetPasswordAction, resetPasswordPage, forgotPassword, resetPasswordRequest  };
+
 
 
 

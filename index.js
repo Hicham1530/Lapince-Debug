@@ -2,39 +2,19 @@ import express from "express";// import session from "express-session";
 import * as dotenv from "dotenv"; // On importe dotenv pour pouvoir lire le fichier.env
 import router from "./app/router.js"; // On importe notre router créé et paramétré dans le fichier router.js
 import  sequelize  from "./config/database.js"; // On importe l'instance de sequelize créée dans le fichier database.js
-import User from "./app/models/user.js";
-import Budget from "./app/models/budget.js";
-import Mouvement from "./app/models/mouvement.js";
-import Alerte from "./app/models/alert.js";
-import userController from "./app/controllers/userController.js";
 import session from "express-session"; // Importation du module express-session pour gérer les sessions
-import validator from "validator";  // Importation du module validator pour valider les données
 
 dotenv.config();
-
-
 
 // On créé l'application express
 const app = express();
 
 // Importation des contrôleurs pour les tests : 
-import {
-  createTestUser,
-  getUserByEmail,
-  updateUser,
-  deleteUser,
-} from "./app/controllers/userController.js";
-
-
+import {createTestUser,getUserByEmail,updateUser,deleteUser,} from "./app/controllers/userController.js";
 
 // Rends disponible la variable process.env.PORT, parce qu'on a dans le .env une chaine de caractère PORT=3000
-
-
 // Definition du port (soit celui du .env soit 3000)
 const port = process.env.PORT || 3000;
-
-
-
 
 // Configuration de la session
 app.use(session({
@@ -54,23 +34,16 @@ app.get('/test-session', (req, res) => {
   }
 });
 
+app.set("view engine", "ejs");// configurer le moteur de template
+app.set("views", "./app/views");// chemin vers le dossier des views
+console.log("Chemin configuré pour les vues : ", app.get("views"));// Ajoute le console.log ici pour afficher le chemin configuré
 
-// configurer le moteur de template
-app.set("view engine", "ejs");
-
-// chemin vers le dossier des views
-app.set("views", "./app/views");
-// Ajoute le console.log ici pour afficher le chemin configuré
-console.log("Chemin configuré pour les vues : ", app.get("views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// On dit à express de rendre disponible tout les fichiers du dossier public, par exemple dans notre cas via une url type : localhost:3000/css/style.css
-app.use(express.static('public'));
+app.use(express.static('public'));// On dit à express de rendre disponible tout les fichiers du dossier public, par exemple dans notre cas via une url type : localhost:3000/css/style.css
 
 // sinon on peut faire comme ça
-
  import path from "path"; // On importe le module path de Node.js
 const __dirname = path.resolve(); // Obtient le répertoire racine du  projet (le dossier où se trouve le fichier index.js) en utilisant la méthode resolve() du module path  de Node.js
 app.use(express.static(path.join(__dirname, 'public')));

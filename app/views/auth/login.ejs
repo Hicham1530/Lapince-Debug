@@ -2,6 +2,17 @@
 
 <main class="global-container">  <!-- Conteneur global de la page -->
 <section class="box-border">
+  <% if (errorMessage) { %>
+    <div class="error-message flash-message">
+      <p><%= errorMessage %></p>
+    </div>
+  <% } %>
+  
+  <% if (successMessage) { %>
+    <div class="success-message flash-message">
+      <p><%= successMessage %></p>
+    </div>
+  <% } %>
   <form action="/auth/login" method="POST" class="login-form-container">
   <h1 class="login-form-title"> Connexion</h1>
 
@@ -57,3 +68,14 @@
 </main>
 
 <%- include('../partials/footer') %> <!-- Inclut le fichier footer dans cette page -->
+<script>
+  // Masque les messages flash après 5 secondes
+  setTimeout(() => {
+    const flashMessages = document.querySelectorAll('.flash-message');
+    flashMessages.forEach(message => {
+      message.style.transition = "opacity 0.5s";
+      message.style.opacity = 0;
+      setTimeout(() => message.remove(), 500); // Supprime l'élément après la transition
+    });
+  }, 1000); // 1 secondes
+</script>

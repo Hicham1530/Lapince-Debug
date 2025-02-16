@@ -78,3 +78,5 @@ const User = sequelize.define("users", { // On définit le modèle user avec la 
 
 
     export default User; // On exporte le modèle user pour pouvoir l'utiliser dans les autres fichiers de notre projet.
+
+
