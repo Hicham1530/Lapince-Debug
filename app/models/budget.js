@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/database.js";
+import sequelize from "../../config/database.js";
 import User from "./user.js"; // Importez le modèle `User`
 
 const Budget = sequelize.define("Budget", {

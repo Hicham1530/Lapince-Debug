@@ -1,7 +1,8 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/database.js";
+import sequelize from "../../config/database.js";
 import User from "./user.js"; // Importez le modèle `User`
 import Budget from "./budget.js";
+import DashboardController from "../controllers/dashboardControllers.js";
 
 
 

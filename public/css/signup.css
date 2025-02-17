@@ -190,7 +190,7 @@ border: 2px solid #f29c38; /* Garde la bordure orange */
 @media (min-width: 993px) {
   .signup-form-container {
     max-width: 800px; /* Limite la largeur à 600px pour desktop */
-    margin-top: 7rem; /* Ajuste l'espace vertical */
+    margin-top: 2rem; /* Ajuste l'espace vertical */
   }
 
   .signup-form-title {

@@ -1,0 +1,230 @@
+<%- include('../partials/header-dash') %>
+
+<main class="dashboard-container" aria-labelledby="dashboard-title">
+
+  <!-- Barre latérale -->
+  <aside class="dashboard-sidebar" role="navigation" aria-label="Menu principal">
+    <nav class="sidebar-menu">
+      <a href="/dashboard/overview" class="sidebar-link">Compte</a>
+      <a href="/dashboard/incomes" class="sidebar-link">Revenus</a>
+      <a href="/profile/profile" class="sidebar-link">Profil</a>
+    </nav>
+    <a href="/" class="sidebar-link logout">Déconnexion</a>
+  </aside>
+
+  <!-- Conteneur principal -->
+  <div class="centered-container">
+
+    <!-- Titre principal -->
+    <h1>Gestion des revenus</h1>
+
+    <!-- Affichage du total des revenus -->
+    <h2 id="total-incomes">Total des revenus : € <%= totalRevenus.toFixed(2) %></h2>
+
+    <!-- Étape 1 : Choisir une catégorie -->
+    <section class="expenses-categories">
+      <h3>Choisissez une catégorie :</h3>
+      <div>
+        <% categories.forEach(category => { %>
+          <div class="expenses-category-items">
+            <button class="category-button"><%= category %></button>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+
+    <!-- Étape 2 : Sélectionner une date -->
+    <div class="expenses-calendares-container">
+      <div class="expenses-calendar-header">
+        <select class="expenses-calendares-select" id="year-select">
+          <% for (let year = 2022; year <= 2027; year++) { %>
+            <option value="<%= year %>" <%= year === currentYear ? 'selected' : '' %>><%= year %></option>
+          <% } %>
+        </select>
+
+        <select class="expenses-calendares-select" id="month-select">
+          <% months.forEach((month, index) => { %>
+            <option value="<%= index + 1 %>" <%= index + 1 === currentMonth ? 'selected' : '' %>><%= month %></option>
+          <% }); %>
+        </select>
+      </div>
+
+      <div class="expenses-calendar-weekdays">
+        <span>Lun</span>
+        <span>Mar</span>
+        <span>Mer</span>
+        <span>Jeu</span>
+        <span>Ven</span>
+        <span>Sam</span>
+        <span>Dim</span>
+      </div>
+
+      <div class="expenses-calendar-grid">
+        <% calendar.forEach(day => { %>
+          <button 
+            class="expenses-calendar-day <%= day.isOtherMonth ? 'other-month' : '' %> <%= day.isToday ? 'today' : '' %>" 
+            data-date="<%= day.date || '' %>">
+            <%= day.date ? day.date.split('-')[2] : '' %>
+          </button>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- Étape 3 : Ajouter une dépense -->
+
+    <!-- Formulaire pour ajouter un revenu -->
+    <section class="expenses-form">
+      <h3>Ajoutez un revenu :</h3>
+      <form id="income-form" action="/dashboard/incomes/add" method="POST">
+        <label for="selected-category">Catégorie :</label>
+        <input type="text" name="category" id="selected-category" />
+      
+        <label for="selected-date">Date :</label>
+        <input type="text" name="date" id="selected-date" />
+      
+        <label for="description">Description :</label>
+        <input type="text" name="description" id="description" />
+      
+        <label for="amount">Montant (€) :</label>
+        <input type="number" name="amount" id="amount" min="0" step="0.01" required />
+      
+        <button type="submit">Enregistrer</button>
+      </form>
+    </section>
+    <!-- Étape 4 : Ajouter la section des historique des operations  -->
+    <section class="operations-section">
+      <h3>Historique des opérations</h3>
+      <div id="income-list">
+        <!-- Les opérations ajoutées seront affichées ici -->
+      </div>
+    </section>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
+
+<script>
+  // Interaction pour sélectionner une catégorie
+  document.querySelectorAll('.category-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedCategory = button.textContent;
+      document.getElementById('selected-category').value = selectedCategory;
+      console.log(`Catégorie choisie : ${selectedCategory}`);
+    });
+  });
+
+  // Interaction pour sélectionner une date
+document.querySelectorAll('.expenses-calendar-day').forEach(day => {
+  day.addEventListener('click', () => {
+    const year = document.getElementById("year-select").value;
+    const month = document.getElementById("month-select").value.padStart(2, '0').trim(); // Ajout de trim()
+    const dayValue = day.textContent.padStart(2, '0').trim(); // Ajout de trim()
+    const selectedDate = `${year}-${month}-${dayValue}`;
+
+    document.getElementById("selected-date").value = selectedDate;
+    alert(`Date choisie : ${selectedDate}`);
+  });
+});
+// Récupérer les éléments nécessaires
+const form = document.getElementById("income-form");
+const operationsList = document.getElementById("income-list");
+const totalElement = document.getElementById("total-incomes"); // Identifier correct pour les revenus
+
+/**
+/**
+ * Met à jour le total des montants affichés dans la liste des opérations.
+ * @param {string} type - Le type d'opérations, soit 'incomes' (revenus).
+ */
+ function updateTotal(type) {
+  let total = 0;
+
+  // Sélectionner les montants des opérations affichées
+  document.querySelectorAll(`#income-list .operation-item .amount`).forEach((amountElement) => {
+    const amountText = amountElement.textContent.replace("€", "").trim();
+    const amount = parseFloat(amountText);
+    if (!isNaN(amount)) {
+      total += amount;
+    }
+  });
+
+  const totalElement = document.getElementById(`total-${type}`);
+  if (totalElement) {
+    totalElement.textContent = `Total des revenus : € ${total.toFixed(2)}`;
+  } else {
+    console.error(`Élément #total-${type} introuvable dans le DOM.`);
+  }
+}
+
+/**
+ * Ajoute une nouvelle opération à la liste.
+ * @param {string} category - La catégorie de l'opération.
+ * @param {string} date - La date de l'opération.
+ * @param {string} description - La description de l'opération.
+ * @param {number|string} amount - Le montant de l'opération.
+ */
+ function addOperation(category, date, description, amount) {
+  const operationItem = document.createElement("div");
+  operationItem.classList.add("operation-item");
+
+  operationItem.innerHTML = `
+    <p><strong>Catégorie :</strong> ${category}</p>
+    <p><strong>Date :</strong> ${date}</p>
+    <p><strong>Description :</strong> ${description}</p>
+    <p class="amount">€${parseFloat(amount).toFixed(2)}</p>
+    <button class="delete-button">Supprimer</button>
+  `;
+
+  // Ajouter l'opération à la liste
+  operationsList.appendChild(operationItem);
+
+  // Ajouter un événement de suppression
+  operationItem.querySelector(".delete-button").addEventListener("click", function () {
+    operationItem.remove(); // Supprimer l'élément
+    updateTotal("incomes"); // Recalculer le total après suppression
+  });
+
+  // Mettre à jour le total après ajout
+  updateTotal("incomes");
+}
+
+// Gestion de l'événement de soumission du formulaire
+form.addEventListener("submit", function (e) {
+  e.preventDefault(); // Empêche le rechargement de la page
+
+  const category = document.getElementById("selected-category").value.trim();
+  const date = document.getElementById("selected-date").value.trim();
+  const description = document.getElementById("description").value.trim();
+  const amount = document.getElementById("amount").value.trim();
+
+  // LOG : Afficher les données récupérées
+  console.log("Données du formulaire avant envoi :", { category, date, description, amount });
+
+  if (!category || !date || !description || !amount) {
+    alert("Veuillez remplir tous les champs !");
+    return;
+  }
+
+  // Créer l'objet à envoyer
+  const data = { category, date, description, amount };
+
+  // Envoyer les données au backend via fetch
+  fetch("/dashboard/incomes/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Réponse du serveur :", data);
+      if (data.success) {
+        alert("Revenu ajouté avec succès !");
+        addOperation(category, date, description, amount); // Ajouter à l'interface
+      } else {
+        alert("Erreur lors de l'ajout du revenu.");
+      }
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la requête :", error);
+    });
+});
+</script>

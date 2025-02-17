@@ -155,9 +155,11 @@ header {
 ============================= */
 /* Style pour l'affichage du profil utilisateur */
 .profile-balance {
-  width: 80%; /* Largeur relative */
-  font-size: 1.2rem; /* Taille du texte */
-  margin-right: 154px;
+  width: 55%;/*  Largeur relative */
+  font-size: 1.4rem; /* Taille du texte */
+  /* margin-right: 79px; */
+  color: #05204a; /* Couleur du texte */
+
 }
 /* ============================
    Conteneur principal (dashboard)
@@ -172,25 +174,39 @@ header {
   position: relative; /* Nécessaire pour un positionnement précis */
 }
 
+
+
+
+
+
+
+
+.progress-circle {
+  --progress: 0%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #0fdb72 var(--progress),
+    #c92233  var(--progress)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.progress-inner {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
 /* ============================
    Cercle de progression
 ============================= */
-.progress-circle {
-  width: 150px;
-  height: 150px;
-  border: 10px solid #f29c38; /* Bordure orange */
-  border-radius: 50%; /* Cercle parfait */
-  display: flex; /* Utilise Flexbox pour centrer le contenu */
-  justify-content: center; /* Centre horizontalement */
-  align-items: center; /* Centre verticalement */
-  font-size: 1.5rem; /* Taille de la police */
-  font-weight: bold; /* Texte en gras */
-  color: #05204a; /* Couleur du texte */
-  position: absolute; /* Permet un placement précis */
-  top: 40%; /* Position verticale */
-  left: 55%; /* Position horizontale */
-  transform: translate(-50%, -50%); /* Centre le cercle précisément */
-}
+
 
 /* ============================
    Texte de bienvenue
@@ -205,6 +221,54 @@ header {
   transform: translate(-50%, -50%); /* Centre le texte précisément */
   margin: 0; /* Supprime les marges inutiles */
 }
+
+
+
+
+
+
+/* Styles pour le message de succès */
+.alert-success {
+  position: fixed;
+  bottom: 256px;
+  left: 55%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  z-index: 1000;
+}
+.alert-success.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -385,9 +449,6 @@ header {
     z-index: 10;
   }
 
-
-
-
   .profile-balance,
   .total-balance {
     position: initial; /* Permet de les positionner précisément */
@@ -407,11 +468,12 @@ header {
 ============================= */
 @media (min-width: 993px) {
   .progress-circle {
-    width: 150px; /* Taille normale pour le cercle */
-    height: 150px; /* Taille normale pour le cercle */
-    font-size: 1.5rem; /* Taille normale pour le texte */
-    top: 40%; /* Position par défaut */
-    left: 55%; /* Position par défaut */
+    width: 250px;
+    height: 250px;
+    font-size: 1.5rem;
+    bottom: 18%;
+    left: 6%;
+    position: relative;
   }
 
   .welcome-text {

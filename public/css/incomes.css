@@ -1,0 +1,761 @@
+/* ============================
+   Conteneur des catégories
+   ============================ */
+
+/* Définit le style et la position des catégories dans la barre latérale */
+.expenses-categories {
+  position: fixed; /* Fixé sur le côté gauche */
+  left: 11%; /* Place à droite de la barre latérale */
+  top: 58px; /* Ajuste par rapport au header */
+  width: 250px; /* Largeur standard */
+  bottom: 51px; /* Ajuste par rapport au bas */
+  padding: 20px; /* Espacement interne */
+  display: flex;
+  flex-direction: column; /* Catégories en colonne */
+  gap: 18px;
+  overflow-y: hidden; /* Ajoute un défilement si nécessaire */
+  border-right: 4px solid #f29c38; /* Ligne séparatrice */
+}
+
+/* Style au survol des sélecteurs dans le calendrier */
+.expenses-calendares-select:hover {
+  border-color: #d67d34; /* Change la couleur de bordure au survol */
+}
+
+/* Style des éléments individuels de catégorie */
+.expenses-category-items {
+  padding: 8px 10px; /* Ajoute un espacement interne */
+  background-color: white; /* Définit un fond blanc */
+  border: 1px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 1.2rem; /* Taille de police légèrement agrandie */
+  cursor: pointer; /* Curseur en pointeur */
+  transition: all 0.3s ease; /* Ajoute une transition fluide au survol */
+  margin: 7px 0; /* Ajoute un espacement vertical */
+}
+
+
+
+/* Applique des effets au survol des catégories */
+.expenses-category-items:hover {
+  background-color: #f29c38; /* Fond orange au survol */
+  color: white; /* Texte blanc au survol */
+}
+
+/* Ajustement du contenu principal pour éviter de chevaucher les catégories */
+.expenses-main-content {
+  margin-left: 250px; /* Décale le contenu principal à droite des catégories */
+  padding-left: 20px; /* Ajoute un espacement interne à gauche */
+}
+
+
+.category{
+  
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f29c38;
+    color: white;
+    border-radius: 5px;
+    margin-left: 80px;
+ 
+  
+}
+
+
+
+
+
+
+
+
+/* Conteneur principal */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Bouton du dropdown */
+.dropdown-btn {
+  background-color: #f29c38;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Menu déroulant caché par défaut */
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  top: 150%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #f29c38;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  min-width: 87px;
+  padding: 10px;
+}
+
+/* Items du menu déroulant */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #05204a;
+  font-size: 1rem;
+}
+
+/* Style des items au survol */
+.dropdown-item:hover {
+  background-color: #f29c38;
+  color: white;
+}
+
+/* Menu visible */
+.dropdown-menu.show {
+  display: flex; /* Affiche le menu */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================
+   Section d'enregistrement des opérations
+============================= */
+.operation-item {
+  display: flex;
+  justify-content: space-between; /* Positionne les détails à gauche et le bouton à droite */
+  align-items: center; /* Aligne verticalement */
+  padding: 10px;
+  margin-bottom: 10px; /* Espace entre chaque opération */
+  background-color: #f9f9f9; /* Couleur de fond légère */
+  border: 1px solid #ddd; /* Bordure subtile */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.operation-item .operation-details {
+  flex-grow: 1; /* Occupe tout l'espace disponible à gauche */
+}
+.operation-item p {
+  margin: 5px 0; /* Espace entre les lignes */
+}
+.operation-item span {
+  white-space: nowrap; /* Empêche les retours à la ligne */
+  overflow: hidden; /* Cache le texte qui dépasse */
+  text-overflow: ellipsis; /* Ajoute des points de suspension si le texte dépasse */
+}
+.operations-section h3 {
+  font-size: 1.8rem; /* Taille du titre */
+  color: #05204A; /* Couleur principale */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ============================
+   Liste des opérations
+============================= */
+#operations-list {
+  display: flex;
+  flex-direction: column; /* Les opérations s'empilent verticalement */
+  gap: 20px; /* Espacement entre chaque opération */
+}
+
+.operation {
+  padding: 15px;
+  background-color: #fff; /* Fond blanc pour chaque opération */
+  border: 1px solid #ddd; /* Bordure légère */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.operation p {
+  margin: 5px 0; /* Espacement entre les paragraphes */
+  font-size: 1rem;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
+
+.operations-section {
+  max-height: 200px; /* Limite la hauteur de la section */
+  overflow-y: auto; /* Ajoute une barre de défilement verticale */
+  position: absolute; /* Permet de fixer la section */
+  top: 20%; /* Ajuste la position verticale */
+  left: 5%; /* Ajuste la position horizontale */
+  right: 5%; /* Ajuste la position horizontale */
+  background: white; /* Couleur de fond pour visibilité */
+  border: 1px solid #ccc; /* Bordure légère */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 10px; /* Espace interne */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+
+
+#operations-list {
+  max-height: 300px; /* Hauteur maximale pour la liste */
+  /*overflow-y: auto;  Barre de défilement verticale */
+  padding-right: 10px; /* Espace à droite pour la barre de défilement */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================
+   Conteneur du calendrier
+   ============================ */
+
+/* Définit le style général du calendrier */
+.expenses-calendares-container {
+  background-color: white; /* Fond blanc du calendrier */
+  border: 1px solid #f29c38; /* Bordure orange */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px; /* Ajoute de l'espace interne */
+  width: 100%; /* Largeur fixe */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+  position: relative; /* Position relative pour des ajustements internes */
+  bottom: 5px; /* Réinitialise la position verticale */
+  left: auto; /* Réinitialise la position horizontale */
+  transform: none; /* Supprime les transformations */
+  z-index: auto; /* Ordre d'empilement par défaut */
+  max-width: 600px; /* Largeur maximale */
+  margin-top: 20px; /* Ajoute un espace entre l'icône et le calendrier */
+  
+}
+
+/* En-tête du calendrier (sélecteurs de mois et d'année) */
+.expenses-calendar-header {
+  display: flex; /* Place les sélecteurs en ligne */
+  justify-content: space-between; /* Ajoute de l'espace entre les sélecteurs */
+  margin-bottom: 15px; /* Espace sous l'en-tête */
+  gap: 15px; /* Ajoute de l'espace entre les sélecteurs */
+  padding: 5px; /* Ajoute un espacement interne */
+}
+
+/* Style des sélecteurs de mois et d'année */
+.expenses-calendares-select {
+  padding: 8px 15px; /* Ajoute de l'espace interne */
+  border: 1px solid #f29c38; /* Bordure orange */
+  border-radius: 4px; /* Coins arrondis */
+  background-color: white; /* Fond blanc */
+  color: #333; /* Texte gris foncé */
+  cursor: pointer; /* Curseur en pointeur */
+  flex: 1; /* Permet au sélecteur de s'étirer si nécessaire */
+  font-size: 1rem; /* Taille standard */
+  width: 120px; /* Largeur fixe */
+  height: 40px; /* Hauteur fixe */
+}
+
+/* ============================
+   Grille des jours du calendrier
+   ============================ */
+
+/* Style des jours de la semaine */
+.expenses-calendar-weekdays {
+  display: grid; /* Affiche les jours sous forme de grille */
+  grid-template-columns: repeat(7, 1fr); /* Crée 7 colonnes égales */
+  text-align: center; /* Centre le texte horizontalement */
+  margin-bottom: 10px; /* Espace sous les jours de la semaine */
+}
+
+/* Style des jours de la semaine (texte) */
+.expenses-calendar-weekdays span {
+  padding: 5px; /* Ajoute un espacement interne */
+  font-weight: bold; /* Texte en gras */
+  color: #f29c38; /* Couleur orange */
+}
+
+/* Grille des jours du mois */
+.expenses-calendar-grid {
+  grid-template-columns: repeat(7, 1fr); /* Toujours 7 colonnes */
+  gap: 5px; /* Ajuste l'espacement entre les jours */
+}
+
+/* Style des cases représentant les jours */
+.expenses-calendar-day {
+  aspect-ratio: 1; /* Garantit des cases carrées */
+  display: flex; /* Active Flexbox */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  border: 1px solid #eee; /* Bordure gris clair */
+  border-radius: 4px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur */
+  transition: all 0.2s ease; /* Transition fluide */
+  font-size: 0.8rem; /* Taille réduite pour les numéros */
+  aspect-ratio: 1; /* Conserve le format carré */
+}
+
+/* Applique des effets au survol des jours */
+.expenses-calendar-day:hover {
+  background-color: #fff3e6; /* Fond beige au survol */
+  border-color: #f29c38; /* Bordure orange au survol */
+}
+
+/* Jour actif (aujourd'hui) */
+.expenses-calendar-day.today {
+  background-color: #f29c38; /* Fond orange pour le jour actuel */
+  color: white; /* Texte blanc */
+  border-color: #f29c38; /* Bordure orange */
+  font-weight: bold; /* Texte en gras */
+}
+
+/* Jours des autres mois */
+.expenses-calendar-day.other-month {
+  color: #ccc; /* Couleur gris clair pour les jours hors du mois */
+}
+
+/* ============================
+   Centrage de l'icône et du calendrier
+   ============================ */
+
+/* Conteneur centré pour l'icône et le calendrier */
+.centered-container {
+  position: relative; /* Position relative pour éviter les conflits */
+  margin: 0 auto; /* Centre horizontalement */
+  padding: 20px; /* Ajoute de l'espace interne */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  width: 90%; /* Largeur flexible */
+  max-width: 800px; /* Largeur maximale pour éviter d'étirer sur grand écran */
+}
+
+.category-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f29c38;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-btn:hover {
+  background-color: #ffffff;
+  color: #f29c38;
+    
+}
+
+
+/* =============================================================================================
+   Barre latérale (Sidebar)
+============================= */
+.dashboard-sidebar {
+  position: fixed; /* Barre fixe pour rester visible même lors du scroll */
+  top: 57px; /* Décalage du haut pour ne pas chevaucher le header */
+  bottom: 38px; /* Décalage du bas pour éviter le footer */
+  left: 0; /* Position sur le bord gauche */
+  width: 9%; /* Largeur relative à la page */
+  border-right: 4px solid #f29c38; /* Bordure orange sur le côté droit */
+  display: flex;
+  flex-direction: column; /* Organisation en colonne */
+  justify-content: space-between; /* Espace réparti entre les éléments */
+  padding: 20px;
+  z-index: 10; /* Assure que la barre est au-dessus des autres éléments */
+}
+
+/* Menu dans la barre latérale */
+.sidebar-menu {
+  margin-top: 250px; /* Décale les éléments du menu vers le bas */
+  display: flex;
+  flex-direction: column; /* Liens en colonne */
+  gap: 60px; /* Espace vertical entre les liens */
+  align-items: center; /* Centre les éléments horizontalement */
+}
+
+/* Style des liens de navigation */
+.sidebar-link {
+  text-decoration: none; /* Supprime le soulignement par défaut */
+  color: #f29c38; /* Couleur orange pour le texte */
+  font-weight: bold; /* Texte en gras */
+  font-size: 1rem; /* Taille de police */
+  padding: 8px 25px; /* Espacement interne autour du texte */
+  border: 2px solid transparent; /* Bordure invisible par défaut */
+  border-radius: 3px; /* Coins légèrement arrondis */
+  text-align: center;
+  transition: all 0.3s ease; /* Transition fluide pour les effets */
+}
+
+/* Effet hover sur les liens (hors bouton déconnexion) */
+.sidebar-link:not(.logout):hover {
+  color: #fff; /* Texte blanc au survol */
+  background-color: #f29c38; /* Fond orange au survol */
+  border: 2px solid #f29c38; /* Bordure orange */
+}
+
+/* Bouton de déconnexion */
+.logout {
+  margin-top: auto; /* Place le bouton en bas */
+  text-align: center; /* Centre le texte */
+  background-color: #f29c38; /* Fond orange */
+  color: #fff; /* Texte blanc */
+  border: 2px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 10px 1px; /* Espacement interne */
+  cursor: pointer; /* Change le curseur au survol */
+  transition: all 0.3s ease; /* Transition fluide */
+  font-weight: bold; /* Texte en gras */
+  margin-bottom: 30px;
+}
+
+/* Effet hover sur le bouton de déconnexion */
+.logout:hover {
+  background-color: #fff; /* Fond blanc au survol */
+  color: #f29c38; /* Texte orange */
+  border: 2px solid #f29c38; /* Bordure orange */
+}
+
+/* ==================================================================================== */
+
+/* ---------------------Responsive ----------------------------- */
+@media (min-width: 1025px) {
+  .expenses-categories {
+    position: fixed;
+    top: -103px;
+    left: -51%;
+    width: 236px;
+    padding: 7px;
+    gap: 14px;
+    overflow-y: hidden;
+    border-right: 4px solid #f29c38;
+    bottom: -45px;
+    background-color: white;
+}
+
+
+  .dropdown-menu {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    top: 150%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #f29c38;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 87px;
+    padding: 10px;
+}
+
+
+
+  .expenses-calendares-container {
+    background-color: white;
+    border: 1px solid #f29c38;
+    border-radius: 8px;
+    padding: 15px;
+    width: 266px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 10px;
+    left: -34px;
+    transform: none;
+    z-index: auto;
+
+  }
+
+  .category-btn {
+    display: inline-block; /* Bouton visible sur bureau */
+    margin-top: 9px; /* Ajoute de l'espace au-dessus */
+    
+  }
+
+  .expenses-main-content {
+    margin-left: 320px; /* Décale à droite pour éviter les catégories */
+    padding-left: 30px;
+  }
+
+
+
+
+
+  .profile-container {
+    display: flex; /* Active Flexbox */
+    justify-content: flex-start; /* Aligne les éléments à gauche (ou utilise center pour centrer) */
+    align-items: center; /* Centre verticalement */
+    gap: 20px; /* Ajoute un espace de 20px entre les deux éléments */
+    margin: 20px auto; /* Centre horizontalement le conteneur et ajoute de l’espace vertical */
+    width: auto; /* Ajuste automatiquement la largeur */
+    position: relative; /* Assure un bon placement */
+}
+
+.profile-balance {
+  font-size: 1.4rem;
+  text-align: left; /* Aligne le texte à gauche */
+  color: #05204a;
+}
+
+.total-balance {
+  font-size: 1.3rem;
+  color: #05204a;
+  white-space: nowrap; /* Empêche le retour à la ligne */
+  text-align: left;
+  margin-right: 78px; /* Supprime tout espacement externe */
+}
+.dropdown {
+  margin: auto; /* Aligne le bouton Analyse à gauche */
+  display: inline-block;
+  left: 27px; /* Décale à droite */
+}
+.profile-container {
+  margin-left: 40px; /* Ajoute un espace vertical entre les sections */
+}
+  
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+/* Positionne le menu burger */
+.burger-menu {
+display: block; /* Affiche le menu burger */
+position: absolute; /* Permet un positionnement précis */
+top: 5px; /* Position verticale */
+right: 10px; /* Position horizontale à droite */
+transform: none; /* Supprime tout ajustement */
+z-index: 1000; /* Assure qu'il est au-dessus d'autres éléments */
+}
+
+/* Positionne le solde à côté du menu burger */
+.total-balance {
+  position: flex; /* Positionnement précis */
+  top: 19px ; /* Aligne verticalement avec le menu burger */
+  left: 58%; /* Décale à droite du menu burger */
+  font-size: 1.2rem; /* Taille intermédiaire */
+  text-align: left; /* Texte aligné à gauche */
+  margin: 0; /* Supprime les marges */
+}
+
+/* Centre le profile-balance au milieu */
+.profile-balance {
+  position: absolute; /* Position précise */
+  top: 64%; /* Centre verticalement */
+  right: 31%; /* Centre horizontalement */
+  transform: translate(-50%, -50%); /* Ajuste pour un centrage exact */
+  text-align: center; /* Centre le texte à l'intérieur */
+  font-size: 1.2rem; /* Taille légèrement réduite */
+  margin: 0; /* Supprime tout espacement externe */
+}
+
+/* Assure que le header est relatif pour les positions absolues */
+header {
+  position: relative; /* Définit un conteneur parent pour les positions absolues */
+}
+
+.category-btn{
+  display: none; /* Cache le bouton catégorie sur mobile et tablette */
+}
+
+ .dashboard-sidebar{
+display: none; /*  Cache le bouton catégorie sur la tablette */
+}
+
+
+.expenses-categories {
+  position: fixed;
+  left: 0%;
+  top: 57px;
+  width: 250px;
+  bottom: 51px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: hidden;
+  border-right: 4px solid #f29c38;
+  }
+
+
+
+  .profile-balance {
+      position: absolute; /* Position précise */
+      top: 57%; /* Centre verticalement */
+      left: 41%; /* Centre horizontalement */
+      transform: translate(-50%, -50%); /* Ajuste pour un centrage exact */
+      text-align: center; /* Centre le texte à l'intérieur */
+      font-size: 1.2rem; /* Taille légèrement réduite */
+      margin: 0; /* Supprime tout espacement externe */
+  }
+
+
+  .category{
+  
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f29c38;
+    color: white;
+    border-radius: 5px;
+    margin-left: 51px;
+ 
+  
+}
+}
+
+
+/* --------------------- responsive telephone ----------------- */
+
+
+
+.centered-container {
+  width: 90%; /* Taille par défaut */
+  margin: 0 auto; /* Centrage horizontal */
+}
+
+@media (max-width: 768px) {
+  .centered-container {
+    width: 90%; /* Réduit la largeur pour les petits écrans */
+    padding: 10px; /* Ajoute un padding pour une meilleure lisibilité */
+  }
+  /* Positionne le menu burger */
+.burger-menu {
+  display: block; /* Affiche le menu burger */
+  position: absolute; /* Permet un positionnement précis */
+  top: 8px; /* Position verticale */
+  right: 10px; /* Position horizontale à droite */
+  transform: none; /* Supprime tout ajustement */
+  z-index: 1000; /* Assure qu'il est au-dessus d'autres éléments */
+ 
+}
+/* Assure que le header est relatif pour les positions absolues */
+header {
+  position: relative; /* Définit un conteneur parent pour les positions absolues */
+}
+
+.category-btn{
+  display: none; /* Cache le bouton catégorie sur mobile et tablette */
+}
+
+.dashboard-sidebar{
+display: none;  } /* Cache le bouton catégorie sur mobile et tablette  */
+
+
+.expenses-categories {
+  position: fixed;
+  top: 75px;
+  left: 1%;
+  width: 100px; /* Largeur élargie pour bureau */
+  padding: 7px;
+  gap: 8px;
+  overflow-y: hidden;
+  border-right: 4px solid #f29c38;
+  bottom: 51px;
+  background-color: white;
+  
+}
+.expenses-category-items {
+  padding: 8px 10px;
+  background-color: white;
+  border: 1px solid #f29c38;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  }
+
+  .expenses-calendares-container {
+    background-color: white;
+    border: 1px solid #f29c38;
+    border-radius: 8px;
+    padding: 20px;
+    width: 77%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 10px;
+    z-index: auto;
+    max-width: 400px;
+    margin-top: 20px;
+    left: 12px;
+    }
+
+
+    .expenses-calendares-select {
+      /* padding: 4px 60px; */
+      border: 1px solid #f29c38;
+      border-radius: 4px;
+      background-color: white;
+      color: #333;
+      cursor: pointer;
+      flex: 1;
+      font-size: 0.8rem;
+      width: 62px;
+      /* height: 30px; */
+      }
+
+.categorys{
+  
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f29c38;
+  color: white;
+  border-radius: 5px;
+  /* margin-left: 60px; */
+  margin-bottom: 1rem;
+} 
+}
+
+
+
+
+
+
+
+
+
+
+

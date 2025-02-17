@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/signup.css"> <!-- Lien vers la feuille de style spécifique à la page d'inscription -->
     <link rel="stylesheet" href="/css/overview.css"> <!-- Lien vers la feuille de style pour la page du tableau de bord -->
     <link rel="stylesheet" href="/css/reset-password.css"> <!-- Lien vers la feuille de style pour la page de réinitialisation du mot de passe -->
-    <link rel="stylesheet" href="/css/income.css"> <!-- Lien vers la feuille de style spécifique à la page des declaration -->
+    <link rel="stylesheet" href="/css/incomes.css"> <!-- Lien vers la feuille de style spécifique à la page des declaration -->
     <link rel="stylesheet" href="/css/expenses.css"> <!-- Lien vers la feuille de style spécifique à la page des dépenses -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> <!-- Définit l'icône affichée dans l'onglet du navigateur -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" /> <!-- Lien vers la police Roboto via Google Fonts -->
@@ -31,26 +31,33 @@
                 </a>
 
                 <!-- Navigation et contenu interactif -->
-                <div class="header-nav">
-                    <!-- Bouton pour gérer les catégories -->
-                    <a class="category-btn" aria-label="Gérer les catégories">Catégorie</a>
-                </div>
+                <div class="dropdown">
+    <button class="dropdown-btn">Analyse</button>
+    <div class="dropdown-menu">
+        <a href="/dashboard/overview" class="dropdown-item">Situtation</a>
+        <a href="/dashboard/incomes" class="dropdown-item">Depenses</a>
+        <a href="/dashboard/expenses" class="dropdown-item">Revenus</a>
+    </div>
+</div>
 
                 <!-- Informations sur le profil utilisateur -->
-                <div class="profile-balance">
-                    <p>M. Jack Dupond</p> <!-- Affichage du nom de l'utilisateur -->
+                <div class="profile-container">
+                    <div class="profile-balance">
+                        <% if (user) { %>
+                            <p><%= user.first_name %> <%= user.last_name %></p>
+                        <% } else { %>
+                            <p>Utilisateur inconnu</p>
+                        <% } %>
+                    </div>
+                    <div class="total-balance">
+                        Solde Total : <strong> <%= typeof soldeTotal !== "undefined" ? soldeTotal : 0 %>€ </strong>
+                      </div>
                 </div>
-
-                <!-- Affichage du solde total -->
-                <div class="total-balance" aria-live="polite">
-                    Solde Total : <strong>1450 €</strong> <!-- Montant total disponible -->
-                </div>
-            </div>
 <!-- test -->
-            <div class="nave-links">
+            <!-- <div class="nave-links">
                 <a href="/dashboard/expenses" aria-label="Page de Depenses">Depenses</a>
-                <a href="/dashboard/income"aria-label="Page de revenue">Revenues</a>
-            </div>
+                <a href="/dashboard/incomes"aria-label="Page de revenus">Revenus</a>
+            </div> -->
 
 
             <!-- Menu burger -->
@@ -61,4 +68,16 @@
        
     </header>
 
-    <script src="/js/menu.js"></script>
+    <script src="/js/menu.js"> <!-- Lien vers le script JavaScript pour le menu burger -->
+    
+    overview: (req, res) => {
+        const successMessage = req.session.successMessage || null;
+        req.session.successMessage = null;
+      
+        res.render("dashboard/overview", { 
+          title: "Vue globale",
+          successMessage,
+          user: req.session.user // Passer les informations utilisateur à la vue
+        });
+      }
+      </script>

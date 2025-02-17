@@ -7,37 +7,49 @@
   position: fixed; /* Le conteneur reste visible pendant le défilement */
   left: 12%; /* Place le conteneur à droite de la barre latérale */
   top: 58px; /* Ajuste la position verticale par rapport au header */
-  padding: 10px; /* Ajoute un espacement interne */
+  padding: 7px; /* Ajoute un espacement interne */
   display: flex; /* Utilise Flexbox pour aligner les éléments */
   flex-direction: column; /* Aligne les catégories en colonne */
   gap: 7px; /* Ajoute un espace entre les catégories */
   overflow-y: hidden; /* Permet le défilement vertical si le contenu dépasse */
-  width: 250px; /* Largeur fixe du conteneur */
+  width: 237px; /* Largeur fixe du conteneur */
   border-right: 4px solid #f29c38; /* Ligne séparatrice orange à droite */
-  padding-right: 15px; /* Espace entre les catégories et la bordure */
+  padding-right: 7px; /* Espace entre les catégories et la bordure */
   bottom: 51px; /* Ajuste la position par rapport au bas */
 }
 
 /* Style au survol des sélecteurs dans le calendrier */
-.expenses-calendar-select:hover {
+ .expenses-calendar-select:hover {
   border-color: #d67d34; /* Change la couleur de bordure au survol */
-}
+ } 
 
 /* Style des éléments individuels de catégorie */
 .expenses-category-items {
-  padding: 8px 10px; /* Ajoute un espacement interne */
-  background-color: white; /* Définit un fond blanc */
-  border: 1px solid #f29c38; /* Bordure orange */
-  border-radius: 5px; /* Coins arrondis */
-  font-size: 1.2rem; /* Taille de police légèrement agrandie */
-  cursor: pointer; /* Curseur en pointeur */
-  transition: all 0.3s ease; /* Ajoute une transition fluide au survol */
+  padding: 0; /* Supprime le padding pour éviter de chevaucher .category-button */
+  background-color: transparent; /* Pas de fond */
+  border: none; /* Pas de bordure */
+  display: block; /* Assure que l'élément s'adapte correctement */
+  font-size: 1.1rem; /* Taille de police standard */
 }
 
-/* Applique des effets au survol des catégories */
-.expenses-category-items:hover {
+.category-button {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  display: block; /* Permet d'occuper tout l'espace */
+  padding: 10px 0px; /* Ajoute un espacement interne */
+  background-color: white; /* Fond blanc */
+  color: #05204a; /* Texte bleu foncé */
+  border: 1px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  text-align: center; /* Centre le texte */
+  cursor: pointer; /* Curseur en pointeur */
+  transition: all 0.3s ease; /* Transition fluide */
+  width: 100%;
+  font-size: 1rem;
+}
+
+.category-button:hover {
   background-color: #f29c38; /* Fond orange au survol */
-  color: white; /* Texte blanc au survol */
+  color: #ffffff; /* Texte blanc */
 }
 
 /* Ajustement du contenu principal pour éviter de chevaucher les catégories */
@@ -82,7 +94,7 @@
   border: 1px solid #f29c38; /* Bordure orange */
   border-radius: 4px; /* Coins arrondis */
   background-color: white; /* Fond blanc */
-  color: #333; /* Texte gris foncé */
+  color: #05204a; /* Texte gris foncé */
   cursor: pointer; /* Curseur en pointeur */
   flex: 1; /* Permet au sélecteur de s'étirer si nécessaire */
   font-size: 1rem; /* Taille standard */
@@ -155,7 +167,7 @@
 /* Conteneur centré pour l'icône et le calendrier */
 .centered-container {
   position: absolute; /* Position absolue par rapport au parent */
-  top: 48%; /* Ajuste la position verticale */
+  top: 54%; /* Ajuste la position verticale */
   left: 62%; /* Ajuste la position horizontale */
   transform: translate(-50%, -50%); /* Centre parfaitement l'élément */
   display: flex; /* Active Flexbox */
@@ -173,6 +185,241 @@ margin-right: 87px;
   flex-direction: column;
   gap: 9px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================
+   Section d'enregistrement des opérations
+============================= */
+.operations-section {
+  width: 100%;
+  max-width: 300px; /* Limite la largeur pour une bonne lisibilité */
+  margin: 30px auto; /* Centre la section horizontalement */
+  padding: 20px;
+  background-color: #f9f9f9; /* Fond clair */
+  border: 1px solid #ddd; /* Bordure légère */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  font-family: 'Roboto', sans-serif; /* Police harmonisée */
+}
+
+.operations-section h3 {
+  font-size: 1.8rem; /* Taille du titre */
+  color: #05204A; /* Couleur principale */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+/* 
+------------------------------------------------------
+   section pour l'historique des operations   
+----------------------------------------------------- */
+
+/* Section des opérations */
+.operations-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  position: absolute;
+  top: 45px;
+  /* overflow: scroll; */
+  left: 568px;
+  max-height: 290px;
+}
+
+.operations-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #05204A; /* Titre en bleu foncé */
+  text-align: center; /* Centré */
+}
+/* Conteneur de la liste des opérations */
+#operations-list {
+  max-height: 300px; /* Limite la hauteur */
+  overflow-y: auto; /* Ajoute un scroll si nécessaire */
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+/* Élément individuel pour chaque opération */
+.operation-item {
+  display: flex;
+  justify-content: space-between; /* Espace entre les colonnes */
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.operation-item p {
+  margin: 0;
+  flex: 1; /* Chaque colonne prend la même largeur */
+}
+/* Montant aligné à droite */
+.amount {
+  text-align: right;
+  font-weight: bold;
+  color: #4caf50; /* Vert pour les revenus */
+}
+
+
+/* Bouton supprimer */
+.delete-button {
+  background-color: #f44336; /* Rouge */
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+
+
+
+
+
+/* ============================
+   Section formulaire des dépenses
+============================= */
+.expenses-form {
+  width: 191px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #F29C35;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  /* position: relative; */
+  /* float: left; */
+}
+
+.expenses-form h3 {
+  font-size: 1.2rem; /* Réduction de la taille du titre */
+  color: #05204A; /* Couleur principale */
+  text-align: left; /* Aligne le titre à gauche */
+  margin-bottom: 15px;
+}
+
+.expenses-form form {
+  display: flex;
+  flex-direction: column; /* Organise les éléments verticalement */
+  gap: 6px; /* Espacement entre les champs */
+}
+
+.expenses-form label {
+  font-size: 0.9rem; /* Réduction de la taille des labels */
+  color: #333; /* Couleur neutre */
+}
+
+.expenses-form input {
+  width: 100%; /* Champ occupe toute la largeur */
+  padding: 6px; /* Espacement réduit */
+  font-size: 0.9rem; /* Taille plus petite */
+  border: 1px solid #F29C38; /* Bordure discrète */
+  border-radius: 5px; /* Coins arrondis */
+  box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+.expenses-form input:focus {
+  outline: none;
+  border-color: #F29C38; /* Bordure orange au focus */
+  box-shadow: 0 0 5px rgba(242, 156, 56, 0.5); /* Ombre légère orange */
+}
+
+.expenses-form button {
+  padding: 8px 15px; /* Taille plus petite du bouton */
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff; /* Texte blanc */
+  background-color: #F29C38; /* Fond orange */
+  border: none;
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transition fluide pour l'effet hover */
+}
+
+.expenses-form button:hover {
+  background-color: #e58931; /* Couleur légèrement plus foncée au survol */
+}
+
+
+
+.expenses-form {
+  position: relative;
+  bottom: 315px;
+  right: 334px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
