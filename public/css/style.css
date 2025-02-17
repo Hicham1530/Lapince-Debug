@@ -1,0 +1,402 @@
+/* ============================
+   Styles globaux
+============================= */
+body {
+  /* Styles pour le corps de la page */
+  font-family: 'Roboto', sans-serif; /* Police principale utilisée */
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0; /* Supprime les paddings internes */
+  color: #05204a; /* Applique la couleur du texte définie dans les variables */
+  display: flex; /* Flexbox pour organiser les sections principales */
+  flex-direction: column; /* Dispose les sections verticalement */
+  height: 100vh; /* Hauteur de la fenêtre visible */
+  width: 100vw; /* Largeur de la fenêtre visible */
+  overflow: hidden; /* Empêche le scroll */
+}
+
+a {
+  /* Styles pour les liens hypertexte */
+  text-decoration: none; /* Supprime le soulignement */
+  font-weight: bold; /* Texte en gras */
+  color: #fff; /* Couleur blanche pour les liens */
+}
+
+.full-screen {
+  /* Classe utilitaire pour occuper tout l'écran */
+  width: 100vw; /* Largeur totale de la fenêtre */
+  height: 100vh; /* Hauteur totale de la fenêtre */
+}
+
+/* ============================
+   Header
+============================= */
+header {
+  /* Styles pour l'en-tête de la page */
+  background-color: #fff; /* Couleur de fond blanche */
+  display: flex; /* Flexbox pour aligner les éléments horizontalement */
+  justify-content: space-between; /* Espace entre le logo et la navigation */
+  align-items: center; /* Centre les éléments verticalement */
+  padding: 0.625rem 1.25rem; /* Padding de 10px en haut/bas, 20px sur les côtés */
+  /* border-bottom: 0.1875rem solid #f29c38; Ligne orange sous le header */
+  box-sizing: border-box; /* Inclut padding et bordures dans les dimensions */
+}
+
+header .logo {
+  /* Styles pour le logo */
+  height: 2.5rem; /* Hauteur fixe du logo (40px) */
+  margin-top: 0.8125rem; /* Décalage vertical (13px) */
+}
+
+
+header {
+  position: relative;
+}
+nav {
+  max-height: 58px; /* Limite la hauteur totale de la `nav` */
+  overflow: visible; /* Coupe tout débordement éventuel */
+}
+.total-balance {
+  font-size: 1rem; /* Taille normale */
+  color: #05204a; /* Couleur du texte */
+  white-space: nowrap; /* Empêche le retour à la ligne */
+  text-align: right; /* Aligne le texte à droite */
+  margin: 0 auto; /* Centre horizontalement */
+  padding: 5px; /* Ajoute un léger espacement interne */
+  width: auto; /* Ajuste automatiquement la largeur */
+  position: relative; /* Assure un bon placement */
+}
+
+/* ============================
+   Navigation (liens du header)
+============================= */
+.nav-links {
+  /* Styles pour la barre de navigation */
+  position: relative; /* Positionnement relatif au header */
+  justify-content: flex-end; /* Aligne les liens à gauche */
+  display: flex; /* Flexbox pour aligner les liens horizontalement */
+  /* bottom: 38px; Décalage vertical (18px) */
+  right: 20px; /* Décalage horizontal du bord droit (20px) */
+  gap: 10px/* Espacement entre les liens (10px) */
+}
+
+
+
+.nav-links a {
+  /* Styles pour chaque lien dans la navigation */
+  padding: 0.25rem 0.375rem; /* Espacement interne (4px haut/bas, 6px gauche/droite) */
+  background-color: #f29c38; /* Couleur orange pour le fond */
+  color: #fff; /* Texte en blanc */
+  font-weight: bold; /* Texte en gras */
+  border: 0.125rem solid #f29c38; /* Bordure orange (2px) */
+  border-radius: 0.3125rem; /* Coins arrondis (5px) */
+  font-size: 1rem; /* Taille de texte standard (16px) */
+  transition: all 0.3s ease; /* Transition fluide sur hover */
+  display: flex; /* Conserve l'alignement horizontal */
+  gap: 10px; /* Espacement entre les boutons */
+  position: relative; /* Permet d'utiliser top pour ajuster */
+  top: -34px; /* Remonte les boutons de 10px */
+}
+
+.nav-links a:hover {
+  /* Styles au survol des liens */
+  background-color: #fff; /* Fond blanc */
+  color: #f29c38; /* Texte orange */
+}
+
+/* ============================
+   Main (contenu principal)
+============================= */
+main {
+  /* Styles pour la section principale */
+  padding: 3rem 1rem; /* Espacement vertical (48px), horizontal (16px) */
+  text-align: center; /* Centre le texte */
+  flex: 1; /* Prend tout l'espace disponible */
+  background-color: #fff; /* Fond blanc */
+}
+
+.hero h1 {
+  /* Styles pour le titre principal */
+  /* font-size: 1rem ; Taille définie pour les grands titres */
+  color: #f29c38; /* Couleur orange */
+  margin-bottom: 0 rem;/* 1.25rem;  Espacement en bas (20px) */
+}
+
+.hero-image {
+  /* Styles pour l'image principale */
+  max-width: 100%; /* Largeur limitée à l'espace disponible */
+  height: auto; /* Conserve les proportions */
+  max-height: 23.75rem; /* Hauteur maximale (300px) */
+}
+
+.hero-subtitle {
+  /* Styles pour le sous-titre */
+  font-size: 3.9rem; /* Taille du texte */
+  color: #05204a; /* Couleur bleue foncée */
+  margin-top: 5rem; /* Espacement supérieur (80px) */
+  text-align: center; /* Centre le texte */
+}
+
+/* ============================
+   Footer
+============================= */
+footer {
+  /* Styles pour le pied de page */
+  background-color: #f29c38; /* Couleur orange */
+  color: white; /* Texte blanc */
+  display: flex; /* Flexbox pour organiser les colonnes */
+  flex-wrap: wrap; /* Passe à la ligne si nécessaire */
+  justify-content: space-between; /* Équilibre les colonnes gauche et droite */
+  align-items: flex-start; /* Alignement vertical en haut */
+  padding: 2.5rem 1.875rem; /* Espacement interne (40px haut/bas, 30px gauche/droite) */
+  font-weight: 400; /* Poids standard du texte */
+  font-size: 1rem; /* Taille standard du texte */
+  box-sizing: border-box; /* Inclut le padding et les bordures dans les dimensions */
+}
+
+.footer-content {
+  display: flex; /* Active Flexbox pour organiser les colonnes */
+  justify-content: space-between; /* Sépare les colonnes horizontalement */
+  align-items: flex-start; /* Aligne les colonnes en haut */
+  width: 99%; /* Étend le contenu presque sur toute la largeur */
+  position: relative; /* Nécessaire pour positionner "Tous droits réservés" au centre */
+  margin-top: 12px; /* Ajoute un espacement au-dessus du contenu */
+  font-size: 1rem; /* Définit une taille de texte standard (16px) */
+}
+
+/* ============================
+   Colonne gauche : Mentions légales et Politique de confidentialité
+============================= */
+.footer-left {
+  display: flex; /* Active Flexbox pour aligner les liens */
+  flex-direction: column; /* Les liens sont empilés verticalement */
+  gap: 10px; /* Ajoute un espacement entre les liens */
+  margin-left: 25px; /* Décalage à gauche des colonnes */
+}
+
+.footer-left a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: white; /* Couleur blanche pour les liens */
+}
+
+.footer-left a:hover {
+  text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+/* ============================
+   Section centrale : Tous droits réservés
+============================= */
+.footer-center {
+  position: absolute; /* Position absolue pour centrer le contenu */
+  top: 50%; /* Position verticale au centre */
+  left: 50%; /* Position horizontale au centre */
+  transform: translate(-50%, -50%); /* Centre précis grâce à une transformation */
+  font-size: 1.1rem; /* Légère augmentation de la taille du texte */
+  text-align: center; /* Centre le texte horizontalement */
+  margin: 0; /* Supprime tout espacement externe */
+}
+
+/* ============================
+   Colonne droite : Réseaux sociaux et Contact
+============================= */
+.footer-right {
+  display: flex; /* Active Flexbox pour organiser les éléments */
+  flex-direction: column; /* Empile les éléments verticalement */
+  gap: 15px; /* Ajoute un espacement entre les éléments */
+  margin-right: 10px; /* Décalage à droite des colonnes */
+}
+
+.footer-right a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: white; /* Texte blanc */
+}
+
+.footer-right a:hover {
+  text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+.social-media {
+  display: flex; /* Active Flexbox pour aligner les icônes horizontalement */
+  justify-content: flex-start; /* Aligne les éléments à gauche */
+  gap: 20px; /* Ajoute un espacement entre les icônes */
+  margin-bottom: 15px; /* Ajoute un espacement en bas */
+}
+
+.social-media a {
+  display: flex; /* Active Flexbox pour aligner le texte et l'icône */
+  align-items: center; /* Centre verticalement les icônes et le texte */
+  gap: 10px; /* Ajoute un espacement entre l'icône et le texte */
+  text-decoration: none; /* Supprime le soulignement des liens */
+  font-size: 1rem; /* Taille standard du texte */
+  color: white; /* Texte blanc */
+}
+
+.social-media a:hover {
+  text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+.social-media i {
+  font-size: 24px; /* Taille des icônes sociales */
+}
+
+.contact {
+  margin-top: -22px; /* Décalage vers le haut pour aligner le texte */
+}
+
+/* ============================
+   Media Queries
+============================= */
+/* Menu burger */
+.burger-menu {
+  display: none; /* Caché par défaut sur les grands écrans */
+  font-size: 3rem; /* Taille du menu burger (icône) */
+  cursor: pointer; /* Change le curseur en main au survol */
+  color: #f29c38; /* Couleur orange */
+  position: absolute; /* Permet de le positionner précisément */
+  right: 10px; /* Positionné à droite du header */
+  top: 2%; /* Position verticale dans le header */
+  transform: translateY(-40%); /* Ajuste la position verticale pour centrer */
+}
+
+/* Navigation (boutons par défaut) */
+.nav-links {
+  display: flex; /* Affiche les liens par défaut */
+  gap: 10px; /* Espacement entre les liens */
+  
+}
+
+/* ============================
+   Responsive : Menu burger actif
+============================= */
+
+
+
+
+.nav-links.active {
+  display: flex; /* Affiche les liens */
+  flex-direction: column; /* Empile les liens verticalement */
+  position: absolute; /* Position absolue dans le header */
+  top: 60px; /* Positionne les liens sous le header */
+  right: 20px; /* Aligne à droite */
+  background-color: #fff; /* Fond blanc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre douce */
+  padding: 10px; /* Espacement interne autour des liens */
+  border-radius: 5px; /* Coins arrondis */
+  z-index: 10; /* Place le menu au-dessus des autres éléments */
+}
+
+.nav-links.active a {
+  color: #ffffff; /* Texte blanc */
+  text-align: center; /* Centre le texte */
+  padding: 10px 0; /* Ajoute de l'espace entre les liens */
+  top: 0; /* Réinitialise le décalage vertical */
+}
+
+.nav-links.active a:last-child {
+  border-bottom: none; /* Supprime la bordure pour le dernier lien */
+}
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Masque les boutons */
+  }
+  .nav-links a {
+    top: -37px;
+  }
+  .hero-subtitle {
+    font-size: 1.4rem;
+    margin-top: 208px;
+}
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 11rem;
+  top: 166px;
+  position: relative;
+}
+
+  .burger-menu {
+    display: block; /* Affiche le menu burger */
+  }
+  main {
+    padding: 2rem 1rem; /* Moins de padding sur mobile */
+}
+
+
+  footer {
+    flex-direction: column; /* Colonne pour les petits écrans */
+    align-items: center;
+    text-align: center;
+    padding: 20px; /* Réduit le padding global */
+  }
+
+  .footer-left,
+  .footer-right {
+    margin: 10px 0; /* Espacement vertical entre les colonnes */
+  }
+
+  .footer-center {
+    display: none; /* Masque cet élément */
+  }
+ 
+}
+
+/* ============================
+   Responsive : Tablette (769px à 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+  .nav-links a {
+    font-size: 0.9rem; /* Taille légèrement réduite */
+    padding: 0.2rem 0.35rem;
+  }
+  .hero-subtitle {
+    font-size: 2.8rem;
+    position: relative;
+    top: 106px;
+
+}
+
+  .hero-image {
+    max-width: 69%;
+    top: 97px;
+    position: relative;
+  }
+  
+}
+
+/* ============================
+   Responsive : Desktop (min-width: 993px)
+============================= */
+@media (min-width: 993px) {
+  .burger-menu {
+    display: none; /* Cache le menu burger */
+  }
+
+  .nav-links {
+    display: flex; /* Affiche les boutons */
+  }
+
+  .hero-subtitle {
+    font-size: 3.9rem; /* Taille normale */
+  }
+
+  .footer-center {
+    display: block; /* Restaure cet élément */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .container {
+    max-width: 1200px; /* Limite la largeur du contenu */
+    margin: 0 auto; /* Centre le contenu */
+  }
+  .hero-subtitle {
+    font-size: 3.9rem;
+    color: #05204a;
+ 
+  }
+  
+}

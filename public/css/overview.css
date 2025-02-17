@@ -1,0 +1,422 @@
+/* ============================
+   Barre latérale (sidebar)
+============================= */
+/* Style pour la barre latérale */
+.overview-dashboard-sidebar {
+  position: fixed; /* Permet de fixer la barre latérale pour qu'elle reste visible même lors du scroll */
+  top: 58px; /* Décalage par rapport au haut de la page pour ne pas chevaucher le header */
+  bottom: 38px; /* Décalage par rapport au bas de la page pour éviter le footer */
+  left: 0; /* Positionne la barre sur le bord gauche */
+  width: 9%; /* Largeur relative à la largeur totale de la page */
+  border-right: 4px solid #f29c38; /* Ajoute une bordure orange sur le côté droit */
+  display: flex; /* Active Flexbox pour organiser les éléments internes */
+  flex-direction: column; /* Organise les éléments en colonne */
+  justify-content: space-between; /* Espace réparti entre les éléments haut et bas */
+  padding: 20px; /* Espacement interne pour aérer le contenu */
+  z-index: 10; /* Assure que la barre latérale est au-dessus d'autres éléments */
+}
+
+/* Style des menus dans la barre latérale */
+.overview-sidebar-menu {
+  margin-top: 250px;
+  display: flex; /* Utilise Flexbox */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  gap: 60px; /* Ajoute un espacement vertical */
+  align-items: center; /* Centre les éléments horizontalement */
+}
+
+/* Style des liens de la sidebar */
+.overview-sidebar-link {
+  text-decoration: none; /* Supprime le soulignement par défaut */
+  color: #f29c38; /* Couleur orange des liens */
+  font-weight: bold; /* Met le texte en gras */
+  font-size: 1rem; /* Taille de police */
+  transition: all 0.3s ease; /* Ajoute une transition fluide pour les effets */
+  padding: 8px 25px; /* Ajoute de l'espace interne autour du texte */
+  border: 2px solid transparent; /* Bordure invisible par défaut */
+  border-radius: 3px; /* Coins légèrement arrondis */
+  text-align: center; /* Centre le texte */
+  
+}
+
+
+
+/* Effet hover sur les liens de la sidebar (hors bouton logout) */
+.overview-sidebar-link:not(.overview-logout):hover {
+  color: #fff; /* Change la couleur du texte en blanc */
+  background-color: #f29c38; /* Change le fond en orange */
+  border: 2px solid #f29c38; /* Ajoute une bordure orange */
+}
+
+/* ============================
+   Contenu principal
+============================= */
+/* Conteneur principal du contenu */
+.dashboard-content {
+  flex: 1; /* Prend tout l'espace disponible */
+  display: flex; /* Utilise Flexbox pour organiser les éléments */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  align-items: center; /* Centre les éléments horizontalement */
+  justify-content: center; /* Centre les éléments verticalement */
+  padding: 20px; /* Espacement interne pour aérer */
+}
+
+/* ============================
+   En-tête principal (dashboard)
+============================= */
+/* En-tête principal pour le tableau de bord */
+.dashboard-header {
+  display: flex; /* Organise les éléments horizontalement */
+  align-items: center; /* Centre verticalement les éléments */
+  justify-content: flex-start; /* Aligne les éléments à gauche */
+  width: 100%; /* Occupe toute la largeur */
+  padding: 10px 20px; /* Ajoute un espace interne autour des éléments */
+  position: fixed; /* Fixe l'en-tête en haut de la page */
+  top: 0; /* Positionné en haut */
+  left: 0; /* Aligné sur le bord gauche */
+  background-color: #fff; /* Fond blanc */
+  z-index: 1000; /* Assure que l'en-tête est au-dessus des autres éléments */
+}
+
+/* Ligne décorative sous le header */
+header {
+  border-bottom: 3px solid #F29C38; /* Ajoute une ligne orange en bas  */
+}
+
+/* ============================
+   Bouton Catégorie
+============================= */
+/* Style du bouton "Catégorie" */
+.category-btn {
+  margin-left: 18%; /* Décalage vers la droite */
+  background-color: #f29c38; /* Couleur de fond orange */
+  color: #fff; /* Couleur du texte blanc */
+  font-weight: bold; /* Met le texte en gras */
+  border: 2px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 10px 20px; /* Espace interne */
+  cursor: pointer; /* Change le curseur en pointeur */
+  transition: all 0.3s ease; /* Ajoute une transition fluide */
+}
+
+/* Effet hover pour le bouton catégorie */
+.category-btn:hover {
+  background-color: #fff; /* Change le fond en blanc */
+  color: #f29c38; /* Change la couleur du texte en orange */
+  border: 2px solid #f29c38; /* Conserve la bordure orange */
+}
+
+/* ============================
+   Barre de navigation
+============================= */
+/* Conteneur de la navigation principale */
+.header-nav {
+  display: flex; /* Active Flexbox pour organiser les éléments */
+  align-items: center; /* Centre verticalement les éléments */
+  width: 100%; /* Occupe toute la largeur disponible */
+  justify-content: space-between; /* Espace entre les éléments */
+  padding: 0 15px; /* Espacement latéral */
+}
+
+/* Section gauche avec logo et menu */
+.left-section {
+  display: flex; /* Organise les éléments horizontalement */
+  align-items: center; /* Centre verticalement les éléments */
+  gap: 10px; /* Espace horizontal entre les éléments */
+}
+
+/* ============================
+   Bouton Déconnexion
+============================= */
+/* Style pour le bouton de déconnexion */
+.overview-logout {
+  margin-top: auto; /* Place le bouton en bas de la barre latérale */
+  text-align: center; /* Centre le texte */
+  background-color: #f29c38; /* Fond orange */
+  color: #fff; /* Texte blanc */
+  border: 2px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 10px 9px; /* Espacement interne */
+  cursor: pointer; /* Change le curseur en pointeur */
+  transition: all 0.3s ease; /* Transition fluide */
+  font-weight: bold; /* Texte en gras */
+  margin-bottom: 20px;
+}
+
+/* Effet hover pour le bouton déconnexion */
+.overview-logout:hover {
+  background-color: #fff; /* Change le fond en blanc */
+  color: #f29c38; /* Change la couleur du texte en orange */
+  border: 2px solid #f29c38; /* Conserve la bordure orange */
+}
+
+/* ============================
+   Section Profil
+============================= */
+/* Style pour l'affichage du profil utilisateur */
+.profile-balance {
+  width: 80%; /* Largeur relative */
+  font-size: 1.2rem; /* Taille du texte */
+  margin-right: 154px;
+}
+/* ============================
+   Conteneur principal (dashboard)
+============================= */
+.dashboard-container {
+  display: flex; /* Active Flexbox */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  justify-content: center; /* Centre verticalement */
+  align-items: center; /* Centre horizontalement */
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  padding: 0; /* Supprime les marges/paddings inutiles */
+  position: relative; /* Nécessaire pour un positionnement précis */
+}
+
+/* ============================
+   Cercle de progression
+============================= */
+.progress-circle {
+  width: 150px;
+  height: 150px;
+  border: 10px solid #f29c38; /* Bordure orange */
+  border-radius: 50%; /* Cercle parfait */
+  display: flex; /* Utilise Flexbox pour centrer le contenu */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  font-size: 1.5rem; /* Taille de la police */
+  font-weight: bold; /* Texte en gras */
+  color: #05204a; /* Couleur du texte */
+  position: absolute; /* Permet un placement précis */
+  top: 40%; /* Position verticale */
+  left: 55%; /* Position horizontale */
+  transform: translate(-50%, -50%); /* Centre le cercle précisément */
+}
+
+/* ============================
+   Texte de bienvenue
+============================= */
+.welcome-text {
+  font-size: 2rem; /* Taille du texte */
+  color: #05204a; /* Couleur du texte */
+  text-align: center; /* Centre le texte */
+  position: absolute; /* Permet un placement précis */
+  top: 55%; /* Position verticale */
+  left: 55%; /* Position horizontale */
+  transform: translate(-50%, -50%); /* Centre le texte précisément */
+  margin: 0; /* Supprime les marges inutiles */
+}
+
+
+
+
+.burger-menu {
+  display: none; /* Caché par défaut sur les grands écrans */
+  font-size: 2rem; /* Taille de l'icône burger */
+  cursor: pointer; /* Curseur en main au survol */
+  color: #f29c38; /* Couleur orange */
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  z-index: 20; /* Au-dessus des autres éléments */
+}
+
+.nave-links {
+  display: flex; /* Affiche les liens par défaut */
+  gap: 10px;
+}
+
+
+/* Par défaut, afficher le bouton catégorie et cacher les liens */
+.nave-links {
+  display: none;
+} 
+
+/* .category-btn {
+  display: block;
+} */
+
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+@media (max-width: 768px) {
+  .progress-circle {
+    width: 100px; /* Réduit la taille du cercle */
+    height: 100px; /* Réduit la taille du cercle */
+    font-size: 0.9rem; /* Réduit la taille de la police */
+    top: 38%; /* Ajuste la position verticale */
+    left: 63%; /* Centre horizontalement */
+  }
+
+
+  .left-section {
+    display: flex; /* Organise les éléments horizontalement */
+    align-items: center; /* Centre verticalement les éléments */
+    gap: 0px; /* Espace horizontal entre les éléments */
+  }
+
+  .welcome-text {
+    font-size: 1rem; /* Réduit la taille du texte */
+    top: 50%; /* Ajuste la position verticale pour laisser plus de place */
+    left: 63%; /* Centre horizontalement */
+    margin: 20 15px; /* Ajoute une marge horizontale pour s'assurer que tout le texte s'affiche */
+    line-height: 1.5; /* Augmente l'interligne pour améliorer la lisibilité */
+    word-wrap: break-word; /* Casse les mots si nécessaire pour rester dans les limites de l'écran */
+  }
+
+  .overview-dashboard-sidebar {
+    width: 20%; /* Augmente légèrement la largeur de la barre latérale */
+    padding: 10px; /* Réduit le padding interne */
+    justify-content: flex-start; /* Aligne les éléments en haut */
+    height: auto; /* Laisse la barre s'adapter à la hauteur de son contenu */
+  }
+
+  .overview-logout {
+    font-size: 0.9rem; /* Taille de texte adaptée aux petits écrans */
+    padding: 10px; /* Ajuste le padding pour rendre le bouton visible */
+    margin-top: auto; /* Assure que le bouton reste en bas */
+    background-color: #f29c38; /* Couleur orange */
+    color: #fff; /* Texte blanc */
+    border: 2px solid #f29c38; /* Bordure orange */
+    border-radius: 5px; /* Coins arrondis */
+    width: 80%; /* Bouton plus large pour une meilleure visibilité */
+    text-align: center; /* Centre le texte */
+    display: block; /* Force l'affichage en bloc */
+    margin-bottom: 50px; /* Espacement avec le bas */
+    position: static; /* Pas de position absolue pour éviter les chevauchements */
+  }
+
+
+  .profile-balance,  /* permet de rapprocher solde total et le nom du  */
+  .total-balance {
+    position: initial; /* Permet de les positionner précisément */
+    top: 10%; /* Place verticalement au centre du header */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-85%, 12%); /* Centre précisément */
+    font-size: 1rem; /* Ajuste la taille de la police */
+    text-align: center; /* Centre le texte */
+    width: 100%; /* S'assure qu'ils prennent toute la largeur disponible */
+    margin: auto; /* Supprime tout espacement inutile */
+  }
+
+  .category-btn {
+    display: none; /* Cache le bouton catégorie sur mobile et tablette */
+  }
+
+  .category-btn {
+    display: none; /* Cache le bouton catégorie sur mobile */
+}
+
+.burger-menu {
+    display: block; /* Affiche le menu burger */
+}
+
+.nave-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 68px;
+    right: 10px;
+    background-color: #fff;
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+}
+
+}
+/* ============================
+   Responsive : Tablette (769px à 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+  .progress-circle {
+    width: 130px; /* Ajuste légèrement la taille du cercle */
+    height: 130px; /* Ajuste légèrement la taille du cercle */
+    font-size: 1.3rem; /* Taille intermédiaire pour le texte */
+    top: 40%; /* Ajuste la position verticale */
+    left: 55%; /* Centre horizontalement */
+  }
+
+  .welcome-text {
+    font-size: 1.5rem; /* Réduit légèrement la taille du texte */
+    top: 55%; /* Ajuste la position verticale */
+    left: 55%; /* Centre horizontalement */
+  }
+  .overview-dashboard-sidebar {
+    width: 15%; /* Ajuste la largeur de la barre latérale pour tablette */
+    padding: 15px; /* Espacement interne adapté */
+    justify-content: space-between; /* Répartit les éléments dans la barre */
+  }
+
+  .overview-logout {
+    font-size: 1rem; /* Taille de texte standard */
+    padding: 12px; /* Padding standard */
+    width: 80%; /* Bouton plus large pour tablette */
+    margin-top: auto; /* Assure que le bouton reste en bas */
+    margin-bottom: 20px; /* Espacement en bas */
+    position: static; /* Pas de position absolue */
+  }
+
+
+   .category-btn {
+    display: none; /*Cache le bouton catégorie sur mobile et tablette */
+  } 
+
+
+  .burger-menu {
+    display: block; /* s'assurer que le menu burger est affiché */
+  }
+
+   .nave-links {
+    display: none; 
+  } 
+
+  .nave-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 68px;
+    right: 10px;
+    background-color: #fff;
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+  }
+
+
+
+
+  .profile-balance,
+  .total-balance {
+    position: initial; /* Permet de les positionner précisément */
+    top: 10%; /* Place verticalement au centre du header */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-88%, 12%); /* Centre précisément */
+    font-size: 1.1rem; /* Ajuste la taille de la police */
+    text-align: center; /* Centre le texte */
+    width: 100%; /* S'assure qu'ils prennent toute la largeur disponible */
+    margin: 0; /* Supprime tout espacement inutile */
+  }
+
+}
+
+/* ============================
+   Responsive : Desktop (min-width: 993px)
+============================= */
+@media (min-width: 993px) {
+  .progress-circle {
+    width: 150px; /* Taille normale pour le cercle */
+    height: 150px; /* Taille normale pour le cercle */
+    font-size: 1.5rem; /* Taille normale pour le texte */
+    top: 40%; /* Position par défaut */
+    left: 55%; /* Position par défaut */
+  }
+
+  .welcome-text {
+    font-size: 2rem; /* Taille normale pour le texte */
+    top: 55%; /* Position par défaut */
+    left: 55%; /* Position par défaut */
+  }
+}

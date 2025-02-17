@@ -1,0 +1,233 @@
+/* Conteneur principal */
+.form-container-profile {
+  max-width: 40%;
+  margin: 105px auto;
+  padding: 20px;
+  border: 2px solid #F29C38;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Roboto, sans-serif;
+  position: relative;
+  left: 106px;
+}
+/* Alignement des lignes */
+.form-row {
+  display: flex; /* Flexbox pour aligner horizontalement */
+  align-items: center; /* Centre les éléments verticalement */
+  margin-bottom: 20px; /* Espacement entre chaque ligne */
+}
+
+/* Labels */
+label {
+
+  font-weight: bold;
+  color: #05204A;
+  text-align: right; /* Alignement du texte à droite */
+  margin-right: 10px; /* Espacement entre le label et le champ */
+
+}
+.hero h1 {
+  color: #f29c38;
+  font-size: 29px;
+  left: 0px;
+  position: relative;
+  top: 45px;
+}
+
+/* Selects */
+select {
+  width: 50%; /* Même largeur pour tous les champs select */
+  padding: 8px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  display: flex; /* Active Flexbox pour l'alignement */
+  width: 20px; /* Taille standard */
+  height: 20px;
+  margin: 0; /* Supprime les marges par défaut */
+  position: relative; /* Permet un ajustement fin */
+  top: -3px; /* Ajuste le checkbox pour un centrage vertical */
+  margin-right: 105px; /* Espacement entre le checkbox et le texte */
+}
+
+/* Bouton Confirmer */
+.form-row-btn {
+  display: flex;
+  justify-content: center; /* Centre le bouton horizontalement */
+  margin-top: 10px;
+}
+
+.btn-confirmer {
+  background-color: #F29C38;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-confirmer:hover {
+  background-color: #e58931;
+}
+
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+@media (max-width: 768px) {
+
+/* Conteneur principal */
+.form-container-profile {
+  max-width: 64%;
+  margin: auto;
+  padding: 20px;
+  border: 4px solid #F29C38;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Roboto, sans-serif;
+  position: relative;
+  left: 0px;
+  top: 111px;
+}
+.form-row label {
+  font-size: 1rem;
+  color: #05204A;
+  width: 50%;
+  text-align: left;
+}
+  .nav-link a {
+    display: none; /* Cache le bouton catégorie sur mobile */
+}
+.hero h1 {
+  color: #f29c38;
+  font-size: 29px;
+  margin-top: 48px;
+}
+.select{
+  font-size: 10px;
+}
+.date-group select {
+  min-width: 30%;
+  padding: 1px 1px 4px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  font-size: 0.73rem;
+}
+.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+}
+
+.date-group {
+  display: flex;
+  gap: 5px;
+  width: 83%;
+}
+
+}
+
+/* ============================
+   Responsive : Tablette (min-width: 769px) and (max-width: 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+
+
+/* Conteneur principal */
+.form-container-profile {
+  max-width: 50%;
+  margin: 105px auto;
+  padding: 20px;
+  border: 2px solid #F29C38;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Roboto, sans-serif;
+  position: relative;
+  left: 0px;
+}
+.form-row label {
+  font-size: 1rem;
+  color: #05204A;
+  width: 50%;
+  text-align: left;
+}
+  .nav-link a {
+    display: none; /* Cache le bouton catégorie sur mobile */
+}
+.hero h1 {
+  color: #f29c38;
+  font-size: 29px;
+  margin-top: 48px;
+}
+.select{
+  font-size: 12px;
+}
+.date-group select {
+  min-width: 30%;
+  padding: 1px 1px 4px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  font-size: 0.73rem;
+}
+.burger-menu {
+  display: none; /* Affiche le menu burger */
+}
+
+}
+/* ============================
+   Responsive : Desktop (min-width: 993px)
+============================= */
+@media (min-width: 993px) {
+
+
+/* Conteneur principal */
+.form-container {
+  max-width: 50%;
+  margin: auto;
+  padding: 20px;
+  border: 4px solid #F29C38;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Roboto, sans-serif;
+  top: 28px;
+  position: relative;
+  left: 107px;
+}
+
+
+
+
+  .hero h1 {
+    color: #f29c38;
+    font-size: 29px;
+    margin-top: 48px;
+    margin-left: 219px;
+}
+  }
+  .select{
+    font-size: 12px;
+  }
+  .date-group select {
+    min-width: 30%;
+    padding: 1px 1px 4px;
+    border: 1px solid #F29C38;
+    border-radius: 5px;
+    font-size: 0.73rem;
+  }
+
+
+
+
+
+
+

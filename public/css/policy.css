@@ -1,0 +1,343 @@
+html, body {
+
+  margin: 0;
+  padding: 0;
+  overflow: auto; /* Active un défilement global si nécessaire */
+}
+/* Layout normal (Desktop/Tablet) */
+.ligne1, .ligne2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin-bottom: 15px;
+}
+
+
+/* En-tête */
+.politique-confidentialite .hero {
+  text-align: center;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: end;
+  }
+
+.politique-confidentialite h1 {
+  font-size: 1.5rem;
+  color: #05204A;
+  margin-bottom: 10px;
+}
+/* Organisation des lignes */
+.ligne1 {
+  display: flex; /* Active Flexbox */
+  flex-wrap: wrap; /* Permet aux blocs de passer à la ligne si nécessaire */
+  gap: 15px; /* Espacement entre les blocs */
+  margin-bottom: 15px; /* Espace entre les lignes */
+  min-height: 200px; /* Chaque ligne occupe au moins 400px */
+}.ligne2 {
+  display: flex; /* Active Flexbox */
+  flex-wrap: wrap; /* Permet aux blocs de passer à la ligne si nécessaire */
+  gap: 15px; /* Espacement entre les blocs */
+  margin-bottom: 15px; /* Espace entre les lignes */
+  min-height: 200px; /* Chaque ligne occupe au moins 400px */
+}
+
+/* Conteneur principal */
+
+.politique-confidentialite {
+
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.politique-confidentialite h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #05204A;
+  margin-bottom: 20px;
+}
+
+/* Organisation des blocs */
+.politique-confidentialite section {
+
+  flex-wrap: wrap; /* Permet aux blocs de passer à la ligne si nécessaire */
+  gap: 30px; /* Espacement entre les blocs augmenté */
+  margin-bottom: 20px;
+}
+
+
+
+
+
+/* Style pour chaque bloc */
+/* BLOC */
+.bloc {
+  flex: 1;
+  padding: 2px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  min-height: 200px;
+}
+.bloc-reduit {
+  min-height: 200px;
+  max-height: 300px;
+  overflow: hidden;  /* Sur Desktop, ok */
+}
+
+
+.bloc h2 {
+  font-size: 1.6rem;
+  color: #05204A;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #F29C38;
+  padding-bottom: 10px; /* Espacement sous le titre augmenté */
+}
+
+.bloc p {
+  margin: 15px 0; /* Marges plus grandes entre les paragraphes */
+  font-size: 0.9rem;
+}
+
+/* Suppression des puces */
+.bloc ul {
+  margin-left: 0; /* Retirer l'indentation */
+  padding-left: 0; /* Retirer l'espace à gauche */
+  list-style: none; /* Retirer les puces */
+}
+
+.bloc ul li {
+  margin-bottom: 10px; /* Espacement plus grand entre les lignes */
+  font-size: 0.9rem; /* Taille du texte */
+}
+
+/* Liens */
+.politique-confidentialite a {
+  color: #F29C38;
+  text-decoration: none;
+}
+
+.politique-confidentialite a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* Responsive Design */
+
+/* 2) Mobile */
+@media (max-width: 768px) {
+
+  .ligne1, .ligne2 {
+    gap: 5px; /* Au lieu de 10 ou 15 */
+    margin-bottom: 5px;
+  }
+
+  .politique-confidentialite {
+    width: 85%;
+    max-width: 1220px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background: #fff;
+    box-sizing: border-box;
+    min-height: 620px;
+    max-height: 650px;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 10px;
+
+  }
+  .politique-confidentialite section {
+    flex-wrap: wrap-reverse;
+    gap: 7px;
+
+}
+.politique-confidentialite .hero {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  flex-direction: column;
+
+  }
+  .hero h1 {
+    color: #f29c38;
+    font-size: 1.6rem;
+    top: 2px;
+    margin: auto 0px 0px 25px;
+}
+
+  /* A) Mise en colonne */
+  .bloc, .bloc-reduit {
+    width: 100%;
+    /* On force un min-height plus petit ou nul */
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+    padding: 5px; /* On réduit aussi le padding */
+  }
+  p {
+    margin: 0px 0;
+    font-size: 0.7rem;
+}
+
+  /* B) Blocs réduits : enlève le max-height pour éviter de couper le texte */
+  .bloc-reduit {
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* C) Ajustement des titres et textes */
+/* Ajuster la taille du texte */
+.politique-confidentialite h1 {
+  font-size: 1.5rem;
+  margin-top: 0px;
+  top: 0px;
+}
+.bloc h2 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.bloc p, .bloc ul li {
+  font-size: 0.8rem;
+  margin: 1px 0;
+}
+.bloc h2 {
+  margin-bottom: 15px;
+}
+.bloc p {
+  margin: 5px 0;
+}
+
+
+}
+
+
+/* ==============================
+   3) Tablette : (min-width: 768px) and (max-width: 1200px)
+   ============================== */
+   @media (min-width: 768px) and (max-width: 1200px) {
+    /* Ex : Ajuster le conteneur */
+    .politique-confidentialite {
+      max-width: 100%px; /* Largeur maxi déjà définie */
+      margin: 30px auto;
+      padding: 20px;
+      width: 85%;
+      max-width: 1220px;
+      margin: 30px auto;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      background: #fff;
+      box-sizing: border-box;
+      min-height: 490px ;
+      max-height: 680px;
+      height: auto;
+      margin-top: 30px;
+
+    }
+
+    /* Ajuster les blocs si besoin */
+    .bloc {
+      min-height: 200px; /* Valeur par défaut */
+      padding: 15px;
+    }
+    .bloc h2 {
+      font-size: 1.6rem; /* Deja par defaut */
+      margin-bottom: 15px;
+    }
+    /* Ajuster la taille du texte */
+.politique-confidentialite h1 {
+  font-size: 2rem;
+  margin: 10px;
+  text-align: center;
+
+
+}
+
+.politique-confidentialite .hero {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  flex-direction: column;
+
+  }
+  .hero h1 {
+    color: #f29c38;
+    font-size: 1.6rem;
+    top: 2px;
+    margin: auto 0px 0px 25px;
+}
+p {
+  margin: 5px 0; /* Marges plus grandes entre les paragraphes */
+  font-size: 0.9rem;
+}
+}
+
+  /* ==============================
+     4) Desktop : (min-width: 1200px)
+     ============================== */
+  @media (min-width: 1200px) {
+    /* La version Desktop est déjà gérée par défaut,
+
+    /* Ex : Ajuster le conteneur */
+    .politique-confidentialite {
+      max-width: 100%px; /* Largeur maxi déjà définie */
+      margin: 30px auto;
+      padding: 20px;
+      width: 85%;
+      max-width: 1220px;
+      margin: 30px auto;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      background: #fff;
+      box-sizing: border-box;
+      min-height: 490px ;
+      max-height: 640px;
+      height: auto;
+      margin-top: 56px;
+
+    }
+
+    /* Ajuster les blocs si besoin */
+    .bloc {
+      /* min-height: 250px; Valeur par défaut */
+      padding: 20px;
+    }
+    .bloc h2 {
+      font-size: 1.6rem; /* Deja par defaut */
+      margin-bottom: 15px;
+    }
+    /* Ajuster la taille du texte */
+.politique-confidentialite h1 {
+  font-size: 2.5rem;
+  margin: 26px;
+}
+.politique-confidentialite .hero {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  flex-direction: column;
+
+  }
+  .hero h1 {
+    color: #f29c38;
+    font-size: 1.6rem;
+    top: 2px;
+    margin: auto 0px 0px 25px;
+}
+p {
+  margin: 5px 0; /* Marges plus grandes entre les paragraphes */
+
+}
+
+  }
