@@ -109,23 +109,38 @@
 <script>
   // Interaction pour sélectionner une catégorie
   document.querySelectorAll('.category-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const selectedCategory = button.textContent;
-      document.getElementById('selected-category').value = selectedCategory;
-      console.log(`Catégorie choisie : ${selectedCategory}`);
-    });
+  button.addEventListener('click', () => {
+    console.log("Début de l'événement click");
+    
+    const selectedCategory = button.textContent;
+    document.getElementById('selected-category').value = selectedCategory;
+
+    console.log("Catégorie choisie :", selectedCategory);
+    console.log("Fin de l'événement click");
   });
+});
 
   // Interaction pour sélectionner une date
-document.querySelectorAll('.expenses-calendar-day').forEach(day => {
+  document.querySelectorAll('.expenses-calendar-day').forEach(day => {
   day.addEventListener('click', () => {
-    const year = document.getElementById("year-select").value;
-    const month = document.getElementById("month-select").value.padStart(2, '0').trim(); // Ajout de trim()
-    const dayValue = day.textContent.padStart(2, '0').trim(); // Ajout de trim()
-    const selectedDate = `${year}-${month}-${dayValue}`;
+    console.log("Début du clic sur une date");
 
+    const year = document.getElementById("year-select").value;
+    console.log("Année sélectionnée :", year);
+
+    const month = document.getElementById("month-select").value.padStart(2, '0').trim();
+    console.log("Mois sélectionné :", month);
+
+    const dayValue = day.textContent.padStart(2, '0').trim();
+    console.log("Jour sélectionné :", dayValue);
+
+    const selectedDate = `${year}-${month}-${dayValue}`;
     document.getElementById("selected-date").value = selectedDate;
-    alert(`Date choisie : ${selectedDate}`);
+
+    console.log("Date choisie :", selectedDate);
+    console.log("Fin du clic sur une date");
+
+    // alert(`Date choisie : ${selectedDate}`);
   });
 });
 // Récupérer les éléments nécessaires

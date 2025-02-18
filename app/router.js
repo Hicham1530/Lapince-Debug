@@ -51,6 +51,6 @@ router.get("/auth/reset-password/:token", authControllers.resetPasswordPage);
 router.post("/auth/reset-password/:token", authControllers.resetPasswordAction);
 
 
-
+router.post('/dashboard/incomes/add', dashboardControllers.addIncome);
 
 export default router;

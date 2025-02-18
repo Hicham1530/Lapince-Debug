@@ -106,12 +106,16 @@
 <script>
   // Interaction pour sélectionner une catégorie
   document.querySelectorAll('.category-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const selectedCategory = button.textContent;
-      document.getElementById('selected-category').value = selectedCategory;
-      console.log(`Catégorie choisie : ${selectedCategory}`);
-    });
+  button.addEventListener('click', () => {
+    console.log("Début de l'événement click");
+    
+    const selectedCategory = button.textContent;
+    document.getElementById('selected-category').value = selectedCategory;
+
+    console.log("Catégorie choisie :", selectedCategory);
+    console.log("Fin de l'événement click");
   });
+});
 
   // Interaction pour sélectionner une date
 document.querySelectorAll('.expenses-calendar-day').forEach(day => {

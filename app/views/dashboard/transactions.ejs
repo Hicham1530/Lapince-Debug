@@ -1,0 +1,87 @@
+<%- include('../partials/header-dash') %>
+
+<main class="dashboard-container">
+
+  <!-- Barre latérale -->
+  <aside class="dashboard-sidebar">
+    <nav class="sidebar-menu">
+      <a href="/dashboard/overview" class="sidebar-link">Compte</a>
+      <a href="/dashboard/transactions" class="sidebar-link">Transactions</a>
+      <a href="/profile/profile" class="sidebar-link">Profil</a>
+    </nav>
+    <a href="/" class="sidebar-link logout">Déconnexion</a>
+  </aside>
+
+  <!-- Conteneur principal -->
+  <div class="centered-container">
+
+    <!-- Résumé des finances -->
+    <section class="summary-section">
+      <div class="summary-box income">
+        <p>Total Revenus</p>
+        <h2>€ <%= totalRevenus.toFixed(2) %></h2>
+      </div>
+      <div class="summary-box expense">
+        <p>Total Dépenses</p>
+        <h2>€ <%= totalDepenses.toFixed(2) %></h2>
+      </div>
+      <div class="summary-box balance">
+        <p>Solde Net</p>
+        <h2 class="<%= soldeTotal >= 0 ? 'positive' : 'negative' %>">€ <%= soldeTotal.toFixed(2) %></h2>
+      </div>
+    </section>
+
+    <!-- Formulaire d'ajout de transaction -->
+    <section class="transaction-form">
+      <h3>Ajouter une transaction</h3>
+      <form id="transaction-form">
+        <label for="amount">Montant (€) :</label>
+        <input type="number" name="amount" id="amount" min="0" step="0.01" required />
+
+        <label for="description">Description :</label>
+        <input type="text" name="description" id="description" required />
+
+        <label for="date">Date :</label>
+        <input type="date" name="date" id="date" required />
+
+        <label>Type :</label>
+        <div class="radio-group">
+          <input type="radio" id="expense" name="type" value="debit" checked />
+          <label for="expense">Dépense</label>
+
+          <input type="radio" id="income" name="type" value="credit" />
+          <label for="income">Revenu</label>
+        </div>
+
+        <label for="category">Catégorie :</label>
+        <select name="category" id="category">
+          <% categories.forEach(category => { %>
+            <option value="<%= category %>"><%= category %></option>
+          <% }); %>
+        </select>
+
+        <button type="submit">Ajouter</button>
+      </form>
+    </section>
+
+    <!-- Liste des transactions -->
+    <section class="transaction-list">
+      <h3>Historique des transactions</h3>
+      <div id="transactions">
+        <% transactions.forEach(transaction => { %>
+          <div class="transaction-item <%= transaction.transaction_type === 'credit' ? 'income' : 'expense' %>">
+            <p><strong><%= transaction.transaction_type === 'credit' ? 'Revenu' : 'Dépense' %></strong></p>
+            <p>€ <%= transaction.amount.toFixed(2) %></p>
+            <p><%= transaction.description %></p>
+            <p><small>Catégorie : <%= transaction.category %></small></p>
+            <p><small>Date : <%= transaction.date %></small></p>
+            <button class="delete-button" data-id="<%= transaction.id_mouvement %>">🗑</button>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
