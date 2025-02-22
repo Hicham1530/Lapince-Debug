@@ -160,53 +160,6 @@
   color: #ccc; /* Couleur gris clair pour les jours hors du mois */
 }
 
-/* ============================
-   Centrage de l'icône et du calendrier
-   ============================ */
-
-/* Conteneur centré pour l'icône et le calendrier */
-.centered-container {
-  position: absolute; /* Position absolue par rapport au parent */
-  top: 54%; /* Ajuste la position verticale */
-  left: 62%; /* Ajuste la position horizontale */
-  transform: translate(-50%, -50%); /* Centre parfaitement l'élément */
-  display: flex; /* Active Flexbox */
-  flex-direction: column; /* Aligne les enfants en colonne */
-  align-items: center; /* Centre horizontalement */
-}
-
-.category-btn {
-margin-right: 87px;
-
-}
-
-.expenses-category-list {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -216,7 +169,7 @@ margin-right: 87px;
 ============================= */
 .operations-section {
   width: 100%;
-  max-width: 300px; /* Limite la largeur pour une bonne lisibilité */
+  max-width: 500px; /* Limite la largeur pour une bonne lisibilité */
   margin: 30px auto; /* Centre la section horizontalement */
   padding: 20px;
   background-color: #f9f9f9; /* Fond clair */
@@ -233,12 +186,6 @@ margin-right: 87px;
   margin-bottom: 20px;
 }
 
-
-
-
-
-
-
 /* 
 ------------------------------------------------------
    section pour l'historique des operations   
@@ -246,17 +193,10 @@ margin-right: 87px;
 
 /* Section des opérations */
 .operations-section {
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  position: absolute;
-  top: 45px;
-  /* overflow: scroll; */
-  left: 568px;
-  max-height: 290px;
+  border: 1px solid #f29c35;
+  max-height: 690px;
+  left: 768px;
+  top: 53px;
 }
 
 .operations-section h3 {
@@ -276,17 +216,22 @@ margin-right: 87px;
   margin-bottom: 20px;
 }
 /* Élément individuel pour chaque opération */
-.operation-item {
-  display: flex;
-  justify-content: space-between; /* Espace entre les colonnes */
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+/* .operation-item {
+      /* display: flex;
+      justify-content: flex-start;
+      align-items: normal;
+      padding: 5px;
+      margin-bottom: 7px;
+      background-color: #fff;
+      /* border: 1px solid #f29c35; */
+      /* border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      width: 237px;
+      position: relative;
+      top: 6px;
+      height: 72px;
+      text-align: left;  
+}*/
 .operation-item p {
   margin: 0;
   flex: 1; /* Chaque colonne prend la même largeur */
@@ -301,22 +246,20 @@ margin-right: 87px;
 
 /* Bouton supprimer */
 .delete-button {
-  background-color: #f44336; /* Rouge */
+  background-color: #ffffff; /* Rouge */
   color: white;
   border: none;
   border-radius: 3px;
   padding: 5px 10px;
   cursor: pointer;
+  position: relative;
+  left: 159px;
+  bottom: 26px;
 }
 
 .delete-button:hover {
-  background-color: #d32f2f;
+  background-color: #ffffff;
 }
-
-
-
-
-
 
 /* ============================
    Section formulaire des dépenses
@@ -331,6 +274,9 @@ margin-right: 87px;
   font-family: 'Roboto', sans-serif;
   /* position: relative; */
   /* float: left; */
+  bottom: 68px;
+  left: 457px;
+
 }
 
 .expenses-form h3 {
@@ -386,43 +332,8 @@ margin-right: 87px;
 
 .expenses-form {
   position: relative;
-  bottom: 315px;
-  right: 334px;
+ 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ============================
@@ -458,9 +369,6 @@ margin-right: 87px;
   
 
 }
-
-
-
 
 
 
@@ -551,12 +459,6 @@ margin-right: 87px;
       margin-bottom: 0px;
       }
   }
-
-
-
-
-
-
 
 
   /* --------------------- responsive telephone ----------------- */
@@ -672,3 +574,10 @@ display: none;  } /* Cache le bouton catégorie sur mobile et tablette  */
 
         }
 }
+
+
+
+
+
+
+

@@ -1,18 +1,47 @@
-/* Conteneur principal */
+/* ============================
+   Conteneur principal
+============================= */
 .contact-page {
   max-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 69px auto 112px;
+  padding: 23px;
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   color: #333;
-  max-height:622px;
+  background-color: white;
   border-radius: 20px;
-  height: auto;
-  margin-top: 29px;
+  border: 4px solid #F29C38;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
+/* ============================
+   Titre + Introduction
+============================= */
+.hero {
+  text-align: center;
+  bottom: 441px;
+  right: 530px;
+  position: fixed;
+}
+/* ============================
+   Titre "Contactez-nous"
+============================= */
+.hero h1 {
+  font-size: 2.2rem;
+  color: #F29C38;
+  margin-top: 10px; /* Remonte légèrement */
+  text-align: center;
+}
+/* ============================
+   Texte d’introduction
+============================= */
+.hero p {
+  font-size: 1rem;
+  color: #333;
+  max-width: 67%;
+  /*margin: 20px auto 0;  Descend le texte */
+  text-align: center;
+}
 .contact-page h1 {
   font-size: 2.5rem;
   color: #05204A;
@@ -21,23 +50,20 @@
 /* Formulaire */
 .contact-form {
   display: flex;
-  flex-direction: column; /* Aligne les éléments verticalement */
-  align-items: center; /* Centre horizontalement tout le formulaire */
-  justify-content: center; /* Centre verticalement (si nécessaire dans le conteneur parent) */
-    margin-bottom: 0; /* Supprime les espaces inutiles sous le formulaire */
-  padding-bottom: 0; /* Supprime tout padding en bas */
- 
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  max-width: 500px; /* Largeur max du formulaire */
 }
 
 /* Ligne pour label et input */
 
+
+/* Structure des champs */
 .form-group-inline {
   display: flex;
-  flex-direction: column; /* Positionne le label au-dessus de l'input */
-  gap: 5px; /* Réduit l'espace entre le label et l'input */
-  width: 100%; /* Assure que chaque groupe occupe toute la largeur */
-  max-width: 400px; /* Fixe une largeur maximale pour les champs */
-  margin-bottom: 10px; /* Réduit l'espacement sous chaque groupe */
+  flex-direction: column;
+  width: 88%;
 }
 
 
@@ -96,7 +122,10 @@
 p {
   margin-top: 50px;
 }
-
+.para {
+  left: 195px;
+  position: relative;
+}
 /* Responsive Design */
 
 /* Mobile : moins de 768px */
@@ -167,17 +196,16 @@ p {
   color: #F29C38; /* Texte blanc pour contraste */
 }
 }
+/* ============================
+   Formulaire
+============================= */
 .contact-form-section {
-  display: flex
-;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  box-sizing: border-box;
-  /* margin-bottom: 1px; */
-  /* padding-bottom: 0; */
-  margin-left: 45px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    top: 50px;
+    position: relative;
 }
 .contact-form-section h2 {
   text-align: center; /* Centre le texte du h2 */
@@ -185,7 +213,10 @@ p {
   margin-top: 25px;/* Évite tout espace excessif entre les sections */
   padding-top: 0; /* Supprime tout padding supplémentaire */
 }
-
+/* Réduction de la hauteur du cadre pour qu'il ne touche pas le footer */
+.contact-page {
+  max-height: 600px; /* Ajuster cette valeur si nécessaire */
+}
 p {
   margin-top: 0px; 
 }
@@ -284,20 +315,7 @@ p {
 /* =================================== */
 /* Desktop : à partir de 1200px */
 /*=================================== */  
-@media (min-width: 1200px) {
-  .contact-page {
-    max-width: 100%; /* Réduit légèrement la largeur */
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-    border-radius: 20px;
-    height: auto;
-    max-height: 540px;
-    margin-top: 27px;
-    padding: 13px 16px; /* Ajoute un padding horizontal pour plus d'espace */
-    border: 4px solid #F29C38; /* Bordure plus épaisse pour un effet de cadre */
-  margin-top: 74px;
 
-  }
 
 
  /* Organisation horizontale : label à gauche, input à droite */
@@ -306,7 +324,7 @@ p {
   grid-template-columns: 200px 1fr; /* Largeur du label : 200px, input prend le reste */
   align-items: center; /* Centre verticalement les labels et inputs */
   /* gap: 20px; Espacement horizontal entre le label et l'input */
-  margin-bottom: 20px; /* Espacement vertical entre les groupes */
+  margin-bottom: 2px; /* Espacement vertical entre les groupes */
   
 }
   
@@ -315,7 +333,7 @@ p {
   .contact-page h1 {
     font-size: 2.5rem; /* Grande taille pour le titre */
     text-align: center; /* Centre le texte */
-    margin-bottom: 20px; /* Ajoute un espacement sous le titre */
+    margin-bottom: 38px; /* Ajoute un espacement sous le titre */
     color: #f29c38;
   }
 
@@ -328,9 +346,9 @@ p {
   text-align: right; /* Texte aligné à droite */
   font-size: 1.2rem; /* Taille standard des labels */
   font-weight: bold; /* Labels en gras */
-  right: 217px;
+  right: 128px;
   position: relative;
-  top: 28px;
+  top: 2px;
 }
 
 /* Inputs et textarea */
@@ -343,8 +361,8 @@ p {
   width: 200%; /* Remplit tout l'espace disponible */
   box-sizing: border-box; /* Inclut le padding dans les dimensions */
   position: relative;
-  right: 196px;
-  top: 28px;
+  right: 116px;
+  top: 5px;
 }
 .form-group-inline textarea {
   resize: none; /* Désactive la redimension verticale */
@@ -355,7 +373,7 @@ p {
 /* Bouton d'envoi */
 .form-actions {
   text-align: center; /* Centre le bouton */
-  margin-top: 20px; /* Espacement supérieur */
+  margin-top: 6px; /* Espacement supérieur */
 }
 
 .btn-submit {
@@ -378,4 +396,3 @@ p {
  
 
   
-}

@@ -50,7 +50,7 @@
         </select>
       </div>
 
-      <div class="expenses-calendar-weekdays">
+      <!-- <div class="expenses-calendar-weekdays">
         <span>Lun</span>
         <span>Mar</span>
         <span>Mer</span>
@@ -58,7 +58,7 @@
         <span>Ven</span>
         <span>Sam</span>
         <span>Dim</span>
-      </div>
+      </div> -->
 
       <div class="expenses-calendar-grid">
         <% calendar.forEach(day => { %>
@@ -74,9 +74,9 @@
     <!-- Étape 3 : Ajouter une dépense -->
 
     <!-- Formulaire pour ajouter un revenu -->
-    <section class="expenses-form">
+    <section class="expense-form">
       <h3>Ajoutez une depense :</h3>
-      <form id="income-form" action="/dashboard/expenses/add" method="POST">
+      <form id="expense-form" action="/dashboard/expenses/add" method="POST">
         <label for="selected-category">Catégorie :</label>
         <input type="text" name="category" id="selected-category" />
       
@@ -93,9 +93,9 @@
       </form>
     </section>
     <!-- Étape 4 : Ajouter la section des historique des operations  -->
-    <section class="operations-section">
+    <section class="expense-operations">
       <h3>Historique des opérations</h3>
-      <div id="income-list">
+      <div id="expense-list">
         <!-- Les opérations ajoutées seront affichées ici -->
       </div>
     </section>
@@ -154,23 +154,29 @@ const totalElement = document.getElementById("total-expenses"); // Identifier co
  * @param {string} type - Le type d'opérations, soit 'incomes' (revenus).
  */
  function updateTotal(type) {
-  let total = 0;
+  console.log("Mise à jour du total des revenus...");
 
-  // Sélectionner les montants des opérations affichées
-  document.querySelectorAll(`#income-list .operation-item .amount`).forEach((amountElement) => {
-    const amountText = amountElement.textContent.replace("€", "").trim();
-    const amount = parseFloat(amountText);
-    if (!isNaN(amount)) {
-      total += amount;
-    }
-  });
-
-  const totalElement = document.getElementById(`total-${type}`);
-  if (totalElement) {
-    totalElement.textContent = `Total des revenus : € ${total.toFixed(2)}`;
-  } else {
-    console.error(`Élément #total-${type} introuvable dans le DOM.`);
-  }
+  fetch("/dashboard/incomes/total")
+    .then(response => {
+      console.log("Réponse brute du serveur :", response);
+      return response.text(); // Change temporairement .json() en .text()
+    })
+    .then(data => {
+      console.log("Données reçues :", data); // Regarde ce que le serveur renvoie
+      try {
+        data = JSON.parse(data); // Convertir en JSON
+        if (data.success) {
+          document.getElementById(`total-${type}`).textContent = `Total des revenus : € ${data.total.toFixed(2)}`;
+        } else {
+          console.error("Erreur du backend :", data.message);
+        }
+      } catch (error) {
+        console.error("Erreur de parsing JSON :", error);
+      }
+    })
+    .catch(error => {
+      console.error("Erreur lors de la mise à jour du total :", error);
+    });
 }
 
 /**

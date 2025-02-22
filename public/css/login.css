@@ -17,14 +17,18 @@ body {
    Conteneur général du formulaire
 ============================= */
 .login-form-container {
-  margin: auto; /* Centre le formulaire horizontalement et verticalement */
-  padding: 19px; /* Ajoute de l'espace interne */
-  max-width: 800px; /* Limite la largeur maximale du formulaire */
-  background-color: #ffffff; /* Applique un fond blanc */
-  border-radius: 8px; /* Arrondit les coins */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
-  border: 2px solid #f29c38; /* Bordure orange fine */
-  margin-top: 90px; /* Espacement au-dessus du formulaire */
+  width: 135%;
+  max-width: 550px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f29c38;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 29px;
+  right: 90px;
 }
 
 /* ============================
@@ -45,7 +49,7 @@ body {
   display: flex; /* Active Flexbox pour l'agencement horizontal */
   justify-content: center; /* Centre les icônes horizontalement */
   gap: 15px; /* Espacement entre les icônes */
-  margin-bottom: 20px; /* Espacement en dessous de la section */
+  margin-bottom: 0px; /* Espacement en dessous de la section */
 }
 
 .login-social-icon {
@@ -71,7 +75,7 @@ body {
 ============================= */
 .login-form-separator {
   text-align: center; /* Centre le texte */
-  margin: 20px 0; /* Espacement vertical autour du texte */
+  margin: 7px 0; /* Espacement vertical autour du texte */
   font-size: 1rem; /* Taille du texte */
   color: #333; /* Couleur grise foncée */
 }
@@ -108,6 +112,35 @@ body {
   border-color: #f29c38; /* Change la bordure en orange au focus */
 }
 
+/* ✅ Structure de chaque champ */
+.login-field-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* ✅ Style du label */
+.login-field-label {
+  font-size: 1rem;
+  color: #05204A;
+  width: 30%; /* Largeur des labels pour un bon alignement */
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* ✅ Style de l'input */
+.login-field-input {
+  width: 67%;
+  padding: 8px;
+  border: 1px solid #f29c35;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  outline: none;
+}
+
 /* ============================
    Footer du formulaire
 ============================= */
@@ -137,20 +170,19 @@ body {
    Bouton de soumission
 ============================= */
 .login-form-submit {
-  text-align: center; /* Centre le bouton horizontalement */
-  margin-top: 10px; /* Espacement au-dessus */
+  text-align: center;
+  margin-top: 20px;
 }
 
 .login-button {
-  padding: 12px 25px; /* Espacement interne autour du texte */
-  font-size: 1rem; /* Taille du texte */
-  color: #fff; /* Texte blanc */
-  background-color: #f29c38; /* Fond orange */
-  border: 2px solid #f29c38; /* Bordure orange */
-  border-radius: 5px; /* Coins arrondis */
-  cursor: pointer; /* Change le curseur au survol */
-  transition: all 0.3s ease; /* Transition fluide pour tous les effets */
-  font-weight: bold; /* Texte en gras */
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #f29c38;
+  border: 2px solid #f29c38;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .login-button:hover {
@@ -258,36 +290,3 @@ footer {
 }
 
 /* Desktops (min-width: 993px) */
-@media (min-width: 993px) {
-  .login-form-container {
-    padding: 25px; /* Ajoute un peu plus de marges internes */
-    max-width: 800px; /* Largeur maximale définie */
-    margin-top: 7rem /* Espacement supérieur standard */
-  }
-
-  .login-form-title {
-    font-size: 1.8rem; /* Taille normale du titre */
-  }
-
-  .login-input {
-    font-size: 1rem; /* Taille standard */
-    padding: 12px; /* Padding standard */
-  }
-
-  .login-button {
-    font-size: 1rem; /* Taille normale du texte */
-    padding: 12px 25px; /* Padding standard */
-  }
-
-  footer {
-    flex-direction: row; /* Maintient l'alignement horizontal */
-    justify-content: space-between; /* Équilibre entre les sections */
-    padding: 10px 20px; /* Padding confortable */
-    font-size: 1rem; /* Taille standard du texte */
-  }
-
-  .social-media {
-    justify-content: flex-end; /* Aligne à droite les icônes sociales */
-    gap: 15px; /* Espacement standard entre les icônes */
-  }
-}

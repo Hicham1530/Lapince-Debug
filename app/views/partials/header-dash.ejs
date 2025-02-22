@@ -49,9 +49,9 @@
                             <p>Utilisateur inconnu</p>
                         <% } %>
                     </div>
-                    <div class="total-balance">
-                        Solde Total : <strong> <%= typeof soldeTotal !== "undefined" ? soldeTotal : 0 %>€ </strong>
-                      </div>
+                    <div class="total-balance" id="total-balance-header">
+                        Solde Total : <strong id="balance-value"> <%= typeof soldeTotal !== "undefined" ? soldeTotal : 0 %>€ </strong>
+                    </div>
                 </div>
 <!-- test -->
             <!-- <div class="nave-links">

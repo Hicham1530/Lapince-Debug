@@ -1,64 +1,53 @@
-<%- include('partials/header') %> <!-- Inclut le fichier header dans cette page -->
+<%- include('partials/header') %> <!-- Inclut le fichier header -->
 
-    <!-- Section principale -->
-    <main class="mentions-legales">
-      <section class="hero" aria-labelledby="editeur-du-site">
-        <img src="/image/logo-fond-blanc.png" alt="Illustration montrant le logo La Pince" class="hero-image">
-        <h1 id="site-title">Mentions légales :</h1>
-      </section>
-    
-      <div class="columns">
-        <section class="column">
-          <h2>Éditeur du site</h2>
-          <p><strong>“La Pince”</strong> est édité par :</p>
-          <address>
-            Hicham Guelzim<br>
-            115 rue du Faubourg Saint-Martin<br>
-            75010 Paris<br>
-            <a href="mailto:la-pince@gmail.com">la-pince@gmail.com</a><br>
-            Téléphone : <a href="tel:+33107080910">01 07 08 09 10</a>
-          </address>
-        </section>
-    
-        <section class="column">
-          <h2>Hébergeur du site </h2>
-          <p>Le site est hébergé par :</p>
-          <address>
-            OVH<br>
-            2 rue Kellermann<br>
-            59100 Roubaix<br>
-            France<br>
-            Site web : <a href="https://www.ovh.com" target="_blank" rel="noopener noreferrer">www.OVH.com</a>
-          </address>
-        </section>
-      </div>
-    
-      <section>
-        <h2>Propriété intellectuelle :</h2>
-        <p>
-          Tous les contenus présents sur le site <strong>“La Pince”</strong> sont la propriété exclusive de Hicham Guelzim.
-          Toute reproduction ou utilisation sans autorisation est interdite.
-        </p>
-      </section>
-    
-      <section>
-        <h2>Données personnelles :</h2>
-        <p>
-          Les données personnelles collectées sur le site <strong>“La Pince”</strong> sont traitées conformément à la réglementation en vigueur.
-          Pour plus d’informations, veuillez consulter notre <a href="politique-confidentialite.html">politique de confidentialité</a>.
-        </p>
-      </section>
-    </main>
-<%- include('partials/footer') %> <!-- Inclut le fichier footer dans cette page -->
+<main class="legal-page-container">
+  <!-- Section Titre + Logo -->
+  <div class="legal-container">
+    <img src="/image/logo-fond-blanc.png" alt="Logo La Pince" class="legal-logo">
+    <h1 class="legal-title">Mentions légales</h1>
+  </section>
 
+  <!-- Conteneur principal des blocs -->
+  <div class="legal-grid">
+    <section class="legal-card">
+      <h2>Éditeur du site</h2>
+      <p><strong>“La Pince”</strong> est édité par :</p>
+      <address>
+        Hicham Guelzim<br>
+        115 rue du Faubourg Saint-Martin<br>
+        75010 Paris<br>
+        <a href="mailto:la-pince@gmail.com">la-pince@gmail.com</a><br>
+        Téléphone : <a href="tel:+33107080910">01 07 08 09 10</a>
+      </address>
+    </section>
 
+    <section class="legal-card">
+      <h2>Hébergeur du site</h2>
+      <p>Le site est hébergé par :</p>
+      <address>
+        OVH<br>
+        2 rue Kellermann<br>
+        59100 Roubaix, France<br>
+        Site web : <a href="https://www.ovh.com" target="_blank" rel="noopener noreferrer">www.OVH.com</a>
+      </address>
+    </section>
 
-    
+    <section class="legal-card">
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        Tous les contenus présents sur le site <strong>“La Pince”</strong> sont la propriété exclusive de Hicham Guelzim.
+        Toute reproduction ou utilisation sans autorisation est interdite.
+      </p>
+    </section>
 
+    <section class="legal-card">
+      <h2>Données personnelles</h2>
+      <p>
+        Les données personnelles collectées sur le site <strong>“La Pince”</strong> sont traitées conformément à la réglementation en vigueur.
+        Pour plus d’informations, veuillez consulter notre <a href="politique-confidentialite.html">politique de confidentialité</a>.
+      </p>
+    </section>
+  </div>
+</main>
 
-
-
-
-
-
-
+<%- include('partials/footer') %> <!-- Inclut le fichier footer -->

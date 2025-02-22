@@ -27,28 +27,32 @@
   <p class="login-form-separator">ou utiliser mon adresse e-mail :</p>
 
   <!-- Champs d'entrée avec labels -->
-  <div class="login-form-inputs">
-    <label for="email" class="login-label">Votre email :</label>
-    <input 
-      type="email" 
-      id="email" 
-      name="email" 
-      placeholder="Entrez votre email" 
-      required 
-      class="login-input" 
-      aria-required="true" 
-    />
-
-    <label for="password" class="login-label">Votre mot de passe :</label>
-    <input 
-      type="password" 
-      id="password" 
-      name="password" 
-      placeholder="Entrez votre mot de passe" 
-      required 
-      class="login-input" 
-      aria-required="true" 
-    />
+  <div class="login-form-fields">
+    <div class="login-field-group">
+      <label for="email" class="login-field-label">Votre email :</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        placeholder="Entrez votre email" 
+        required 
+        class="login-field-input" 
+        aria-required="true" 
+      />
+    </div>
+  
+    <div class="login-field-group">
+      <label for="password" class="login-field-label">Votre mot de passe :</label>
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        placeholder="Entrez votre mot de passe" 
+        required 
+        class="login-field-input" 
+        aria-required="true" 
+      />
+    </div>
   </div>
 
   <!-- Lien pour inscription -->

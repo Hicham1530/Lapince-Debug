@@ -56,13 +56,14 @@ nav {
   overflow: visible; /* Coupe tout débordement éventuel */
 }
 .total-balance {
-  font-size: 1rem; /* Taille normale */
-  color: #05204a; /* Couleur du texte */
-  white-space: nowrap; /* Empêche le retour à la ligne */
-  text-align: left; /* Texte aligné à gauche */
-  margin: 0; /* Supprime tout espacement externe */
-  padding: 5px; /* Ajoute un léger espacement interne */
-  position: static; /* Retire tout positionnement relatif */
+  font-size: 1.3rem;
+  color: #05204a;
+  white-space: nowrap;
+  text-align: left;
+  margin: 0;
+  padding: 5px;
+  position: relative;
+  left: 563px;
 }
 
 /* ============================
@@ -122,9 +123,10 @@ main {
 
 .hero-image {
   /* Styles pour l'image principale */
-  max-width: 100%; /* Largeur limitée à l'espace disponible */
+  max-width: 45%; /* Largeur limitée à l'espace disponible */
   height: auto; /* Conserve les proportions */
   max-height: 23.75rem; /* Hauteur maximale (300px) */
+  margin-top: 42px;
 }
 
 .hero-subtitle {
@@ -267,9 +269,6 @@ footer {
    Responsive : Menu burger actif
 ============================= */
 
-
-
-
 .nav-links.active {
   display: flex; /* Affiche les liens */
   flex-direction: column; /* Empile les liens verticalement */
@@ -393,9 +392,14 @@ footer {
     margin: 0 auto; /* Centre le contenu */
   }
   .hero-subtitle {
-    font-size: 3.9rem;
-    color: #05204a;
+    font-size: 3rem;
+    margin-top: 40px;
  
   }
   
 }
+
+
+
+
+

@@ -203,28 +203,30 @@ const dashboardController = {
   // Ajouter un revenu
   addIncome: async (req, res) => {
     try {
-      const { category, amount, date, description } = req.body;
-      const userId = req.session.user?.id;
+        const { category, amount, date, description } = req.body;
+        const userId = req.session.user?.id;
 
-      if (!userId) {
-        return res.status(401).json({ success: false, message: "Utilisateur non connecté." });
-      }
+        if (!userId) {
+            return res.status(401).json({ success: false, message: "Utilisateur non connecté." });
+        }
 
-      const income = await Mouvement.create({
-        category,
-        amount,
-        date,
-        description,
-        transaction_type: 'credit',
-        id_user: userId,
-      });
+        const income = await Mouvement.create({
+            category,
+            amount,
+            date,
+            description,
+            transaction_type: 'credit',
+            id_user: userId,
+        });
 
-      res.json({ success: true, message: "Revenu ajouté avec succès." });
+        console.log("Réponse backend :", { success: true, message: "Revenu ajouté avec succès." });
+        res.json({ success: true, message: "Revenu ajouté avec succès." });
     } catch (error) {
-      console.error("Erreur lors de l'ajout d'un revenu :", error);
-      res.status(500).json({ success: false, message: "Erreur interne." });
+        console.error("Erreur lors de l'ajout d'un revenu :", error);
+        res.status(500).json({ success: false, message: "Erreur interne." });
     }
-  },
+}
+,
 
   // Ajouter une dépense
   addExpense: async (req, res) => {
