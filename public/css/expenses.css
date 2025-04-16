@@ -1,3 +1,86 @@
+
+
+.operation-item {
+  display: grid;
+  grid-template-columns: 80px 120px 90px 90px 25px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.operation-item span {
+flex: 1; /* ✅ Chaque élément prend l'espace qu'il faut */
+text-align: left;
+padding: 0 10px;
+white-space: nowrap; /* ✅ Empêcher les retours à la ligne */
+}
+
+.operation-item:hover {
+transform: scale(1.02);
+}
+
+/* ✅ Ajustement du bouton supprimer */
+.delete-button {
+background: none;
+border: none;
+cursor: pointer;
+padding: 0 10px;
+}
+
+.operation-item span:first-child {
+margin-right: 5px; /* ✅ Ajoute un petit espace après "Dépense :" */
+}
+
+/* ✅ Ajustement de l'affichage */
+.operation-table {
+width: 100%;
+border-collapse: collapse;
+left: 10px;
+position: relative;
+}
+
+.operation-table td {
+/* padding: 8px 12px; */
+text-align: left;
+border-bottom: 1px solid #fff;
+white-space: nowrap;
+}
+
+.operation-table td:first-child {
+font-weight: bold; /* Met "Dépense : X€" en gras */
+}
+
+.delete-cell {
+text-align: center;
+width: 50px; /* Ajuste l'espace pour le bouton supprimer */
+}
+
+.delete-button img {
+width: 18px;
+height: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ============================
    Conteneur des catégories
    ============================ */
@@ -216,22 +299,13 @@
   margin-bottom: 20px;
 }
 /* Élément individuel pour chaque opération */
-/* .operation-item {
-      /* display: flex;
-      justify-content: flex-start;
-      align-items: normal;
-      padding: 5px;
-      margin-bottom: 7px;
-      background-color: #fff;
-      /* border: 1px solid #f29c35; */
-      /* border-radius: 5px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      width: 237px;
-      position: relative;
-      top: 6px;
-      height: 72px;
-      text-align: left;  
-}*/
+.operation-item {
+  display: grid;
+  grid-template-columns: 80px 120px 90px 90px 25px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
 .operation-item p {
   margin: 0;
   flex: 1; /* Chaque colonne prend la même largeur */
@@ -376,7 +450,7 @@
 
   /* Positionne le menu burger */
   .burger-menu {
-  display: block; /* Affiche le menu burger */
+  /*display: block;  Affiche le menu burger */
   position: absolute; /* Permet un positionnement précis */
   top: 5px; /* Position verticale */
   right: 10px; /* Position horizontale à droite */
@@ -476,11 +550,11 @@
   /* Positionne le menu burger */
 .burger-menu {
   display: block; /* Affiche le menu burger */
-  position: absolute; /* Permet un positionnement précis */
-  top: 8px; /* Position verticale */
+  /*position: absolute; /* Permet un positionnement précis */
+  top: 24px; /* Position verticale */
   right: 10px; /* Position horizontale à droite */
-  transform: none; /* Supprime tout ajustement */
-  z-index: 1000; /* Assure qu'il est au-dessus d'autres éléments */
+  /*transform: none;  Supprime tout ajustement */
+  /*z-index: 1000;  Assure qu'il est au-dessus d'autres éléments */
  
 }
 /* Assure que le header est relatif pour les positions absolues */

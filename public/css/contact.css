@@ -1,47 +1,53 @@
-/* ============================
-   Conteneur principal
-============================= */
 .contact-page {
-  max-width: 100%;
-  margin: 69px auto 112px;
+  max-width: 37%;
   padding: 23px;
   font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
   color: #333;
   background-color: white;
   border-radius: 20px;
   border: 4px solid #F29C38;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 56px;
+  left: 433px;
 }
 
-/* ============================
-   Titre + Introduction
-============================= */
-.hero {
+.contact-form-section h2 {
   text-align: center;
-  bottom: 441px;
-  right: 530px;
-  position: fixed;
+  font-size: 1.5rem;
+  margin-left: 225px;
+  margin-bottom: 17px;
+  white-space: nowrap;
 }
-/* ============================
-   Titre "Contactez-nous"
-============================= */
+.hero1 {
+  text-align: center;
+  bottom: 139px;
+  left: 260px;
+  position: relative;
+}
+
 .hero h1 {
-  font-size: 2.2rem;
-  color: #F29C38;
-  margin-top: 10px; /* Remonte légèrement */
-  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  left: 57px;
+  color: #F29C35;
 }
-/* ============================
-   Texte d’introduction
-============================= */
-.hero p {
+
+/* .hero p {
   font-size: 1rem;
   color: #333;
-  max-width: 67%;
-  /*margin: 20px auto 0;  Descend le texte */
+  max-width: 100%;
   text-align: center;
-}
+  margin: 26px 0 0px -12px;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  max-width: 85%;
+  white-space: nowrap;
+  left: 32px;
+  top: 24px;
+} */
+
 .contact-page h1 {
   font-size: 2.5rem;
   color: #05204A;
@@ -53,35 +59,35 @@
   flex-direction: column;
   gap: 5px;
   width: 100%;
-  max-width: 500px; /* Largeur max du formulaire */
+  max-width: 500px;
+  left: 59px;
+  position: relative;
 }
 
 /* Ligne pour label et input */
-
-
-/* Structure des champs */
 .form-group-inline {
   display: flex;
   flex-direction: column;
-  width: 88%;
+  width: 58%;
 }
-
 
 .form-group-inline label {
-  text-align: center; /* Aligne le label à gauche */
-  font-size: 0.9rem; /* Taille réduite mais lisible */
-  margin: 0; /* Supprime les marges inutiles */
+  font-size: 1rem;
+  position: relative;
+  right: 171px;
+  top: 0px;
 }
-
 
 .form-group-inline input,
 .form-group-inline textarea {
-    width: 100%;
-    padding: 10px; /* Ajoute un padding intérieur */
-    font-size: 1rem; /* Taille par défaut */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
+  width: 400px;
+  padding: 5px;
+  position: relative;
+  bottom: 21px;
+  left: 100px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  background-color: #f9f9f9;
 }
 
 .form-group-inline input:focus,
@@ -93,306 +99,240 @@
 
 /* Champ message (textarea) */
 .form-group-inline textarea {
-  resize: none; /* Désactive la redimension verticale */
-  height: 83px; /* Hauteur standard pour le champ message */
+  resize: none;
+  height: 83px;
 }
 
 /* Bouton d'envoi */
 .form-actions {
   text-align: center;
-  margin-top: 20px; /* Espacement au-dessus du bouton */
-  margin-bottom: 40px; /* Espacement supplémentaire avec la section suivante */
+  position: relative;
+  bottom: 17px;
 }
 
 .btn-submit {
   background-color: #F29C38;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 7px 20px;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  position: relative;
+  left: 50px;
+  top: 8px;
 }
 
 .btn-submit:hover {
   background-color: #e58931;
 }
+
 p {
   margin-top: 50px;
 }
-.para {
-  left: 195px;
-  position: relative;
-}
-/* Responsive Design */
 
-/* Mobile : moins de 768px */
+.para {
+  right: 100px;
+  position: relative;
+  white-space: nowrap;
+  top: 25Px;
+}
+
+.hero1 p {
+  position: relative;
+  right: 23px;
+  top: -36px;
+}
+
+.hero1 h1 {
+  white-space: nowrap;
+  position: relative;
+  right: 22px;
+  color: #F29C35;
+  bottom: 30px;
+}
+
+.contact-form-section {
+  top: 40px;
+  position: relative;
+  right: 284px;
+}
+
+/* Réduction de la hauteur du cadre pour qu'il ne touche pas le footer */
+.contact-page {
+  max-height: 382px;
+}
+
+p {
+  margin-top: 0px;
+}
+
+/* ============================
+   Responsive Design
+============================= */
 @media (max-width: 768px) {
   .contact-page {
-    
-      max-width: 80%; /* Réduit légèrement la largeur */
-      font-family: 'Roboto', sans-serif;
-      color: #333;
-      max-height: 630px; /* Ajuste la hauteur pour tablette */
-      border-radius: 20px;
-      height: auto;
-      max-height: 510px;
-      margin-top: 73px;
-      padding: 13px 16px; /* Ajoute un padding horizontal pour plus d'espace */
-      border: 4px solid #F29C38; /* Bordure plus épaisse pour un effet de cadre */
-    
-  }
-  .contact-page h1 {
-    font-size: 1.8rem; /* Grande taille pour le titre */
-    text-align: center; /* Centre le texte */
-    margin-bottom: 20px; /* Ajoute un espacement sous le titre */
-    color: #f29c38;
+    max-width: 75%;
+    max-height: 445px;
+    padding: 0px 12px;
+    position: relative;
+    left: 46px;
+    top: 55px;
+    display: flex
+;
   }
 
-  .form-group-inline {
-    display: grid; /* Utilisation de Grid Layout pour un alignement parfait */
-    grid-template-columns: 106px 1fr; /* Largeur du label : 200px, input prend le reste */
-    align-items: center; /* Centre verticalement les labels et inputs */
-    /* gap: 20px; Espacement horizontal entre le label et l'input */
-    margin-bottom: 20px; /* Espacement vertical entre les groupes */
-    
+  .contact-form-section h2 {
+    position: relative;
+    left: 156px;
+    top: 37px;
+  }
+
+  .form-group-inline input,
+  .form-group-inline textarea {
+    width: 270px;
+    padding: 5px;
+    position: relative;
+    top: 38px;
+    left: 198px;
   }
 
   .form-group-inline label {
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
+    font-size: 1rem;
     position: relative;
-    right: 48px;
-    top: 17px;
-}
-.form-group-inline input,
-.form-group-inline textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-sizing: border-box;
-  position: relative;
-  top: 18px;
-  right: 61px;
-}
-
-.btn-submit {
-  padding: 10px 20px;
-  font-size: 1rem;
-  width: 100%;
-  max-width: 300px;
-  position: relative;
-  right: 18px;
-}
-.btn-submit:hover {
-  background-color: #fff; /* Couleur légèrement plus foncée au survol */
-  color: #F29C38; /* Texte blanc pour contraste */
-}
-}
-/* ============================
-   Formulaire
-============================= */
-.contact-form-section {
-  display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0px;
-    top: 50px;
-    position: relative;
-}
-.contact-form-section h2 {
-  text-align: center; /* Centre le texte du h2 */
-  font-size: 1.5rem; /* Taille adaptée au mobile */
-  margin-top: 25px;/* Évite tout espace excessif entre les sections */
-  padding-top: 0; /* Supprime tout padding supplémentaire */
-}
-/* Réduction de la hauteur du cadre pour qu'il ne touche pas le footer */
-.contact-page {
-  max-height: 600px; /* Ajuster cette valeur si nécessaire */
-}
-p {
-  margin-top: 0px; 
-}
-
-
-/* Tablette : entre 768px et 1200px */
-@media (min-width: 768px) and (max-width: 1200px) {
-  .contact-page {
-    max-width: 100%; /* Réduit légèrement la largeur */
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-    max-height: 630px; /* Ajuste la hauteur pour tablette */
-    border-radius: 20px;
-    height: auto;
-    max-height: 530px;
-    margin-top: 27px;
-    padding: 13px 16px; /* Ajoute un padding horizontal pour plus d'espace */
-    border: 4px solid #F29C38; /* Bordure plus épaisse pour un effet de cadre */
-    margin-top: 80px;
-
+    left: 202px;
+    top: 40px;
   }
 
-  .contact-page h1 {
-    font-size: 2rem; /* Grande taille pour le titre */
-    text-align: center; /* Centre le texte */
-    margin-bottom: 20px; /* Ajoute un espacement sous le titre */
-    color: #f29c38;
+  .btn-submit {
+    padding: 7px 4px;
+    max-width: 80px;
+    position: relative;
+    left: 194px;
+    top: 14px;
+  }
+
+  .hero1 p {
+    position: relative;
+    left: 65px;
+    top: -26px;
+    font-size: 12px;
+  }
+
+  .hero1 h1 {
+    white-space: nowrap;
+    position: relative;
+    left: 66px;
+    color: #F29C35;
+  }
+  .hero1 {
+    text-align: center;
+    bottom: 144px;
+    left: 172px;
+    position: relative;
+}
+
+  .para {
+    white-space: normal;
   }
 
   .form-group-inline {
-    display: grid; /* Utilisation de Grid Layout pour un alignement parfait */
-    grid-template-columns: 200px 1fr; /* Largeur du label : 200px, input prend le reste */
-    align-items: center; /* Centre verticalement les labels et inputs */
-    /* gap: 20px; Espacement horizontal entre le label et l'input */
-    margin-bottom: 20px; /* Espacement vertical entre les groupes */
-    
+    display: grid;
+    grid-template-columns: 113px 1fr;
+    align-items: normal;
+    margin-bottom: 20px;
   }
 
-/* Labels */
-.form-group-inline label {
-  text-align: right; /* Texte aligné à droite */
-  font-size: 1.2rem; /* Taille standard des labels */
-  font-weight: bold; /* Labels en gras */
-  right: 245px;
-  position: relative;
-  top: 21px;
-}
-/* Inputs et textarea */
-.form-group-inline input,
-.form-group-inline textarea {
-  padding: 10px; /* Espacement interne */
-  font-size: 1rem; /* Taille du texte */
-  border: 1px solid #ddd; /* Bordure discrète */
-  border-radius: 5px; /* Coins arrondis */
-  width: 200%; /* Remplit tout l'espace disponible */
-  box-sizing: border-box; /* Inclut le padding dans les dimensions */
-  position: relative;
-  right: 214px;
-  top: 20px;
-}
-.form-group-inline textarea {
-  resize: none; /* Désactive la redimension verticale */
-  height: 100px; /* Hauteur standard pour le champ message */
-}
-
-/* Bouton d'envoi */
-.form-actions {
-  text-align: center; /* Centre le bouton */
-  margin-top: 20px; /* Espacement supérieur */
-}
-
-.btn-submit {
-  font-size: 1rem;
-  padding: 10px 20px;
-  background-color: #f29c38;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  right: 18px;
-  position: relative;
-}
-  .btn-submit:hover {
-    background-color: #fff; /* Couleur légèrement plus foncée au survol */
-    color: #F29C38; /* Texte blanc pour contraste */
+  .contact-form-section {
+    top: 12px;
+    right: 386px;
   }
 
+  .form-actions {
+    text-align: center;
+    position: relative;
+    top: 11px;
+  }
+}
 
+@media (min-width: 768px) and (max-width: 1200px) {
+  .contact-page {
+    max-width: 60%;
+    max-height: 454px;
+    padding: 0px 12px;
+    position: relative;
+    left: 174px;
+    top: 45px;
+  }
 
   .contact-form-section h2 {
-    font-size: 1.6rem; /* Augmente légèrement la taille du texte */
+    position: relative;
+    left: 170px;
+    top: 37px;
+  }
+
+  .form-group-inline input,
+  .form-group-inline textarea {
+    width: 354px;
+    padding: 5px;
+    position: relative;
+    top: 41px;
+    left: 184px;
+  }
+
+  .form-group-inline label {
+    font-size: 1rem;
+    position: relative;
+    left: 190px;
+    top: 45px;
+  }
+
+  .btn-submit {
+    padding: 7px 4px;
+    max-width: 80px;
+    position: relative;
+    left: 232px;
+    top: 41px;
+  }
+
+  .hero1 p {
+    position: relative;
+    left: 57px;
+    top: 6px;
+    white-space: nowrap;
+  }
+
+  .hero1 h1 {
+    white-space: nowrap;
+    position: relative;
+    left: 57px;
+    color: #F29C35;
+    top: 22px;
+  }
+
+  .hero1 {
     text-align: center;
-  }
-}
-/* =================================== */
-/* Desktop : à partir de 1200px */
-/*=================================== */  
-
-
-
- /* Organisation horizontale : label à gauche, input à droite */
-.form-group-inline {
-  display: grid; /* Utilisation de Grid Layout pour un alignement parfait */
-  grid-template-columns: 200px 1fr; /* Largeur du label : 200px, input prend le reste */
-  align-items: center; /* Centre verticalement les labels et inputs */
-  /* gap: 20px; Espacement horizontal entre le label et l'input */
-  margin-bottom: 2px; /* Espacement vertical entre les groupes */
-  
-}
-  
-  
-
-  .contact-page h1 {
-    font-size: 2.5rem; /* Grande taille pour le titre */
-    text-align: center; /* Centre le texte */
-    margin-bottom: 38px; /* Ajoute un espacement sous le titre */
-    color: #f29c38;
+    bottom: 194px;
+    left: 202px;
+    position: relative;
   }
 
-
-
-
-
-/* Labels */
-.form-group-inline label {
-  text-align: right; /* Texte aligné à droite */
-  font-size: 1.2rem; /* Taille standard des labels */
-  font-weight: bold; /* Labels en gras */
-  right: 128px;
-  position: relative;
-  top: 2px;
-}
-
-/* Inputs et textarea */
-.form-group-inline input,
-.form-group-inline textarea {
-  padding: 10px; /* Espacement interne */
-  font-size: 1rem; /* Taille du texte */
-  border: 1px solid #ddd; /* Bordure discrète */
-  border-radius: 5px; /* Coins arrondis */
-  width: 200%; /* Remplit tout l'espace disponible */
-  box-sizing: border-box; /* Inclut le padding dans les dimensions */
-  position: relative;
-  right: 116px;
-  top: 5px;
-}
-.form-group-inline textarea {
-  resize: none; /* Désactive la redimension verticale */
-  height: 100px; /* Hauteur standard pour le champ message */
-}
-
-
-/* Bouton d'envoi */
-.form-actions {
-  text-align: center; /* Centre le bouton */
-  margin-top: 6px; /* Espacement supérieur */
-}
-
-.btn-submit {
-  font-size: 1rem; /* Taille du texte */
-  padding: 10px 20px; /* Espacement interne */
-  background-color: #f29c38; /* Couleur principale */
-  color: white; /* Texte blanc */
-  border: none; /* Pas de bordure */
-  border-radius: 5px; /* Coins arrondis */
-  cursor: pointer; /* Curseur en main */
-  transition: background-color 0.3s ease; /* Transition douce */
-}
-
-  .btn-submit:hover {
-    background-color: #fff; /* Couleur légèrement plus foncée au survol */
-    color: #F29C38; /* Texte blanc pour contraste */
-    border: 1px solid #F29C38;
+  .para {
+    white-space: normal;
   }
 
- 
+  .form-group-inline {
+    display: grid;
+    grid-template-columns: 113px 1fr;
+    align-items: normal;
+    margin-bottom: 20px;
+  }
 
-  
+  .contact-form-section {
+    position: relative;
+    right: 432px;
+    top: 7px;
+  }
+}

@@ -14,91 +14,61 @@
 
  
   <!-- Conteneur principal -->
-  <div class="centered-container">
-
+  <div class="centered-container">    
     <!-- Titre principal -->
-    <h1>Gestion des revenus</h1>
-
-    <!-- Affichage du total des revenus -->
-    <h2 id="total-expenses">Total des depenses : € <%= totalDepenses.toFixed(2) %></h2>
-
-    <!-- Étape 1 : Choisir une catégorie -->
-    <section class="expenses-categories">
-      <h3>Choisissez une catégorie :</h3>
-      <div>
-        <% categories.forEach(category => { %>
-          <div class="expenses-category-items">
-            <button class="category-button"><%= category %></button>
-          </div>
-        <% }); %>
+    <h1 class="titre-incomes">Gestion des revenus & Total des depenses : € <%= totalDepenses.toFixed(2) %></h1>
+  
+   <!-- Formulaire pour ajouter un revenu -->
+   <section class="income-form">
+    <h3> ajoutez une depense :</h3> <!-- Ajout du titre -->
+    
+    <form id="expense-form" action="/dashboard/expenses/add" method="POST">
+      
+      <!-- Ligne 1 : Catégorie - Date -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="selected-category">Catégorie :</label>
+          <select name="category" id="selected-category" required>
+            <option value="" disabled selected>-- Sélectionnez une catégorie --</option>
+            <% categories.forEach(category => { %>
+              <option value="<%= category %>"><%= category %></option>
+            <% }); %>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="selected-date">Date :</label>
+          <input type="date" name="date" id="selected-date" required /> 
+        </div>
       </div>
-    </section>
-
-    <!-- Étape 2 : Sélectionner une date -->
-    <div class="expenses-calendares-container">
-      <div class="expenses-calendar-header">
-        <select class="expenses-calendares-select" id="year-select">
-          <% for (let year = 2022; year <= 2027; year++) { %>
-            <option value="<%= year %>" <%= year === currentYear ? 'selected' : '' %>><%= year %></option>
-          <% } %>
-        </select>
-
-        <select class="expenses-calendares-select" id="month-select">
-          <% months.forEach((month, index) => { %>
-            <option value="<%= index + 1 %>" <%= index + 1 === currentMonth ? 'selected' : '' %>><%= month %></option>
-          <% }); %>
-        </select>
+  
+      <!-- Ligne 2 : Description - Montant (€) -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="description">Description :</label>
+          <input type="text" name="description" id="description" />
+        </div>
+  
+        <div class="form-group">
+          <label for="amount">Montant (€) :</label>
+          <input type="number" name="amount" id="amount" min="0" step="0.01" required />
+        </div>
       </div>
-
-      <!-- <div class="expenses-calendar-weekdays">
-        <span>Lun</span>
-        <span>Mar</span>
-        <span>Mer</span>
-        <span>Jeu</span>
-        <span>Ven</span>
-        <span>Sam</span>
-        <span>Dim</span>
-      </div> -->
-
-      <div class="expenses-calendar-grid">
-        <% calendar.forEach(day => { %>
-          <button 
-            class="expenses-calendar-day <%= day.isOtherMonth ? 'other-month' : '' %> <%= day.isToday ? 'today' : '' %>" 
-            data-date="<%= day.date || '' %>">
-            <%= day.date ? day.date.split('-')[2] : '' %>
-          </button>
-        <% }); %>
-      </div>
-    </div>
-
-    <!-- Étape 3 : Ajouter une dépense -->
-
-    <!-- Formulaire pour ajouter un revenu -->
-    <section class="expense-form">
-      <h3>Ajoutez une depense :</h3>
-      <form id="expense-form" action="/dashboard/expenses/add" method="POST">
-        <label for="selected-category">Catégorie :</label>
-        <input type="text" name="category" id="selected-category" />
-      
-        <label for="selected-date">Date :</label>
-        <input type="text" name="date" id="selected-date" />
-      
-        <label for="description">Description :</label>
-        <input type="text" name="description" id="description" />
-      
-        <label for="amount">Montant (€) :</label>
-        <input type="number" name="amount" id="amount" min="0" step="0.01" required />
-      
-        <button type="submit">Enregistrer</button>
-      </form>
-    </section>
+  
+    <!-- Bouton Enregistrer -->
+    <button type="submit">Enregistrer</button>
+  </form>
+</section>
     <!-- Étape 4 : Ajouter la section des historique des operations  -->
-    <section class="expense-operations">
-      <h3>Historique des opérations</h3>
-      <div id="expense-list">
-        <!-- Les opérations ajoutées seront affichées ici -->
-      </div>
-    </section>
+  <!-- Bloc Historique des Dépenses -->
+<section class="expense-operations">
+  <div class="transaction-container">
+    <h2 id="total-expenses">Historique des transactions & Total des dépenses : € <%= totalDepenses.toFixed(2) %></h2>
+    <div id="expense-list" class="transaction-list">
+      <!-- Les transactions passées seront affichées ici -->
+    </div>
+  </div>
+</section>
   </div>
 </main>
 
@@ -120,32 +90,11 @@
   });
 });
 
-  // Interaction pour sélectionner une date
-  document.querySelectorAll('.expenses-calendar-day').forEach(day => {
-  day.addEventListener('click', () => {
-    console.log("Début du clic sur une date");
 
-    const year = document.getElementById("year-select").value;
-    console.log("Année sélectionnée :", year);
-
-    const month = document.getElementById("month-select").value.padStart(2, '0').trim();
-    console.log("Mois sélectionné :", month);
-
-    const dayValue = day.textContent.padStart(2, '0').trim();
-    console.log("Jour sélectionné :", dayValue);
-
-    const selectedDate = `${year}-${month}-${dayValue}`;
-    document.getElementById("selected-date").value = selectedDate;
-
-    console.log("Date choisie :", selectedDate);
-    console.log("Fin du clic sur une date");
-
-    // alert(`Date choisie : ${selectedDate}`);
-  });
-});
+// alert(`Date choisie : ${selectedDate}`);
 // Récupérer les éléments nécessaires
-const form = document.getElementById("income-form");
-const operationsList = document.getElementById("income-list");
+const form = document.getElementById("expense-form");
+const operationsList = document.getElementById("expense-list");
 const totalElement = document.getElementById("total-expenses"); // Identifier correct pour les revenus
 
 /**
@@ -153,10 +102,35 @@ const totalElement = document.getElementById("total-expenses"); // Identifier co
  * Met à jour le total des montants affichés dans la liste des opérations.
  * @param {string} type - Le type d'opérations, soit 'incomes' (revenus).
  */
- function updateTotal(type) {
-  console.log("Mise à jour du total des revenus...");
+ function updateBalance() {
+  console.log(" Mise à jour du solde total...");
 
-  fetch("/dashboard/incomes/total")
+  // Récupérer les éléments HTML
+  const balanceElement = document.getElementById("balance-value"); // Solde total
+  const totalIncomesElement = document.getElementById("total-incomes"); // Total revenus
+  const totalExpensesElement = document.getElementById("total-expenses"); // Total dépenses
+
+  if (balanceElement && totalIncomesElement && totalExpensesElement) {
+    // Extraire les montants depuis le texte des éléments
+    const totalIncomesMatch = totalIncomesElement.textContent.match(/[\d,.]+/);
+    const totalExpensesMatch = totalExpensesElement.textContent.match(/[\d,.]+/);
+
+    const totalIncomes = totalIncomesMatch ? parseFloat(totalIncomesMatch[0].replace(",", ".")) : 0;
+    const totalExpenses = totalExpensesMatch ? parseFloat(totalExpensesMatch[0].replace(",", ".")) : 0;
+
+    // Calcul du solde total
+    const newBalance = totalIncomes - totalExpenses;
+    balanceElement.textContent = `${newBalance.toFixed(2)}€`;
+
+    console.log(` Nouveau solde total mis à jour : ${newBalance}€`);
+  } else {
+    console.error(" Erreur : Impossible de récupérer les éléments du solde.");
+  }
+}
+ function updateTotal(type) {
+  console.log("Mise à jour du total des depenses...");
+
+  fetch("/dashboard/expenses/total")
     .then(response => {
       console.log("Réponse brute du serveur :", response);
       return response.text(); // Change temporairement .json() en .text()
@@ -166,7 +140,7 @@ const totalElement = document.getElementById("total-expenses"); // Identifier co
       try {
         data = JSON.parse(data); // Convertir en JSON
         if (data.success) {
-          document.getElementById(`total-${type}`).textContent = `Total des revenus : € ${data.total.toFixed(2)}`;
+          document.getElementById(`total-${type}`).textContent = `Total des des depenses : € ${data.total.toFixed(2)}`;
         } else {
           console.error("Erreur du backend :", data.message);
         }
@@ -178,7 +152,29 @@ const totalElement = document.getElementById("total-expenses"); // Identifier co
       console.error("Erreur lors de la mise à jour du total :", error);
     });
 }
+// Met à jour le solde total (revenus - dépenses)
+function updateBalance() {
+  const totalIncomesElement = document.getElementById("total-incomes");
+  const totalExpensesElement = document.getElementById("total-expenses");
+  const totalBalanceElement = document.getElementById("balance-value");
 
+  if (totalIncomesElement && totalExpensesElement && totalBalanceElement) {
+    const totalIncomesText = totalIncomesElement.textContent.match(/[\d,.]+/);
+    const totalExpensesText = totalExpensesElement.textContent.match(/[\d,.]+/);
+
+    const totalIncomes = totalIncomesText ? parseFloat(totalIncomesText[0].replace(",", ".")) : 0;
+    const totalExpenses = totalExpensesText ? parseFloat(totalExpensesText[0].replace(",", ".")) : 0;
+
+    const newBalance = totalIncomes - totalExpenses;
+
+    console.log("Mise à jour du solde total...");
+    console.log("Total des revenus :", totalIncomes);
+    console.log("Total des dépenses :", totalExpenses);
+    console.log("Nouveau solde calculé :", newBalance);
+
+    totalBalanceElement.textContent = `${newBalance.toFixed(2)}€`;
+  }
+}
 /**
  * Ajoute une nouvelle opération à la liste.
  * @param {string} category - La catégorie de l'opération.
@@ -191,64 +187,121 @@ const totalElement = document.getElementById("total-expenses"); // Identifier co
   operationItem.classList.add("operation-item");
 
   operationItem.innerHTML = `
-    <p><strong>Catégorie :</strong> ${category}</p>
-    <p><strong>Date :</strong> ${date}</p>
-    <p><strong>Description :</strong> ${description}</p>
-    <p class="amount">€${parseFloat(amount).toFixed(2)}</p>
-    <button class="delete-button">Supprimer</button>
-  `;
+  <table class="operation-table">
+    <tr>
+      <td><strong>Depense :</strong> ${amount}€</td>
+      <td>${category}</td>
+      <td>${description}</td>
+      <td>${date}</td>
+      <td class="delete-cell">
+        <button class="delete-button">
+          <img src="/image/poubelle.png" alt="Supprimer" />
+        </button>
+      </td>
+    </tr>
+  </table>
+`;
 
-  // Ajouter l'opération à la liste
-  operationsList.appendChild(operationItem);
+    // Ajouter l'opération à la liste
+  
+    operationsList.appendChild(operationItem);
 
-  // Ajouter un événement de suppression
-  operationItem.querySelector(".delete-button").addEventListener("click", function () {
-    operationItem.remove(); // Supprimer l'élément
-    updateTotal("expenses"); // Recalculer le total après suppression
-  });
+operationItem.querySelector(".delete-button").addEventListener("click", function () {
+  operationItem.remove();
+  updateTotal(); //  Mettre à jour le solde après suppression
+});
 
-  // Mettre à jour le total après ajout
-  updateTotal("expenses");
+updateTotal(); //  Mettre à jour immédiatement après ajout
 }
 
+
 // Gestion de l'événement de soumission du formulaire
-form.addEventListener("submit", function (e) {
-  e.preventDefault(); // Empêche le rechargement de la page
+   
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Empêche le rechargement de la page
+  // Ajout du log pour voir les données soumises
+  console.log("Formulaire soumis avec :", new FormData(form));
 
-  const category = document.getElementById("selected-category").value.trim();
-  const date = document.getElementById("selected-date").value.trim();
-  const description = document.getElementById("description").value.trim();
-  const amount = document.getElementById("amount").value.trim();
 
-  // LOG : Afficher les données récupérées
-  console.log("Données du formulaire avant envoi :", { category, date, description, amount });
+    const category = document.getElementById("selected-category").value.trim();
+    const date = document.getElementById("selected-date").value.trim();
+    const description = document.getElementById("description").value.trim();
+    const amount = document.getElementById("amount").value.trim();
+   // LOG : Afficher les données récupérées
+   console.log("Données du formulaire avant envoi :", { category, date, description, amount });
 
-  if (!category || !date || !description || !amount) {
-    alert("Veuillez remplir tous les champs !");
-    return;
-  }
+if (!category || !date || !description || !amount) {
+  alert("Veuillez remplir tous les champs !");
+  return;
+}
 
   // Créer l'objet à envoyer
   const data = { category, date, description, amount };
 
   // Envoyer les données au backend via fetch
   fetch("/dashboard/expenses/add", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Réponse du serveur :", data);
-      if (data.success) {
-        console.log("depense ajouté avec succès !");
-        addOperation(category, date, description, amount); // Ajouter à l'interface
-      } else {
-        console.log("Erreur lors de l'ajout d'une depenses.");
-      }
-    })
-    .catch((error) => {
-      console.error("Erreur lors de la requête :", error);
-    });
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data),
+})
+.then((response) => response.json())
+.then((data) => {
+  console.log("Réponse du serveur :", data);
+  if (data.success) {
+    console.log("Transaction ajoutée avec succès !");
+    addOperation(category, date, description, amount);
+
+    updateTotal(); // ✅ Mettre à jour le solde après ajout
+  } else {
+    console.log("Erreur lors de l'ajout.");
+  }
+})
+.catch((error) => {
+  console.error("Erreur lors de la requête :", error);
 });
+  });
+  async function updateTotal() {
+  console.log(" updateTotal() a été appelé !");
+
+  try {
+    //  Récupérer le total des dépenses
+    const expensesResponse = await fetch("/dashboard/expenses/total");
+    const expensesData = await expensesResponse.json();
+    console.log(" Données reçues (dépenses) :", expensesData);
+
+    if (expensesData.success) {
+      //  Mettre à jour l'affichage des dépenses
+      document.getElementById("total-expenses").textContent = `Total des dépenses : € ${expensesData.total.toFixed(2)}`;
+
+      // ✅ Mettre à jour immédiatement le titre principal (si présent sur la page)
+      const titleElement = document.querySelector(".titre-incomes");
+      if (titleElement) {
+        titleElement.textContent = `Gestion des revenus & Total des dépenses : € ${expensesData.total.toFixed(2)}`;
+      }
+    }
+
+    // 🔹 Ensuite, récupérer le total des revenus
+    const incomesResponse = await fetch("/dashboard/incomes/total");
+    const incomeData = await incomesResponse.json();
+    console.log("Données reçues (revenus) :", incomeData);
+
+    if (incomeData.success) {
+      //  Calculer le solde total
+      const totalRevenus = incomeData.total;
+      const totalDepenses = expensesData.total;
+      const soldeTotal = totalRevenus - totalDepenses;
+
+      //  Mettre à jour le solde total affiché (dans incomes et expenses)
+      const balanceElement = document.getElementById("balance-value");
+      if (balanceElement) {
+        balanceElement.textContent = `${soldeTotal.toFixed(2)}€`;
+      }
+
+      console.log(" Nouveau solde total calculé :", soldeTotal);
+    }
+  } catch (error) {
+    console.error(" Erreur lors de la mise à jour du total :", error);
+  }
+
+}
 </script>

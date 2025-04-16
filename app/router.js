@@ -50,8 +50,10 @@ router.post("/auth/forgot-password", authControllers.resetPasswordRequest);
 router.get("/auth/reset-password/:token", authControllers.resetPasswordPage);
 router.post("/auth/reset-password/:token", authControllers.resetPasswordAction);
 
-
 router.post('/dashboard/incomes/add', dashboardControllers.addIncome);
+router.post('/dashboard/expenses/add', dashboardControllers.addExpense);
+
+router.get('/dashboard/expenses/total', dashboardControllers.getTotalExpenses);
 
 
 export default router;

@@ -1,4 +1,4 @@
-/*  Hicham parametresConteneur principal */
+/* parametresConteneur principal */
 .form-container {
   max-width: 40%;
   margin: 0px auto;
@@ -51,33 +51,6 @@ input[type="checkbox"] {
   cursor: pointer;
   font-weight: bold;
   font-size: 14px;
-}
-
-@media (min-width: 993px) {
-
-/* Conteneur principal */
-.form-container {
-  max-width: 40%;
-  margin: 0px auto;
-  padding: 50px;
-  border: 4px solid #F29C38;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: Roboto, sans-serif;
-  position: relative;
-  left: 91px;
-}
-.hero h1 {
-  color: #f29c38;
-  font-size: 29px;
-  margin-top: 48px;
-  left: 0px;
-  position: relative;
-  top: 0px;
-}
-
-
 }
 
 

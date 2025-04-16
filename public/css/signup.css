@@ -26,7 +26,7 @@ main {
 /* Centrer le formulaire */
 .signup-form-container {
   width: 100%;
-  max-width: 550px;
+  max-width: 650px;
   padding: 18px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -34,7 +34,7 @@ main {
   border: 2px solid #f29c38;
   display: flex;
   flex-direction: column;
-  margin-bottom: 64px;
+  margin-bottom: 77px;
 }
 
 /* ============================
@@ -52,11 +52,11 @@ margin-bottom: 20px; /* Ajoute un espacement sous le titre */
  Champs du formulaire
 ============================= */
 .signup-form-inputs {
-display: flex; /* Active Flexbox pour organiser les champs */
-flex-direction: column; /* Aligne les champs verticalement */
-gap: 0px; /* Ajoute un espacement vertical entre les champs */
-text-align: left; /* Aligne le texte des champs à gauche */
-
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  text-align: left;
+  margin-left: 49px;
 }
 
 .signup-label {
@@ -78,18 +78,20 @@ text-align: left; /* Aligne le texte à gauche */
 .signup-form-row label {
   font-size: 1rem;
   color: #05204A;
-  width: 30%; /* Largeur fixe pour aligner les labels */
+  /*width: 26%;  Largeur fixe pour aligner les labels */
   text-align: right;
-  padding-right: 10px;
+  padding-right: 7px;
 }
 .signup-input {
-  width: 100%;
+  width: 70%;
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
   background-color: #f9f9f9;
   outline: none;
+  position: relative;
+  right: 53px;
 }
 
 /* Effet de focus sur les champs */
@@ -160,7 +162,6 @@ border: 2px solid #f29c38; /* Garde la bordure orange */
   .signup-form-container {
     width: 90%; /* Évite que le formulaire soit trop large */
     max-width: 400px; /* Largeur max */
-    margin: 10px auto; /* Ajuste l'espacement */
     padding: 20px;
   }
   
@@ -168,30 +169,51 @@ border: 2px solid #f29c38; /* Garde la bordure orange */
     font-size: 1.5rem; /* Réduit la taille du titre */
   }
 
-  .signup-input {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-
+  .signup-form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    text-align: left;
+    margin-right: -56px;
+}
+.signup-form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  margin-bottom: 10px;
+}
+.signup-form-row label {
+  font-size: 1rem;
+  color: #05204A;
+  text-align: right;
+  padding-right: -1px;
+  position: relative;
+  right: 26px;
+}
   .signup-button {
     font-size: 0.9rem;
     padding: 10px 15px;
   }
   
-}
-@media (min-height: 700px) {
-  footer {
-    position: fixed;
-  }
+
 }
 /* ============================
    Responsive : Tablette (769px à 992px)
 ============================= */
 @media (min-width: 769px) and (max-width: 992px) {
   .signup-form-container {
-    max-width: 70%; /* Ajuste la largeur pour tablettes */
-    margin-top: 7rem; /* Ajuste l'espacement vertical */
-    padding: 30px; /* Ajuste légèrement le padding */
+      width: 100%;
+      max-width: 550px;
+      padding: 18px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 2px solid #f29c38;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 64px;
+    }
   }
 
   .signup-form-title {
@@ -199,13 +221,27 @@ border: 2px solid #f29c38; /* Garde la bordure orange */
   }
 
   .signup-input {
-    font-size: 1rem; /* Taille légèrement réduite */
-    padding: 10px; /* Ajuste le padding */
-  }
+    width: 68%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    outline: none;
+    position: relative;
+    right: 25px;
+}
 
+.signup-form-inputs {
+    display: flex
+;
+    flex-direction: column;
+    gap: 0px;
+    text-align: left;
+    margin-left: 16px;
+}
   .signup-button {
     font-size: 1rem; /* Taille standard */
     padding: 10px 20px; /* Ajuste légèrement le padding */
   }
-}
 

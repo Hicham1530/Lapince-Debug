@@ -7,15 +7,12 @@ body {
   color: #05204A;
 }
 
-h1, h2 {
-  color: #05204A;
-  
-}
 
 h1 {
   text-align: center;
   font-size: 2.4rem;
-  margin-bottom: 30px;
+  margin-bottom: 11px;
+  color: #f29c38;
 }
 
 .h2 {
@@ -32,133 +29,155 @@ h1 {
   height: 4px; /* Épaisseur de la ligne */
   background-color: #F29C38; /* Couleur orange */
   margin: 5px auto 0; /* Centrage et espacement */
-  border-radius: 2px; /* Coins arrondis pour une ligne élégante */
-}
-
-/* Paragraphe */
-.p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0 0 10px 0;
 }
 
 /* Conteneur principal */
 .about-container {
-  width: 100%;
-  max-width: 1040px;
-  margin: 30px auto;
-  padding: 20px;
-  box-sizing: border-box;
-  padding-bottom: 10px; /* Supprime l'espace sous le contenu */
-  max-height: 688px; /* Assure que le conteneur occupe au moins toute la hauteur de la fenêtre */
-  height: auto; /* Permet au contenu de dépasser la hauteur minimale si nécessaire */
-  border-radius: 20px; /* Ajout des coins arrondis */
-  background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: auto;
+   width: 70%;
+   max-width: 865px;
+   margin: 22px auto;
+   box-sizing: border-box;
+   background-color: #fff;
+   max-height: 475px;
+   border-radius: 20px;
+   position: relative;
+   top: 12px;
+   gap: 1px;
+   right: 0px;
+  }
 
 .p{
   font-size: 0.9rem;
   line-height: 1.2;
 }
-.about-section{
-  margin: 20px 0;
 
+.hero2 {
+  text-align: center;
+  bottom: 21px;
+  left: 12px;
+  position: relative;
 }
 
-/* Responsive Design */
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1100px;
+}
+
+.about-grid.row-1 .about-section {
+  flex: 1 1 45%;
+}
+
+.about-grid.row-2 .about-section {
+  flex: 1 1 28%;
+}
+
+
+.about-section h2 {
+  color: #05204A;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.about-section h2::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background-color: #F29C38;
+  margin: 6px auto;
+  border-radius: 2px;
+}
+
+.about-section p,
+.about-section ul {
+  font-size: 1rem;
+  line-height: 1;
+  color: #05204A;
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+/* ============================
+   Responsive Design
+============================= */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+  /* Conteneur principal */
+  .about-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    height: auto;
+    position: relative;
+    max-height: 524px;
+    top: 0px;
   }
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 11px;
+    color: #f29c38;
+    }
+    .about-section h2 {
+      color: #05204A;
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 12px;
+      }
+      .about-section p, .about-section ul {
+        font-size: 0.8rem;
+        line-height: 1;
+        color: #05204A;
+        text-align: justify;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h2{
+      margin-top: 8px;
+    }
+    .hero2 {
+      text-align: center;
+      bottom: 0px;
+      left: 4px;
+      position: relative;
+  }
+  p {
+    font-size: 0.8px;
+}
+}
 
-  .h2 {
+@media (min-width: 768px) and (max-width: 1200px) {
+
+  /* Conteneur principal */
+.about-container {
+  flex-direction: column;
+  display: flex;
+  height: auto;
+  align-items: center;
+  max-height: 501px;
+  background-color: #fff;
+  top: 0px;
+  position: relative;
+}
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 11px;
+  color: #f29c38;
+  }
+  .about-section h2 {
+    color: #05204A;
     font-size: 1rem;
-    margin-bottom: 15px;
-  }
-
-  .p {
-    font-size: 0.9rem;
-    line-height: 1;
-  }
-
-  .about-container {
-    max-width: 80%; /* Largeur adaptée à l'écran mobile */
-    padding: 10px;
-    height: auto; /* Ajuste automatiquement la hauteur */
-    max-height: 660px; /* Supprime la limite de hauteur */
-    overflow: visible; /* Permet le défilement si nécessaire */
-  }
-}
-
-/* Tablette : entre 768px et 1200px */
-@media  (min-width: 768px) and (max-width: 1200px){
-  /* Positionne le menu burger */
-  .burger-menu {
-    display: block; /* Affiche le menu burger */
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    z-index: 1000;
-  }
-
-  .nav-links a {
-    top: -37px;
-  }
-  .about-container {
-    max-width: 90%; /* Largeur adaptée à l'écran mobile */
-    padding: 10px;
-    height: auto; /* Ajuste automatiquement la hauteur */
-    max-height: 660px; /* Supprime la limite de hauteur */
-    overflow: visible; /* Permet le défilement si nécessaire */
-  }
-
-  /* Masque les liens de connexion et d'inscription */
-  .menu-links {
-    display: none; /* Masque les liens */
-  }
-  .burger-menu {
-    display: none; /* Caché par défaut */
-  }
-
- 
-}
-
-
-/* Desktop : à partir de 1200px */
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 2.6rem; /* Augmente la taille pour un affichage plus large */
-    margin-bottom: 20px;
-  }
-  
-
-  .h2 {
-    font-size: 1.8rem; /* Taille plus grande pour les titres */
-    margin-bottom: 20px;
-  }
-
-  .p {
-    font-size: 1rem; /* Texte légèrement plus grand */
-    line-height: 1.6; /* Meilleure lisibilité */
-  }
-
-  .about-container {
-    max-width: 1040px; /* Largeur adaptée aux écrans larges */
-    padding: 20px;
-    height: auto; /* Ajuste la hauteur automatiquement */
-    max-height: 680px; /* Supprime la limite de hauteur */
-    overflow: visible; /* Pas de défilement inutile */
-  }
-
-  .burger-menu {
-    display: none; /* Cache le menu burger */
-  }
-
-  .menu-links {
-    display: flex; /* Affiche les liens Connexion et Inscription */
-    justify-content: flex-end; /* Place les liens à droite */
-    gap: 15px; /* Espacement entre les liens */
-  }
+    text-align: center;
+    margin-bottom: 12px;
+    }
 }

@@ -17,18 +17,18 @@ body {
    Conteneur général du formulaire
 ============================= */
 .login-form-container {
-  width: 135%;
-  max-width: 550px;
-  padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 2px solid #f29c38;
   display: flex;
   flex-direction: column;
+  max-width: 40%;
+  min-width: 719px;
+  margin: auto;
+  padding: 30px;
+  bottom: 39px;
   position: relative;
-  bottom: 29px;
-  right: 90px;
 }
 
 /* ============================
@@ -84,13 +84,11 @@ body {
    Champs du formulaire
 ============================= */
 .login-form-inputs {
-  display: flex; /* Active Flexbox pour l'organisation verticale */
-  flex-direction: column; /* Aligne les champs verticalement */
-  gap: 6px; /* Espacement entre les champs */
-  text-align: left; /* Aligne le texte à gauche */
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
-
 .login-label {
   font-size: 1rem; /* Taille standard de la police */
   color: #333; /* Couleur grise foncée */
@@ -112,33 +110,34 @@ body {
   border-color: #f29c38; /* Change la bordure en orange au focus */
 }
 
-/* ✅ Structure de chaque champ */
+/* Groupe label + input */
 .login-field-group {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  margin-bottom: 10px;
+  max-width: 700px; /* Ajustement pour éviter trop de largeur */
+  gap: 15px; /* Espacement entre le label et l’input */
+  margin-bottom: 15px; /* Ajoute un espace entre les lignes */
 }
 
-/* ✅ Style du label */
+/* Alignement du label */
 .login-field-label {
-  font-size: 1rem;
-  color: #05204A;
-  width: 30%; /* Largeur des labels pour un bon alignement */
-  text-align: right;
-  padding-right: 10px;
+  text-align: left;
+  width: 150px; /* Largeur fixe pour un bon alignement */
+  font-weight: bold;
 }
 
-/* ✅ Style de l'input */
+
+/* Alignement des champs */
 .login-field-input {
-  width: 67%;
-  padding: 8px;
-  border: 1px solid #f29c35;
   border-radius: 5px;
   font-size: 1rem;
   background-color: #f9f9f9;
   outline: none;
+  width: 60%;
+  padding: 5px;
+  border: 1px solid #ddd;
 }
 
 /* ============================
@@ -214,12 +213,29 @@ footer {
 /* Téléphones (max-width: 768px) */
 @media (max-width: 768px) {
   .login-form-container {
-    padding: 15px; /* Réduit les marges internes */
-    max-width: 70%; /* Réduit la largeur maximale */
-    box-shadow: none; /* Supprime l'ombre */
-    margin-top: 8rem; /* Réduit l'espacement en haut */
-  }
-
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f29c38;
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    min-width: 385px;
+    margin: auto;
+    padding: 30px;
+    bottom: 39px;
+    position: relative;
+}
+.login-field-input {
+  width: 51%;
+  max-width: 400px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  outline: none;
+}
   .login-form-title {
     font-size: 1.5rem; /* Réduit la taille du titre */
   }
@@ -257,11 +273,22 @@ footer {
 
 /* Tablettes (769px à 992px) */
 @media (min-width: 769px) and (max-width: 992px) {
+
   .login-form-container {
-    padding: 20px; /* Marges légèrement augmentées */
-    max-width: 600px; /* Limite la largeur du formulaire */
-    margin-top: 7rem; /* Ajuste l'espacement en haut */
-  }
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f29c38;
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    min-width: 634px;
+    margin: auto;
+    padding: 30px;
+    bottom: 28px;
+    position: relative;
+    right: 12px;
+}
 
   .login-form-title {
     font-size: 1.7rem; /* Taille légèrement réduite */
@@ -288,5 +315,3 @@ footer {
     gap: 10px; /* Espacement standard entre les icônes */
   }
 }
-
-/* Desktops (min-width: 993px) */

@@ -279,10 +279,10 @@ input[type="checkbox"] {
   border-radius: 5px;
   font-size: 0.73rem;
 }
-.burger-menu {
-  display: none; /* Affiche le menu burger */
+ /*.burger-menu {
+  display: none; Affiche le menu burge
 }
-
+r */
 }
 /* ============================
    Responsive : Desktop (min-width: 993px)

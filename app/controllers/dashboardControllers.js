@@ -227,6 +227,36 @@ const dashboardController = {
     }
 }
 ,
+// test
+
+
+getTotalExpenses: async (req, res) => {
+  try {
+    const userId = req.session.user?.id;
+    if (!userId) {
+      return res.status(401).json({ success: false, message: "Utilisateur non connecté." });
+    }
+
+    // Récupérer toutes les dépenses de l'utilisateur
+    const depenses = await Mouvement.findAll({
+      where: { id_user: userId, transaction_type: "debit" }
+    });
+
+    // Calcul du total des dépenses
+    const totalDepenses = depenses.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
+
+    console.log("💰 Total des dépenses calculé :", totalDepenses);
+
+    res.json({ success: true, total: totalDepenses });
+  } catch (error) {
+    console.error("Erreur lors de la récupération du total des dépenses :", error);
+    res.status(500).json({ success: false, message: "Erreur interne." });
+  }
+},
+
+
+
+
 
   // Ajouter une dépense
   addExpense: async (req, res) => {

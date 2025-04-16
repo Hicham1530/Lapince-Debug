@@ -14,17 +14,12 @@ body {
   overflow: hidden; /* Empêche le scroll */
 }
 
+
 a {
   /* Styles pour les liens hypertexte */
   text-decoration: none; /* Supprime le soulignement */
-  font-weight: bold; /* Texte en gras */
+  font-weight:auto; /* Texte en gras */
   color: #fff; /* Couleur blanche pour les liens */
-}
-
-.full-screen {
-  /* Classe utilitaire pour occuper tout l'écran */
-  width: 100vw; /* Largeur totale de la fenêtre */
-  height: 100vh; /* Hauteur totale de la fenêtre */
 }
 
 /* ============================
@@ -37,7 +32,6 @@ header {
   justify-content: space-between; /* Espace entre le logo et la navigation */
   align-items: center; /* Centre les éléments verticalement */
   padding: 0.625rem 1.25rem; /* Padding de 10px en haut/bas, 20px sur les côtés */
-  /* border-bottom: 0.1875rem solid #f29c38; Ligne orange sous le header */
   box-sizing: border-box; /* Inclut padding et bordures dans les dimensions */
 }
 
@@ -64,6 +58,7 @@ nav {
   padding: 5px;
   position: relative;
   left: 563px;
+  bottom: 8px;
 }
 
 /* ============================
@@ -113,28 +108,34 @@ main {
   flex: 1; /* Prend tout l'espace disponible */
   background-color: #fff; /* Fond blanc */
 }
-
+.hero-1 {
+  bottom: 334px;
+  right: 259px;
+  position: fixed;
+}
 .hero h1 {
   /* Styles pour le titre principal */
   /* font-size: 1rem ; Taille définie pour les grands titres */
   color: #f29c38; /* Couleur orange */
   margin-bottom: 0 rem;/* 1.25rem;  Espacement en bas (20px) */
 }
+.hero-subtitle {
+  position: relative;
+  top: 169px;
+  left: 95px;
+  font-size: 3.4rem;
+  text-align: center;
+  color: #05204a;
+  }
+
 
 .hero-image {
   /* Styles pour l'image principale */
-  max-width: 45%; /* Largeur limitée à l'espace disponible */
-  height: auto; /* Conserve les proportions */
-  max-height: 23.75rem; /* Hauteur maximale (300px) */
-  margin-top: 42px;
-}
-
-.hero-subtitle {
-  /* Styles pour le sous-titre */
-  font-size: 3.9rem; /* Taille du texte */
-  color: #05204a; /* Couleur bleue foncée */
-  margin-top: 5rem; /* Espacement supérieur (80px) */
-  text-align: center; /* Centre le texte */
+  max-width: 58%;
+  top: 127px;
+  position: relative;
+  left: 85px;
+  
 }
 
 /* ============================
@@ -177,6 +178,7 @@ footer {
 .footer-left a {
   text-decoration: none; /* Supprime le soulignement des liens */
   color: white; /* Couleur blanche pour les liens */
+  margin-bottom: 5px;
 }
 
 .footer-left a:hover {
@@ -236,7 +238,7 @@ footer {
 }
 
 .social-media i {
-  font-size: 24px; /* Taille des icônes sociales */
+  font-size: 18px; /* Taille des icônes sociales */
 }
 
 .contact {
@@ -248,13 +250,13 @@ footer {
 ============================= */
 /* Menu burger */
 .burger-menu {
-  display: none; /* Caché par défaut sur les grands écrans */
+  display: block;/* Caché par défaut sur les grands écrans */
   font-size: 3rem; /* Taille du menu burger (icône) */
   cursor: pointer; /* Change le curseur en main au survol */
   color: #f29c38; /* Couleur orange */
   position: absolute; /* Permet de le positionner précisément */
   right: 10px; /* Positionné à droite du header */
-  top: 2%; /* Position verticale dans le header */
+  top: 20%; /* Position verticale dans le header */
   transform: translateY(-40%); /* Ajuste la position verticale pour centrer */
 }
 
@@ -292,35 +294,40 @@ footer {
 .nav-links.active a:last-child {
   border-bottom: none; /* Supprime la bordure pour le dernier lien */
 }
+
+
 /* ============================
    Responsive : Téléphone (max-width: 768px)
 ============================= */
 @media (max-width: 768px) {
+  .burger-menu {
+    display: block; /* Affiche le menu burger */
+  }
   .nav-links {
     display: none; /* Masque les boutons */
   }
   .nav-links a {
-    top: -37px;
+    bottom: 37px;
   }
-  .hero-subtitle {
-    font-size: 1.4rem;
-    margin-top: 208px;
-}
-.hero-image {
-  max-width: 100%;
-  height: auto;
-  max-height: 11rem;
-  top: 166px;
-  position: relative;
-}
-
-  .burger-menu {
-    display: block; /* Affiche le menu burger */
-  }
+ 
   main {
     padding: 2rem 1rem; /* Moins de padding sur mobile */
 }
 
+.hero-subtitle {
+  position: relative;
+  top: 139px;
+  left: 0px;
+  width: 200%;
+  font-size: 22px;
+}
+.hero-image {
+  max-width: 161%;
+  top: 93px;
+  position: relative;
+  left: 53px;
+  height: 204px;
+}
 
   footer {
     flex-direction: column; /* Colonne pour les petits écrans */
@@ -337,69 +344,65 @@ footer {
   .footer-center {
     display: none; /* Masque cet élément */
   }
- 
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 98%;
+    position: relative;
+    margin-bottom: -25px;
+    font-size: 0.8rem;
+    top: -17px;
+    }
 }
 
 /* ============================
    Responsive : Tablette (769px à 992px)
 ============================= */
 @media (min-width: 769px) and (max-width: 992px) {
-  .nav-links a {
-    font-size: 0.9rem; /* Taille légèrement réduite */
-    padding: 0.2rem 0.35rem;
+  .burger-menu {
+    display: block;
   }
-  .hero-subtitle {
-    font-size: 2.8rem;
-    position: relative;
-    top: 106px;
 
-}
+  /* Réactiver la navigation */
+  .nav-links {
+    display: none; /* Masque les boutons */
+  }
+  .nav-links a {
+    bottom: 37px;
+  }
+
+  /* Ajustement du hero */
+  .hero-subtitle {
+    font-size: 2.5rem;
+    width: 133%;
+    text-align: center;
+    left: 0px;
+    top: 161px;
+  }
 
   .hero-image {
-    max-width: 69%;
-    top: 97px;
-    position: relative;
-  }
-  
-}
-
-/* ============================
-   Responsive : Desktop (min-width: 993px)
-============================= */
-@media (min-width: 993px) {
-  .burger-menu {
-    display: none; /* Cache le menu burger */
+    max-width: 80%;
+    height: auto;
+    left: 130px;
+    top: 119px;
   }
 
-  .nav-links {
-    display: flex; /* Affiche les boutons */
+  /* Ajustement du footer */
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 30px;
   }
 
-  .hero-subtitle {
-    font-size: 3.9rem; /* Taille normale */
+  .footer-left,
+  .footer-right {
+    margin: 0;
   }
 
   .footer-center {
-    display: block; /* Restaure cet élément */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: block; /* Réafficher l'élément masqué sur mobile */
+    text-align: center;
   }
-
-  .container {
-    max-width: 1200px; /* Limite la largeur du contenu */
-    margin: 0 auto; /* Centre le contenu */
-  }
-  .hero-subtitle {
-    font-size: 3rem;
-    margin-top: 40px;
- 
-  }
-  
 }
-
-
-
-
-
