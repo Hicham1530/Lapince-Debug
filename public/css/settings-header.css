@@ -33,7 +33,6 @@ legend {
   font-size: 1.5rem; /* Taille de police plus grande pour un titre important */
   color: #05204A; /* Couleur principale pour le texte */
   text-align: center; /* Centre le titre horizontalement */
-  margin-bottom: 20px; /* Espacement sous le titre */
 }
 
 /* Conteneur pour une ligne de formulaire */
@@ -67,14 +66,12 @@ legend {
 
 /* Groupe de date (ex. jour, mois, année) */
 .date-group {
-  display: flex; /* Dispose les éléments horizontalement */
-  gap: 10px; /* Espacement entre les sélecteurs */
-  width: 57%; /* Largeur alignée avec les autres champs */
+  display: flex;
+  gap: 7px;
+  width: 66%;
 }
 .form-label {
-  font-weight: bold;
-  font-size: 1.3rem;
-  display: block;
+  font-size: 1rem;
 }
 
 /* Sélecteurs de date */
@@ -92,7 +89,6 @@ legend {
 .form-button {
   display: flex; /* Aligne les éléments horizontalement */
   justify-content: center; /* Centre le bouton dans le conteneur */
-  margin-top: 46px; /* Espacement au-dessus du bouton */
 }
 
 /* Style du bouton */

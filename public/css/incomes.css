@@ -1,3 +1,4 @@
+
 /* =============================================================================================
    🎯 Conteneur principal (Formulaire + Transactions)
 ============================================================================================= */
@@ -269,34 +270,9 @@
   z-index: 10;
 }
 
-/* Menu dans la barre latérale */
-.sidebar-menu {
-  margin-top: 95px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  align-items: center;
-}
 
-/* Style des liens de navigation */
-.sidebar-link {
-  text-decoration: none;
-  color: #f29c38;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 8px 25px;
-  border: 2px solid transparent;
-  border-radius: 3px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
 
-/* Effet hover */
-.sidebar-link:not(.logout):hover {
-  color: #fff;
-  background-color: #f29c38;
-  border: 2px solid #f29c38;
-}
+
 
 /* Bouton de déconnexion */
 .logout {
@@ -325,19 +301,27 @@
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: -webkit-box;
+  gap: 48px;
+  align-items: center;
 }
 
 /* Bouton du dropdown */
 .dropdown-btn {
-  background-color: #f29c38;
-  color: white;
-  padding: 10px 20px;
+  background: none;
+  color: #f29c38;
+  padding: 0;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
+  text-decoration: none;
+  font-weight: bold;
 }
+
+/* .dropdown-btn:hover {
+  color: #fff;
+  background-color: #f29c38;
+} */
 
 /* Menu déroulant caché */
 .dropdown-menu {
@@ -345,7 +329,7 @@
   flex-direction: column;
   gap: 12px;
   position: absolute;
-  top: 150%;
+  top: 259%;
   left: 0;
   background-color: white;
   border: 1px solid #f29c38;
@@ -360,7 +344,7 @@
 .dropdown-item {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  padding: 7px 0px;
   text-decoration: none;
   color: #05204a;
   font-size: 1rem;
@@ -374,4 +358,11 @@
 /* Affichage du menu */
 .dropdown-menu.show {
   display: flex;
+}
+
+/* Added .top-nav-links rule */
+.top-nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }

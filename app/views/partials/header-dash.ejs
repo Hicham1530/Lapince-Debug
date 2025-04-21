@@ -30,16 +30,6 @@
                     <img src="/image/logo_with_transparent_background.png" alt="Logo de La Pince" class="logo">
                 </a>
 
-                <!-- Navigation et contenu interactif -->
-                <div class="dropdown">
-    <button class="dropdown-btn">Analyse</button>
-    <div class="dropdown-menu">
-        <a href="/dashboard/overview" class="dropdown-item">Situtation</a>
-        <a href="/dashboard/incomes" class="dropdown-item">Depenses</a>
-        <a href="/dashboard/expenses" class="dropdown-item">Revenus</a>
-    </div>
-</div>
-
                 <!-- Informations sur le profil utilisateur -->
                 <div class="profile-container">
                     <div class="profile-balance">
@@ -53,31 +43,68 @@
                         Solde Total : <strong id="balance-value"> <%= typeof soldeTotal !== "undefined" ? soldeTotal : 0 %>€ </strong>
                     </div>
                 </div>
-<!-- test -->
-            <!-- <div class="nave-links">
-                <a href="/dashboard/expenses" aria-label="Page de Depenses">Depenses</a>
-                <a href="/dashboard/incomes"aria-label="Page de revenus">Revenus</a>
-            </div> -->
-
 
             <!-- Menu burger -->
             <div class="burger-menu" onclick="toggleMenu()" aria-label="Ouvrir le menu de navigation">
                 ☰
             </div>
+
+            <div class="top-nav-links">
+                <!-- <a href="/dashboard/overview" class="sidebar-link">Compte</a> -->
+                <div class="dropdown top-dropdown">
+                    <button class="dropdown-btn">Compte</button>
+                    <div class="dropdown-menu">
+                        <a href="/dashboard/overview" class="dropdown-item">Situation</a>
+                    </div>
+                <div class="dropdown top-dropdown">
+                    <button class="dropdown-btn">Analyse</button>
+                    <div class="dropdown-menu">
+                        <a href="/dashboard/incomes" class="dropdown-item">Revenus</a>
+                        <a href="/dashboard/expenses" class="dropdown-item">Dépenses</a>
+                    </div>
+                </div>
+                <div class="dropdown top-dropdown">
+                    <button class="dropdown-btn">Profil</button>
+                    <div class="dropdown-menu">
+                        <a href="/profile/profile" class="dropdown-item">Profile</a>
+                        <a href="/profile/settings" class="dropdown-item">Paramètre</a>
+                        <a href="/profile/password" class="dropdown-item">Mot de passe</a>
+                        <a href="/profile/email" class="dropdown-item">Email</a>
+                    </div>
+                </div>
+                <a href="/" class="sidebar-link logout">Déconnexion</a>
+            </div>
         </nav>
        
     </header>
 
-    <script src="/js/menu.js"> <!-- Lien vers le script JavaScript pour le menu burger -->
-    
-    overview: (req, res) => {
-        const successMessage = req.session.successMessage || null;
-        req.session.successMessage = null;
-      
-        res.render("dashboard/overview", { 
-          title: "Vue globale",
-          successMessage,
-          user: req.session.user // Passer les informations utilisateur à la vue
+    <script src="/js/menu.js" defer></script>
+    <script>
+        // Fonction de gestion des menus déroulants
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+
+            dropdownButtons.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const menu = btn.nextElementSibling;
+
+                    // Ferme tous les autres menus
+                    document.querySelectorAll(".dropdown-menu").forEach(m => {
+                        if (m !== menu) m.style.display = "none";
+                    });
+
+                    // Alterne l'affichage du menu cliqué
+                    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+                });
+            });
+
+            // Ferme les menus si on clique ailleurs
+            document.addEventListener("click", (e) => {
+                if (!e.target.closest(".dropdown")) {
+                    document.querySelectorAll(".dropdown-menu").forEach(m => m.style.display = "none");
+                }
+            });
         });
-      }
-      </script>
+    </script>
+</body>
+</html>

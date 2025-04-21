@@ -36,10 +36,10 @@
   border: 2px solid transparent; /* Bordure invisible par défaut */
   border-radius: 3px; /* Coins légèrement arrondis */
   text-align: center; /* Centre le texte */
-  
+  position: relative;
+  bottom: 203px;
+  left: 49px;
 }
-
-
 
 /* Effet hover sur les liens de la sidebar (hors bouton logout) */
 .overview-sidebar-link:not(.overview-logout):hover {
@@ -47,6 +47,9 @@
   background-color: #f29c38; /* Change le fond en orange */
   border: 2px solid #f29c38; /* Ajoute une bordure orange */
 }
+
+
+
 
 /* ============================
    Contenu principal
@@ -130,24 +133,24 @@ header {
 ============================= */
 /* Style pour le bouton de déconnexion */
 .overview-logout {
-  margin-top: auto; /* Place le bouton en bas de la barre latérale */
-  text-align: center; /* Centre le texte */
-  background-color: #f29c38; /* Fond orange */
-  color: #fff; /* Texte blanc */
-  border: 2px solid #f29c38; /* Bordure orange */
-  border-radius: 5px; /* Coins arrondis */
-  padding: 10px 9px; /* Espacement interne */
-  cursor: pointer; /* Change le curseur en pointeur */
-  transition: all 0.3s ease; /* Transition fluide */
-  font-weight: bold; /* Texte en gras */
-  margin-bottom: 20px;
+    position: relative;
+    top: -219px;
+    left: 644px;
+    background-color: #f29c38;
+    color: #fff;
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 5px 5px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    text-decoration: none;
 }
 
-/* Effet hover pour le bouton déconnexion */
 .overview-logout:hover {
-  background-color: #fff; /* Change le fond en blanc */
-  color: #f29c38; /* Change la couleur du texte en orange */
-  border: 2px solid #f29c38; /* Conserve la bordure orange */
+  background-color: #fff;
+  color: #f29c38;
+  border: 2px solid #f29c38;
 }
 
 /* ============================
@@ -158,10 +161,9 @@ header {
   width: 100%;
   font-size: 1.4rem;
   color: #05204a;
-  left: 410px;
+  left: 519px;
   position: relative;
-  top: 19px;
-
+  top: 16px;
 }
 /* ============================
    Conteneur principal (dashboard)
@@ -175,13 +177,6 @@ header {
   padding: 0; /* Supprime les marges/paddings inutiles */
   position: relative; /* Nécessaire pour un positionnement précis */
 }
-
-
-
-
-
-
-
 
 .progress-circle {
   --progress: 0%;
@@ -197,13 +192,10 @@ header {
   align-items: center;
 }
 
-
 .progress-inner {
   font-size: 24px;
   font-weight: bold;
 }
-
-
 
 /* ============================
    Cercle de progression
@@ -223,11 +215,6 @@ header {
   transform: translate(-50%, -50%); /* Centre le texte précisément */
   margin: 0; /* Supprime les marges inutiles */
 }
-
-
-
-
-
 
 /* Styles pour le message de succès */
 .alert-success {
@@ -249,32 +236,6 @@ header {
   pointer-events: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .burger-menu {
   display: none; /* Caché par défaut sur les grands écrans */
   font-size: 2rem; /* Taille de l'icône burger */
@@ -291,7 +252,6 @@ header {
   gap: 10px;
 }
 
-
 /* Par défaut, afficher le bouton catégorie et cacher les liens */
 .nave-links {
   display: none;
@@ -300,6 +260,9 @@ header {
 /* .category-btn {
   display: block;
 } */
+
+
+
 
 /* ============================
    Responsive : Téléphone (max-width: 768px)
@@ -312,7 +275,6 @@ header {
     top: 38%; /* Ajuste la position verticale */
     left: 63%; /* Centre horizontalement */
   }
-
 
   .left-section {
     display: flex; /* Organise les éléments horizontalement */
@@ -350,7 +312,6 @@ header {
     margin-bottom: 50px; /* Espacement avec le bas */
     position: static; /* Pas de position absolue pour éviter les chevauchements */
   }
-
 
   .profile-balance,  /* permet de rapprocher solde total et le nom du  */
   .total-balance {
@@ -423,11 +384,9 @@ header {
     position: static; /* Pas de position absolue */
   }
 
-
    .category-btn {
     display: none; /*Cache le bouton catégorie sur mobile et tablette */
   } 
-
 
   .burger-menu {
     display: block; /* s'assurer que le menu burger est affiché */
@@ -473,14 +432,14 @@ header {
     width: 250px;
     height: 250px;
     font-size: 1.5rem;
-    bottom: 18%;
-    left: 6%;
+    bottom: 13%;
+    left: 1%;
     position: relative;
   }
 
   .welcome-text {
-    font-size: 2rem; /* Taille normale pour le texte */
-    top: 65%; /* Position par défaut */
-    left: 55%; /* Position par défaut */
+    font-size: 2rem;
+    top: 65%;
+    left: 52%;
   }
 }

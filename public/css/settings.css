@@ -1,15 +1,18 @@
 /* parametresConteneur principal */
-.form-container {
-  max-width: 40%;
+.form-container2 {
+  max-width: 80%;
   margin: 0px auto;
   padding: 50px;
-  border: 4px solid #F29C38;
+  border: 3px solid #F29C38;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Roboto, sans-serif;
   position: relative;
-  left: 91px;
+  left: 28px;
+  bottom: 39px;
+  min-height: 153px;
+  padding: 32px;
 }
 .hero h1 {
   color: #f29c38;
@@ -52,7 +55,21 @@ input[type="checkbox"] {
   font-weight: bold;
   font-size: 14px;
 }
+.dropdown-btn {
+  color: #F29C38;
+  font-weight: bold;
+  text-decoration: none; 
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background: none; 
+  padding: 3px;
+}
 
+/* .dropdown-btn:hover {
+  color: #fff;
+  background-color: #f29c38;
+} */
 
 /* ============================
    Responsive : Tablette (min-width: 769px) and (max-width: 992px)

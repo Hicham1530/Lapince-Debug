@@ -1,21 +1,21 @@
 /* Conteneur principal */
+
 .form-container-profile {
-  max-width: 40%;
-  margin: 105px auto;
-  padding: 20px;
-  border: 2px solid #F29C38;
+  max-width: 81%;
+  padding: 26px;
+  border: 3px solid #F29C38;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Roboto, sans-serif;
   position: relative;
-  left: 106px;
+  left: 40px;
+  bottom: 42px;
 }
 /* Alignement des lignes */
 .form-row {
   display: flex; /* Flexbox pour aligner horizontalement */
   align-items: center; /* Centre les éléments verticalement */
-  margin-bottom: 20px; /* Espacement entre chaque ligne */
 }
 
 /* Labels */
@@ -77,8 +77,22 @@ input[type="checkbox"] {
   background-color: #e58931;
 }
 
-
-
+.date-group {
+  display: flex;
+  gap: 7px;
+  width: 55%;
+}
+.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
+  width: 53%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+}
+.form-row label {
+  font-size: 1rem;
+  color: #05204A;
+  width: 314px;
+}
 
 /* ----------------- Menu deroulant Profile ----------------- */ 
 
@@ -86,7 +100,9 @@ input[type="checkbox"] {
 /* Conteneur principal */
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: -webkit-box;
+  gap: 48px;
+  align-items: center;
 }
 
 /* Bouton du dropdown */
@@ -99,7 +115,12 @@ input[type="checkbox"] {
   cursor: pointer;
   font-size: 1rem;
 }
+/* .dropdown-btn:hover {
+  color: #fff;
+  background-color: #f29c38;
+  border: 1px solid #f29c38;
 
+} */
 /* Menu déroulant caché par défaut */
 /* Menu déroulant */
 .dropdown-menu {
@@ -107,7 +128,7 @@ input[type="checkbox"] {
   flex-direction: column; /* Organise les éléments verticalement */
   gap: 12px; /* Applique l'espacement entre les éléments */
   position: absolute;
-  top: 150%;
+  top: 259%;
   left: 0;
   background-color: white;
   border: 1px solid #f29c38;
@@ -138,45 +159,6 @@ input[type="checkbox"] {
 .dropdown-menu.show {
   display: flex; /* Affiche le men lorqu il est visible */
 }
-
-
-/* ------------------------------------------------- */ 
-
-
-.error-message {
-  color: red;
-  font-size: 0.9rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ============================
    Responsive : Téléphone (max-width: 768px)
