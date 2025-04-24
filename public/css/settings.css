@@ -64,6 +64,9 @@ input[type="checkbox"] {
   border: none;
   background: none; 
   padding: 3px;
+  position: relative;
+  left: 715px;
+  top: 23px;
 }
 
 /* .dropdown-btn:hover {

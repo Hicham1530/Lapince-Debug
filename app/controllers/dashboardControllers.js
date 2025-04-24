@@ -93,14 +93,7 @@ const dashboardController = {
         });
       }
 
-      // Liste des catégories pour les dépenses
-      const categories = [
-        "Abonnement", "Achat & Shopping", "Alimentation & Restau",
-        "Auto & Transports", "Retraits, Chq, et vir.", "Epargne & Investissements",
-        "Loisirs et Sortie", "Depense pro", "Logement", "Banque", "Santé",
-        "Scolarité", "Divers", "Famille & Enfants", "Impôts & taxes",
-        "Voyages", "Autres dépenses"
-      ];
+
 
       // Log pour le débogage
       console.log({ totalRevenus, totalDepenses, soldeTotal });
@@ -174,25 +167,31 @@ const dashboardController = {
       }
 
       // Liste des catégories pour les revenus
-      const categories = [
-        "Salaire", "Virement", "Revenus Locatifs", "Revenus freelancing",
-        "Investissements", "Dividendes", "Bonus", "Primes",
-        "Remboursements", "Pensions", "Allocations", "Subventions",
-        "Gains de loterie", "Revente d'objets", "Gains d'entrepreneuriat",
-        "Héritage", "Autres revenus"
-      ];
-
+  // Catégories pour le formulaire dynamique
+  const categoriesRevenu = [
+    "Salaire","Virement","Revenus Locatifs","Revenus freelancing",
+    "Investissements","Dividendes","Bonus","Primes",
+    "Remboursements","Pensions","Allocations","Subventions",
+    "Gains de loterie","Revente d'objets","Gains d'entrepreneuriat",
+    "Héritage","Autres revenus"
+  ];
+  const categoriesDepense = [
+    "Abonnement","Achat & Shopping","Alimentation & Restau",
+    "Auto & Transports","Retraits, Chq, et vir.","Epargne & Investissements",
+    "Loisirs et Sortie","Depense pro","Logement","Banque","Santé",
+    "Scolarité","Divers","Famille & Enfants","Impôts & taxes",
+    "Voyages","Autres dépenses"
+  ];
       // Rendre la vue
       res.render("dashboard/incomes", {
         user: req.session.user,
         revenus,
+        depenses,
         totalRevenus,
+        totalDepenses,
         soldeTotal,
-        currentYear,
-        currentMonth,
-        months,
-        calendar,
-        categories,
+        categoriesRevenu,
+        categoriesDepense
       });
     } catch (error) {
       console.error("Erreur lors de l'affichage des revenus :", error);

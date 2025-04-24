@@ -100,8 +100,8 @@ input[type="checkbox"] {
 /* Conteneur principal */
 .dropdown {
   position: relative;
-  display: -webkit-box;
-  gap: 48px;
+  display: flex;
+  gap: 55px;
   align-items: center;
 }
 
@@ -124,20 +124,20 @@ input[type="checkbox"] {
 /* Menu déroulant caché par défaut */
 /* Menu déroulant */
 .dropdown-menu {
-  display: none; /* Cacher par défaut */
-  flex-direction: column; /* Organise les éléments verticalement */
-  gap: 12px; /* Applique l'espacement entre les éléments */
-  position: absolute;
-  top: 259%;
-  left: 0;
-  background-color: white;
-  border: 1px solid #f29c38;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  min-width: 120px;
-  padding: 10px;
+    display: flow;
+    flex-direction: column;
+    gap: 12px;
+    top: 73px;
+    left: 712px;
+    background-color: white;
+    border: 1px solid #f29c38;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 116px;
+    padding: 0px;
 }
+
 
 /* Items du menu déroulant */
 .dropdown-item {

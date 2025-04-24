@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/overview.css"> <!-- Lien vers la feuille de style pour la page du tableau de bord -->
     <link rel="stylesheet" href="/css/reset-password.css"> <!-- Lien vers la feuille de style pour la page de réinitialisation du mot de passe -->
     <link rel="stylesheet" href="/css/incomes.css"> <!-- Lien vers la feuille de style spécifique à la page des declaration -->
-    <link rel="stylesheet" href="/css/expenses.css"> <!-- Lien vers la feuille de style spécifique à la page des dépenses -->
+    <!--<link rel="stylesheet" href="/css/expenses.css">  Lien vers la feuille de style spécifique à la page des dépenses -->
     <link rel="stylesheet" href="/css/settings-header.css"><!--  Lien vers la feuille de style spécifique à la page settings -->
     <link rel="stylesheet" href="/css/profile.css"> <!-- Lien vers la feuille de style spécifique à la page profile -->
      <link rel="stylesheet" href="/css/settings.css"><!--  Lien vers la feuille de style spécifique à la page parametre -->
@@ -44,9 +44,11 @@
                             <p>Utilisateur inconnu</p>
                         <% } %>
                     </div>
-                    <div class="total-balance" id="total-balance-header">
-                        Solde Total : <strong id="balance-value"> <%= typeof soldeTotal !== "undefined" ? soldeTotal : 0 %>€ </strong>
-                    </div>
+    <div class="total-balance" id="total-balance-header">
+        Solde Total : <strong id="balance-value">
+          € <%= typeof soldeTotal !== "undefined" ? soldeTotal.toFixed(2) : '0.00' %>
+        </strong>
+    </div>
                 </div>
 
             <!-- Menu burger -->
@@ -58,19 +60,19 @@
                 <!-- <a href="/dashboard/overview" class="sidebar-link">Compte</a> -->
                 <div class="dropdown top-dropdown">
                     <button class="dropdown-btn">Compte</button>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" style="display: none;">
                         <a href="/dashboard/overview" class="dropdown-item">Situation</a>
                     </div>
                 <div class="dropdown top-dropdown">
                     <button class="dropdown-btn">Analyse</button>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" style="display: none;">
                         <a href="/dashboard/incomes" class="dropdown-item">Revenus</a>
                         <a href="/dashboard/expenses" class="dropdown-item">Dépenses</a>
                     </div>
                 </div>
                 <div class="dropdown top-dropdown">
                     <button class="dropdown-btn">Profil</button>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" style="display: none;">
                         <a href="/profile/profile" class="dropdown-item">Profile</a>
                         <a href="/profile/settings" class="dropdown-item">Paramètre</a>
                         <a href="/profile/password" class="dropdown-item">Mot de passe</a>

@@ -1,4 +1,3 @@
-
 /* =============================================================================================
    🎯 Conteneur principal (Formulaire + Transactions)
 ============================================================================================= */
@@ -13,10 +12,9 @@
   margin: auto;
   margin-top: 20px;
   padding-bottom: 10px; /* ✅ Évite que le bloc descende trop */
-  position: fixed;
+  position: relative;
   right: 202px;
 }
-
 
 /* =============================================================================================
    📌 Formulaire d'ajout de revenus
@@ -31,7 +29,8 @@
   max-width: 600px; /* ✅ Alignement avec le bloc transactions */
   border: 2px solid #f29c38;
   position: relative;
-  bottom: 110px;
+  top: 54px;
+  left: 220px;
 }
 
 .income-form h3 {
@@ -41,25 +40,83 @@
   margin-bottom: 15px;
 }
 
-/* Organisation des champs */
-.income-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* $$$$$$$$$$$$$$$$$$$$$$$ */
+
+/* $$$$$$$$$$$$$$$$$$$$$$$ */
+.transactions-title {
+  position: relative;
+  left: 0;
+  top: 28px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #05204a;
+  margin-bottom: 37px;
+  padding-left: 5px;
+  border-bottom: 2px solid #f29c38;
+  padding-bottom: 5px;
+  text-align: justify;
 }
 
-.income-form .form-row {
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+/* Organisation des champs – grille 4 colonnes */
+.income-form form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Quatre colonnes égales */
+  gap: 15px 20px;                         /* Espace vertical et horizontal */
+  align-items: center;
+}
+
+/* Chaque groupe (label + input) s'aligne en colonne */
+.income-form .form-group {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+/* Labels au-dessus des champs, centrés verticalement dans leur groupe */
+.income-form .form-group label {
+  margin-bottom: 4px;
+  font-weight: bold;
+  margin-right: 48px;
+}
+
+/* Champs input/select prennent toute la largeur du groupe */
+.income-form .form-group input,
+.income-form .form-group select {
   width: 100%;
-  gap: 10px;
+  box-sizing: border-box;
+  padding: 6px;
+  border: 1px solid #f29c35;
+  border-radius: 5px;
+}
+
+/* Ajuster spécifiquement les groupes pour bien répartir :
+   .category-group, .date-group, .description-group, .amount-group
+   – mais la grille les répartira automatiquement à 25% chacun. */
+
+/* Radio buttons full width */
+.income-form .form-row.type-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+/* Button row full width and centered */
+.income-form .form-row.button-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.income-form .form-row.button-row {
+  justify-content: center;
 }
 
 .income-form .form-group {
   display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 8px;
+  
+  /* width: 100%; */
+  gap: 0px;
 }
 
 .income-form label {
@@ -86,21 +143,28 @@
   width: 100%;
 }
 
-.income-form button {
-  padding: 10px 20px;
-  background-color: #f29c38;
+  .income-form button[type="submit"] {
+    padding: 6px 8px;
+    background-color: #f29c38;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    right: 352px;
+    position: relative;
+    top: 40px;
+}
+.delete-button {
+  background-color: #ffffff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
+  padding: 0px 0px;
   cursor: pointer;
-  font-size: 1rem;
-  width: 150px;
   position: relative;
-  left: 217px;
-}
-
-.income-form button:hover {
-  background-color: #d67d34;
+  left: 170px;
+  bottom: -3px;
 }
 
 /* =============================================================================================
@@ -108,25 +172,26 @@
 ============================================================================================= */
 
 .transaction-container {
-  background: white;
-  border: 2px solid #f29c38;
-  border-radius: 8px;
-  padding: 15px;
-  width: 800px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 370px;
-  left: 370px;
-
-  /* ✅ Active le scroll après 3 transactions */
-  max-height: 180px; /* Ajuste en fonction de la hauteur d'une ligne */
-  overflow-y: auto; /* ✅ Active le scroll vertical si besoin */
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #eee;
+    /* margin-top: -21px; */
+    position: relative;
+    bottom: 0px;
+}
+/* Couleurs pour les transactions */
+.income-color {
+  color: #2ecc71; /* Vert pour les revenus */
 }
 
+.expense-color {
+  color: #e74c3c; /* Rouge pour les dépenses */
+}
 
 /* ✅ Aligner le titre "Total des revenus" */
 #total-incomes {
-  text-align: center;
+  text-align: start;
   font-size: 18px;
   font-weight: bold;
   background-color: white;
@@ -142,7 +207,6 @@
 /* =============================================================================================
    📌 Grille des transactions
 ============================================================================================= */
-
 
 .transaction-list {
   display: flex;
@@ -160,7 +224,6 @@
   text-align: center; /* ✅ Centre le texte */
 }
 
-
 /* ✅ Suppression des marges inutiles sur les éléments */
 .operation-item span {
     display: flex;
@@ -170,18 +233,10 @@
     padding: 5px 10px;
   }
 
-
 .operation-item:hover {
   transform: scale(1.02);
 }
 
-/* 📌 Ajustement du bouton supprimer */
-.delete-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0 10px; /* ✅ Espacement à droite */
-}
 /* ✅ Suppression des marges inutiles */
 .operation-item p {
   margin: 0;
@@ -189,15 +244,6 @@
   font-weight: 500;
 }
 
-
-.delete-button img {
-  width: 17px;
-  height: 20px;
-  cursor: pointer;
-  right: 169px;
-  position: relative;
-  top: 29px;
-}
 .operation-item span:nth-child(2) { /* ✅ Cible la colonne Catégorie */
   white-space: nowrap;
   overflow: hidden;
@@ -205,9 +251,6 @@
   max-width: 120px; /* ✅ Coupe proprement les noms trop longs */
 }
 
-.transaction-container {
-  overflow-x: hidden; /* ✅ Désactive le scroll horizontal */
-}
 .operation-item span:first-child {
   margin-right: 10px; /* ✅ Sépare le texte "Revenu :" du reste */
 }
@@ -235,19 +278,9 @@
   width: 50px; /* Ajuste l'espace pour le bouton supprimer */
 }
 
-.delete-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.delete-button img {
-  width: 18px;
-  height: 18px;
-}
 .titre-incomes {
   position: relative;
-  bottom: 100px;
+  bottom: 53px;
   font-weight: bolder;
   color: #f29c35;
   font-size: x-large;
@@ -270,23 +303,23 @@
   z-index: 10;
 }
 
-
-
-
-
 /* Bouton de déconnexion */
 .logout {
-  margin-top: auto;
-  text-align: center;
-  background-color: #f29c38;
-  color: #fff;
-  border: 2px solid #f29c38;
-  border-radius: 5px;
-  padding: 10px 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: bold;
-  margin-bottom: 30px;
+    margin-top: auto;
+    text-align: center;
+    background-color: #f29c38;
+    color: #fff;
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 4px 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    /* margin-bottom: 30px; */
+    left: 715px;
+    position: relative;
+    top: 26px;
+
 }
 
 .logout:hover {
@@ -301,7 +334,6 @@
 
 .dropdown {
   position: relative;
-  display: -webkit-box;
   gap: 48px;
   align-items: center;
 }
@@ -316,6 +348,8 @@
   font-size: 1rem;
   text-decoration: none;
   font-weight: bold;
+  position: relative;
+  left: 520px;
 }
 
 /* .dropdown-btn:hover {
@@ -329,17 +363,16 @@
   flex-direction: column;
   gap: 12px;
   position: absolute;
-  top: 259%;
-  left: 0;
+  top: 49px;
+  left: 512px;
   background-color: white;
   border: 1px solid #f29c38;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   min-width: 87px;
-  padding: 10px;
+  padding: 7px;
 }
-
 /* Items du menu déroulant */
 .dropdown-item {
   display: flex;
@@ -361,8 +394,146 @@
 }
 
 /* Added .top-nav-links rule */
+
 .top-nav-links {
   display: flex;
-  gap: 20px;
+  flex-direction: unset;
+  position: relative;
+  top: -23px;
+  left: -11px;
+  gap: 28px;
+}
+/* =============================================================================================
+   📊 Résumé en haut du formulaire
+============================================================================================= */
+.summary {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+.summary-item {
+  text-align: center;
+  flex: 1;
+}
+.summary-item h2 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+  bottom: 26px;
+}
+.summary-item p {
+  margin-top: -25px;
+  font-size: 1.2rem;
+}
+/* Couleurs selon le type */
+#summary-income p,
+#summary-balance p.positive {
+  color: #2ecc71; /* vert */
+}
+#summary-expenses p {
+  color: #e74c3c; /* rouge/dépenses */
+}
+#summary-balance p.negative {
+  color: #e74c3c; /* rouge si solde négatif */
+}
+
+/* Résumé – couleurs spécifiques */
+#summary-income { color: #2ecc71; /* vert */ }
+#summary-expenses { color: #e74c3c; /* rouge pour les dépenses */ }
+#summary-balance.positive { color: #2ecc71; /* vert si solde positif */ }
+#summary-balance.negative { color: #e74c3c; /* rouge si solde négatif */ }
+
+.type-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.transaction-label,
+.type-label {
+  font-weight: bold;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Ligne des inputs : catégorie, date, description, montant */
+.income-form .form-row.inputs-row {
+  display: flex;
+  gap: 20px; /* Espace horizontal entre chaque champ */
+}
+
+.income-form .form-row.inputs-row .form-group {
+  flex: 1; /* Chaque groupe prend une part égale */
+}
+
+/* Ajoute un écart entre la catégorie et la date */
+.income-form .form-row.inputs-row .form-group.category-group {
+  margin-right: 20px;
+}
+
+/* Pour réorganiser correctement les boutons radio avec leur label */
+.type-selector-inline {
+  display: flex;
+  justify-content: center; /* ✅ centre toute la ligne horizontalement */
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px; /* espace au-dessus */
+  margin-bottom: 20px; /* espace en-dessous */
+  flex-wrap: wrap;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espace entre radio et texte */
+}
+
+.type-label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Pour agrandir les inputs Description et Montant */
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%; /* pleine largeur */
+  min-width: 138px;
+}
+
+/* Ajustement du formulaire en grille plus lisible */
+.income-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Pour centrer proprement le bouton */
+.income-form button[type="submit"] {
+  grid-column: span 2;
+  margin: auto;
+}
+ 
+.form-group {
+  width: 73%;
+  /* min-width: 36px; */
+ 
+}
+.operation-table td {
+  padding: 2px 5px;
+  font-size: 0.9rem;
 }
