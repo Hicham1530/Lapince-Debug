@@ -3,6 +3,9 @@ import * as dotenv from "dotenv"; // On importe dotenv pour pouvoir lire le fich
 import router from "./app/router.js"; // On importe notre router créé et paramétré dans le fichier router.js
 import  sequelize  from "./config/database.js"; // On importe l'instance de sequelize créée dans le fichier database.js
 import session from "express-session"; // Importation du module express-session pour gérer les sessions
+import { soldeMiddleware, ensureAuthenticated } from './app/middlewares/authMiddleware.js'; // Importation du middleware d'authentification
+
+
 
 dotenv.config();
 
@@ -61,6 +64,22 @@ app.use((req, res, next) => {
   req.session.errors = null; // Réinitialiser après transmission
   next();
 });
+
+
+//
+// Middleware pour calculer le solde
+
+
+
+
+
+
+// juste après la config des sessions, avant app.use(router)
+app.use("/dashboard", ensureAuthenticated, soldeMiddleware);
+app.use("/profile" , ensureAuthenticated, soldeMiddleware);
+ // On utilise le middleware soldeMiddleware pour calculer le solde total de l'utilisateur connecté
+
+
 // On dit à express de prendre en compte notre router
 app.use(router);    
 

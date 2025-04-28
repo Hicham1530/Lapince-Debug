@@ -57,8 +57,9 @@ nav {
   margin: 0;
   padding: 5px;
   position: relative;
-  left: 664px;
-  bottom: 10px;
+  left: 99px;
+  bottom: 27px;
+
 }
 
 /* ============================
@@ -103,7 +104,7 @@ nav {
 ============================= */
 main {
   /* Styles pour la section principale */
-  padding: 3rem 1rem; /* Espacement vertical (48px), horizontal (16px) */
+  padding: 9rem; /* Espacement vertical (48px), horizontal (16px) */
   text-align: center; /* Centre le texte */
   flex: 1; /* Prend tout l'espace disponible */
   background-color: #fff; /* Fond blanc */

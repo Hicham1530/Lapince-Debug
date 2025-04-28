@@ -316,7 +316,7 @@
     transition: all 0.3s ease;
     font-weight: bold;
     /* margin-bottom: 30px; */
-    left: 715px;
+    left: 705px;
     position: relative;
     top: 26px;
 
@@ -396,12 +396,12 @@
 /* Added .top-nav-links rule */
 
 .top-nav-links {
-  display: flex;
   flex-direction: unset;
   position: relative;
-  top: -23px;
-  left: -11px;
+  bottom: 68px;
+  left: 356px;
   gap: 28px;
+  display: flex;
 }
 /* =============================================================================================
    📊 Résumé en haut du formulaire

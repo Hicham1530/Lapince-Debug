@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/email.css"> <!-- Lien vers la feuille de style spécifique à la page email -->
     <link rel="stylesheet" href="/css/password.css"> <!-- Lien vers la feuille de style spécifique à la page password -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> <!-- Définit l'icône affichée dans l'onglet du navigateur -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" /> <!-- Lien vers la police Roboto via Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> <!-- Lien vers la police Roboto via Google Fonts -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"> <!-- Lien vers la bibliothèque d'icônes FontAwesome -->
     <title>La Pince - Maîtrisez vos finances</title> <!-- Définit le titre de la page, visible dans l'onglet du navigateur -->
 </head>
@@ -43,13 +43,12 @@
                         <% } else { %>
                             <p>Utilisateur inconnu</p>
                         <% } %>
-                    </div>
-    <div class="total-balance" id="total-balance-header">
-        Solde Total : <strong id="balance-value">
-          € <%= typeof soldeTotal !== "undefined" ? soldeTotal.toFixed(2) : '0.00' %>
-        </strong>
-    </div>
+                        <div class="total-balance" id="total-balance-header">
+                            Solde Total : <strong id="balance-value">€ <%= soldeTotal.toFixed(2) %></div>
+                
+            </div>
                 </div>
+                </div> 
 
             <!-- Menu burger -->
             <div class="burger-menu" onclick="toggleMenu()" aria-label="Ouvrir le menu de navigation">
@@ -63,6 +62,7 @@
                     <div class="dropdown-menu" style="display: none;">
                         <a href="/dashboard/overview" class="dropdown-item">Situation</a>
                     </div>
+                </div>
                 <div class="dropdown top-dropdown">
                     <button class="dropdown-btn">Analyse</button>
                     <div class="dropdown-menu" style="display: none;">
