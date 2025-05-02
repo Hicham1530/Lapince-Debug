@@ -15,19 +15,26 @@ export const ensureAuthenticated = (req, res, next) => {
 
 
 // app/middlewares/soldeMiddleware.js
-import Mouvement from '../models/mouvement.js'; 
+import Mouvement from '../models/mouvement.js'; // Assurez-vous que le chemin est correct
 
 // Middleware pour calculer le solde total
-export  async function soldeMiddleware(req, res, next) {
-  if (req.session.user?.id) {
-    const userId = req.session.user.id;
-    const revenus = await Mouvement.findAll({ where: { id_user: userId, transaction_type: 'credit' } });
-    const depenses = await Mouvement.findAll({ where: { id_user: userId, transaction_type: 'debit' } });
-
-    const totalRevenus  = revenus.reduce((acc, m) => acc + parseFloat(m.amount), 0);
-    const totalDepenses = depenses.reduce((acc, m) => acc + parseFloat(m.amount), 0);
-    res.locals.soldeTotal = totalRevenus - totalDepenses;
-  } else {
+export async function soldeMiddleware(req, res, next) {
+  try {
+    const userId = req.session.user?.id;
+    if (userId) {
+      const mouvements = await Mouvement.findAll({ where: { id_user: userId } });
+      const totalRevenus = mouvements
+        .filter(m => m.transaction_type === 'credit')
+        .reduce((sum, m) => sum + parseFloat(m.amount), 0);
+      const totalDepenses = mouvements
+        .filter(m => m.transaction_type === 'debit')
+        .reduce((sum, m) => sum + parseFloat(m.amount), 0);
+      res.locals.soldeTotal = totalRevenus - totalDepenses;
+    } else {
+      res.locals.soldeTotal = 0;
+    }
+  } catch (err) {
+    console.error("Erreur dans soldeMiddleware :", err);
     res.locals.soldeTotal = 0;
   }
   next();

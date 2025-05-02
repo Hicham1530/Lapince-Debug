@@ -8,7 +8,20 @@ import { Op } from 'sequelize';
 const authController = {
   // Pages existantes
   signup: (req, res) => {
-    res.render("auth/signup", { title: "Inscription" });
+    // Récupère et transmet les messages flash
+    const errorMessage   = req.session.errors   || null;
+    const successMessage = req.session.successMessage || null;
+  
+    // Réinitialise-les pour qu’ils n’apparaissent qu’une fois
+    req.session.errors        = null;
+    req.session.successMessage = null;
+  
+    // Rend la vue en passant errorMessage et successMessage
+    res.render("auth/signup", {
+      title: "Inscription",
+      errorMessage,
+      successMessage
+    });
   },
   login: (req, res) => {
     res.render("auth/login", {
@@ -72,7 +85,19 @@ const authController = {
       if (password !== confirmPassword) {
         return res.status(400).render('error', { message: 'Les mots de passe ne correspondent pas.' });
       }
-  
+      // Vérification des règles de sécurité du mot de passe 2 caractères, avec des lettres majuscules, minuscules, des chiffres et des symboles.
+
+
+      if (!validator.isStrongPassword(password, {
+        minLength: 12,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1, // Force au moins un symbole
+      })) {
+        return res.status(400).render('error', { message: 'Le mot de passe doit contenir au moins 12 caractères, avec des lettres majuscules, minuscules, des chiffres et des symboles.' });
+
+      }
       // Vérification de l'existence de l'utilisateur
       const existingUser = await User.findOne({ where: { email } });
       if (existingUser) {
@@ -130,7 +155,7 @@ const authController = {
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (!isPasswordValid) {
         console.log("Mot de passe incorrect pour :", username);
-        return res.status(401).render('error', { message: 'Mot de passe incorrect.' });
+        return res.status(401).render('error', { message: 'Le mot de passe saisi est erroné. Si vous l’avez oublié, cliquez sur « Mot de passe oublié ».' });
       }
 
       console.log("Connexion réussie pour :", username);
@@ -166,7 +191,7 @@ const authController = {
     });
   } catch (error) {
     console.error("Erreur dans loginUser :", error);
-    res.status(500).render('error', { message: 'Erreur interne.' });
+    res.status(500).render('error', { message: 'Erreur : Aucun compte n’est associé à cet e-mail' });
   }
 },
 

@@ -1,9 +1,22 @@
 <%- include('../partials/header') %> <!-- Inclut le fichier header -->
-
+    <!-- Affichage des messages d'erreur ou de succès -->
+    <% if (errorMessage) { %>
+      <div class="error-message flash-message">
+        <p><%= errorMessage %></p>
+      </div>
+    <% } %>
+    <% if (successMessage) { %>
+      <div class="success-message flash-message">
+        <p><%= successMessage %></p>
+      </div>
+    <% } %>
 <main class="global-container">
   <section class="signup-form-container box-border">
     <h1 class="signup-form-title">Créer un compte</h1>
+
     
+
+    <!-- Formulaire d'inscription -->
     <form action="/auth/signup" method="POST">
       <div class="signup-form-inputs">
         <div class="signup-form-row">

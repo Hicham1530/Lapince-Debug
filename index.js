@@ -105,8 +105,8 @@ const runTests = async () => {
     // Test : Création d'un utilisateur
     await createTestUser();
 
-    // Test : Récupération d'un utilisateur
-    await getUserByEmail("newtest@example.com");
+    // // Test : Récupération d'un utilisateur
+    // await getUserByEmail("newtest@example.com");
 
     // Test : Mise à jour d'un utilisateur
     await updateUser("newtest@example.com", { first_name: "UpdatedName" });

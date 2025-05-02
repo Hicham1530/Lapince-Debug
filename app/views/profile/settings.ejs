@@ -24,16 +24,22 @@
     <div class="form-row">
       <label for="devise">Devise :</label>
       <select id="devise" name="devise">
-        <option value="eur" <%= user.currency === "eur" ? "selected" : "" %>>Euro (€)</option>
-        <option value="usd" <%= user.currency === "usd" ? "selected" : "" %>>Dollar ($)</option>
-        <option value="mad" <%= user.currency === "mad" ? "selected" : "" %>>Dirham (MAD)</option>
+        <option value="usd" <%= user.currency === "usd" ? "selected" : "" %>>🇺🇸 Dollar américain (USD)</option>
+        <option value="gbp" <%= user.currency === "gbp" ? "selected" : "" %>>🇬🇧 Livre sterling (GBP)</option>
+        <option value="cad" <%= user.currency === "cad" ? "selected" : "" %>>🇨🇦 Dollar canadien (CAD)</option>
+        <option value="try" <%= user.currency === "try" ? "selected" : "" %>>🇹🇷 Livre turque (TRY)</option>
+        <option value="cny" <%= user.currency === "cny" ? "selected" : "" %>>🇨🇳 Yuan chinois (CNY)</option>
       </select>
     </div>
   
   <!-- Convertir tous les montants -->
   <div class="form-row">
-    <label for="convert-montants">Convertir tous les montants :</label>
-    <input type="checkbox" id="convert-montants" name="convertir_montants" />
+    <label for="convert-montants">Conversion en devise :</label>
+    <input
+  type="checkbox"
+  id="convert-montants"
+  name="convertir_montants"
+  <%= user.convertir_montants ? "checked" : "" %> />
   </div>
   
     <!-- Bouton de confirmation -->

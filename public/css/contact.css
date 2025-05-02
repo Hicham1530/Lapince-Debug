@@ -169,6 +169,52 @@ p {
   margin-top: 0px;
 }
 
+/* ------------- style pour le formulaire d'inscription ---------------- */
+/* confirmation.css */
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 0;
+}
+
+main.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.confirmation-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #f29c38;
+}
+
+.confirmation-page p {
+  font-size: 1.2em;
+  margin-bottom: 50px;
+  max-width: 600px;
+  color: #05204a;
+}
+
+.confirmation-page .btn-back {
+  display: inline-block;
+  background-color: #f29c38;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.confirmation-page .btn-back:hover {
+  background-color: #d1832e;
+}
+
 /* ============================
    Responsive Design
 ============================= */

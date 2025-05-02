@@ -23,6 +23,14 @@
           <h2>Solde net</h2>
           <p id="summary-balance">€ <%= soldeTotal.toFixed(2) %></p>
         </div>
+        <% if (user.convertir_montants && user.currency !== 'eur') { %>
+          <div class="summary-item">
+            <h2>Solde net en <%= userCurrency %></h2>
+            <p id="summary-balance-converted">
+              <%= userCurrency %> <%= (soldeTotal * conversionRate).toFixed(2) %>
+            </p>
+          </div>
+        <% } %>
       </section>
 
       <!-- Bloc pour choisir le type de transaction -->
@@ -134,31 +142,39 @@
 
   // Met à jour les totaux affichés (revenus, dépenses, solde)
   function updateTotal(type, amount) {
-    // On cible désormais les <p> de la section résumé
-    const totalIncomesEl  = document.getElementById("summary-income");
-    const totalExpensesEl = document.getElementById("summary-expenses");
+  const totalIncomesEl  = document.getElementById("summary-income");
+  const totalExpensesEl = document.getElementById("summary-expenses");
 
-    // Extraction des valeurs numériques existantes
-    let currentIn = parseFloat(totalIncomesEl.textContent.match(/[\d.]+/)[0]) || 0;
-    let currentEx = parseFloat(totalExpensesEl.textContent.match(/[\d.]+/)[0]) || 0;
+  let currentIn = parseFloat(totalIncomesEl.textContent.match(/[\d.]+/)[0]) || 0;
+  let currentEx = parseFloat(totalExpensesEl.textContent.match(/[\d.]+/)[0]) || 0;
 
-    if (type === 'depense') {
-      currentEx += parseFloat(amount);
-      totalExpensesEl.textContent = `€ ${currentEx.toFixed(2)}`;
-    } else {
-      currentIn += parseFloat(amount);
-      totalIncomesEl.textContent = `€ ${currentIn.toFixed(2)}`;
-    }
-
-    // Mise à jour du solde net
-    document.getElementById("summary-balance").textContent = `€ ${(currentIn - currentEx).toFixed(2)}`;
+  if (type === 'depense') {
+    currentEx += parseFloat(amount);
+    totalExpensesEl.textContent = `€ ${currentEx.toFixed(2)}`;
+  } else {
+    currentIn += parseFloat(amount);
+    totalIncomesEl.textContent  = `€ ${currentIn.toFixed(2)}`;
   }
+
+  const newBalance = currentIn - currentEx;
+
+  //  Mettre à jour le solde affiché dans le résumé
+  document.getElementById("summary-balance").textContent = `€ ${newBalance.toFixed(2)}`;
+
+  //  **NOUVEAU** : mettre à jour aussi le Solde Total du header
+  const headerBalanceEl = document.getElementById("balance-value");
+if (headerBalanceEl) {
+  headerBalanceEl.textContent = `€ ${newBalance.toFixed(2)}`;
+}
+}
+
 
   // Ajoute une transaction dans la liste affichée
   function addOperation(category, date, description, amount, type) {
   const operationItem = document.createElement("div");
   operationItem.classList.add("operation-item");
 
+  operationItem.dataset.type = type;  
   const label = type === 'depense' ? 'Dépense' : 'Revenu';
   const colorClass = type === 'depense' ? 'expense-color' : 'income-color';
   
@@ -195,31 +211,49 @@
     }
 
     // Supprimer une transaction
-    operationItem.querySelector(".delete-button").addEventListener("click", function () {
-      const amountToRemove = parseFloat(amount);
-      operationItem.remove();
+    operationItem.querySelector(".delete-button").addEventListener("click", async () => {
+  const amountToRemove = parseFloat(amount);
+  const opType = operationItem.dataset.type; // 'revenu' ou 'depense'
+  // Choisissez la bonne route selon le type
+  const url = opType === 'depense'
+    ? '/dashboard/expenses/delete'
+    : '/dashboard/incomes/delete';
 
-      const totalIncomesElement = document.getElementById("total-incomes");
-      let currentTotal = 0;
-      if (totalIncomesElement) {
-        let match = totalIncomesElement.textContent.match(/[\d,.]+/);
-        currentTotal = match ? parseFloat(match[0].replace(",", ".")) : 0;
-        currentTotal -= amountToRemove;
-        totalIncomesElement.textContent = `Total des revenus : € ${currentTotal.toFixed(2)}`;
-      }
+  // Appel au backend pour supprimer en base
+  const res = await fetch(url, {
+    method: 'POST', // ou DELETE selon votre implémentation
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ category, date, description, amount })
+  });
+  const result = await res.json();
+  if (!result.success) {
+    return alert("Erreur lors de la suppression.");
+  }
 
-      const totalBalanceElement = document.getElementById("balance-value");
-      if (totalBalanceElement) {
-        const totalExpensesElement = document.getElementById("total-expenses");
-        let totalExpenses = 0;
-        if (totalExpensesElement) {
-          let matchExpenses = totalExpensesElement.textContent.match(/[\d,.]+/);
-          totalExpenses = matchExpenses ? parseFloat(matchExpenses[0].replace(",", ".")) : 0;
-        }
-        const newBalance = currentTotal - totalExpenses;
-        totalBalanceElement.textContent = `${newBalance.toFixed(2)}€`;
-      }
-    });
+  // Retire la ligne du DOM
+  operationItem.remove();
+
+  // Recalcule immédiatement les totaux du résumé
+  const incEl = document.getElementById("summary-income");
+  const expEl = document.getElementById("summary-expenses");
+  let currInc = parseFloat(incEl.textContent.match(/[\d.]+/)[0]);
+  let currExp = parseFloat(expEl.textContent.match(/[\d.]+/)[0]);
+  if (opType === 'depense') {
+    currExp -= amountToRemove;
+    expEl.textContent = `€ ${currExp.toFixed(2)}`;
+  } else {
+    currInc -= amountToRemove;
+    incEl.textContent = `€ ${currInc.toFixed(2)}`;
+  }
+  // Et le solde dans le résumé
+  document.getElementById("summary-balance").textContent = 
+    `€ ${(currInc - currExp).toFixed(2)}`;
+
+  // **ENFIN**, on met à jour le solde du header
+  document.getElementById("balance-value").textContent =
+    `${(currInc - currExp).toFixed(2)}€`;
+});
+
   }
 
   // Gestion de l'envoi du formulaire (AJAX)

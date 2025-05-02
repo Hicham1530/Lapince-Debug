@@ -3,6 +3,7 @@ import alert from '../models/alert.js'; // Modèle pour la table 'alert'
 import user from '../models/user.js'; // Modèle pour la table 'user'
 import dayjs from 'dayjs';
 import { validationResult } from "express-validator";
+import fetch from 'node-fetch';
 
 // Contrôleur principal
 const dashboardController = {
@@ -41,6 +42,7 @@ const dashboardController = {
         totalDepenses,
         soldeTotal, // Assurez-vous de passer soldeTotal ici
         pourcentageRevenus,
+        soldeTotal,
       });
     } catch (error) {
       console.error("Erreur dans overview :", error);
@@ -118,26 +120,43 @@ const dashboardController = {
     }
   },
 
-  // Gestion des revenus
-  incomes: async (req, res) => {
-    try {
-      const userId = req.session.user?.id;
+// Gestion des revenus
+incomes: async (req, res) => {
+  try {
+    const userId = req.session.user?.id;
 
-      if (!userId) {
-        return res.status(401).render("error", { message: "Utilisateur non connecté." });
-      }
-
-      // Récupérer les revenus de l'utilisateur
-      const revenus = await Mouvement.findAll({ where: { id_user: userId, transaction_type: "credit" } });
-      const totalRevenus = revenus.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
+    if (!userId) {
+      return res.status(401).render("error", { message: "Utilisateur non connecté." });
+    }
+   // Récupérer les revenus et dépenses
+   const revenus = await Mouvement.findAll({ where: { id_user: userId, transaction_type: "credit" } });
+   const totalRevenus = revenus.reduce((sum, m) => sum + parseFloat(m.amount), 0);
 
       // Récupérer les dépenses de l'utilisateur
       const depenses = await Mouvement.findAll({ where: { id_user: userId, transaction_type: "debit" } });
-      const totalDepenses = depenses.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
+      const totalDepenses = depenses.reduce((sum, m) => sum + parseFloat(m.amount), 0);
 
       // Calcul du solde total
       const soldeTotal = totalRevenus - totalDepenses;
 
+
+
+    // Récupérer la devise choisie
+    const userCurrency = req.session.user.currency.toUpperCase();
+
+    let conversionRate = 1; // par défaut, pas de conversion
+    if (userCurrency !== "EUR") {
+      try {
+        const response = await fetch(`https://api.frankfurter.app/latest?from=EUR&to=${userCurrency}`);
+        const data = await response.json();
+        if (data && data.rates && data.rates[userCurrency]) {
+          conversionRate = data.rates[userCurrency];
+        }
+        console.log(`✅ Taux de conversion EUR → ${userCurrency} récupéré :`, conversionRate);
+      } catch (error) {
+        console.error(`❌ Erreur récupération taux EUR → ${userCurrency} :`, error);
+      }
+    }
       // Obtenir l'année et le mois actuels
       const currentYear = new Date().getFullYear();
       const currentMonth = new Date().getMonth();
@@ -166,38 +185,43 @@ const dashboardController = {
         });
       }
 
-      // Liste des catégories pour les revenus
-  // Catégories pour le formulaire dynamique
-  const categoriesRevenu = [
-    "Salaire","Virement","Revenus Locatifs","Revenus freelancing",
-    "Investissements","Dividendes","Bonus","Primes",
-    "Remboursements","Pensions","Allocations","Subventions",
-    "Gains de loterie","Revente d'objets","Gains d'entrepreneuriat",
-    "Héritage","Autres revenus"
-  ];
-  const categoriesDepense = [
-    "Abonnement","Achat & Shopping","Alimentation & Restau",
-    "Auto & Transports","Retraits, Chq, et vir.","Epargne & Investissements",
-    "Loisirs et Sortie","Depense pro","Logement","Banque","Santé",
-    "Scolarité","Divers","Famille & Enfants","Impôts & taxes",
-    "Voyages","Autres dépenses"
-  ];
-      // Rendre la vue
-      res.render("dashboard/incomes", {
-        user: req.session.user,
-        revenus,
-        depenses,
-        totalRevenus,
-        totalDepenses,
-        soldeTotal,
-        categoriesRevenu,
-        categoriesDepense
-      });
-    } catch (error) {
-      console.error("Erreur lors de l'affichage des revenus :", error);
-      res.status(500).render("error", { message: "Erreur interne lors de l'affichage des revenus." });
-    }
-  },
+ 
+    // Liste des catégories pour le formulaire dynamique
+    const categoriesRevenu = [
+      "Salaire", "Virement", "Revenus Locatifs", "Revenus freelancing",
+      "Investissements", "Dividendes", "Bonus", "Primes",
+      "Remboursements", "Pensions", "Allocations", "Subventions",
+      "Gains de loterie", "Revente d'objets", "Gains d'entrepreneuriat",
+      "Héritage", "Autres revenus"
+    ];
+    const categoriesDepense = [
+      "Abonnement", "Achat & Shopping", "Alimentation & Restau",
+      "Auto & Transports", "Retraits, Chq, et vir.", "Epargne & Investissements",
+      "Loisirs et Sortie", "Depense pro", "Logement", "Banque", "Santé",
+      "Scolarité", "Divers", "Famille & Enfants", "Impôts & taxes",
+      "Voyages", "Autres dépenses"
+    ];
+
+
+
+  res.render("dashboard/incomes", {
+    user: req.session.user,
+    revenus,
+    depenses,
+    totalRevenus,
+    totalDepenses,
+    soldeTotal,
+    categoriesRevenu,
+    categoriesDepense,
+    conversionRate,
+    userCurrency
+  });
+
+} catch (error) {
+  console.error("Erreur affichage revenus :", error);
+  res.status(500).render("error", { message: "Erreur interne affichage revenus." });
+}
+},
 
   // Ajouter un revenu
   addIncome: async (req, res) => {
@@ -282,6 +306,58 @@ getTotalExpenses: async (req, res) => {
       res.status(500).json({ success: false, message: "Erreur interne." });
     }
   },
+  
+
+  // Supprimer un revenu
+  deleteIncome: async (req, res) => {
+    try {
+      const { category, date, description, amount } = req.body;
+      const userId = req.session.user?.id;
+      if (!userId) {
+        return res.status(401).json({ success: false, message: "Utilisateur non connecté." });
+      }
+      await Mouvement.destroy({
+        where: {
+          id_user: userId,
+          transaction_type: "credit",
+          category,
+          date,
+          description,
+          amount
+        }
+      });
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Erreur lors de la suppression d'un revenu :", error);
+      res.status(500).json({ success: false, message: "Erreur interne." });
+    }
+  },
+
+  // Supprimer une dépense
+  deleteExpense: async (req, res) => {
+    try {
+      const { category, date, description, amount } = req.body;
+      const userId = req.session.user?.id;
+      if (!userId) {
+        return res.status(401).json({ success: false, message: "Utilisateur non connecté." });
+      }
+      await Mouvement.destroy({
+        where: {
+          id_user: userId,
+          transaction_type: "debit",
+          category,
+          date,
+          description,
+          amount
+        }
+      });
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Erreur lors de la suppression d'une dépense :", error);
+      res.status(500).json({ success: false, message: "Erreur interne." });
+    }
+  },
+
 };
 
 console.log("DashboardControllers chargé !");

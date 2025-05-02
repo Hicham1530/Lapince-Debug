@@ -157,14 +157,14 @@ header {
    Section Profil
 ============================= */
 /* Style pour l'affichage du profil utilisateur */
-.profile-balance {
+/* .profile-balance {
   width: 100%;
   font-size: 1.4rem;
   color: #05204a;
   left: 519px;
   position: relative;
   top: 16px;
-}
+} */
 /* ============================
    Conteneur principal (dashboard)
 ============================= */
@@ -185,16 +185,30 @@ header {
   border-radius: 50%;
   background: conic-gradient(
     #0fdb72 var(--progress),
-    #c92233  var(--progress)
+    #b70013 var(--progress)
   );
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.progress-circle::before {
+  content: '';
+  position: absolute;
+  width: 130px; /* ← passe de 80px à 100px */
+  height: 130px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .progress-inner {
-  font-size: 24px;
-  font-weight: bold;
+  z-index: 2;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-left: 9px;
 }
 
 /* ============================
@@ -207,7 +221,7 @@ header {
 ============================= */
 .welcome-text {
   font-size: 2rem; /* Taille du texte */
-  color: #05204a; /* Couleur du texte */
+  color:  var(--text-color);/* Couleur du texte */
   text-align: center; /* Centre le texte */
   position: absolute; /* Permet un placement précis */
   top: 55%; /* Position verticale */
@@ -441,5 +455,6 @@ header {
     font-size: 2rem;
     top: 65%;
     left: 52%;
+    color: var(--text-color);
   }
 }

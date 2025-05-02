@@ -1,18 +1,17 @@
 <%- include('../partials/header') %> <!-- Inclut le fichier header dans cette page -->
 
-<main class="global-container">  <!-- Conteneur global de la page -->
-<section class="box-border">
-  <% if (errorMessage) { %>
-    <div class="error-message flash-message">
-      <p><%= errorMessage %></p>
-    </div>
-  <% } %>
-  
-  <% if (successMessage) { %>
-    <div class="success-message flash-message">
-      <p><%= successMessage %></p>
-    </div>
-  <% } %>
+<main class="global-container">
+  <section class="box-border">
+    <% if (errorMessage) { %>
+      <div class="error-message flash-message">
+        <p><%= errorMessage %></p>
+      </div>
+    <% } %>
+    <% if (successMessage) { %>
+      <div class="success-message flash-message">
+        <p><%= successMessage %></p>
+      </div>
+    <% } %>
   <form action="/auth/login" method="POST" class="login-form-container">
   <h1 class="login-form-title"> Connexion</h1>
 
@@ -37,21 +36,23 @@
         placeholder="Entrez votre email" 
         required 
         class="login-field-input" 
-        aria-required="true" 
+        aria-required="true"
+        autocomplete="current-email" 
       />
     </div>
   
     <div class="login-field-group">
       <label for="password" class="login-field-label">Votre mot de passe :</label>
-      <input 
-        type="password" 
-        id="password" 
-        name="password" 
-        placeholder="Entrez votre mot de passe" 
-        required 
-        class="login-field-input" 
-        aria-required="true" 
-      />
+      <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Entrez votre mot de passe"
+      required
+      class="login-field-input"
+      aria-required="true"
+      autocomplete="current-password"
+    />
     </div>
   </div>
 
@@ -81,5 +82,7 @@
       message.style.opacity = 0;
       setTimeout(() => message.remove(), 500); // Supprime l'élément après la transition
     });
-  }, 1000); // 1 secondes
+  }, 1000); // 1 seconde
+
+
 </script>

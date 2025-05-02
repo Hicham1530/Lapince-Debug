@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
+     "test-mailer": "node \"utils/test-mailer.js\"",
     "dev": "nodemon index.js"
   },
   "keywords": [],

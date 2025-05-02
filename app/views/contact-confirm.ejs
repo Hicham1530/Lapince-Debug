@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<main class="confirmation-page">
+  <h1>Message envoyé</h1>
+  <p>Merci pour votre message ! Nous vous répondrons dès que possible.</p>
+  <a href="/" class="btn-back">Retour à l’accueil</a>
+</main>
+
+<%- include('partials/footer') %>
+
+
+
+<!-- 
+Présentation de la partie contact et emails :
+
+« Pour la fonctionnalité de contact, j’ai intégré un formulaire accessible depuis la page Contact, qui permet aux utilisateurs d’envoyer un message, un sujet et leur email.
+
+Côté backend, j’ai configuré l’envoi d’emails en utilisant Mailtrap. Mailtrap est un outil destiné aux environnements de test et de développement, qui permet de capturer les emails sans vraiment les envoyer à une adresse réelle. Cela évite d’inonder des boîtes mails pendant les phases de test et garantit que tout est sécurisé.
+
+Si l’application passait en production, je pourrais très facilement remplacer Mailtrap par un service réel comme SendGrid, Mailgun ou même une configuration SMTP classique.
+
+Lorsqu’un utilisateur envoie un message, il reçoit une page de confirmation. Moi, en tant qu’administrateur, je peux consulter le contenu des emails directement depuis mon espace Mailtrap, vérifier le sujet, l’adresse et le contenu envoyé.
+
+Cette approche me permet de démontrer que la fonctionnalité d’envoi est pleinement opérationnelle, même sans déclencher de vrais envois d’emails. » -->

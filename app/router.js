@@ -5,6 +5,7 @@ import dashboardControllers from "./controllers/dashboardControllers.js";
 import profileController from "./controllers/profileControllers.js";
 import mainControllers from "./controllers/mainControllers.js";
 import settingsController from "./controllers/settingsControllers.js";
+import contactController from "./controllers/contactControllers.js";
 
 const router = express.Router();
 
@@ -33,7 +34,7 @@ router.get("/dashboard/incomes", dashboardControllers.incomes);
 
 // Routes Profile
 router.use("/profile", ensureAuthenticated);
-router.get("/profile/settings", profileController.settings);
+router.get("/profile/settings", settingsController.settings);
 router.post("/settings", settingsController.updateSettings);
 router.get("/profile/email", profileController.email);
 router.post("/profile/email", profileController.updateEmail);
@@ -53,7 +54,15 @@ router.post("/auth/reset-password/:token", authControllers.resetPasswordAction);
 router.post('/dashboard/incomes/add', dashboardControllers.addIncome);
 router.post('/dashboard/expenses/add', dashboardControllers.addExpense);
 
+router.post('/dashboard/incomes/delete', dashboardControllers.deleteIncome);
+router.post('/dashboard/expenses/delete', dashboardControllers.deleteExpense);
+
 router.get('/dashboard/expenses/total', dashboardControllers.getTotalExpenses);
 
+
+
+router.post("/contact", contactController.sendMessage);
+// router.get("/auth/login", authControllers.login);
+// router.post("/auth/login", authControllers.loginUser);
 
 export default router;

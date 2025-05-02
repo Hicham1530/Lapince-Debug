@@ -6,7 +6,7 @@ body {
   font-family: 'Roboto', sans-serif; /* Police principale utilisée */
   margin: 0; /* Supprime les marges par défaut */
   padding: 0; /* Supprime les paddings internes */
-  color: #05204a; /* Applique la couleur du texte définie dans les variables */
+  color: var(--text-color); /* Applique la couleur du texte définie dans les variables */
   display: flex; /* Flexbox pour organiser les sections principales */
   flex-direction: column; /* Dispose les sections verticalement */
   height: 100vh; /* Hauteur de la fenêtre visible */
@@ -37,31 +37,105 @@ header {
 
 header .logo {
   /* Styles pour le logo */
-  height: 2.5rem; /* Hauteur fixe du logo (40px) */
-  margin-top: 0.8125rem; /* Décalage vertical (13px) */
+  height: 2rem; /* Hauteur fixe du logo (40px) */
 }
 
 
-header {
+/* header {
   position: relative;
-}
+} */
 nav {
-  max-height: 58px; /* Limite la hauteur totale de la `nav` */
+  max-height: 48px; /* Limite la hauteur totale de la `nav` */
   overflow: visible; /* Coupe tout débordement éventuel */
 }
-.total-balance {
+  /* —————————————————————————————
+   1) Conteneur profil centré
+   ————————————————————————————— */
+header .profile-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2rem;                
+}
+/* —————————————————————————————
+   2) Troncage nom / prénom si trop long
+   ————————————————————————————— */
+header .profile-balance {
+  white-space: nowrap;      /* pas de retour à la ligne */
+  text-overflow: ellipsis;  /* “…” si c’est trop long */
+  max-width: 550px;         /* à ajuster si besoin */
   font-size: 1.3rem;
-  color: #05204a;
-  white-space: nowrap;
-  text-align: left;
-  margin: 0;
-  padding: 5px;
-  position: relative;
-  left: 99px;
-  bottom: 27px;
-
+  color: var(--text-color);
+  
 }
 
+header .total-balance {
+  white-space: nowrap;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+.error-message {
+  background: #ffe6e6;
+  color: #a00;
+  padding: 0.5rem 1rem;
+  border: 1px solid #f00;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+
+
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+  appearance: none; /* enlève le style natif */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+/* ============================
+   Navigation Dark-mode
+============================= */
+
+
+:root {
+  --bg-color: #ffffff;   /* Fond clair */
+  --text-color: #05204a; /* Texte noir */
+}
+
+body.dark {
+  --bg-color: #000000;   /* Fond noir */
+  --text-color: #ffffff; /* Texte blanc */
+}
+body,
+header,
+main {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.header-username,
+.header-balance,
+.welcome-message {
+  color: var(--text-color);
+}
+
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-top: -2px;
+}
 /* ============================
    Navigation (liens du header)
 ============================= */
@@ -107,7 +181,7 @@ main {
   padding: 9rem; /* Espacement vertical (48px), horizontal (16px) */
   text-align: center; /* Centre le texte */
   flex: 1; /* Prend tout l'espace disponible */
-  background-color: #fff; /* Fond blanc */
+  background-color: var(--bg-color); /* Fond blanc */
 }
 .hero-1 {
   bottom: 334px;
@@ -126,7 +200,7 @@ main {
   left: 95px;
   font-size: 3.4rem;
   text-align: center;
-  color: #05204a;
+  color: var(--text-color);
   }
 
 
@@ -295,6 +369,10 @@ footer {
 .nav-links.active a:last-child {
   border-bottom: none; /* Supprime la bordure pour le dernier lien */
 }
+
+
+
+
 
 
 /* ============================

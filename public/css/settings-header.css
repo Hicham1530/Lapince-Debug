@@ -93,18 +93,20 @@ legend {
 
 /* Style du bouton */
 button {
-  padding: 8px 20px; /* Espacement interne pour un bouton confortable */
-  background-color: #F29C38; /* Couleur principale pour le fond */
-  color: #fff; /* Texte blanc pour un bon contraste */
-  border: none; /* Supprime les bordures par défaut */
-  border-radius: 5px; /* Coins légèrement arrondis */
-  font-size: 0.9rem; /* Taille de police adaptée */
-  cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+  /*padding: 8px 20px;  Espacement interne pour un bouton confortable */
+  background-color: #f29c35;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 5px;
+  padding: 4px 9px;
 }
 
 /* Interaction au survol du bouton */
 button:hover {
-  background-color: #ffffff; /* Change la couleur de fond en blanc */
-  color: #F29C38; /* Change la couleur du texte en orange */
-  border: 2px solid #F29C38; /* Ajoute une bordure orange pour un effet visuel */
+  background-color: transparent; /* Change la couleur de fond en blanc */
+  /*color: #F29C38; /* Change la couleur du texte en orange */
+  /*border: 2px solid #F29C38; /* Ajoute une bordure orange pour un effet visuel */
 }

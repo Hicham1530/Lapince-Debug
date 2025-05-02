@@ -31,10 +31,12 @@
         <nav>
             <div class="left-section">
                 <!-- Logo avec un lien vers la page d'accueil -->
-                <a href="index.html" aria-label="Retour à l'accueil">
+                <a href="/" aria-label="Retour à l'accueil">
                     <img src="/image/logo_with_transparent_background.png" alt="Logo de La Pince" class="logo">
                 </a>
-
+                <button id="toggle-theme" class="theme-toggle-btn" aria-label="Changer de thème">
+                    <span id="icon-theme">🌜</span> <!-- ← ce span doit exister -->
+                  </button>
                 <!-- Informations sur le profil utilisateur -->
                 <div class="profile-container">
                     <div class="profile-balance">
@@ -43,11 +45,12 @@
                         <% } else { %>
                             <p>Utilisateur inconnu</p>
                         <% } %>
-                        <div class="total-balance" id="total-balance-header">
-                            Solde Total : <strong id="balance-value">€ <%= soldeTotal.toFixed(2) %></div>
-                
-            </div>
+                    </div>
+                    <div class="total-balance" id="total-balance-header">
+                        Solde Total : <strong id="balance-value">€ <%= soldeTotal.toFixed(2) %></strong>
+                    </div>
                 </div>
+                
                 </div> 
 
             <!-- Menu burger -->

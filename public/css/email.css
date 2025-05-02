@@ -8,7 +8,7 @@
     margin: 0px auto;
     border: 3px solid #F29C38;
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: var(--bg-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Roboto, sans-serif;
     position: relative;
@@ -18,6 +18,15 @@
     padding: 23px;
 }
 
+h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 11px;
+  color: #f29c38;
+  position: relative;
+  bottom: 126px;
+  left: 310px;
+}
  
 .hero h1 {
   color: #f29c38;
@@ -40,6 +49,7 @@
   border-radius: 5px;
 
 }
+
 
    /* responsive desktop   */
 
