@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+
+<div class="transaction-page">
+
+  <h1 style="text-align: center;">
+    Transactions de <%= viewedUser.first_name %> <%= viewedUser.last_name %>
+  </h1>
+
+  <div class="transaction-summary">
+    Solde total : € <%= soldeTotal.toFixed(2) %>
+  </div>
+
+  <div class="transaction-list-container">
+    <ul>
+      <% if (transactions.length === 0) { %>
+        <li>Aucune transaction trouvée pour cet utilisateur.</li>
+      <% } else { %>
+        <% transactions.forEach(tx => { %>
+          <li>
+            <span class="transaction-text">
+              [<%= tx.date %>] 
+              <span class="<%= tx.transaction_type === 'credit' ? 'revenu' : 'depense' %>">
+                <%= tx.transaction_type === 'credit' ? 'Revenu' : 'Dépense' %> : € <%= Number(tx.amount).toFixed(2) %>
+              </span>
+              - <%= tx.category %> - <%= tx.description %>
+            </span>
+            <form class="delete-form" action="/admin/transactions/<%= tx.id_mouvement %>/delete" method="POST" style="display:inline;">
+              <button type="submit" onclick="return confirm('Confirmer la suppression de cette transaction ?');">
+                Supprimer
+              </button>
+            </form>
+            <a href="/admin/transactions/<%= tx.id_mouvement %>/edit" class="edit-btn">Modifier</a>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="/admin/users">Retour à la liste des utilisateurs</a>
+  </div>
+
+</div>
+<%- include('../partials/footer') %>

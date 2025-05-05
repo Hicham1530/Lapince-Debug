@@ -1,0 +1,37 @@
+<%- include('../partials/header-dash') %>
+
+<h1 class="page-title">Liste des utilisateurs</h1>
+
+<div class="all-users-block">
+  <% users.forEach(user => { %>
+    <div class="user-line">
+      <h2>
+        <%= user.first_name %> <%= user.last_name %>
+        <% if (user.status === 'Actif') { %>
+          <span class="status-dot actif"></span>
+        <% } else { %>
+          <span class="status-dot inactif"></span>
+        <% } %>
+      </h2>
+      
+      <p>Status : <%= user.status %></p>
+      <p>Rôle : <%= user.user_type %> | Email : <%= user.email %></p>
+      <p class="revenu">Revenus : € <%= user.totalRevenus.toFixed(2) %></p>
+      <p class="depense">Dépenses : € <%= user.totalDepenses.toFixed(2) %></p>
+      <p class="solde">Solde : € <%= user.soldeTotal.toFixed(2) %></p>
+    
+      <div class="user-actions">
+        <a href="/admin/users/<%= user.id_user %>" class="details-btn">Voir détails</a>
+        <form action="/admin/users/<%= user.id_user %>/delete" method="POST">
+          <button type="submit" class="delete-btn" onclick="return confirm('Confirmer la suppression ?');">
+            Supprimer utilisateur
+          </button>
+        </form>
+      </div>
+    
+      <hr>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('../partials/footer') %>

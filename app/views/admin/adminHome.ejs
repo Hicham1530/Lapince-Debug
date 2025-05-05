@@ -1,0 +1,17 @@
+<%- include('../partials/header-profiles') %> <!-- Inclut le fichier header dans cette page -->
+
+<h1>Bienvenue, <%= user.first_name %> (admin)</h1>
+
+<h2>Total des revenus : € <%= totalRevenus.toFixed(2) %></h2>
+<h2>Total des dépenses : € <%= totalDepenses.toFixed(2) %></h2>
+<h2>Solde net : € <%= soldeTotal.toFixed(2) %></h2>
+
+<nav>
+  <ul>
+    <li><a href="/admin/users">Liste des utilisateurs</a></li>
+    <li><a href="/dashboard/overview">Retour au tableau de bord</a></li>
+    <li><a href="/auth/logout">Se déconnecter</a></li>
+  </ul>
+</nav>
+
+<%- include('../partials/footer') %> <!-- Inclut le fichier footer dans cette page -->

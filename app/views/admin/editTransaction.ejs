@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+
+<div class="transaction-edit-container">
+    <h1>Modifier la transaction</h1>
+
+    <form action="/admin/transactions/<%= transaction.id_mouvement %>/edit" method="POST">
+        <div class="field-line">
+            <span>Montant :</span> <input type="number" name="amount" value="<%= transaction.amount %>" step="0.01" required />
+        </div>
+
+        <div class="field-line">
+            <span>Catégorie :</span> <input type="text" name="category" value="<%= transaction.category %>" required />
+        </div>
+
+        <div class="field-line">
+            <span>Description :</span> <input type="text" name="description" value="<%= transaction.description %>" />
+        </div>
+
+        <div class="field-line">
+            <span>Date :</span> <input type="date" name="date" value="<%= formattedDate %>" required />
+        </div>
+
+        <div class="field-line">
+            <span>Type :</span> 
+            <select name="transaction_type" required>
+                <option value="credit" <%= transaction.transaction_type === 'credit' ? 'selected' : '' %>>Revenu</option>
+                <option value="debit" <%= transaction.transaction_type === 'debit' ? 'selected' : '' %>>Dépense</option>
+            </select>
+        </div>
+
+        <button type="submit">Enregistrer les modifications</button>
+    </form>
+
+    <a href="/admin/users/<%= transaction.id_user %>">Annuler et revenir</a>
+</div>
+<%- include('../partials/footer') %>
