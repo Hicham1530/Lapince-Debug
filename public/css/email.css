@@ -4,46 +4,40 @@
 
 
    .form-container1 {
-    max-width: 529px;
-    margin: 0px auto;
+    max-width: 100%;
+    width: 397px;
     border: 3px solid #F29C38;
     border-radius: 10px;
     background-color: var(--bg-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Roboto, sans-serif;
-    position: relative;
-    left: 23px;
-    top: -35px;
+    /* position: relative; */
+    /* left: 23px; */
+    /* top: -35px; */
     min-height: 147px;
     padding: 23px;
+    margin: 0 auto; /* centrer horizontalement */
 }
 
-h1 {
+.hero .title-email {
+  color: #f29c38;
+  margin-top: -95px;
   text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 11px;
-  color: #f29c38;
-  position: relative;
-  bottom: 126px;
-  left: 310px;
+  margin-bottom: 20px;
 }
- 
-.hero h1 {
-  color: #f29c38;
-  font-size: 29px;
-  margin-top: 10px;
-  left: 0px;
-  position: relative;
-  top: 92px;
-}
+
 .form-row label {
-  font-size: 1.3rem;
-  color: #05204A;
+  font-size: 1.2rem;
+  color: var(--text-color);
   width: 100%;
-  text-align: left;
+  text-align: right;
 }
-.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
-  width: 227%;
+.form-row input[type="email"], 
+.form-row input[type="password"], 
+.form-row input[type="text"], 
+.form-row select {
+  width: 100%;
+  box-sizing: border-box;
   padding: 5px;
   border: 1px solid #F29C38;
   border-radius: 5px;
@@ -68,7 +62,6 @@ h1 {
     left: 91px;
   }
 
-  /* idem que ci-dessus */
 
 }
 
@@ -87,10 +80,10 @@ h1 {
     left: 0px;
 }
 .form-row label {
-  font-size: 1.1rem;
-  color: #05204A;
-  width: 69%;
-  text-align: left;
+  font-size: 1rem;
+  color: var(--text-color);
+  width: 50%;
+  text-align: right;
 }
 .form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
   width: 84%;
@@ -107,7 +100,7 @@ h1 {
 
 @media (max-width: 767px) {
   .form-container {
-    max-width: 60%;
+    max-width: 50%;
     border: 4px solid #F29C38;
     border-radius: 10px;
     background-color: #fff;
@@ -119,14 +112,14 @@ h1 {
     max-height: 171px;
 }
 .form-row label {
-  font-size: 0.8rem;
-  color: #05204A;
-  width: 65%;
-  text-align: left;
+  font-size: 1rem;
+  color: var(--text-color);
+  width: 40%;
+  text-align: right;
 }
 
 .form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
-  width: 84%;
+  width: 64%;
   padding: 5px;
   border: 1px solid #F29C38;
   border-radius: 5px;

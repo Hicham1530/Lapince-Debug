@@ -10,24 +10,24 @@ body {
   font-family: 'Roboto', sans-serif; /* Applique la police Roboto au document */
   margin: 0; /* Supprime les marges par défaut */
   padding: 0; /* Supprime les paddings par défaut */
-  background-color: #f5f5f5; /* Applique un fond gris clair */
+  background-color: var(--bg-color); /* Applique un fond gris clair */
 }
 
 /* ============================
    Conteneur général du formulaire
 ============================= */
 .login-form-container {
-  background-color: #ffffff;
+  background-color: var(--bg-color);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 2px solid #f29c38;
   display: flex;
   flex-direction: column;
   max-width: 40%;
-  min-width: 719px;
+  min-width: 567px;
   margin: auto;
-  padding: 30px;
-  bottom: 39px;
+  padding: 16px;
+  bottom: 48px;
   position: relative;
 }
 
@@ -35,13 +35,14 @@ body {
    Titre du formulaire
 ============================= */
 .login-form-title {
-  font-size: 1.8rem; /* Taille du texte */
-  font-weight: bold; /* Texte en gras */
-  color: #f29c38; /* Couleur orange */
-  text-align: center; /* Centre le texte */
-  margin-bottom: 20px; /* Espacement en dessous du titre */
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f29c38;
+  text-align: center;
+  margin-bottom: -96px;
+  position: relative;
+  top: -106px;
 }
-
 /* ============================
    Section des réseaux sociaux
 ============================= */
@@ -56,11 +57,11 @@ body {
   width: 40px; /* Largeur de chaque icône */
   height: 40px; /* Hauteur de chaque icône */
   border-radius: 50%; /* Forme circulaire */
-  border: 1px solid #ddd; /* Bordure grise légère */
+  border: 1px solid #f29c38; /* Bordure grise légère */
   display: flex; /* Flexbox pour centrer le contenu */
   align-items: center; /* Centre verticalement */
   justify-content: center; /* Centre horizontalement */
-  color: #545454; /* Couleur grise des icônes */
+  color: var(--border-color);/* Couleur grise des icônes */
   cursor: pointer; /* Change le curseur en pointeur au survol */
   transition: background-color 0.3s, color 0.3s; /* Transition fluide sur le fond et la couleur */
 }
@@ -77,7 +78,7 @@ body {
   text-align: center; /* Centre le texte */
   margin: 7px 0; /* Espacement vertical autour du texte */
   font-size: 1rem; /* Taille du texte */
-  color: #333; /* Couleur grise foncée */
+  color: var(--text-color); /* Couleur grise foncée */
 }
 
 /* ============================
@@ -101,7 +102,7 @@ body {
   border: 1px solid #ddd; /* Bordure grise légère */
   border-radius: 5px; /* Coins arrondis */
   font-size: 1rem; /* Taille standard du texte */
-  background-color: #f9f9f9; /* Couleur de fond gris clair */
+  background-color: var(--bg-color); /* Couleur de fond gris clair */
   outline: none; /* Supprime le contour par défaut */
   transition: border-color 0.3s; /* Transition fluide pour la bordure */
 }
@@ -124,7 +125,7 @@ body {
 /* Alignement du label */
 .login-field-label {
   text-align: left;
-  width: 150px; /* Largeur fixe pour un bon alignement */
+  width: 158px; /* Largeur fixe pour un bon alignement */
   font-weight: bold;
 }
 
@@ -133,7 +134,7 @@ body {
 .login-field-input {
   border-radius: 5px;
   font-size: 1rem;
-  background-color: #f9f9f9;
+  background-color: var(--bg-color);
   outline: none;
   width: 60%;
   padding: 5px;
@@ -213,16 +214,16 @@ footer {
 /* Téléphones (max-width: 768px) */
 @media (max-width: 768px) {
   .login-form-container {
-    background-color: #ffffff;
+    background-color: var(--bg-color);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid #f29c38;
     display: flex;
     flex-direction: column;
     max-width: 40%;
-    min-width: 385px;
+    min-width: 397px;
     margin: auto;
-    padding: 30px;
+    padding: 13px;
     bottom: 39px;
     position: relative;
 }
@@ -233,8 +234,9 @@ footer {
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
-  background-color: #f9f9f9;
+  background-color: var(--bg-color);
   outline: none;
+  margin-left: -20px;
 }
   .login-form-title {
     font-size: 1.5rem; /* Réduit la taille du titre */
@@ -275,20 +277,19 @@ footer {
 @media (min-width: 769px) and (max-width: 992px) {
 
   .login-form-container {
-    background-color: #ffffff;
+    background-color: var(--bg-color);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid #f29c38;
     display: flex;
     flex-direction: column;
     max-width: 40%;
-    min-width: 634px;
+    min-width: 500px;
     margin: auto;
-    padding: 30px;
-    bottom: 28px;
+    padding: 16px;
+    bottom: 48px;
     position: relative;
-    right: 12px;
-}
+  }
 
   .login-form-title {
     font-size: 1.7rem; /* Taille légèrement réduite */

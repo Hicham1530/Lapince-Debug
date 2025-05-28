@@ -1,6 +1,6 @@
 <%- include('../partials/header-profiles') %> <!-- Inclut le fichier header dans cette page -->
 <main class="global-container">
-<section class="hero">
+<section class="hero2">
   <h1>Modification du profil</h1>
   <% if (successMessage) { %>
   <div class="alert alert-success">
@@ -9,9 +9,7 @@
 <% } %> <!-- Si un message de succès est présent, l'afficher dans une boîte d'alerte verte -->
   <div class="form-container-profile">
     <!-- Description pour les lecteurs d'écran -->
-    <p id="form-description" class="sr-only">
-      Ce formulaire vous permet de modifier vos informations personnelles, y compris votre  genre, vos noms prénoms, et date de naissance.
-    </p>
+  
     <form action="/profile/update" method="POST" aria-labelledby="form-title" aria-describedby="form-description" novalidate>
     <fieldset>
         <legend id="form-title"></legend>

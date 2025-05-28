@@ -1,4 +1,4 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header-admin') %>
 
 <div class="transaction-page">
 
@@ -7,7 +7,8 @@
   </h1>
 
   <div class="transaction-summary">
-    Solde total : € <%= soldeTotal.toFixed(2) %>
+    <p>Compte de : <strong><%= viewedUser.first_name %> <%= viewedUser.last_name %></strong> Solde total : € <%= soldeTotal.toFixed(2) %></p>
+   
   </div>
 
   <div class="transaction-list-container">
@@ -18,7 +19,7 @@
         <% transactions.forEach(tx => { %>
           <li>
             <span class="transaction-text">
-              [<%= tx.date %>] 
+              <%= tx.date %>
               <span class="<%= tx.transaction_type === 'credit' ? 'revenu' : 'depense' %>">
                 <%= tx.transaction_type === 'credit' ? 'Revenu' : 'Dépense' %> : € <%= Number(tx.amount).toFixed(2) %>
               </span>
@@ -36,8 +37,8 @@
     </ul>
   </div>
 
-  <div style="text-align: center; margin-top: 20px;">
-    <a href="/admin/users">Retour à la liste des utilisateurs</a>
+  <div>
+    <a href="/admin/users" class="back-btn1">⬅ Retour à la liste des utilisateurs</a>
   </div>
 
 </div>

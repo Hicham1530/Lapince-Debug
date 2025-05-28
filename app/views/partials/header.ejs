@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/css/incomes.css"> <!-- Lien vers la feuille de style spécifique à la page des declaration -->
     <link rel="stylesheet" href="/css/expenses.css"> <!-- Lien vers la feuille de style spécifique à la page des dépenses -->
     <link rel="stylesheet" href="/css/settings.css"> <!-- Lien vers la feuille de style spécifique à la page settings -->
-  
+    <link rel="stylesheet" href="/css/admin.css"> <!-- Lien vers la feuille de style spécifique à la page admin -->
     <link rel="stylesheet" href="/css/about.css"> <!-- Lien vers la feuille de style pour la page about -->
     <link rel="stylesheet" href="/css/profile.css"> <!-- Lien vers la feuille de style spécifique à la page profile -->
     <link rel="stylesheet" href="/css/legal-mentions.css"> <!-- Lien vers la feuille de style spécifique à la page mentions-legales --> 
@@ -34,20 +34,22 @@
             <a href="/" aria-label="Retour à l'accueil">
                 <img src="/image/logo_with_transparent_background.png" alt="Logo de La Pince" class="logo">
             </a>
-    
+            <button id="toggle-theme" class="theme-toggle-btn" aria-label="Changer de thème">
+                <span id="icon-theme">🌜</span> <!-- ← ce span doit exister -->
+              </button>
             <!-- Liens de navigation -->
             <div class="nav-links">
                 <a href="/auth/signup" aria-label="Page d'inscription">Inscription</a>
                 <a href="/auth/login" aria-label="Page de connexion">Connexion</a>
             </div>
-    
+            
             <!-- Menu burger -->
             <div class="burger-menu" onclick="toggleMenu()" aria-label="Ouvrir le menu de navigation">
                 ☰
             </div>
+        
         </nav>
-          
-
     </header>
 
     <script src="/js/menu.js" defer></script><!-- Lien vers le script JavaScript pour le menu burger -->
+    

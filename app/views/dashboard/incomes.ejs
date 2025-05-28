@@ -12,22 +12,22 @@
       <!-- Résumé des totaux (revenus, dépenses, solde) -->
       <section class="summary">
         <div class="summary-item">
-          <h2>Total des revenus</h2>
-          <p id="summary-income">€ <%= totalRevenus.toFixed(2) %></p>
+          <h2>Total revenus</h2>
+          <p id="summary-income"><%= totalRevenus.toFixed(2) %>€ </p>
         </div>
         <div class="summary-item">
-          <h2>Total des dépenses</h2>
-          <p id="summary-expenses">€ <%= totalDepenses.toFixed(2) %></p>
+          <h2>Total dépenses</h2>
+          <p id="summary-expenses"><%= totalDepenses.toFixed(2) %>€ </p>
         </div>
         <div class="summary-item">
           <h2>Solde net</h2>
-          <p id="summary-balance">€ <%= soldeTotal.toFixed(2) %></p>
+          <p id="summary-balance"><%= soldeTotal.toFixed(2) %>€ </p>
         </div>
         <% if (user.convertir_montants && user.currency !== 'eur') { %>
           <div class="summary-item">
-            <h2>Solde net en <%= userCurrency %></h2>
+            <h2>Solde net </h2>
             <p id="summary-balance-converted">
-              <%= userCurrency %> <%= (soldeTotal * conversionRate).toFixed(2) %>
+              <%= (soldeTotal * conversionRate).toFixed(2) %><%= userCurrency %> 
             </p>
           </div>
         <% } %>
@@ -37,7 +37,7 @@
          <!-- Bloc pour choisir le type de transaction -->
          <div class="type-selector-inline">
           <span class="transaction-label">Ajoutez une transaction :</span>
-          <span class="type-label">type :</span>
+        
         
           <label class="radio-option">
             <input type="radio" name="type" value="revenu" checked> Revenu
@@ -51,35 +51,36 @@
 
       <!-- Formulaire pour saisir une transaction -->
       <form id="income-form" action="/dashboard/incomes/add" method="POST">
-
-        <!-- Ligne 1 : Choix de la catégorie et date -->
-        <div class="form-row inputs-row">
-          <div class="form-group">
-            <label for="selected-category">Catégorie :</label>
-            <select id="selected-category" name="category" required
-              data-categories-revenu='<%= JSON.stringify(categoriesRevenu) %>'
-              data-categories-depense='<%= JSON.stringify(categoriesDepense) %>'>
-              <option value="" disabled selected>-- Sélectionnez une catégorie --</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="selected-date">Date :</label>
-            <input type="date" name="date" id="selected-date" required />
-          </div>
-          <div class="form-group">
-            <label for="description">Description :</label>
-            <input type="text" name="description" id="description" />
-          </div>
-          <div class="form-group">
-            <label for="amount">Montant (€) :</label>
-            <input type="number" name="amount" id="amount" min="0" step="0.01" required />
-          </div>
+        <!-- Ligne 1 : Catégorie et Date -->
+        <div class="form-group category-group">
+          <label for="selected-category">Catégorie :</label>
+          <select id="selected-category" name="category" required
+            data-categories-revenu='<%= JSON.stringify(categoriesRevenu) %>'
+            data-categories-depense='<%= JSON.stringify(categoriesDepense) %>'>
+            <option value="" disabled selected>-- Sélectionnez une catégorie --</option>
+          </select>
         </div>
-        <!-- Ligne 3 : Bouton d'ajout -->
+      
+        <div class="form-group date-group">
+          <label for="selected-date">Date :</label>
+          <input type="date" name="date" id="selected-date" required />
+        </div>
+      
+        <!-- Ligne 2 : Description et Montant -->
+        <div class="form-group description-group">
+          <label for="description">Description :</label>
+          <input type="text" name="description" id="description" />
+        </div>
+      
+        <div class="form-group amount-group">
+          <label for="amount">Montant (€) :</label>
+          <input type="number" name="amount" id="amount" min="0" step="0.01" required />
+        </div>
+      
+        <!-- Ligne 3 : Bouton -->
         <div class="button-container">
           <button type="submit">Enregistrer</button>
         </div>
-
       </form>
     
       <!-- Liste des transactions précédemment ajoutées -->

@@ -1,8 +1,8 @@
 /* parametresConteneur principal */
-.form-container2 {
-  max-width: 80%;
+.form-container4 {
+  width: 488px;
   margin: 0px auto;
-  padding: 50px;
+  /* padding: 50px; */
   border: 3px solid #F29C38;
   border-radius: 10px;
   background-color: var(--bg-color);
@@ -10,23 +10,19 @@
   font-family: Roboto, sans-serif;
   position: relative;
   left: 28px;
-  bottom: 39px;
-  min-height: 153px;
-  padding: 32px;
+  bottom: 107px;
+  min-height: 143px;
+  padding: 20px;
 }
-.hero h1 {
-  color: #f29c38;
-  font-size: 29px;
-  margin-top: 48px;
-  left: 0px;
+.title-settings {
   position: relative;
-  top: 0px;
 }
-.form-row label {
-  font-size: 1.3rem;
-  color: #05204A;
+
+.form-container4  .form-row label {
+  font-size: 1.2rem;
+  color: var(--text-color);
   width: 100%;
-  text-align: left;
+  text-align: start;
 }
 .form-row select {
   width: 70%;
@@ -79,24 +75,31 @@ input[type="checkbox"] {
 ============================= */
 @media (min-width: 769px) and (max-width: 992px) {
 
-  .form-container {
-    max-width: 50%;
-    margin: 103px auto;
-    padding: 50px;
-    border: 4px solid #F29C38;
+  .form-container4 {
+    width: 488px;
+    margin: 0px auto;
+    border: 3px solid #F29C38;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: var(--bg-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Roboto, sans-serif;
     position: relative;
     left: 0px;
+    bottom: 66px;
+    min-height: 143px;
+    padding: 20px;
+  }
+  .title-settings {
+    position: relative;
+    margin: -14px 74px 79px 73px;
 }
-.form-row label {
-  font-size: 1.1rem;
-  color: #05204A;
-  width: 52%;
-  text-align: left;
-}
+  
+  .form-container4  .form-row label {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    width: 100%;
+    text-align: start;
+  }
 input[type="checkbox"] {
   display: flex;
   width: 20px;
@@ -116,8 +119,8 @@ input[type="checkbox"] {
 
 @media (max-width: 768px) {
 
-  .form-container {
-    max-width: 70%;
+  .form-container4 {
+    max-width: 60%;
     margin: auto;
     padding: 27px;
     border: 4px solid #F29C38;
@@ -128,23 +131,19 @@ input[type="checkbox"] {
     left: 0px;
     top: 128px;
     max-height: 216px;
-    min-height: 174px;
+    min-height: 144px;
 }
 
-
-.hero h1 {
-  color: #f29c38;
-  font-size: 29px;
-  margin-top: 48px;
-  left: 0px;
+.title-settings {
   position: relative;
-  top: 92px;
+  margin: -162px 54px -115px 70px;
 }
-.form-row label {
-  font-size: 1.3rem;
-  color: #05204A;
+
+.form-container4  .form-row label {
+  font-size: 1.1rem;
+  color: var(--text-color);
   width: 100%;
-  text-align: left;
+  text-align: start;
 }
 .form-row select {
   width: 70%;
@@ -155,7 +154,7 @@ input[type="checkbox"] {
 }
 .form-row label {
   font-size: 1rem;
-  color: #05204A;
+  color: var(--text-color);
   width: 72%;
   text-align: left;
 }

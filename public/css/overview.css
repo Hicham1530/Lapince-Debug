@@ -251,45 +251,57 @@ header {
 }
 
 .burger-menu {
-  display: none; /* Caché par défaut sur les grands écrans */
-  font-size: 2rem; /* Taille de l'icône burger */
-  cursor: pointer; /* Curseur en main au survol */
-  color: #f29c38; /* Couleur orange */
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #f29c38;
   position: absolute;
-  top: 25px;
-  right: 20px;
-  z-index: 20; /* Au-dessus des autres éléments */
+  top: 17px;
+  right: 6px;
+  z-index: 20;
 }
 
-.nave-links {
+.nav-links {
   display: flex; /* Affiche les liens par défaut */
   gap: 10px;
 }
 
-/* Par défaut, afficher le bouton catégorie et cacher les liens */
-.nave-links {
-  display: none;
-} 
+
 
 /* .category-btn {
   display: block;
 } */
 
 
+.progress-circle {
+  width: 250px;
+  height: 250px;
+  font-size: 1.5rem;
+  bottom: 13%;
+  left: 1%;
+  position: relative;
+}
 
+.welcome-text {
+  font-size: 2rem;
+  top: 74%;
+  left: 51%;
+  color: var(--text-color);
+}
 
 /* ============================
    Responsive : Téléphone (max-width: 768px)
 ============================= */
 @media (max-width: 768px) {
+  
   .progress-circle {
-    width: 100px; /* Réduit la taille du cercle */
-    height: 100px; /* Réduit la taille du cercle */
-    font-size: 0.9rem; /* Réduit la taille de la police */
-    top: 38%; /* Ajuste la position verticale */
-    left: 63%; /* Centre horizontalement */
-  }
-
+    width: 200px;
+    height: 200px;
+    font-size: 1.5rem;
+    top: -13%;
+    left: 1%;
+    position: relative;
+}
   .left-section {
     display: flex; /* Organise les éléments horizontalement */
     align-items: center; /* Centre verticalement les éléments */
@@ -297,12 +309,10 @@ header {
   }
 
   .welcome-text {
-    font-size: 1rem; /* Réduit la taille du texte */
-    top: 50%; /* Ajuste la position verticale pour laisser plus de place */
-    left: 63%; /* Centre horizontalement */
-    margin: 20 15px; /* Ajoute une marge horizontale pour s'assurer que tout le texte s'affiche */
-    line-height: 1.5; /* Augmente l'interligne pour améliorer la lisibilité */
-    word-wrap: break-word; /* Casse les mots si nécessaire pour rester dans les limites de l'écran */
+    font-size: 1.8rem;
+    top: 74%;
+    left: 51%;
+    color: var(--text-color);
   }
 
   .overview-dashboard-sidebar {
@@ -327,16 +337,16 @@ header {
     position: static; /* Pas de position absolue pour éviter les chevauchements */
   }
 
-  .profile-balance,  /* permet de rapprocher solde total et le nom du  */
+  .profile-balance,
   .total-balance {
     position: initial; /* Permet de les positionner précisément */
     top: 10%; /* Place verticalement au centre du header */
     left: 50%; /* Centre horizontalement */
-    transform: translate(-85%, 12%); /* Centre précisément */
-    font-size: 1rem; /* Ajuste la taille de la police */
+    transform: translate(-88%, 12%); /* Centre précisément */
+    font-size: 1.1rem; /* Ajuste la taille de la police */
     text-align: center; /* Centre le texte */
     width: 100%; /* S'assure qu'ils prennent toute la largeur disponible */
-    margin: auto; /* Supprime tout espacement inutile */
+    margin: 0; /* Supprime tout espacement inutile */
   }
 
   .category-btn {
@@ -351,7 +361,7 @@ header {
     display: block; /* Affiche le menu burger */
 }
 
-.nave-links.active {
+.nav-links.active {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -363,6 +373,20 @@ header {
     border-radius: 5px;
     padding: 10px;
     z-index: 10;
+}
+header .total-balance {
+  white-space: nowrap;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+header .profile-balance {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 550px;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-left: 44px;
 }
 
 }
@@ -377,12 +401,22 @@ header {
     top: 40%; /* Ajuste la position verticale */
     left: 55%; /* Centre horizontalement */
   }
-
+  .progress-circle {
+    width: 250px;
+    height: 250px;
+    font-size: 1.5rem;
+    top: -13%;
+    left: 1%;
+    position: relative;
+}
+  
   .welcome-text {
-    font-size: 1.5rem; /* Réduit légèrement la taille du texte */
-    top: 55%; /* Ajuste la position verticale */
-    left: 55%; /* Centre horizontalement */
+    font-size: 2rem;
+    top: 74%;
+    left: 51%;
+    color: var(--text-color);
   }
+
   .overview-dashboard-sidebar {
     width: 15%; /* Ajuste la largeur de la barre latérale pour tablette */
     padding: 15px; /* Espacement interne adapté */
@@ -397,20 +431,33 @@ header {
     margin-bottom: 20px; /* Espacement en bas */
     position: static; /* Pas de position absolue */
   }
-
+  header .total-balance {
+    white-space: nowrap;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+    header .profile-balance {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 550px;
+      font-size: 1.1rem;
+      color: var(--text-color);
+  }
+}
    .category-btn {
     display: none; /*Cache le bouton catégorie sur mobile et tablette */
   } 
 
-  .burger-menu {
-    display: block; /* s'assurer que le menu burger est affiché */
-  }
 
-   .nave-links {
+   .nav-links {
     display: none; 
   } 
 
-  .nave-links.active {
+  .burger-menu {
+    display: block;/* Affiche le menu burger */} 
+
+  .nav-links.active {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -436,25 +483,36 @@ header {
     margin: 0; /* Supprime tout espacement inutile */
   }
 
-}
-
-/* ============================
-   Responsive : Desktop (min-width: 993px)
-============================= */
-@media (min-width: 993px) {
-  .progress-circle {
-    width: 250px;
-    height: 250px;
-    font-size: 1.5rem;
-    bottom: 13%;
-    left: 1%;
-    position: relative;
+  @media (min-width: 993px) {
+    .burger-menu {
+      display: none;
+    }
+    .profile-balance, .total-balance {
+      position: initial;
+      top: 10%;
+      left: 50%;
+      transform: translate(33%, 12%);
+      font-size: 1.1rem;
+      text-align: center;
+      width: 100%;
+      margin: 0;
+  }
+  .nav-links {
+    display: flex;
+    gap: 10px;
   }
 
-  .welcome-text {
-    font-size: 2rem;
-    top: 65%;
-    left: 52%;
-    color: var(--text-color);
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 68px;
+    right: 10px;
+    background-color: #fff;
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
   }
-}
+  }

@@ -6,6 +6,9 @@ import profileController from "./controllers/profileControllers.js";
 import mainControllers from "./controllers/mainControllers.js";
 import settingsController from "./controllers/settingsControllers.js";
 import contactController from "./controllers/contactControllers.js";
+import { ensureAdmin } from './middlewares/adminMiddleware.js';
+import adminController from './controllers/adminControllers.js';
+
 
 const router = express.Router();
 
@@ -62,6 +65,20 @@ router.get('/dashboard/expenses/total', dashboardControllers.getTotalExpenses);
 
 
 router.post("/contact", contactController.sendMessage);
+
+
+// Routes Admin
+router.get('/admin', ensureAdmin, adminController.adminHome);
+router.get('/admin/users', ensureAdmin, adminController.adminUserlist);
+router.get('/admin/users/:id', ensureAdmin, adminController.userTransactions);
+
+router.post('/admin/users/:id/delete', ensureAdmin, adminController.deleteUser);
+router.post('/admin/transactions/:id/delete', ensureAdmin, adminController.deleteTransaction);
+
+router.get('/admin/transactions/:id/edit', ensureAdmin, adminController.editTransactionForm);
+router.post('/admin/transactions/:id/edit', ensureAdmin, adminController.updateTransaction);
+
+
 // router.get("/auth/login", authControllers.login);
 // router.post("/auth/login", authControllers.loginUser);
 

@@ -142,7 +142,9 @@ incomes: async (req, res) => {
 
 
     // Récupérer la devise choisie
-    const userCurrency = req.session.user.currency.toUpperCase();
+    const userCurrency = typeof req.session.user.currency === 'string'
+  ? req.session.user.currency.toUpperCase()
+  : 'EUR';
 
     let conversionRate = 1; // par défaut, pas de conversion
     if (userCurrency !== "EUR") {

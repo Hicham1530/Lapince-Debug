@@ -1,17 +1,17 @@
-<%- include('../partials/header-profiles') %> <!-- Inclut le fichier header dans cette page -->
+<%- include('../partials/header-admin') %> <!-- Inclut le fichier header dans cette page -->
 
-<h1>Bienvenue, <%= user.first_name %> (admin)</h1>
+<div class="admin-summary-container">
+  <div class="admin-card">
+    <h2>Bienvenue, <span class="highlighted"><%= user.first_name %> (admin)</span></h2>
+    <p>Total des revenus : € <%= totalRevenus.toFixed(2) %></p>
+    <p>Total des dépenses : € <%= totalDepenses.toFixed(2) %></p>
+    <p>Solde net : € <%= soldeTotal.toFixed(2) %></p>
 
-<h2>Total des revenus : € <%= totalRevenus.toFixed(2) %></h2>
-<h2>Total des dépenses : € <%= totalDepenses.toFixed(2) %></h2>
-<h2>Solde net : € <%= soldeTotal.toFixed(2) %></h2>
-
-<nav>
-  <ul>
-    <li><a href="/admin/users">Liste des utilisateurs</a></li>
-    <li><a href="/dashboard/overview">Retour au tableau de bord</a></li>
-    <li><a href="/auth/logout">Se déconnecter</a></li>
-  </ul>
+    <div class="admin-links">
+        <a href="/admin/users">Liste des utilisateurs</a><br>
+        <a href="/auth/logout">Se déconnecter</a><br>
+    </div>
+</div>
 </nav>
 
 <%- include('../partials/footer') %> <!-- Inclut le fichier footer dans cette page -->

@@ -18,7 +18,7 @@
   font-weight: normal; /* Garde le texte avec un poids standard */
   white-space: nowrap; /* Empêche les retours à la ligne sur plusieurs mots */
   /* background-color: #F29C38; Couleur de fond pour les liens */
-  color: #05204A; /* Texte blanc pour un bon contraste */
+  color: var(--text-color); /* Texte blanc pour un bon contraste */
   border-radius: 5px; /* Coins arrondis pour un style moderne */
   font-size: 1.2rem; /* Taille de police adaptée */
 
@@ -31,7 +31,7 @@
 /* Titre du formulaire */
 legend {
   font-size: 1.5rem; /* Taille de police plus grande pour un titre important */
-  color: #05204A; /* Couleur principale pour le texte */
+  color: var(--text-color); /* Couleur principale pour le texte */
   text-align: center; /* Centre le titre horizontalement */
 }
 
@@ -46,7 +46,7 @@ legend {
 /* Style des labels */
 .form-row label {
   font-size: 1.3rem; /* Taille de police réduite pour les étiquettes */
-  color: #05204A; /* Couleur principale pour les labels */
+  color: var(--text-color); /* Couleur principale pour les labels */
    width: 100%; /*Largeur fixe pour un alignement uniforme */
   text-align: left; /* Aligne le texte à gauche */
 }
@@ -104,9 +104,3 @@ button {
   padding: 4px 9px;
 }
 
-/* Interaction au survol du bouton */
-button:hover {
-  background-color: transparent; /* Change la couleur de fond en blanc */
-  /*color: #F29C38; /* Change la couleur du texte en orange */
-  /*border: 2px solid #F29C38; /* Ajoute une bordure orange pour un effet visuel */
-}

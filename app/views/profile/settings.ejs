@@ -1,14 +1,14 @@
 <%- include('../partials/header-profiles') %> <!-- Inclut le fichier header dans cette page -->
 <main class="global-container">
 <section class="hero">
-  <h1>Modification des paramètres</h1>
+  <h1 class="title-settings">Modification des paramètres</h1>
   <% if (successMessage) { %>
     <div id="success-message" class="alert alert-success">
       <%= successMessage %>
     </div>
   <% } %> <!-- Affiche un message de succès si la variable successMessage est définie -->
   
-  <div class="form-container2">
+  <div class="form-container4">
     <form action="/settings" method="post">
       <!-- Langue de l'interface -->
       <div class="form-row">

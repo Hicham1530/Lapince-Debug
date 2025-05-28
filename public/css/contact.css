@@ -2,8 +2,8 @@
   max-width: 37%;
   padding: 23px;
   font-family: 'Roboto', sans-serif;
-  color: #333;
-  background-color: white;
+  color: var(--text-color);;
+  background-color:var(--bg-color);
   border-radius: 20px;
   border: 2px solid #F29C38;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -19,18 +19,19 @@
   margin-bottom: 17px;
   white-space: nowrap;
 }
-.hero1 {
+.contact-page .hero1 {
   text-align: center;
-  bottom: 139px;
-  left: 260px;
+  bottom: 185px;
+  left: 269px;
   position: relative;
 }
 
-.hero h1 {
+.hero1 h1 {
   white-space: nowrap;
   position: relative;
-  left: 57px;
+  left: -21px;
   color: #F29C35;
+  bottom: 30px;
 }
 
 /* .hero p {
@@ -50,7 +51,7 @@
 
 .contact-page h1 {
   font-size: 2.5rem;
-  color: #05204A;
+  color:var(--text-color);
 }
 
 /* Formulaire */
@@ -174,7 +175,7 @@ p {
 
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #f7f9fc;
+  background-color: var(--bg-color);
   margin: 0;
   padding: 0;
 }
@@ -226,10 +227,16 @@ main.confirmation-page {
     position: relative;
     left: 46px;
     top: 55px;
-    display: flex
-;
+    display: flex;
   }
 
+  .hero1 h1 {
+    white-space: nowrap;
+    position: relative;
+    left: -21px;
+    color: #F29C35;
+    bottom: 30px;
+}
   .contact-form-section h2 {
     position: relative;
     left: 156px;
@@ -273,10 +280,10 @@ main.confirmation-page {
     left: 66px;
     color: #F29C35;
   }
-  .hero1 {
+  .contact-page .hero1 {
     text-align: center;
-    bottom: 144px;
-    left: 172px;
+    bottom: 185px;
+    left: 189px;
     position: relative;
 }
 
@@ -358,11 +365,11 @@ main.confirmation-page {
     top: 22px;
   }
 
-  .hero1 {
-    text-align: center;
-    bottom: 194px;
-    left: 202px;
-    position: relative;
+  .contact-page .hero1{
+      text-align: center;
+      bottom: 234px;
+      left: 204px;
+      position: relative;
   }
 
   .para {

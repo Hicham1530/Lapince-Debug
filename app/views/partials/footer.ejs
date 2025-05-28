@@ -1,3 +1,4 @@
+
 <footer class="global-footer">
     <div class="footer-content">
       <!-- Colonne gauche : Mentions légales et Politique de confidentialité -->
@@ -31,27 +32,32 @@
   </footer>
 
   <!-- Script du dark mode -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("toggle-theme");
-  const icon = document.getElementById("icon-theme");
-
-  if (!btn || !icon) return; // ← évite toute erreur si un élément manque
-
-  const theme = localStorage.getItem("theme");
-
-  if (theme === "dark") {
-    document.body.classList.add("dark");
-    icon.textContent = "🌞";
-  } else {
-    icon.textContent = "🌜";
-  }
-
-  btn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    const isDark = document.body.classList.contains("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    icon.textContent = isDark ? "🌞" : "🌜";
-  });
-});
-</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("dark mode script chargé");
+  
+      const btn = document.getElementById("toggle-theme");
+      const icon = document.getElementById("icon-theme");
+  
+      console.log("btn:", btn);
+      console.log("icon:", icon);
+  
+      if (!btn || !icon) return;
+  
+      const theme = localStorage.getItem("theme");
+  
+      if (theme === "dark") {
+        document.body.classList.add("dark");
+        icon.textContent = "🌞";
+      } else {
+        icon.textContent = "🌜";
+      }
+  
+      btn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        const isDark = document.body.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        icon.textContent = isDark ? "🌞" : "🌜";
+      });
+    });
+  </script>

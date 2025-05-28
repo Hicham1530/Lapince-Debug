@@ -2,20 +2,21 @@
    🎯 Conteneur principal (Formulaire + Transactions)
 ============================================================================================= */
 
+
 .centered-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px; 
+  /* gap: 30px; */
   width: 100%;
-  max-width: 900px;
-  margin: auto;
-  margin-top: 20px;
-  padding-bottom: 10px; /* ✅ Évite que le bloc descende trop */
+  max-width: 700px;
+  /* margin: auto; */
+  /* margin-top: 20px; */
+  /* padding-bottom: 10px; */
   position: relative;
   right: 202px;
+  bottom: 75px;
 }
-
 /* =============================================================================================
    📌 Formulaire d'ajout de revenus
 ============================================================================================= */
@@ -26,11 +27,16 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 600px; /* ✅ Alignement avec le bloc transactions */
+  max-width: 610px; /* ✅ Alignement avec le bloc transactions */
   border: 2px solid #f29c38;
   position: relative;
   top: 54px;
   left: 220px;
+  max-height: 331px;
+  position: relative;
+  z-index: 1;          /* ✅ assure que le bouton est au-dessus */
+  overflow: visible;   /* ✅ empêche que le bouton soit "coupé" */
+  
 }
 
 .income-form h3 {
@@ -39,8 +45,6 @@
   color: #05204a;
   margin-bottom: 15px;
 }
-
-/* $$$$$$$$$$$$$$$$$$$$$$$ */
 
 /* $$$$$$$$$$$$$$$$$$$$$$$ */
 .transactions-title {
@@ -115,7 +119,7 @@
 .income-form .form-group {
   display: flex;
   
-  /* width: 100%; */
+  width: 100%;
   gap: 0px;
 }
 
@@ -123,7 +127,7 @@
   font-weight: bold;
   white-space: nowrap;
   width: 90px; /* ✅ Largeur uniforme pour alignement */
-  text-align: right;
+  text-align: left;
 }
 
 .income-form select,
@@ -135,26 +139,21 @@
   width: 100%;
   box-sizing: border-box; /* ✅ Empêche les dépassements */
 }
-
+.income-operations{
+  position: relative;
+  bottom: 24px;
+}
 /* Centrage du bouton */
-.income-form .button-container {
+.button-container {
+  grid-column: 2 / 4; /* Occupe les colonnes 2 et 3 */
+  grid-row: 2; /* Deuxième ligne */
   display: flex;
   justify-content: center;
-  width: 100%;
+  align-items: center;
+  margin-top: -5px; /* Remonte le bouton vers le haut */
 }
 
-  .income-form button[type="submit"] {
-    padding: 6px 8px;
-    background-color: #f29c38;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    right: 352px;
-    position: relative;
-    top: 40px;
-}
+
 .delete-button {
   background-color: transparent;
   color: white;
@@ -172,13 +171,11 @@
 ============================================================================================= */
 
 .transaction-container {
-    height: 100px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border: 1px solid #f29c38;
-    /* margin-top: -21px; */
-    position: relative;
-    bottom: 0px;
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #f29c38;
+
 }
 /* Couleurs pour les transactions */
 .income-color {
@@ -198,10 +195,9 @@
   padding: 4px;
   border-radius: 8px;
   width: 100%;
-
- position: relative;
- top: auto;
- z-index: auto;
+  position: relative;
+  top: auto;
+  z-index: auto;
 }
 
 /* =============================================================================================
@@ -211,7 +207,7 @@
 .transaction-list {
   display: flex;
   flex-direction: column; /* ✅ Liste en colonne */
-  width: 100%;
+  width: 95%;
 }
 
 /* 📌 Aligner chaque transaction dans un encadrement propre */
@@ -260,12 +256,12 @@
 .operation-table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: -14px;
 }
 
 .operation-table td {
   padding: 8px 25px;
   text-align: left;
-  border-bottom: 1px solid #f29c38;
   white-space: nowrap; /* Empêche les retours à la ligne */
 }
 
@@ -280,10 +276,11 @@
 
 .titre-incomes {
   position: relative;
-  bottom: 53px;
+  bottom: 155px;
   font-weight: bolder;
   color: #f29c35;
   font-size: x-large;
+  left: 8px;
 }
 /* =============================================================================================
    📌 Sidebar (Menu de navigation)
@@ -412,6 +409,7 @@
   align-items: center;
   width: 100%;
   gap: 20px;
+  margin-top: -106px;
 }
 .summary-item {
   text-align: center;
@@ -516,18 +514,39 @@
 }
 
 /* Ajustement du formulaire en grille plus lisible */
-.income-form form {
+/* .income-form form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-}
+} */
 
 /* Pour centrer proprement le bouton */
 .income-form button[type="submit"] {
-  grid-column: span 2;
-  margin: auto;
+  padding: 5px 10px;
+  background-color: #f29c38;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: center;
+  width: fit-content;
+  display: inline-block;
+  line-height: 1.6;
+  box-sizing: border-box;
+  position: relative;
+  pointer-events: auto;
+  z-index: 2;
+  margin-bottom: -9px;
 }
- 
+
+.income-form .form-group.button-group {
+  grid-column: 2 / 4; /* Place le bouton dans la colonne 2 uniquement */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
 .form-group {
   width: 73%;
   /* min-width: 36px; */
@@ -537,3 +556,151 @@
   padding: 2px 5px;
   font-size: 0.9rem;
 }
+
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+/* ============================
+   Responsive : Téléphone (max-width: 768px) - CORRECTION
+============================= */
+@media (max-width: 768px) {
+
+  .income-form {
+    width: 75%;
+    max-width: 756px;
+    padding: 20px;
+    position: relative;
+    top: 64px;
+    left: 200px;
+    max-height: 381px;
+  }
+
+  .income-form h3 {
+    font-size: 1.5rem;
+  }
+
+  .transaction-label{
+    display: none;
+  }
+
+  /* ✅ Grille 2 colonnes avec 3 lignes pour mobile */
+  .income-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto; /* 3 lignes : catégorie+date, description+montant, bouton */
+    gap: 10px;
+    text-align: center;
+  }
+
+  /* ✅ LIGNE 1 : Catégorie + Date */
+  .form-group.category-group {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .form-group.date-group {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* ✅ LIGNE 2 : Description + Montant */
+  .form-group.description-group {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .form-group.amount-group {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* ✅ LIGNE 3 : Bouton centré sur toute la largeur */
+  .button-container {
+    grid-column: 1 / -1; /* Occupe toute la largeur */
+    grid-row: 3; /* Troisième ligne */
+    display: flex;
+    justify-content: center;
+    margin-top: -5px; /* Remonte le bouton */
+  }
+
+  .income-form button[type="submit"] {
+    padding: 5px 10px ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-block;
+    width: auto;
+    line-height: 1.2;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    position: static; /* ✅ Corrige le bug de clic */
+  }
+
+  .income-form .form-group {
+    width: 100%;
+  }
+
+  /* ✅ Remonter l'historique juste après le formulaire */
+  .transaction-container {
+    margin-top: 20px;
+  }
+
+  .income-operations{
+    position: relative;
+    bottom: 14px;
+  }
+
+  .summary-item p {
+    margin-top: -26px;
+    font-size: 1rem;
+    position: relative;
+    right: 15px;
+  }
+
+  .summary-item h2 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    position: relative;
+    bottom: 26px;
+    white-space: nowrap;
+    right: 10px;
+  }
+}
+/* ============================
+   Responsive : Tablette (769px à 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+
+  .income-form {
+    width: 84%;
+    max-width: 756px;
+    padding: 20px;
+    position: relative;
+    top: 64px;
+    left: 194px;
+    max-height: 322px;
+}
+.income-form button[type="submit"] {
+  padding:5px 10px;
+  background-color: #f29c38;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  left: 0px;
+  position: relative;
+  top: -5px;
+}
+.income-form form {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  gap: 15px;
+}
+}
+/* .income-form button[type="submit"] {
+  z-index: 9999;
+  position: relative;
+  pointer-events: auto;
+} */

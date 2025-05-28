@@ -2,7 +2,7 @@ html, body {
 
   margin: 0;
   padding: 0;
-  overflow: auto; /* Active un défilement global si nécessaire */
+  /*overflow: auto;  Active un défilement global si nécessaire */
 }
 /* ============================
    Organisation des blocs
@@ -31,7 +31,7 @@ html, body {
 
 .politique-confidentialite h1 {
   font-size: 1.5rem;
-  color: #05204A;
+  color: var(--text-color);
   margin-bottom: 37px;
 }
 /* Organisation des lignes */
@@ -58,7 +58,7 @@ html, body {
   max-width: 1138px;
   margin: 29px auto;
   padding: 19px;
-  background: #fff;
+  background:  var(--bg-color);
   border-radius: 20px;
   min-height: 64vh;
   max-height: 29px;
@@ -93,7 +93,7 @@ html, body {
 
 .politique-confidentialite p {
   font-size: 1rem;
-  color: #333;
+  color: var(--text-color);
 }
 /* Organisation des blocs */
 .politique-confidentialite section {
@@ -102,7 +102,10 @@ html, body {
   margin-top: -13px;
 }
 
-
+.general {
+  position: relative;
+  bottom: 92px;
+}
 
 
 /* ============================
@@ -110,19 +113,19 @@ html, body {
 ============================= */
 .bloc {
   flex: 1;
-  min-width: 250px;
-  /* max-width: 300px; */
+  min-width: 300px;
+  max-width: 226px;
   padding: 15px;
-  background: #f9f9f9;
+  background: var(--bg-color);
   border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  border: 1px solid #ddd;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #F29C38;
   text-align: center;
 }
 
 .bloc-reduit {
-  min-height: 146px;
-  max-height: 151px;
+  min-height: 139px;
+  max-height: 143px;
   overflow: hidden;
   position: relative;
   bottom: 17px;
@@ -132,7 +135,7 @@ html, body {
 /* Titres des blocs */
 .bloc h2 {
   font-size: 1.4rem;
-  color: #05204A;
+  color: var(--text-color);
   border-bottom: 2px solid #F29C38;
   padding-bottom: 8px;
   margin-bottom: 10px;
@@ -186,7 +189,7 @@ html, body {
       max-width: 1138px;
       margin: 6px auto;
       padding: 6px;
-      background: #fff;
+      background: var(--bg-color);
       border-radius: 20px;
       min-height: 261px;
       max-height: 494px;
@@ -212,6 +215,7 @@ html, body {
   top: 1px;
 
   }
+
   .hero-2 h1 {
     color: #f29c38;
     font-size: 1.6rem;
@@ -263,23 +267,27 @@ html, body {
   min-width: 16px;
   max-width: 442px;
   padding: 3px;
-  background: #f9f9f9;
+  background: var(--bg-color);
   border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
+  border: 1px solid #F29C38;
   text-align: center;
   bottom: 75px;
   position: relative;
 }
 .politique-confidentialite section {
   flex-wrap: wrap;
-  margin-top: 12px;
+  margin-top: 0px;
 }
 
 .ligne2 {
   min-height: 172px;
   top: 80px;
   position: relative;
+}
+.politique-confidentialite .general {
+  position: relative;
+  top: 19px;
 }
 }
 
@@ -291,8 +299,8 @@ html, body {
     /* Ex : Ajuster le conteneur */
     .politique-confidentialite {
       width: 84%;
-      color: #333;
-      background: #fff;
+      color: var(--text-color);
+      background: var(--bg-color);
       box-sizing: border-box;
       min-height: 463px;
       max-height: 461px;
@@ -300,7 +308,10 @@ html, body {
       top: 18px;
   }
 
-  
+  .general {
+    position: relative;
+    top: 19px;
+}
     .bloc h2 {
       font-size: 1rem; /* Deja par defaut */
       margin-bottom: 6px;
@@ -360,10 +371,10 @@ p {
   min-width: 190px;
   /* max-width: 300px; */
   padding: 15px;
-  background: #f9f9f9;
+  background: var(--bg-color);
   border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  border: 1px solid #ddd;
+  border: 1px solid #F29C38;
   text-align: center;
 }
 /* Contenu des blocs */

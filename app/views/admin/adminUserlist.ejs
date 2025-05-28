@@ -1,20 +1,22 @@
-<%- include('../partials/header-dash') %>
+<%- include('../partials/header-admin') %>
 
-<h1 class="page-title">Liste des utilisateurs</h1>
+<div class="title-section">
+  <h1 class="page-title">Liste des utilisateurs</h1>
+  
+</div>
 
 <div class="all-users-block">
   <% users.forEach(user => { %>
     <div class="user-line">
       <h2>
-        <%= user.first_name %> <%= user.last_name %>
+        <%= user.first_name %> <%= user.last_name %> — <%= user.status %>
         <% if (user.status === 'Actif') { %>
           <span class="status-dot actif"></span>
         <% } else { %>
           <span class="status-dot inactif"></span>
         <% } %>
-      </h2>
+    </h2>
       
-      <p>Status : <%= user.status %></p>
       <p>Rôle : <%= user.user_type %> | Email : <%= user.email %></p>
       <p class="revenu">Revenus : € <%= user.totalRevenus.toFixed(2) %></p>
       <p class="depense">Dépenses : € <%= user.totalDepenses.toFixed(2) %></p>
@@ -28,10 +30,11 @@
           </button>
         </form>
       </div>
-    
+      
       <hr>
     </div>
   <% }) %>
-</div>
 
+</div>
+<a href="/admin" class="back-btn">⬅ Retour au tableau de bord</a>
 <%- include('../partials/footer') %>
