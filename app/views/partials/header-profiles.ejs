@@ -38,6 +38,34 @@
                 <button id="toggle-theme" class="theme-toggle-btn" aria-label="Changer de thème">
                     <span id="icon-theme">🌜</span> <!-- ← ce span doit exister -->
                   </button>
+                  <div class="nav-links">
+                    <div class="dropdown">
+                      <a href="/dashboard/overview">Compte ▾</a>
+                      <div class="dropdown-content">
+                        <a href="/dashboard/overview">Situation</a>
+                      </div>
+                    </div>
+                  
+                    <div class="dropdown">
+                      <a href="/dashboard/incomes">Analyse ▾</a>
+                      <div class="dropdown-content">
+                        <a href="/dashboard/incomes">Transactions</a>
+                      </div>
+                    </div>
+                  
+                    <div class="dropdown">
+                      <a href="/profile/profile">Profil ▾</a>
+                      <div class="dropdown-content">
+                        <a href="/profile/profile">Profile</a>
+                        <a href="/profile/settings">Paramètres</a>
+                        <a href="/profile/password">Mot de passe</a>
+                        <a href="/profile/email">Email</a>
+                      </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="/">Deconnexion</a>
+                        </div>
+                  </div>
                 <!-- Informations sur le profil utilisateur -->
                 <div class="profile-container">
                     <div class="profile-balance">
@@ -70,8 +98,8 @@
                 <div class="dropdown top-dropdown">
                     <button class="dropdown-btn">Analyse</button>
                     <div class="dropdown-menu" style="display: none;">
-                        <a href="/dashboard/incomes" class="dropdown-item">Revenus</a>
-                        <a href="/dashboard/expenses" class="dropdown-item">Dépenses</a>
+                        <a href="/dashboard/incomes" class="dropdown-item">Transactions</a>
+                        
                     </div>
                 </div>
                 <div class="dropdown top-dropdown">
@@ -82,6 +110,7 @@
                         <a href="/profile/password" class="dropdown-item">Mot de passe</a>
                         <a href="/profile/email" class="dropdown-item">Email</a>
                     </div>
+                    
                 </div>
                 <a href="/" class="sidebar-link logout">Déconnexion</a>
             </div>
