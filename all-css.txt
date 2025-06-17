@@ -1,0 +1,5625 @@
+/* Styles généraux */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color:var(--bg-color);
+  color: var(--text-color);
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 11px;
+  color: #f29c38;
+}
+
+.h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px; /* Ajout d'espace sous le titre */
+}
+
+.about-container .hero2 h1 {
+  color: #f29c38;
+  font-size: 29px;
+  text-align: center;
+  margin: 7px 9px 21px 49px;
+}
+/* Ligne orange sous les titres */
+.h1::after,
+.h2::after {
+  content: "";
+  display: block;
+  width: 150px; /* Longueur de la ligne */
+  height: 4px; /* Épaisseur de la ligne */
+  background-color: #F29C38; /* Couleur orange */
+  margin: 5px auto 0; /* Centrage et espacement */
+}
+
+/* Conteneur principal */
+.about-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: auto;
+   width: 70%;
+   max-width: 765px;
+   margin: 22px auto;
+   box-sizing: border-box;
+   background-color: var(--bg-color);
+   /* border: 2px solid #F29C38; */
+   max-height: 475px;
+   border-radius: 20px;
+   position: relative;
+   top: 12px;
+   gap: 1px;
+   right: 0px;
+  }
+
+.p{
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.hero2 {
+  text-align: center;
+  bottom: 21px;
+  left: 12px;
+  position: relative;
+}
+
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1100px;
+}
+
+.about-grid.row-1 .about-section {
+  flex: 1 1 45%;
+}
+
+.about-grid.row-2 .about-section {
+  flex: 1 1 28%;
+}
+
+
+.about-section h2 {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.about-section h2::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background-color: #F29C38;
+  margin: 6px auto;
+  border-radius: 2px;
+}
+
+.about-section p,
+.about-section ul {
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--text-color);
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+/* ============================
+   Responsive Design
+============================= */
+@media (max-width: 768px) {
+  /* Conteneur principal */
+  .about-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    height: auto;
+    position: relative;
+    max-height: 524px;
+    top: 0px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 11px;
+    color: #f29c38;
+    }
+    .about-section h2 {
+      color:var(--text-color);
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 12px;
+      }
+      .about-section p, .about-section ul {
+        font-size: 0.8rem;
+        line-height: 1;
+        color:var(--text-color);
+        text-align: justify;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h2{
+      margin-top: 8px;
+    }
+    .hero2 {
+      text-align: center;
+      bottom: 0px;
+      left: 4px;
+      position: relative;
+  }
+  p {
+    font-size: 0.8px;
+}
+.about-container .hero2 h1 {
+  color: #f29c38;
+  font-size: 18px;
+  text-align: center;
+  margin: 7px 9px 21px 49px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+
+  /* Conteneur principal */
+.about-container {
+  flex-direction: column;
+  display: flex;
+  height: auto;
+  align-items: center;
+  max-height: 501px;
+  background-color: var(--bg-color);
+  top: 15px;
+  position: relative;
+}
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 11px;
+  color: #f29c38;
+  }
+  .about-section h2 {
+    color:var(--text-color);
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 12px;
+    }
+}
+.admin-card {
+    background: var(--bg-color);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+    top: 88px;
+    border: 2px solid #F29C38;
+}
+.theme-toggle-btn1 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.2rem;
+  color: var(--text-color);
+  position: absolute;
+  left: 79px;
+  z-index: 999;
+}
+.admin-card h2 {
+    color: #f29c35;
+    margin-bottom: 15px;
+}
+
+.admin-card p {
+    margin: 5px 0;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.admin-links {
+    margin-top: 20px;
+}
+
+.admin-links a {
+    display: inline-block;
+    margin: 6px;
+    padding: 6px 14px;
+    background-color: #f29c35;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.admin-links a:hover {
+    background-color: #d8822d;
+}
+
+
+.back-to-dashboard {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.back-btn {
+    display: block;
+    margin: 20px auto 0 auto;
+    background-color: #f29c35;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 500;
+    width: fit-content;
+    text-align: center;
+}
+.back-btn1 {
+    background-color: #f29c35;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 13px;
+    text-decoration: none;
+    /* font-size: 0.9rem; */
+    font-weight: 500;
+    width: 248px;
+    position: relative;
+    top: 23px;
+    left: 203px;
+}
+
+.back-btn:hover {
+    background-color: #d8822d;
+}
+.back-btn:hover {
+    background-color: #d8822d;
+}
+
+.user-line h2 {
+    font-size: 1.1rem;
+    color:  var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.status-dot.actif {
+    background-color: green;
+}
+
+.status-dot.inactif {
+    background-color: red;
+}
+
+.title-section {
+  margin-top: -38px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.4rem;
+  /* margin-bottom: 11px; */
+  color: #f29c38;
+  position: relative;
+  top: 19px;
+  left: 5px;
+}
+
+
+
+
+
+select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    appearance: none; /* enlève le style natif */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+  
+  /* les boutons de la page admin  */
+  form button.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  form button.delete-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  /* les styles des transactions-list de la page admin  */
+  .transaction-list {
+    max-height: 400px;  /* ou ajuste selon la hauteur que tu veux */
+    overflow-y: auto;
+    padding: 10px;
+  }
+  
+  .transaction-item.revenu {
+    color: green;
+  }
+  
+  .transaction-item.depense {
+    color: red;
+  }
+  
+  .transaction-item {
+    margin-bottom: 5px;
+  }
+  
+  /* style pour le bouton de suppression */
+  
+  .transaction-page {
+    max-width: 800px;
+    margin: 0 auto; /* centre horizontalement */
+    text-align: left;
+    position: relative;
+    /* top: 116px; */
+  }
+  
+  .transaction-summary {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+  }
+  
+  .transaction-list-container {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: var(--bg-color);
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+  }
+  
+  .transaction-list-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .transaction-list-container li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .transaction-list-container li:last-child {
+    border-bottom: none;
+  }
+  
+  
+  
+  .transaction-text {
+    flex: 1;
+  }
+  
+  form.delete-form {
+    margin-left: 10px;
+  }
+  
+  form.delete-form button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  form.delete-form button:hover {
+    background-color: #c0392b;
+  }
+  
+  
+  .revenu {
+    color: green;
+  }
+  
+  .depense {
+    color: red;
+  }
+  /* bouton de modification de transaction */
+  .edit-btn {
+    padding: 5px 10px;
+    background-color: #3498db; /* bleu */
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+  
+  .edit-btn:hover {
+    background-color: #2980b9; /* bleu foncé */
+  }
+  
+  
+  
+  /* Style pour la page de modification */
+  .transaction-edit-container {
+    max-width: 450px;
+    margin: 106px auto;
+    padding: 32px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+    border: 2px solid #f29c35;
+    /* margin-bottom: 55px; */
+    /* max-height: 388px; */
+    /* margin-top: 15px; */
+}
+  
+.transaction-edit-container h1 {
+  text-align: center;
+  /* margin-top: 112px; */
+  font-size: 22px;
+  color: var(--text-color);
+  margin-bottom: -108px;
+  position: relative;
+  top: -125px;
+  color: #f29c38;
+}
+  
+  .field-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+    /* font-size: 14px; */
+    width: 308px;
+  }
+  
+  .field-line span {
+    flex: 1;
+    font-weight: 500;
+  }
+  
+  .field-line input,
+  .field-line select {
+    flex: 1;
+    padding: 6px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  
+  .transaction-edit-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #F29C35;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .transaction-edit-container button:hover {
+    background-color: #d57f28;
+  }
+  
+  .transaction-edit-container a {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    font-size: 13px;
+    color: #AA1155;
+    text-decoration: none;
+  }
+  
+  .transaction-edit-container a:hover {
+    color: #F29C38;
+  }
+  
+  /* style pour la page des utilisateurs et admin  suppression de la transaction */
+  
+  
+  .all-users-block {
+    width: 100%;
+    max-width: 557px;
+    margin: 0 auto;
+    background-color:var(--bg-color);
+    border: 2px solid var(--border-color1);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-height: 413px;
+    overflow-y: auto;
+    top: 7px;
+    position: relative;
+    height: 247px;
+}
+  
+h1 {
+  font-size: 2rem;
+  margin-bottom: -10px;
+  color: #f29c38;
+  margin-bottom: 9px;
+  margin-top: 103px;
+  bottom: 123px;
+  left: 19px;
+}
+  
+  
+  .user-line h2 {
+    margin: 0;
+  }
+  
+  
+  
+  .revenu {
+    color: green;
+  }
+  
+  .depense {
+    color: red;
+  }
+  
+  .solde {
+    color: black;
+  }
+  
+  .user-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .details-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 4px 8px;
+    text-decoration: none;
+    border-radius: 4px;
+
+    margin-top: 5px;
+  }
+  
+  .details-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+
+  /* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+
+@media (max-width: 768px) {
+  .profile-balance, .total-balance {
+    font-size: 1.2rem;
+    transform: translate(11%, 7%);
+}
+.admin-card {
+  background: var(--bg-color);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 253px;
+  margin: 40px auto;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+  top: 122px;
+  border: 2px solid #F29C38;
+}
+.all-users-block {
+  width: 74%;
+  max-width: 378px;
+  /* margin: 0 auto; */
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* max-height: 413px; */
+  /* overflow-y: auto; */
+  top: 7px;
+  position: relative;
+  height: 247px;
+}
+.transaction-page {
+  max-width: 408px;
+  /* margin: 0 auto; */
+  /* text-align: left; */
+  position: relative;
+  /* top: 108px; */
+}
+.back-btn1 {
+  background-color: #f29c35;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 13px;
+  /* text-decoration: none; */
+  /* font-size: 0.9rem; */
+  /* font-weight: 500; */
+  width: 248px;
+  position: relative;
+  top: 23px;
+  left: 82px;
+}
+h1 {
+  font-size: 1.6rem;
+  /* margin-bottom: -10px; */
+  color: #f29c38;
+  /* margin-bottom: 11px; */
+  /* margin-top: 89px; */
+  bottom: 6px;
+  left: 5px;
+}
+.transaction-edit-container h1 {
+  text-align: center;
+  /* margin-top: 112px; */
+  font-size: 22px;
+  color: var(--text-color);
+  margin-bottom: -108px;
+  position: relative;
+  top: -125px;
+  color: #f29c38;
+}
+}
+/* ============================
+   Responsive : Tablette (769px à 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+  .profile-balance, .total-balance {
+    font-size: 1.2rem;
+    transform: translate(11%, 7%);
+}
+.transaction-edit-container h1 {
+  text-align: center;
+  /* margin-top: 112px; */
+  font-size: 22px;
+  color: var(--text-color);
+  margin-bottom: -108px;
+  position: relative;
+  top: -125px;
+  color: #f29c38;
+}
+.admin-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  margin: 40px auto;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+  top: 122px;
+  border: 2px solid #F29C38;
+}
+.admin-card p {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+.all-users-block {
+  width: 100%;
+  max-width: 431px;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-height: 413px;
+  overflow-y: auto;
+  top: 7px;
+  position: relative;
+  height: 247px;
+}
+.transaction-page {
+  max-width: 684px;
+  /* margin: 0 auto; */
+  /* text-align: left; */
+  position: relative;
+  /* top: 108px; */
+}
+.back-btn1 {
+  background-color: #f29c35;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 13px;
+  /* text-decoration: none; */
+  /* font-size: 0.9rem; */
+  /* font-weight: 500; */
+  width: 248px;
+  position: relative;
+  top: 23px;
+  
+}
+h1 {
+  font-size: 1.6rem;
+  /* margin-bottom: -10px; */
+  color: #f29c38;
+  /* margin-bottom: 11px; */
+  /* margin-top: 89px; */
+  bottom: 6px;
+  left: 5px;
+}
+}
+.contact-page {
+  max-width: 37%;
+  padding: 23px;
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);;
+  background-color:var(--bg-color);
+  border-radius: 20px;
+  border: 2px solid #F29C38;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 56px;
+  left: 433px;
+}
+
+.contact-form-section h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-left: 225px;
+  margin-bottom: 17px;
+  white-space: nowrap;
+}
+.contact-page .hero1 {
+  text-align: center;
+  bottom: 185px;
+  left: 269px;
+  position: relative;
+}
+
+.hero1 h1 {
+  white-space: nowrap;
+  position: relative;
+  left: -21px;
+  color: #F29C35;
+  bottom: 30px;
+}
+
+/* .hero p {
+  font-size: 1rem;
+  color: #333;
+  max-width: 100%;
+  text-align: center;
+  margin: 26px 0 0px -12px;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  max-width: 85%;
+  white-space: nowrap;
+  left: 32px;
+  top: 24px;
+} */
+
+.contact-page h1 {
+  font-size: 2.5rem;
+  color:var(--text-color);
+}
+
+/* Formulaire */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  max-width: 500px;
+  left: 59px;
+  position: relative;
+}
+
+/* Ligne pour label et input */
+.form-group-inline {
+  display: flex;
+  flex-direction: column;
+  width: 58%;
+}
+
+.form-group-inline label {
+  font-size: 1rem;
+  position: relative;
+  right: 171px;
+  top: 0px;
+}
+
+.form-group-inline input,
+.form-group-inline textarea {
+  width: 400px;
+  padding: 5px;
+  position: relative;
+  bottom: 21px;
+  left: 100px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  background-color: #f9f9f9;
+}
+
+.form-group-inline input:focus,
+.form-group-inline textarea:focus {
+  outline: none;
+  border-color: #F29C38;
+  box-shadow: 0 0 5px rgba(242, 156, 56, 0.5);
+}
+
+/* Champ message (textarea) */
+.form-group-inline textarea {
+  resize: none;
+  height: 83px;
+}
+
+/* Bouton d'envoi */
+.form-actions {
+  text-align: center;
+  position: relative;
+  bottom: 17px;
+}
+
+.btn-submit {
+  background-color: #F29C38;
+  color: #fff;
+  border: none;
+  padding: 7px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  left: 50px;
+  top: 8px;
+}
+
+.btn-submit:hover {
+  background-color: #e58931;
+}
+
+p {
+  margin-top: 50px;
+}
+
+.para {
+  right: 100px;
+  position: relative;
+  white-space: nowrap;
+  top: 25Px;
+}
+
+.hero1 p {
+  position: relative;
+  right: 23px;
+  top: -36px;
+}
+
+.hero1 h1 {
+  white-space: nowrap;
+  position: relative;
+  right: 22px;
+  color: #F29C35;
+  bottom: 30px;
+}
+
+.contact-form-section {
+  top: 40px;
+  position: relative;
+  right: 284px;
+}
+
+/* Réduction de la hauteur du cadre pour qu'il ne touche pas le footer */
+.contact-page {
+  max-height: 382px;
+}
+
+p {
+  margin-top: 0px;
+}
+
+/* ------------- style pour le formulaire d'inscription ---------------- */
+/* confirmation.css */
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+main.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.confirmation-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #f29c38;
+}
+
+.confirmation-page p {
+  font-size: 1.2em;
+  margin-bottom: 50px;
+  max-width: 600px;
+  color: #05204a;
+}
+
+.confirmation-page .btn-back {
+  display: inline-block;
+  background-color: #f29c38;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.confirmation-page .btn-back:hover {
+  background-color: #d1832e;
+}
+
+/* ============================
+   Responsive Design
+============================= */
+@media (max-width: 768px) {
+  .contact-page {
+    max-width: 75%;
+    max-height: 445px;
+    padding: 0px 12px;
+    position: relative;
+    left: 46px;
+    top: 55px;
+    display: flex;
+  }
+
+  .hero1 h1 {
+    white-space: nowrap;
+    position: relative;
+    left: -21px;
+    color: #F29C35;
+    bottom: 30px;
+}
+  .contact-form-section h2 {
+    position: relative;
+    left: 156px;
+    top: 37px;
+  }
+
+  .form-group-inline input,
+  .form-group-inline textarea {
+    width: 270px;
+    padding: 5px;
+    position: relative;
+    top: 38px;
+    left: 198px;
+  }
+
+  .form-group-inline label {
+    font-size: 1rem;
+    position: relative;
+    left: 202px;
+    top: 40px;
+  }
+
+  .btn-submit {
+    padding: 7px 4px;
+    max-width: 80px;
+    position: relative;
+    left: 194px;
+    top: 14px;
+  }
+
+  .hero1 p {
+    position: relative;
+    left: 65px;
+    top: -26px;
+    font-size: 12px;
+  }
+
+  .hero1 h1 {
+    white-space: nowrap;
+    position: relative;
+    left: 66px;
+    color: #F29C35;
+  }
+  .contact-page .hero1 {
+    text-align: center;
+    bottom: 185px;
+    left: 189px;
+    position: relative;
+}
+
+  .para {
+    white-space: normal;
+  }
+
+  .form-group-inline {
+    display: grid;
+    grid-template-columns: 113px 1fr;
+    align-items: normal;
+    margin-bottom: 20px;
+  }
+
+  .contact-form-section {
+    top: 12px;
+    right: 386px;
+  }
+
+  .form-actions {
+    text-align: center;
+    position: relative;
+    top: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .contact-page {
+    max-width: 60%;
+    max-height: 454px;
+    padding: 0px 12px;
+    position: relative;
+    left: 174px;
+    top: 45px;
+  }
+
+  .contact-form-section h2 {
+    position: relative;
+    left: 170px;
+    top: 37px;
+  }
+
+  .form-group-inline input,
+  .form-group-inline textarea {
+    width: 354px;
+    padding: 5px;
+    position: relative;
+    top: 41px;
+    left: 184px;
+  }
+
+  .form-group-inline label {
+    font-size: 1rem;
+    position: relative;
+    left: 190px;
+    top: 45px;
+  }
+
+  .btn-submit {
+    padding: 7px 4px;
+    max-width: 80px;
+    position: relative;
+    left: 232px;
+    top: 41px;
+  }
+
+  .hero1 p {
+    position: relative;
+    left: 57px;
+    top: 6px;
+    white-space: nowrap;
+  }
+
+  .hero1 h1 {
+    white-space: nowrap;
+    position: relative;
+    left: 57px;
+    color: #F29C35;
+    top: 22px;
+  }
+
+  .contact-page .hero1{
+      text-align: center;
+      bottom: 234px;
+      left: 204px;
+      position: relative;
+  }
+
+  .para {
+    white-space: normal;
+  }
+
+  .form-group-inline {
+    display: grid;
+    grid-template-columns: 113px 1fr;
+    align-items: normal;
+    margin-bottom: 20px;
+  }
+
+  .contact-form-section {
+    position: relative;
+    right: 432px;
+    top: 7px;
+  }
+}
+
+   /* contenu principal */  
+
+
+   .form-container1 {
+    max-width: 100%;
+    width: 397px;
+    border: 3px solid #F29C38;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    /* position: relative; */
+    /* left: 23px; */
+    /* top: -35px; */
+    min-height: 147px;
+    padding: 23px;
+    margin: 0 auto; /* centrer horizontalement */
+}
+
+.hero .title-email {
+  color: #f29c38;
+  margin-top: -95px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  width: 100%;
+  text-align: right;
+}
+.form-row input[type="email"], 
+.form-row input[type="password"], 
+.form-row input[type="text"], 
+.form-row select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+
+}
+
+
+   /* responsive desktop   */
+
+@media (min-width: 993px) {
+
+  .form-container {
+    max-width: 40%;
+    margin: 103px auto;
+    padding: 50px;
+    border: 4px solid #F29C38;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    position: relative;
+    left: 91px;
+  }
+
+
+}
+
+    /* responsive tablette   */
+ 
+@media (min-width: 768px) and (max-width: 992px) {
+
+  .form-container {
+    max-width: 55%;
+    padding: 50px;
+    border: 4px solid #F29C38;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    left: 0px;
+}
+.form-row label {
+  font-size: 1rem;
+  color: var(--text-color);
+  width: 50%;
+  text-align: right;
+}
+.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
+  width: 84%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+
+}
+
+
+}
+
+    /* responsive mobile   */
+
+@media (max-width: 767px) {
+  .form-container {
+    max-width: 50%;
+    border: 4px solid #F29C38;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    top: 18px;
+    left: 0px;
+    min-height: 139px;
+    max-height: 171px;
+}
+.form-row label {
+  font-size: 1rem;
+  color: var(--text-color);
+  width: 40%;
+  text-align: right;
+}
+
+.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
+  width: 64%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+
+}
+
+
+
+}
+/* =============================================================================================
+   🎯 Conteneur principal (Formulaire + Transactions)
+============================================================================================= */
+
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 30px; */
+  width: 100%;
+  max-width: 700px;
+  /* margin: auto; */
+  /* margin-top: 20px; */
+  /* padding-bottom: 10px; */
+  position: relative;
+  right: 202px;
+  bottom: 75px;
+}
+/* =============================================================================================
+   📌 Formulaire d'ajout de revenus
+============================================================================================= */
+
+.income-form {
+  background:var(--bg-color);
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 610px; /* ✅ Alignement avec le bloc transactions */
+  border: 2px solid #f29c38;
+  position: relative;
+  top: 54px;
+  left: 220px;
+  max-height: 331px;
+  position: relative;
+  z-index: 1;          /* ✅ assure que le bouton est au-dessus */
+  overflow: visible;   /* ✅ empêche que le bouton soit "coupé" */
+  
+}
+
+.income-form h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #05204a;
+  margin-bottom: 15px;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$$$$ */
+.transactions-title {
+  position: relative;
+  left: 0;
+  top: 28px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 37px;
+  padding-left: 5px;
+  border-bottom: 2px solid #f29c38;
+  padding-bottom: 5px;
+  text-align: justify;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+/* Organisation des champs – grille 4 colonnes */
+.income-form form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Quatre colonnes égales */
+  gap: 15px 20px;                         /* Espace vertical et horizontal */
+  align-items: center;
+}
+
+/* Chaque groupe (label + input) s'aligne en colonne */
+.income-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels au-dessus des champs, centrés verticalement dans leur groupe */
+.income-form .form-group label {
+  margin-bottom: 4px;
+  font-weight: bold;
+  margin-right: 48px;
+}
+
+/* Champs input/select prennent toute la largeur du groupe */
+.income-form .form-group input,
+.income-form .form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px;
+  border: 1px solid #f29c35;
+  border-radius: 5px;
+}
+
+/* Ajuster spécifiquement les groupes pour bien répartir :
+   .category-group, .date-group, .description-group, .amount-group
+   – mais la grille les répartira automatiquement à 25% chacun. */
+
+/* Radio buttons full width */
+.income-form .form-row.type-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+/* Button row full width and centered */
+.income-form .form-row.button-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.income-form .form-row.button-row {
+  justify-content: center;
+}
+
+.income-form .form-group {
+  display: flex;
+  
+  width: 100%;
+  gap: 0px;
+}
+
+.income-form label {
+  font-weight: bold;
+  white-space: nowrap;
+  width: 90px; /* ✅ Largeur uniforme pour alignement */
+  text-align: left;
+}
+
+.income-form select,
+.income-form input {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #f29c35;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box; /* ✅ Empêche les dépassements */
+}
+.income-operations{
+  position: relative;
+  bottom: 24px;
+}
+/* Centrage du bouton */
+.button-container {
+  grid-column: 2 / 4; /* Occupe les colonnes 2 et 3 */
+  grid-row: 2; /* Deuxième ligne */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5px; /* Remonte le bouton vers le haut */
+}
+
+
+.delete-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 0px 0px;
+  cursor: pointer;
+  position: relative;
+  left: 170px;
+  bottom: -3px;
+}
+
+/* =============================================================================================
+   📌 Bloc Historique des Transactions
+============================================================================================= */
+
+.transaction-container {
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #f29c38;
+
+}
+/* Couleurs pour les transactions */
+.income-color {
+  color: #2ecc71; /* Vert pour les revenus */
+}
+
+.expense-color {
+  color: #e74c3c; /* Rouge pour les dépenses */
+}
+
+/* ✅ Aligner le titre "Total des revenus" */
+#total-incomes {
+  text-align: start;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: white;
+  padding: 4px;
+  border-radius: 8px;
+  width: 100%;
+  position: relative;
+  top: auto;
+  z-index: auto;
+}
+
+/* =============================================================================================
+   📌 Grille des transactions
+============================================================================================= */
+
+.transaction-list {
+  display: flex;
+  flex-direction: column; /* ✅ Liste en colonne */
+  width: 95%;
+}
+
+/* 📌 Aligner chaque transaction dans un encadrement propre */
+.operation-item {
+  display: grid;
+  grid-template-columns: 100px 130px 100px 110px 30px; /* Largeurs équilibrées */
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center; /* ✅ Centre le texte */
+}
+
+/* ✅ Suppression des marges inutiles sur les éléments */
+.operation-item span {
+    display: flex;
+    justify-content: center; /* ✅ Centre horizontalement */
+    align-items: center; /* ✅ Centre verticalement */
+    text-align: center; /* ✅ Assure que le texte est centré */
+    padding: 5px 10px;
+  }
+
+.operation-item:hover {
+  transform: scale(1.02);
+}
+
+/* ✅ Suppression des marges inutiles */
+.operation-item p {
+  margin: 0;
+  padding-right: 10px;
+  font-weight: 500;
+}
+
+.operation-item span:nth-child(2) { /* ✅ Cible la colonne Catégorie */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px; /* ✅ Coupe proprement les noms trop longs */
+}
+
+.operation-item span:first-child {
+  margin-right: 10px; /* ✅ Sépare le texte "Revenu :" du reste */
+}
+
+/* testes */
+
+.operation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: -14px;
+}
+
+.operation-table td {
+  padding: 8px 25px;
+  text-align: left;
+  white-space: nowrap; /* Empêche les retours à la ligne */
+}
+
+.operation-table td:first-child {
+  font-weight: bold; /* Met "Revenu : X€" en gras */
+}
+
+.delete-cell {
+  text-align: center;
+  width: 50px; /* Ajuste l'espace pour le bouton supprimer */
+}
+
+.titre-incomes {
+  position: relative;
+  bottom: 155px;
+  font-weight: bolder;
+  color: #f29c35;
+  font-size: x-large;
+  left: 8px;
+}
+/* =============================================================================================
+   📌 Sidebar (Menu de navigation)
+============================================================================================= */
+
+.dashboard-sidebar {
+  position: fixed;
+  top: 57px;
+  bottom: 38px;
+  left: 0;
+  width: 9%;
+  border-right: 4px solid #f29c38;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 10;
+}
+
+/* Bouton de déconnexion */
+.logout {
+    margin-top: auto;
+    text-align: center;
+    background-color: #f29c38;
+    color: #fff;
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 4px 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    /* margin-bottom: 30px; */
+    left: 705px;
+    position: relative;
+    top: 28px;
+
+}
+
+/* .logout:hover {
+  background-color: #fff;
+  color: #f29c38;
+  border: 2px solid #f29c38;
+} */
+
+/* =============================================================================================
+   📌 Dropdown (Menu déroulant)
+============================================================================================= */
+
+.dropdown {
+  position: relative;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Bouton du dropdown */
+.dropdown-btn {
+  background: none;
+  color: #f29c38;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  left: 520px;
+}
+
+/* .dropdown-btn:hover {
+  color: #fff;
+  background-color: #f29c38;
+} */
+
+/* Menu déroulant caché */
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  top: 49px;
+  left: 512px;
+  background-color: white;
+  border: 1px solid #f29c38;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  min-width: 87px;
+  padding: 7px;
+}
+/* Items du menu déroulant */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 7px 0px;
+  text-decoration: none;
+  color: #05204a;
+  font-size: 1rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f29c38;
+  color: white;
+}
+
+/* Affichage du menu */
+.dropdown-menu.show {
+  display: flex;
+}
+
+/* Added .top-nav-links rule */
+
+.top-nav-links {
+  flex-direction: unset;
+  position: relative;
+  bottom: 68px;
+  left: 356px;
+  gap: 28px;
+  display: flex;
+}
+/* =============================================================================================
+   📊 Résumé en haut du formulaire
+============================================================================================= */
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  margin-top: -106px;
+}
+.summary-item {
+  text-align: center;
+  flex: 1;
+}
+.summary-item h2 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+  bottom: 26px;
+}
+.summary-item p {
+  margin-top: -25px;
+  font-size: 1.2rem;
+}
+/* Couleurs selon le type */
+#summary-income p,
+#summary-balance p.positive {
+  color: #2ecc71; /* vert */
+}
+#summary-expenses p {
+  color: #e74c3c; /* rouge/dépenses */
+}
+#summary-balance p.negative {
+  color: #e74c3c; /* rouge si solde négatif */
+}
+
+/* Résumé – couleurs spécifiques */
+#summary-income { color: #2ecc71; /* vert */ }
+#summary-expenses { color: #e74c3c; /* rouge pour les dépenses */ }
+#summary-balance.positive { color: #2ecc71; /* vert si solde positif */ }
+#summary-balance.negative { color: #e74c3c; /* rouge si solde négatif */ }
+
+.type-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.transaction-label,
+.type-label {
+  font-weight: bold;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Ligne des inputs : catégorie, date, description, montant */
+.income-form .form-row.inputs-row {
+  display: flex;
+  gap: 20px; /* Espace horizontal entre chaque champ */
+}
+
+.income-form .form-row.inputs-row .form-group {
+  flex: 1; /* Chaque groupe prend une part égale */
+}
+
+/* Ajoute un écart entre la catégorie et la date */
+.income-form .form-row.inputs-row .form-group.category-group {
+  margin-right: 20px;
+}
+
+/* Pour réorganiser correctement les boutons radio avec leur label */
+.type-selector-inline {
+  display: flex;
+  justify-content: center; /* ✅ centre toute la ligne horizontalement */
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px; /* espace au-dessus */
+  margin-bottom: 20px; /* espace en-dessous */
+  flex-wrap: wrap;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espace entre radio et texte */
+}
+
+.type-label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Pour agrandir les inputs Description et Montant */
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%; /* pleine largeur */
+  min-width: 138px;
+}
+
+/* Ajustement du formulaire en grille plus lisible */
+/* .income-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+} */
+
+/* Pour centrer proprement le bouton */
+.income-form button[type="submit"] {
+  padding: 5px 10px;
+  background-color: #f29c38;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: center;
+  width: fit-content;
+  display: inline-block;
+  line-height: 1.6;
+  box-sizing: border-box;
+  position: relative;
+  pointer-events: auto;
+  z-index: 2;
+  margin-bottom: -9px;
+}
+
+.income-form .form-group.button-group {
+  grid-column: 2 / 4; /* Place le bouton dans la colonne 2 uniquement */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+.form-group {
+  width: 73%;
+  /* min-width: 36px; */
+ 
+}
+.operation-table td {
+  padding: 2px 5px;
+  font-size: 0.9rem;
+}
+
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+/* ============================
+   Responsive : Téléphone (max-width: 768px) - CORRECTION
+============================= */
+@media (max-width: 768px) {
+
+  .income-form {
+    width: 75%;
+    max-width: 756px;
+    padding: 20px;
+    position: relative;
+    top: 64px;
+    left: 200px;
+    max-height: 381px;
+  }
+
+  .income-form h3 {
+    font-size: 1.5rem;
+  }
+
+  .transaction-label{
+    display: none;
+  }
+
+  /* ✅ Grille 2 colonnes avec 3 lignes pour mobile */
+  .income-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto; /* 3 lignes : catégorie+date, description+montant, bouton */
+    gap: 10px;
+    text-align: center;
+  }
+
+  /* ✅ LIGNE 1 : Catégorie + Date */
+  .form-group.category-group {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .form-group.date-group {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* ✅ LIGNE 2 : Description + Montant */
+  .form-group.description-group {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .form-group.amount-group {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* ✅ LIGNE 3 : Bouton centré sur toute la largeur */
+  .button-container {
+    grid-column: 1 / -1; /* Occupe toute la largeur */
+    grid-row: 3; /* Troisième ligne */
+    display: flex;
+    justify-content: center;
+    margin-top: -5px; /* Remonte le bouton */
+  }
+
+  .income-form button[type="submit"] {
+    padding: 5px 10px ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-block;
+    width: auto;
+    line-height: 1.2;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    position: static; /* ✅ Corrige le bug de clic */
+  }
+
+  .income-form .form-group {
+    width: 100%;
+  }
+
+  /* ✅ Remonter l'historique juste après le formulaire */
+  .transaction-container {
+    margin-top: 20px;
+  }
+
+  .income-operations{
+    position: relative;
+    bottom: 14px;
+  }
+
+  .summary-item p {
+    margin-top: -26px;
+    font-size: 1rem;
+    position: relative;
+    right: 15px;
+  }
+
+  .summary-item h2 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    position: relative;
+    bottom: 26px;
+    white-space: nowrap;
+    right: 10px;
+  }
+}
+/* ============================
+   Responsive : Tablette (769px à 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+
+  .income-form {
+    width: 84%;
+    max-width: 756px;
+    padding: 20px;
+    position: relative;
+    top: 64px;
+    left: 194px;
+    max-height: 322px;
+}
+.income-form button[type="submit"] {
+  padding:5px 10px;
+  background-color: #f29c38;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  left: 0px;
+  position: relative;
+  top: -5px;
+}
+.income-form form {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  gap: 15px;
+}
+}
+/* .income-form button[type="submit"] {
+  z-index: 9999;
+  position: relative;
+  pointer-events: auto;
+} *//* ============================
+   Conteneur principal
+============================= */
+.legal-page-container {
+  width: 100%;
+  max-width: 1063px;
+  margin: 0px auto;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  max-height: 466px;
+  position: relative;
+  top: 50px;
+}
+/* ============================
+   Section Titre + Logo
+============================= */
+
+.legal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.legal-logo {
+  max-width: 82px;
+  height: auto;
+  position: relative;
+  left: 15px;
+}
+
+.legal-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f29c38; /* Orange */
+  margin-top: 12px;
+}
+
+/* ============================
+   Grille des blocs (2 par ligne)
+============================= */
+.legal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 5px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.legal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 73%;
+  background-color: var(--bg-color);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f29c38; /* Orange */
+  text-align: center;
+}
+
+/* ============================
+   Titres et textes
+============================= */
+.legal-card h2 {
+  font-size: 1.4rem;
+  color: var(--text-color);
+}
+
+.legal-card p {
+  font-size: 1rem;
+  color: var(--text-color);;
+  line-height: 1.5;
+}
+
+/* ============================
+   Liens
+============================= */
+.legal-card a {
+  color: #f29c38;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.legal-card a:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   Responsive Tablette
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+  .legal-page-container {
+    width: 94%;
+    max-width: 746px;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    max-height: 512px;
+    position: relative;
+    top: 27px;
+  }
+
+  .legal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .legal-card h2 {
+    font-size: 1rem;
+  }
+
+  .legal-card p {
+    font-size: 0.8rem;
+  }
+
+  .legal-logo {
+    max-width: 65px;
+    left: 15px;
+  }
+
+  .legal-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f29c38;
+  }
+
+  .legal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    gap: 3px;
+  }
+
+  .legal-card:nth-child(1),
+  .legal-card:nth-child(2) {
+    grid-column: auto;
+  }
+
+  .legal-card:nth-child(n+3) {
+    grid-column: span 2;
+  }
+  .legal-card:nth-child(1),
+.legal-card:nth-child(2) {
+  font-size: 0.85rem;
+}
+.legal-card:nth-child(1) h2,
+.legal-card:nth-child(2) h2 {
+  font-size: 1rem;
+}
+.legal-card:nth-child(4) {
+  margin-top: 8px;
+}
+}
+
+/* ============================
+   Responsive Mobile (1 bloc par ligne)
+============================= */
+@media (max-width: 768px) {
+  .legal-page-container {
+    width: 84%;
+    max-width: 446px;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    max-height: 512px;
+    position: relative;
+    top: 27px;
+  }
+
+  .legal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .legal-card h2 {
+    font-size: 0.9rem;
+  }
+
+  .legal-card p {
+    font-size: 0.8rem;
+  }
+
+  .legal-logo {
+    max-width: 65px;
+    left: 15px;
+  }
+
+  .legal-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f29c38;
+  }
+
+  .legal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    gap: 3px;
+  }
+
+  .legal-card:nth-child(1),
+  .legal-card:nth-child(2) {
+    grid-column: auto;
+  }
+
+  .legal-card:nth-child(n+3) {
+    grid-column: span 2;
+  }
+  .legal-card:nth-child(1),
+.legal-card:nth-child(2) {
+  font-size: 0.85rem;
+}
+.legal-card:nth-child(1) h2,
+.legal-card:nth-child(2) h2 {
+  font-size: 1rem;
+}
+.legal-card:nth-child(4) {
+  margin-top: 8px;
+}
+}/* ============================
+   Importation de la police
+============================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); /* Importation de la police Roboto */
+
+/* ============================
+   Style global du body
+============================= */
+body {
+  font-family: 'Roboto', sans-serif; /* Applique la police Roboto au document */
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0; /* Supprime les paddings par défaut */
+  background-color: var(--bg-color); /* Applique un fond gris clair */
+}
+
+/* ============================
+   Conteneur général du formulaire
+============================= */
+.login-form-container {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f29c38;
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
+  min-width: 567px;
+  margin: auto;
+  padding: 16px;
+  bottom: 48px;
+  position: relative;
+}
+
+/* ============================
+   Titre du formulaire
+============================= */
+.login-form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f29c38;
+  text-align: center;
+  margin-bottom: -96px;
+  position: relative;
+  top: -106px;
+}
+/* ============================
+   Section des réseaux sociaux
+============================= */
+.login-form-social {
+  display: flex; /* Active Flexbox pour l'agencement horizontal */
+  justify-content: center; /* Centre les icônes horizontalement */
+  gap: 15px; /* Espacement entre les icônes */
+  margin-bottom: 0px; /* Espacement en dessous de la section */
+}
+
+.login-social-icon {
+  width: 40px; /* Largeur de chaque icône */
+  height: 40px; /* Hauteur de chaque icône */
+  border-radius: 50%; /* Forme circulaire */
+  border: 1px solid #f29c38; /* Bordure grise légère */
+  display: flex; /* Flexbox pour centrer le contenu */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  color: var(--border-color);/* Couleur grise des icônes */
+  cursor: pointer; /* Change le curseur en pointeur au survol */
+  transition: background-color 0.3s, color 0.3s; /* Transition fluide sur le fond et la couleur */
+}
+
+.login-social-icon:hover {
+  background-color: #f29c38; /* Fond orange au survol */
+  color: #fff; /* Texte blanc au survol */
+}
+
+/* ============================
+   Texte séparateur
+============================= */
+.login-form-separator {
+  text-align: center; /* Centre le texte */
+  margin: 7px 0; /* Espacement vertical autour du texte */
+  font-size: 1rem; /* Taille du texte */
+  color: var(--text-color); /* Couleur grise foncée */
+}
+
+/* ============================
+   Champs du formulaire
+============================= */
+.login-form-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.login-label {
+  font-size: 1rem; /* Taille standard de la police */
+  color: #333; /* Couleur grise foncée */
+  margin-bottom: 5px; /* Espacement sous l'étiquette */
+  text-align: left; /* Alignement du texte à gauche */
+}
+
+.login-input {
+  padding: 12px; /* Ajoute de l'espace interne */
+  border: 1px solid #ddd; /* Bordure grise légère */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 1rem; /* Taille standard du texte */
+  background-color: var(--bg-color); /* Couleur de fond gris clair */
+  outline: none; /* Supprime le contour par défaut */
+  transition: border-color 0.3s; /* Transition fluide pour la bordure */
+}
+
+.login-input:focus {
+  border-color: #f29c38; /* Change la bordure en orange au focus */
+}
+
+/* Groupe label + input */
+.login-field-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px; /* Ajustement pour éviter trop de largeur */
+  gap: 15px; /* Espacement entre le label et l’input */
+  margin-bottom: 15px; /* Ajoute un espace entre les lignes */
+}
+
+/* Alignement du label */
+.login-field-label {
+  text-align: left;
+  width: 158px; /* Largeur fixe pour un bon alignement */
+  font-weight: bold;
+}
+
+
+/* Alignement des champs */
+.login-field-input {
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  outline: none;
+  width: 60%;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+/* ============================
+   Footer du formulaire
+============================= */
+.login-form-footer {
+  text-align: center; /* Centre le texte */
+  margin-top: 20px; /* Espacement au-dessus */
+  font-size: 14px; /* Taille du texte */
+  color: #878787; /* Couleur grise claire */
+}
+
+.login-highlight {
+  color: #f29c38; /* Texte orange pour attirer l'attention */
+  font-weight: bold; /* Texte en gras */
+}
+
+.login-link {
+  text-decoration: none; /* Supprime le soulignement */
+  color: #5398be; /* Couleur bleue pour les liens */
+  font-weight: bold; /* Texte en gras */
+}
+
+.login-link:hover {
+  text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+/* ============================
+   Bouton de soumission
+============================= */
+.login-form-submit {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #f29c38;
+  border: 2px solid #f29c38;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-button:hover {
+  background-color: #fff; /* Change le fond en blanc au survol */
+  color: #f29c38; /* Change le texte en orange au survol */
+  border: 2px solid #f29c38; /* Maintient la bordure orange */
+}
+
+/* ============================
+   Footer général
+============================= */
+footer {
+  position: fixed; /* Fixe le footer en bas de l'écran */
+  bottom: 0; /* Positionné au bas de la fenêtre */
+  left: 0; /* Aligné à gauche */
+  width: 100%; /* Occupe toute la largeur */
+  background-color: #f29c38; /* Fond orange */
+  color: white; /* Texte blanc */
+  text-align: center; /* Centre le texte */
+  padding: 10px 0; /* Espacement vertical */
+  z-index: 10; /* Priorité visuelle pour rester au-dessus des autres éléments */
+}
+
+
+/* ============================
+   Responsive Design
+============================= */
+
+/* Téléphones (max-width: 768px) */
+@media (max-width: 768px) {
+  .login-form-container {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f29c38;
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    min-width: 397px;
+    margin: auto;
+    padding: 13px;
+    bottom: 39px;
+    position: relative;
+}
+.login-field-input {
+  width: 51%;
+  max-width: 400px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  outline: none;
+  margin-left: -20px;
+}
+  .login-form-title {
+    font-size: 1.5rem; /* Réduit la taille du titre */
+  }
+
+  .login-form-social {
+    gap: 10px; /* Réduit l'espacement entre les icônes */
+  }
+
+  .login-social-icon {
+    width: 35px; /* Réduit la taille des icônes */
+    height: 35px;
+  }
+
+  .login-input {
+    font-size: 0.9rem; /* Réduit légèrement la taille des champs */
+    padding: 10px; /* Réduit le padding */
+  }
+
+  .login-button {
+    font-size: 0.9rem; /* Réduit la taille du texte */
+    padding: 10px 20px; /* Réduit le padding du bouton */
+  }
+
+  footer {
+    flex-direction: column; /* Aligne les éléments verticalement */
+    padding: 5px 10px; /* Réduit le padding global */
+    font-size: 0.8rem; /* Réduit la taille du texte */
+  }
+
+  .social-media {
+    justify-content: center; /* Centre les icônes des réseaux sociaux */
+    gap: 5px; /* Réduit l'espacement entre les icônes */
+  }
+}
+
+/* Tablettes (769px à 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+
+  .login-form-container {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f29c38;
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    min-width: 500px;
+    margin: auto;
+    padding: 16px;
+    bottom: 48px;
+    position: relative;
+  }
+
+  .login-form-title {
+    font-size: 1.7rem; /* Taille légèrement réduite */
+  }
+
+  .login-input {
+    font-size: 1rem; /* Taille standard des champs */
+    padding: 12px; /* Padding standard */
+  }
+
+  .login-button {
+    font-size: 1rem; /* Taille normale du texte */
+    padding: 12px 25px; /* Ajuste le padding */
+  }
+
+  footer {
+    flex-direction: row; /* Aligne les éléments horizontalement */
+    justify-content: space-between; /* Espace entre les sections */
+    padding: 10px 20px; /* Padding modéré */
+  }
+
+  .social-media {
+    justify-content: flex-start; /* Réalignement à gauche */
+    gap: 10px; /* Espacement standard entre les icônes */
+  }
+}
+/* ============================
+   Barre latérale (sidebar)
+============================= */
+/* Style pour la barre latérale */
+.overview-dashboard-sidebar {
+  position: fixed; /* Permet de fixer la barre latérale pour qu'elle reste visible même lors du scroll */
+  top: 58px; /* Décalage par rapport au haut de la page pour ne pas chevaucher le header */
+  bottom: 38px; /* Décalage par rapport au bas de la page pour éviter le footer */
+  left: 0; /* Positionne la barre sur le bord gauche */
+  width: 9%; /* Largeur relative à la largeur totale de la page */
+  border-right: 4px solid #f29c38; /* Ajoute une bordure orange sur le côté droit */
+  display: flex; /* Active Flexbox pour organiser les éléments internes */
+  flex-direction: column; /* Organise les éléments en colonne */
+  justify-content: space-between; /* Espace réparti entre les éléments haut et bas */
+  padding: 20px; /* Espacement interne pour aérer le contenu */
+  z-index: 10; /* Assure que la barre latérale est au-dessus d'autres éléments */
+}
+
+/* Style des menus dans la barre latérale */
+.overview-sidebar-menu {
+  margin-top: 250px;
+  display: flex; /* Utilise Flexbox */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  gap: 60px; /* Ajoute un espacement vertical */
+  align-items: center; /* Centre les éléments horizontalement */
+}
+
+/* Style des liens de la sidebar */
+.overview-sidebar-link {
+  text-decoration: none; /* Supprime le soulignement par défaut */
+  color: #f29c38; /* Couleur orange des liens */
+  font-weight: bold; /* Met le texte en gras */
+  font-size: 1rem; /* Taille de police */
+  transition: all 0.3s ease; /* Ajoute une transition fluide pour les effets */
+  padding: 8px 25px; /* Ajoute de l'espace interne autour du texte */
+  border: 2px solid transparent; /* Bordure invisible par défaut */
+  border-radius: 3px; /* Coins légèrement arrondis */
+  text-align: center; /* Centre le texte */
+  position: relative;
+  bottom: 203px;
+  left: 49px;
+}
+
+/* Effet hover sur les liens de la sidebar (hors bouton logout) */
+.overview-sidebar-link:not(.overview-logout):hover {
+  color: #fff; /* Change la couleur du texte en blanc */
+  background-color: #f29c38; /* Change le fond en orange */
+  border: 2px solid #f29c38; /* Ajoute une bordure orange */
+}
+
+
+
+
+/* ============================
+   Contenu principal
+============================= */
+/* Conteneur principal du contenu */
+.dashboard-content {
+  flex: 1; /* Prend tout l'espace disponible */
+  display: flex; /* Utilise Flexbox pour organiser les éléments */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  align-items: center; /* Centre les éléments horizontalement */
+  justify-content: center; /* Centre les éléments verticalement */
+  padding: 20px; /* Espacement interne pour aérer */
+}
+
+/* ============================
+   En-tête principal (dashboard)
+============================= */
+/* En-tête principal pour le tableau de bord */
+.dashboard-header {
+  display: flex; /* Organise les éléments horizontalement */
+  align-items: center; /* Centre verticalement les éléments */
+  justify-content: flex-start; /* Aligne les éléments à gauche */
+  width: 100%; /* Occupe toute la largeur */
+  padding: 10px 20px; /* Ajoute un espace interne autour des éléments */
+  position: fixed; /* Fixe l'en-tête en haut de la page */
+  top: 0; /* Positionné en haut */
+  left: 0; /* Aligné sur le bord gauche */
+  background-color: #fff; /* Fond blanc */
+  z-index: 1000; /* Assure que l'en-tête est au-dessus des autres éléments */
+}
+
+/* Ligne décorative sous le header */
+header {
+  border-bottom: 3px solid #F29C38; /* Ajoute une ligne orange en bas  */
+}
+
+/* ============================
+   Bouton Catégorie
+============================= */
+/* Style du bouton "Catégorie" */
+.category-btn {
+  margin-left: 18%; /* Décalage vers la droite */
+  background-color: #f29c38; /* Couleur de fond orange */
+  color: #fff; /* Couleur du texte blanc */
+  font-weight: bold; /* Met le texte en gras */
+  border: 2px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 10px 20px; /* Espace interne */
+  cursor: pointer; /* Change le curseur en pointeur */
+  transition: all 0.3s ease; /* Ajoute une transition fluide */
+}
+
+/* Effet hover pour le bouton catégorie */
+.category-btn:hover {
+  background-color: #fff; /* Change le fond en blanc */
+  color: #f29c38; /* Change la couleur du texte en orange */
+  border: 2px solid #f29c38; /* Conserve la bordure orange */
+}
+
+/* ============================
+   Barre de navigation
+============================= */
+/* Conteneur de la navigation principale */
+.header-nav {
+  display: flex; /* Active Flexbox pour organiser les éléments */
+  align-items: center; /* Centre verticalement les éléments */
+  width: 100%; /* Occupe toute la largeur disponible */
+  justify-content: space-between; /* Espace entre les éléments */
+  padding: 0 15px; /* Espacement latéral */
+}
+
+/* Section gauche avec logo et menu */
+.left-section {
+  display: flex; /* Organise les éléments horizontalement */
+  align-items: center; /* Centre verticalement les éléments */
+  gap: 10px; /* Espace horizontal entre les éléments */
+}
+
+/* ============================
+   Bouton Déconnexion
+============================= */
+/* Style pour le bouton de déconnexion */
+.overview-logout {
+    position: relative;
+    top: -219px;
+    left: 644px;
+    background-color: #f29c38;
+    color: #fff;
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 5px 5px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    text-decoration: none;
+}
+
+.overview-logout:hover {
+  background-color: #fff;
+  color: #f29c38;
+  border: 2px solid #f29c38;
+}
+
+/* ============================
+   Section Profil
+============================= */
+/* Style pour l'affichage du profil utilisateur */
+/* .profile-balance {
+  width: 100%;
+  font-size: 1.4rem;
+  color: #05204a;
+  left: 519px;
+  position: relative;
+  top: 16px;
+} */
+/* ============================
+   Conteneur principal (dashboard)
+============================= */
+.dashboard-container {
+  display: flex; /* Active Flexbox */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  justify-content: center; /* Centre verticalement */
+  align-items: center; /* Centre horizontalement */
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  padding: 0; /* Supprime les marges/paddings inutiles */
+  position: relative; /* Nécessaire pour un positionnement précis */
+}
+
+.progress-circle {
+  --progress: 0%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #0fdb72 var(--progress),
+    #b70013 var(--progress)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.progress-circle::before {
+  content: '';
+  position: absolute;
+  width: 130px; /* ← passe de 80px à 100px */
+  height: 130px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.progress-inner {
+  z-index: 2;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-left: 9px;
+}
+
+/* ============================
+   Cercle de progression
+============================= */
+
+
+/* ============================
+   Texte de bienvenue
+============================= */
+.welcome-text {
+  font-size: 2rem; /* Taille du texte */
+  color:  var(--text-color);/* Couleur du texte */
+  text-align: center; /* Centre le texte */
+  position: absolute; /* Permet un placement précis */
+  top: 55%; /* Position verticale */
+  left: 55%; /* Position horizontale */
+  transform: translate(-50%, -50%); /* Centre le texte précisément */
+  margin: 0; /* Supprime les marges inutiles */
+}
+
+/* Styles pour le message de succès */
+.alert-success {
+  position: fixed;
+  bottom: 256px;
+  left: 55%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  z-index: 1000;
+}
+.alert-success.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.burger-menu {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #f29c38;
+  position: absolute;
+  top: 17px;
+  right: 6px;
+  z-index: 20;
+}
+
+.nav-links {
+  display: flex; /* Affiche les liens par défaut */
+  gap: 10px;
+}
+
+
+
+/* .category-btn {
+  display: block;
+} */
+
+
+.progress-circle {
+  width: 250px;
+  height: 250px;
+  font-size: 1.5rem;
+  bottom: 13%;
+  left: 1%;
+  position: relative;
+}
+
+.welcome-text {
+  font-size: 2rem;
+  top: 68%;
+  left: 52%;
+  color: var(--text-color);
+}
+
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+@media (max-width: 768px) {
+  
+  .progress-circle {
+    width: 200px;
+    height: 200px;
+    font-size: 1.5rem;
+    top: -13%;
+    left: 1%;
+    position: relative;
+}
+  .left-section {
+    display: flex; /* Organise les éléments horizontalement */
+    align-items: center; /* Centre verticalement les éléments */
+    gap: 0px; /* Espace horizontal entre les éléments */
+  }
+
+  .welcome-text {
+    font-size: 1.8rem;
+    top: 74%;
+    left: 51%;
+    color: var(--text-color);
+  }
+
+  .overview-dashboard-sidebar {
+    width: 20%; /* Augmente légèrement la largeur de la barre latérale */
+    padding: 10px; /* Réduit le padding interne */
+    justify-content: flex-start; /* Aligne les éléments en haut */
+    height: auto; /* Laisse la barre s'adapter à la hauteur de son contenu */
+  }
+
+  .overview-logout {
+    font-size: 0.9rem; /* Taille de texte adaptée aux petits écrans */
+    padding: 10px; /* Ajuste le padding pour rendre le bouton visible */
+    margin-top: auto; /* Assure que le bouton reste en bas */
+    background-color: #f29c38; /* Couleur orange */
+    color: #fff; /* Texte blanc */
+    border: 2px solid #f29c38; /* Bordure orange */
+    border-radius: 5px; /* Coins arrondis */
+    width: 80%; /* Bouton plus large pour une meilleure visibilité */
+    text-align: center; /* Centre le texte */
+    display: block; /* Force l'affichage en bloc */
+    margin-bottom: 50px; /* Espacement avec le bas */
+    position: static; /* Pas de position absolue pour éviter les chevauchements */
+  }
+
+  .profile-balance,
+  .total-balance {
+    position: initial; /* Permet de les positionner précisément */
+    top: 10%; /* Place verticalement au centre du header */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-88%, 12%); /* Centre précisément */
+    font-size: 1.1rem; /* Ajuste la taille de la police */
+    text-align: center; /* Centre le texte */
+    width: 100%; /* S'assure qu'ils prennent toute la largeur disponible */
+    margin: 0; /* Supprime tout espacement inutile */
+  }
+
+  .category-btn {
+    display: none; /* Cache le bouton catégorie sur mobile et tablette */
+  }
+
+  .category-btn {
+    display: none; /* Cache le bouton catégorie sur mobile */
+}
+
+.burger-menu {
+    display: block; /* Affiche le menu burger */
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 68px;
+    right: 10px;
+    background-color: #fff;
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+}
+header .total-balance {
+  white-space: nowrap;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+header .profile-balance {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 550px;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-left: 44px;
+}
+
+}
+/* ============================
+   Responsive : Tablette (769px à 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+  .progress-circle {
+    width: 130px; /* Ajuste légèrement la taille du cercle */
+    height: 130px; /* Ajuste légèrement la taille du cercle */
+    font-size: 1.3rem; /* Taille intermédiaire pour le texte */
+    top: 40%; /* Ajuste la position verticale */
+    left: 55%; /* Centre horizontalement */
+  }
+  .progress-circle {
+    width: 250px;
+    height: 250px;
+    font-size: 1.5rem;
+    top: -13%;
+    left: 1%;
+    position: relative;
+}
+  
+  .welcome-text {
+    font-size: 2rem;
+    top: 74%;
+    left: 51%;
+    color: var(--text-color);
+  }
+
+  .overview-dashboard-sidebar {
+    width: 15%; /* Ajuste la largeur de la barre latérale pour tablette */
+    padding: 15px; /* Espacement interne adapté */
+    justify-content: space-between; /* Répartit les éléments dans la barre */
+  }
+
+  .overview-logout {
+    font-size: 1rem; /* Taille de texte standard */
+    padding: 12px; /* Padding standard */
+    width: 80%; /* Bouton plus large pour tablette */
+    margin-top: auto; /* Assure que le bouton reste en bas */
+    margin-bottom: 20px; /* Espacement en bas */
+    position: static; /* Pas de position absolue */
+  }
+  header .total-balance {
+    white-space: nowrap;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+    header .profile-balance {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 550px;
+      font-size: 1.1rem;
+      color: var(--text-color);
+  }
+}
+   .category-btn {
+    display: none; /*Cache le bouton catégorie sur mobile et tablette */
+  } 
+
+
+   .nav-links {
+    display: none; 
+  } 
+
+  .burger-menu {
+    display: block;/* Affiche le menu burger */} 
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 68px;
+    right: 123px;
+    background-color: var(--bg-color);
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+  }
+
+  .profile-balance,
+  .total-balance {
+    position: initial; /* Permet de les positionner précisément */
+    top: 10%; /* Place verticalement au centre du header */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-88%, 12%); /* Centre précisément */
+    font-size: 1.1rem; /* Ajuste la taille de la police */
+    text-align: center; /* Centre le texte */
+    width: 100%; /* S'assure qu'ils prennent toute la largeur disponible */
+    margin: 0; /* Supprime tout espacement inutile */
+  }
+
+  @media (min-width: 993px) {
+    .burger-menu {
+      display: none;
+    }
+    .profile-balance, .total-balance {
+      position: initial;
+      top: 10%;
+      left: 50%;
+      transform: translate(33%, 12%);
+      font-size: 1.1rem;
+      text-align: center;
+      width: 100%;
+      margin: 0;
+  }
+  .nav-links {
+    display: flex;
+    gap: 10px;
+  }
+
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 68px;
+    right: 10px;
+    background-color: var(--bg-color);
+    border: 2px solid #f29c38;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+  }
+  .nav-links .dropdown {
+    display: none !important;
+  }
+  }
+.form-container3 {
+    width: 548px;
+    max-width: 100%;
+    margin: -93px -36px 0px 0px;
+    border: 3px solid #F29C38;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    min-height: 158px;
+    max-height: 194px;
+    padding: 28px;
+    margin-bottom: 47px;
+}
+
+.title-password {
+    font-size: 2rem;
+    margin-bottom: -10px;
+    color: #f29c38;
+    margin-bottom: 124px;
+    margin-top: -25px;
+}
+.form-container3 .form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+
+  .form-container3 .form-row label {
+    width: 100%;
+    text-align: right;
+    /* margin-right: 84px; */
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+  .form-container3 .form-row input {
+    width: 55%;
+    padding: 6px;
+    border: 1px solid #F29C38;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+
+/* responsive  Tablellete */
+  
+@media (min-width: 769px) and (max-width: 992px) {
+    .form-container3 {
+        width: 469px;
+        max-width: 85%;
+        margin: -93px -36px 0px 0px;
+        border: 3px solid #F29C38;
+        border-radius: 10px;
+        background-color: var(--bg-color);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Roboto, sans-serif;
+        /* position: relative; */
+        /* left: 23px; */
+        /* top: -35px; */
+        min-height: 158px;
+        max-height: 194px;
+        /* padding: 28px; */
+        margin-bottom: 47px;
+    }
+    
+
+    .form-container3 .form-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+      
+}
+
+
+ /* response  mobile    */   
+
+
+ @media (max-width: 768px) {
+    .form-container3 {
+        width: 416px;
+        max-width: 85%;
+        margin: -93px -36px 0px 0px;
+        border: 3px solid #F29C38;
+        border-radius: 10px;
+        background-color: var(--bg-color);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Roboto, sans-serif;
+        /* position: relative; */
+        /* left: 23px; */
+        /* top: -35px; */
+        min-height: 158px;
+        max-height: 194px;
+        /* padding: 28px; */
+        margin-bottom: 47px;
+    }
+    
+
+    .form-container3 .form-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+    
+      .form-container3 .form-row label {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        width: 77%;
+        text-align: right;
+    }
+}
+    .form-row select {
+        /* width: 70%; */
+        padding: 5px;
+        border: 1px solid #F29C38;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    input[type="checkbox"] {
+        width: 10px;
+        height: 10px;
+        margin: 0;
+        position: relative;
+        top: 0px;
+        margin-right: 113px;
+    }
+ html, body {
+
+  margin: 0;
+  padding: 0;
+  /*overflow: auto;  Active un défilement global si nécessaire */
+}
+/* ============================
+   Organisation des blocs
+============================= */
+.ligne1, .ligne2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: -5px; /* Remonte encore plus les blocs */
+}
+
+/* ============================
+   En-tête : Titre + Date
+============================= */
+.politique-confidentialite .hero-2 {
+  text-align: center;
+  margin-bottom: 10px; /* Réduction de l’espace */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  bottom: 31px; /* Remonte un peu plus */
+}
+
+.politique-confidentialite h1 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 37px;
+}
+/* Organisation des lignes */
+.ligne1 {
+  display: flex; /* Active Flexbox */
+  flex-wrap: wrap; /* Permet aux blocs de passer à la ligne si nécessaire */
+  gap: 15px; /* Espacement entre les blocs */
+  margin-bottom: 7px; /* Espace entre les lignes */
+  min-height: 200px; /* Chaque ligne occupe au moins 400px */
+}.ligne2 {
+  display: flex; /* Active Flexbox */
+  flex-wrap: wrap; /* Permet aux blocs de passer à la ligne si nécessaire */
+  gap: 15px; /* Espacement entre les blocs */
+  margin-bottom: 15px; /* Espace entre les lignes */
+  min-height: 200px; /* Chaque ligne occupe au moins 400px */
+
+}
+
+/* ============================
+   Conteneur principal
+============================= */
+.politique-confidentialite {
+  width: 74%;
+  max-width: 1138px;
+  margin: 29px auto;
+  padding: 19px;
+  background:  var(--bg-color);
+  border-radius: 20px;
+  min-height: 64vh;
+  max-height: 29px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  top: 21px;
+}
+
+/* ============================
+   En-tête : Titre + Date
+============================= */
+.politique-confidentialite .hero-2 {
+  text-align: center;
+  margin-bottom: 5px; /* Encore moins d’espace */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  
+}
+
+.politique-confidentialite h1 {
+  font-size: 2rem;
+  color: #f29c38;
+  position: relative;
+  left: 0px;
+  top: 42px;
+}
+
+.politique-confidentialite p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+/* Organisation des blocs */
+.politique-confidentialite section {
+
+  flex-wrap: wrap;
+  margin-top: -13px;
+}
+
+.general {
+  position: relative;
+  bottom: 92px;
+}
+
+
+/* ============================
+   Style des blocs
+============================= */
+.bloc {
+  flex: 1;
+  min-width: 300px;
+  max-width: 226px;
+  padding: 15px;
+  background: var(--bg-color);
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #F29C38;
+  text-align: center;
+}
+
+.bloc-reduit {
+  min-height: 139px;
+  max-height: 143px;
+  overflow: hidden;
+  position: relative;
+  bottom: 17px;
+}
+
+
+/* Titres des blocs */
+.bloc h2 {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  border-bottom: 2px solid #F29C38;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+/* Contenu des blocs */
+.bloc p {
+  font-size: 0.9rem;
+}
+.bloc ul li {
+ 
+  font-size: 0.9rem; /* Taille du texte */
+}
+
+
+/* Suppression des puces */
+.bloc ul {
+  margin-left: 0; /* Retirer l'indentation */
+  padding-left: 0; /* Retirer l'espace à gauche */
+  list-style: none; /* Retirer les puces */
+}
+
+
+/* Liens */
+.politique-confidentialite a {
+  color: #F29C38;
+  text-decoration: none;
+  font-size: small;
+}
+
+.politique-confidentialite a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* Responsive Design */
+
+/* 2) Mobile */
+
+
+  /* .ligne1, .ligne2 {
+    gap: 5px; 
+    margin-bottom: 5px;
+  } */
+
+  @media (max-width: 768px) {
+    .politique-confidentialite {
+      width: 83%;
+      max-width: 1138px;
+      margin: 6px auto;
+      padding: 6px;
+      background: var(--bg-color);
+      border-radius: 20px;
+      min-height: 261px;
+      max-height: 494px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      top: 20px;
+  }
+  .politique-confidentialite section {
+    flex-wrap: wrap-reverse;
+    gap: 7px;
+    top: 80px;
+    position: relative;
+}
+.politique-confidentialite .hero-2 {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  flex-direction: column;
+  top: 1px;
+
+  }
+
+  .hero-2 h1 {
+    color: #f29c38;
+    font-size: 1.6rem;
+    top: 2px;
+    margin: auto 0px 0px 25px;
+}
+
+  /* A) Mise en colonne */
+  .bloc, .bloc-reduit {
+    width: 100%;
+    /* On force un min-height plus petit ou nul */
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+    padding: 5px; /* On réduit aussi le padding */
+  }
+  p {
+    margin: 0px 0;
+    font-size: 0.7rem;
+}
+
+  /* B) Blocs réduits : enlève le max-height pour éviter de couper le texte */
+  .bloc-reduit {
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* C) Ajustement des titres et textes */
+/* Ajuster la taille du texte */
+.politique-confidentialite h1 {
+  font-size: 1.5rem;
+  margin-top: 0px;
+  top: 0px;
+}
+.bloc h2 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.bloc p, .bloc ul li {
+  font-size: 0.6rem;
+  margin: 1px 0;
+}
+
+.bloc p {
+  margin: 5px 0;
+}
+.bloc {
+  flex: 2;
+  min-width: 16px;
+  max-width: 442px;
+  padding: 3px;
+  background: var(--bg-color);
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #F29C38;
+  text-align: center;
+  bottom: 75px;
+  position: relative;
+}
+.politique-confidentialite section {
+  flex-wrap: wrap;
+  margin-top: 0px;
+}
+
+.ligne2 {
+  min-height: 172px;
+  top: 80px;
+  position: relative;
+}
+.politique-confidentialite .general {
+  position: relative;
+  top: 19px;
+}
+}
+
+
+/* ==============================
+   3) Tablette : (min-width: 768px) and (max-width: 1200px)
+   ============================== */
+   @media (min-width: 768px) and (max-width: 1200px) {
+    /* Ex : Ajuster le conteneur */
+    .politique-confidentialite {
+      width: 84%;
+      color: var(--text-color);
+      background: var(--bg-color);
+      box-sizing: border-box;
+      min-height: 463px;
+      max-height: 461px;
+      position: relative;
+      top: 18px;
+  }
+
+  .general {
+    position: relative;
+    top: 19px;
+}
+    .bloc h2 {
+      font-size: 1rem; /* Deja par defaut */
+      margin-bottom: 6px;
+    }
+    /* Ajuster la taille du texte */
+.politique-confidentialite h1 {
+  font-size: 2rem;
+  margin: 10px;
+  text-align: center;
+
+
+}
+.politique-confidentialite section {
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.politique-confidentialite .hero {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  flex-direction: column;
+
+  }
+
+.politique-confidentialite .hero-2 {
+  text-align: center;
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  bottom: 29px;
+}
+  .hero-2 h1 {
+    color: #f29c38;
+    font-size: 1.6rem;
+    top: 2px;
+    margin: auto 0px 0px 25px;
+}
+p {
+  margin: 5px 0; /* Marges plus grandes entre les paragraphes */
+  font-size: 0.9rem;
+}
+.ligne1, .ligne2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 1px;
+}
+.bloc {
+  flex: 1;
+  min-width: 190px;
+  /* max-width: 300px; */
+  padding: 15px;
+  background: var(--bg-color);
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  border: 1px solid #F29C38;
+  text-align: center;
+}
+/* Contenu des blocs */
+.bloc p {
+  font-size: 0.8rem;
+}
+.bloc ul li {
+ 
+  font-size: 0.8rem; /* Taille du texte */
+}
+
+}
+/* Conteneur principal */
+
+.form-container-profile {
+  width: 100%;
+  max-width: 560px;
+  padding: 26px;
+  border: 3px solid #F29C38;
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  margin-right: 7px;
+ margin-bottom: 146px;
+}
+.form-button {
+  display: flex;
+  justify-content: center;
+  /* margin-top: 30px; */
+}
+.hero2 h1 {
+
+  margin-top: 20px;
+}
+
+.form-button button {
+  background-color: #F29C38;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-button button:hover {
+  background-color: #e58931;
+}
+/* Alignement des lignes */
+.form-row {
+  display: flex; /* Flexbox pour aligner horizontalement */
+  align-items: center; /* Centre les éléments verticalement */
+}
+
+/* Labels */
+label {
+
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: right; /* Alignement du texte à droite */
+  margin-right: 10px; /* Espacement entre le label et le champ */
+
+}
+.form-container-profile .form-row .form-label {
+  width: 214px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: right;
+  margin-left: -54px;
+  font-size: 1rem;
+}
+.form-container-profile .form-row label {
+  font-size: 1rem;
+  color: var(--text-color);
+  width: 46%;
+  text-align: right;
+}
+.hero2 h1 {
+  color: #f29c38;
+  font-size: 29px;
+  text-align: center;
+  margin: -65px 9px 21px 49px;
+
+}
+/* Selects */
+select {
+  width: 50%; /* Même largeur pour tous les champs select */
+  padding: 8px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  display: flex; /* Active Flexbox pour l'alignement */
+  width: 20px; /* Taille standard */
+  height: 20px;
+  margin: 0; /* Supprime les marges par défaut */
+  position: relative; /* Permet un ajustement fin */
+  top: -3px; /* Ajuste le checkbox pour un centrage vertical */
+  margin-right: 105px; /* Espacement entre le checkbox et le texte */
+}
+
+/* Bouton Confirmer */
+.form-row-btn {
+  display: flex;
+  justify-content: center; /* Centre le bouton horizontalement */
+  margin-top: 10px;
+}
+.form-container-profile .form-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+
+.date-group {
+  display: flex;
+  gap: 7px;
+  width: 50%;
+}
+.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
+  width: 53%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+}
+
+
+.form-row input[type="text"],
+.form-row select {
+  width: 100%;
+  max-width: 260px;
+  padding: 6px 8px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.date-group {
+  display: flex;
+  gap: 10px;
+  max-width: 260px;
+  width: 100%;
+}
+
+.date-group select {
+  flex: 1;
+  padding: 6px 4px;
+  font-size: 0.9rem;
+}
+/* ----------------- Menu deroulant Profile ----------------- */ 
+
+
+/* Conteneur principal */
+.dropdown {
+  position: relative;
+  display: flex;
+  gap: 55px;
+  align-items: center;
+}
+
+/* Bouton du dropdown */
+.dropdown-btn {
+  background-color: #f29c38;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+/* .dropdown-btn:hover {
+  color: #fff;
+  background-color: #f29c38;
+  border: 1px solid #f29c38;
+
+} */
+/* Menu déroulant caché par défaut */
+/* Menu déroulant */
+.dropdown-menu {
+    display: flow;
+    flex-direction: column;
+    gap: 12px;
+    top: 73px;
+    left: 712px;
+    background-color: var(--bg-color);
+    border: 1px solid #f29c38;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 116px;
+    padding: 0px;
+}
+
+
+/* Items du menu déroulant */
+.dropdown-item {
+  display: flex; /* Change de block à flex */
+  align-items: center; /* Centre verticalement */
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* Style des items au survol */
+.dropdown-item:hover {
+  background-color: #f29c38;
+  color: white;
+}
+
+/* Menu visible */
+.dropdown-menu.show {
+  display: flex; /* Affiche le men lorqu il est visible */
+}
+
+.form-row label,
+.form-label {
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: right;
+  margin-right: 10px;
+  width: 160px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+@media (max-width: 768px) {
+
+/* Conteneur principal */
+.form-container-profile {
+  max-width: 80%;
+  margin: auto;
+  padding: 30px;
+  border: 4px solid #F29C38;
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Roboto, sans-serif;
+  position: relative;
+  left: 0px;
+  bottom: 41px;
+}
+
+
+.form-container-profile .form-row .form-label {
+  width: 259px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: right;
+  margin-left: -26px;
+  font-size: 1rem;
+}
+  .nav-link a {
+    display: none; /* Cache le bouton catégorie sur mobile */
+}
+.hero2 h1 {
+  color: #f29c38;
+  font-size: 29px;
+  text-align: center;
+  margin: -36px 27px 59px 35px;
+}
+.select{
+  font-size: 10px;
+}
+.date-group select {
+  min-width: 30%;
+  padding: 1px 1px 4px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  font-size: 0.73rem;
+}
+.form-row input[type="email"], .form-row input[type="password"], .form-row input[type="text"], .form-row select {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+}
+
+.date-group {
+  display: flex;
+  gap: 5px;
+  width: 83%;
+}
+.form-row select {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+}
+
+/* ============================
+   Responsive : Tablette (min-width: 769px) and (max-width: 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+
+
+/* Conteneur principal */
+.form-container-profile {
+  width: 100%;
+  max-width: 560px;
+  padding: 26px;
+  margin: 0 auto;
+  border: 3px solid #F29C38;
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Roboto, sans-serif;
+  position: relative;
+  bottom: 147px;
+  right: 24px;
+}
+.hero2 h1 {
+  color: #f29c38;
+  font-size: 29px;
+  margin: -66px 0px 170px 20px;
+}
+.form-container-profile .form-row label {
+  font-size: 1rem;
+  color: var(--text-color);
+  width: 37%;
+  text-align: right;
+}
+.form-container-profile .form-row .form-label {
+  width: 198px;
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: right;
+  margin-left: -67px;
+  font-size: 15px;
+}
+}/* ============================
+   Styles globaux
+============================= */
+body, html {
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0; /* Supprime les paddings par défaut */
+  height: 100%; /* Définit la hauteur totale pour le viewport */
+}
+
+/* ============================
+   Conteneur principal
+============================= */
+.reset-password-container {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+  padding: 20px; 
+   /* margin: 280px auto; */
+  /* max-width: 930px;  */
+  border: 2px solid #f29c38; 
+  border-radius: 8px; 
+  /* background-color: #fff;  */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  height: auto; /* Hauteur automatique pour s'adapter au contenu */
+  position: relative;
+  bottom: 37px;
+}
+
+/* ============================
+   Conteneur de l'icône
+============================= */
+.reset-password-icon {
+  display: flex; /* Active Flexbox pour centrer le contenu */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  width: 80px; /* Largeur de l'icône circulaire */
+  height: 80px; /* Hauteur de l'icône circulaire */
+  margin: 0 auto 20px auto; /* Centre le cercle avec une marge inférieure */
+  border-radius: 50%; /* Forme circulaire */
+  border: 2px solid #ffffff; /* Bordure blanche */
+  background-color: transparent; /* Fond transparent */
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de fond */
+}
+
+.reset-password-icon:hover {
+  color: #f29c38; /* Change le fond en orange au survol */
+}
+
+/* ============================
+   Image dans le cercle
+============================= */
+.reset-password-key {
+  width: 68px; /* Largeur de l'image */
+  height: auto; /* Hauteur automatique pour garder les proportions */
+  display: block; /* Rend l'image un bloc */
+  background: none; /* Pas de fond */
+  pointer-events: none; /* Désactive les interactions souris */
+  transition: filter 0.3s ease; /* Transition douce pour le filtre */
+}
+
+/* .reset-password-icon:hover .reset-password-key {
+  filter: brightness(0) invert(1); Change l'image en blanc au survol
+} */
+
+/* ============================
+   Titre
+============================= */
+.reset-password-title {
+  font-size: 1.6rem; /* Taille du texte */
+  font-weight: bold; /* Texte en gras */
+  color: #f29c38 /* Couleur bleu foncé */
+ 
+}
+
+/* ============================
+   Description
+============================= */
+.reset-password-description {
+  font-size: 1.5rem; /* Taille du texte */
+  color: var(--text-color); /* Couleur bleu foncé */
+  line-height: 1.5; /* Interligne pour une meilleure lisibilité */
+  margin-bottom: 12px; /* Espacement inférieur */
+}
+
+/* ============================
+   Formulaire
+============================= */
+.reset-password-form {
+  display: flex; /* Active Flexbox pour agencer les champs */
+  flex-direction: column; /* Dispose les champs verticalement */
+  align-items: center; /* Centre horizontalement les champs */
+  justify-content: center; /* Centre verticalement */
+  gap: 15px; /* Espacement entre les champs */
+  width: 100%; /* Prend toute la largeur disponible */
+  max-width: 400px; /* Limite la largeur maximale */
+  margin: 0 auto; /* Centre le formulaire */
+}
+
+/* ============================
+   Label
+============================= */
+.reset-password-label {
+  align-self: center; /* Centre le label horizontalement */
+  width: 100%; /* Prend toute la largeur disponible */
+  font-size: 1.5rem; /* Taille standard de la police */
+  color: #05204a; /* Couleur bleu foncé */
+  margin-bottom: 5px; /* Espacement sous le label */
+  text-align: center; /* Centre le texte */
+}
+
+/* ============================
+   Input
+============================= */
+.reset-password-input {
+  width: 100%; /* Prend toute la largeur disponible */
+  padding: 12px; /* Ajoute de l'espace interne */
+  font-size: 1rem; /* Taille standard de la police */
+  border: 1px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  background-color: #f9f9f9; /* Fond gris clair */
+  text-align: center; /* Centre le texte à l'intérieur */
+  box-sizing: border-box; /* Inclut le padding dans la taille totale */
+  transition: box-shadow 0.3s ease; /* Transition douce pour l'ombre */
+}
+
+.reset-password-input:focus {
+  border-color: #f29c38; /* Change la bordure en orange au focus */
+  box-shadow: 0 0 5px rgba(242, 156, 56, 0.5); /* Ajoute une ombre au focus */
+}
+
+/* ============================
+   Bouton de soumission
+============================= */
+.reset-password-button {
+  width: 78%; /* Prend toute la largeur disponible */
+  max-width: 374px; /* Limite la largeur maximale */
+  padding: 10px; /* Ajoute de l'espace interne */
+  font-size: 1rem; /* Taille standard de la police */
+  color: #fff; /* Texte blanc */
+  background-color: #f29c38; /* Fond orange */
+  border: 2px solid #f29c38; /* Bordure orange */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur au survol */
+  text-align: center; /* Centre le texte */
+  transition: all 0.3s ease; /* Transition douce pour tous les effets */
+  font-weight: bold; /* Texte en gras */
+}
+
+.reset-password-button:hover,
+.reset-password-button:focus {
+  background-color: #fff; /* Fond blanc au hover/focus */
+  color: #f29c38; /* Texte orange au hover/focus */
+  border: 2px solid #f29c38; /* Bordure orange */
+  box-shadow: 0 0 8px rgba(242, 156, 56, 0.3); /* Ombre légère au hover */
+}
+.login-button1 {
+  padding: 0px 12px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #f29c38;
+  border: 2px solid #f29c38;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ============================
+   Texte non-wrap
+============================= */
+.no-wrap {
+  white-space: nowrap; /* Empêche le retour à la ligne */
+}
+
+/* ============================
+   Media Queries : Téléphone (max-width: 768px)
+============================= */
+@media (max-width: 768px) {
+  .reset-password-container {
+    padding: 15px;
+    margin: 100px auto;
+    max-width: 93%;
+    margin-top: 4rem;
+}
+  h1 {
+    font-size: 1.5rem;
+}
+
+  .reset-password-title {
+    font-size: 1.3rem; /* Réduit la taille du titre */
+    margin-top: 20px; /* Ajoute un espace supérieur */
+    white-space: nowrap; /* Empêche le retour à la ligne */
+  }
+
+  .reset-password-description {
+    font-size: 1rem; /* Réduit la taille de la description */
+    line-height: 1.4; /* Ajuste l'interligne */
+    margin-bottom: 20px; /* Réduit l'espacement inférieur */
+    white-space: nowrap; /* Empêche le retour à la ligne */
+  }
+
+  .reset-password-input,
+  .reset-password-button {
+    font-size: 0.9rem; /* Réduit légèrement la taille des champs et boutons */
+    padding: 8px; /* Réduit le padding */
+    max-width: 100%; /* Prend toute la largeur disponible */
+  }
+}
+
+
+
+/* reset.css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* === Navigation === */
+/* Conteneur des liens de navigation */
+.nav-link {
+  position: absolute; /* Permet un positionnement précis par rapport au conteneur parent */
+  left: 14%; /* Positionné à 14% du bord gauche */
+  top: 50%; /* Centre verticalement dans le conteneur */
+  transform: translateY(-50%); /* Ajuste le centrage pour un alignement parfait */
+  display: flex; /* Aligne les éléments enfants horizontalement */
+  gap: 10px; /* Ajoute un espacement entre chaque lien */
+}
+
+/* Style des liens de navigation */
+.nav-link a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  display: inline-block; /* Les liens occupent uniquement l'espace de leur contenu */
+  /* padding: 5px 10px; Ajoute un espace interne pour rendre les liens plus cliquables */
+  font-size: 1.2rem; /* Augmente la taille du texte pour une meilleure lisibilité */
+  font-weight: normal; /* Garde le texte avec un poids standard */
+  white-space: nowrap; /* Empêche les retours à la ligne sur plusieurs mots */
+  /* background-color: #F29C38; Couleur de fond pour les liens */
+  color: var(--text-color); /* Texte blanc pour un bon contraste */
+  border-radius: 5px; /* Coins arrondis pour un style moderne */
+  font-size: 1.2rem; /* Taille de police adaptée */
+
+}
+
+/* === Formulaire === */
+/* Conteneur principal du formulaire */
+
+
+/* Titre du formulaire */
+legend {
+  font-size: 1.5rem; /* Taille de police plus grande pour un titre important */
+  color: var(--text-color); /* Couleur principale pour le texte */
+  text-align: center; /* Centre le titre horizontalement */
+}
+
+/* Conteneur pour une ligne de formulaire */
+.form-row {
+  display: flex; /* Aligne les éléments enfants sur une ligne */
+  align-items: center; /* Centre verticalement les éléments */
+  justify-content: space-between; /* Place les éléments aux extrémités */
+  margin-bottom: 15px; /* Espacement entre les lignes du formulaire */
+}
+
+/* Style des labels */
+.form-row label {
+  font-size: 1.3rem; /* Taille de police réduite pour les étiquettes */
+  color: var(--text-color); /* Couleur principale pour les labels */
+   width: 100%; /*Largeur fixe pour un alignement uniforme */
+  text-align: left; /* Aligne le texte à gauche */
+}
+
+/* Champs de saisie et sélecteurs */
+.form-row input[type="email"],
+.form-row input[type="password"],
+.form-row input[type="text"],
+.form-row select {
+  width: 70%; /* Largeur des champs */
+  padding: 5px; /* Espacement interne */
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  /* font-size: 1rem; Taille de police uniforme */
+  box-sizing: border-box;
+}
+
+/* Groupe de date (ex. jour, mois, année) */
+.date-group {
+  display: flex;
+  gap: 7px;
+  width: 66%;
+}
+.form-label {
+  font-size: 1rem;
+}
+
+/* Sélecteurs de date */
+.date-group select {
+  /* width: auto; Taille automatique en fonction du contenu */
+  min-width: 30%; /* Largeur minimum pour occuper un tiers du conteneur */
+  padding: 5px; /* Espacement interne pour le confort de sélection */
+  border: 1px solid #F29C38; /* Bordure grise claire */
+  border-radius: 5px; /* Coins légèrement arrondis */
+  font-size: 0.9rem; /* Taille de police adaptée */
+}
+
+/* === Bouton === */
+/* Conteneur du bouton pour le centrer */
+.form-button {
+  display: flex; /* Aligne les éléments horizontalement */
+  justify-content: center; /* Centre le bouton dans le conteneur */
+}
+
+/* Style du bouton */
+button {
+  /*padding: 8px 20px;  Espacement interne pour un bouton confortable */
+  background-color: #f29c35;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 5px;
+  padding: 4px 9px;
+}
+
+/* parametresConteneur principal */
+.form-container4 {
+  width: 488px;
+  margin: 0px auto;
+  /* padding: 50px; */
+  border: 3px solid #F29C38;
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Roboto, sans-serif;
+  position: relative;
+  left: 28px;
+  bottom: 107px;
+  min-height: 143px;
+  padding: 20px;
+}
+.title-settings {
+  position: relative;
+}
+
+.form-container4  .form-row label {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  width: 100%;
+  text-align: start;
+}
+.form-row select {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+input[type="checkbox"] {
+  display: flex
+;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  position: relative;
+  top: -3px;
+  margin-right: 105px;
+}
+.btn-confirmer {
+  background-color: #F29C38;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+.dropdown-btn {
+  color: #F29C38;
+  font-weight: bold;
+  text-decoration: none; 
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background: none; 
+  padding: 3px;
+  position: relative;
+  left: 715px;
+  top: 27px;
+}
+
+/* .dropdown-btn:hover {
+  color: #fff;
+  background-color: #f29c38;
+} */
+
+/* ============================
+   Responsive : Tablette (min-width: 769px) and (max-width: 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+
+  .form-container4 {
+    width: 488px;
+    margin: 0px auto;
+    border: 3px solid #F29C38;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    position: relative;
+    left: 0px;
+    bottom: 66px;
+    min-height: 143px;
+    padding: 20px;
+  }
+  .title-settings {
+    position: relative;
+    margin: -14px 74px 79px 73px;
+}
+  
+  .form-container4  .form-row label {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    width: 100%;
+    text-align: start;
+  }
+input[type="checkbox"] {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  position: relative;
+  top: 0px;
+  margin-right: 113px;
+}
+
+}
+
+
+/* ============================
+   Responsive : Mobile (max-width: 768px)
+============================= */
+
+@media (max-width: 768px) {
+
+  .form-container4 {
+    max-width: 60%;
+    margin: auto;
+    padding: 27px;
+    border: 4px solid #F29C38;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    left: 0px;
+    top: 128px;
+    max-height: 216px;
+    min-height: 144px;
+}
+
+.title-settings {
+  position: relative;
+  margin: -162px 54px -115px 70px;
+}
+
+.form-container4  .form-row label {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  width: 100%;
+  text-align: start;
+}
+.form-row select {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #F29C38;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.form-row label {
+  font-size: 1rem;
+  color: var(--text-color);
+  width: 72%;
+  text-align: left;
+}
+input[type="checkbox"] {
+  display: flex;
+  width: 24px;
+  height: 20px;
+  margin: 0px;
+  position: relative;
+  top: 0px;
+  margin-right: 54px;
+}
+}/* ============================
+   Styles globaux
+============================= */
+.body {
+  overflow: hidden; /* Désactive le scroll pour empêcher l'utilisateur de scroller sur la page */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre verticalement */
+  align-items: center; /* Centre horizontalement */
+  background-color: #f5f5f5; /* Fond gris clair */
+}
+
+main {
+  flex: 1; /* Prend tout l'espace restant */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================
+ Conteneur du formulaire
+============================= */
+/* Centrer le formulaire */
+.signup-form-container {
+  width: 100%;
+  max-width: 542px;
+  padding: 18px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f29c38;
+  display: flex;
+  flex-direction: column;
+  bottom: 44px;
+  position: relative;
+}
+
+/* ============================
+ Titre du formulaire
+============================= */
+.signup-form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f29c38;
+  text-align: center;
+  margin-bottom: -84px;
+  position: relative;
+  top: -104px;
+}
+
+/* ============================
+ Champs du formulaire
+============================= */
+.signup-form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  text-align: left;
+  margin-left: 49px;
+}
+
+.signup-label {
+font-size: 1rem; /* Taille standard pour les étiquettes */
+color: #333; /* Couleur grise pour le texte */
+margin-bottom: 1px; /* Espacement sous l'étiquette */
+text-align: left; /* Aligne le texte à gauche */
+}
+/* Aligner les labels et inputs côte à côte */
+.signup-form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espacement optimal */
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Ajuste la largeur des labels */
+.signup-form-row label {
+  font-size: 1rem;
+  color: var(--text-color);
+  /*width: 26%;  Largeur fixe pour aligner les labels */
+  text-align: right;
+  padding-right: 7px;
+}
+.signup-input {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  outline: none;
+  position: relative;
+  right: 53px;
+}
+
+/* Effet de focus sur les champs */
+.signup-input:focus {
+border-color: #f29c38; /* Change la bordure en orange au focus */
+}
+
+/* ============================
+ Footer du formulaire
+============================= */
+.signup-form-footer {
+text-align: center; /* Centre le texte horizontalement */
+margin-top: 9px;  
+font-size: 14px; /* Taille de la police */
+color: #878787; /* Couleur grise claire */
+
+}
+
+.signup-highlight {
+color: #f29c38; /* Couleur orange pour mettre en avant certains textes */
+font-weight: bold; /* Texte en gras */
+}
+
+.signup-link {
+text-decoration: none; /* Supprime le soulignement des liens */
+color: #5398be; /* Couleur bleue pour les liens */
+font-weight: bold; /* Texte en gras */
+}
+
+/* Effet hover sur les liens */
+.signup-link:hover {
+text-decoration: underline; /* Ajoute un soulignement au hover */
+}
+
+/* ============================
+ Boutons
+============================= */
+.signup-form-submit {
+text-align: center; /* Centre le contenu horizontalement */
+margin-top: 2px; /* Ajoute un espacement au-dessus */
+}
+
+.signup-button {
+padding: 8px 4px; /* Ajoute de l'espace interne autour du texte */
+font-size: 1rem; /* Taille standard de la police */
+color: #fff; /* Texte blanc par défaut */
+background-color: #f29c38; /* Fond orange par défaut */
+border: 2px solid #f29c38; /* Bordure orange */
+border-radius: 5px; /* Coins arrondis */
+cursor: pointer; /* Change le curseur en pointeur */
+transition: all 0.3s ease; /* Transition douce pour les effets */
+font-weight: bold; /* Texte en gras */
+}
+
+/* Effet hover sur le bouton */
+.signup-button:hover {
+background-color: #fff; /* Change le fond en blanc au hover */
+color: #f29c38; /* Change le texte en orange au hover */
+border: 2px solid #f29c38; /* Garde la bordure orange */
+}
+
+
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+
+@media (max-width: 768px) {
+  .signup-form-container {
+    width: 90%; /* Évite que le formulaire soit trop large */
+    max-width: 400px; /* Largeur max */
+    padding: 20px;
+  }
+  
+  .signup-form-title {
+    font-size: 1.5rem; /* Réduit la taille du titre */
+  }
+
+  .signup-form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    text-align: left;
+    margin-right: -56px;
+}
+.signup-form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.signup-form-row label {
+  font-size: 1rem;
+  color: var(--text-color);
+  text-align: right;
+  padding-right: -1px;
+  position: relative;
+  right: 26px;
+}
+  .signup-button {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+  
+
+}
+/* ============================
+   Responsive : Tablette (769px à 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+  .signup-form-container {
+      width: 100%;
+      max-width: 550px;
+      padding: 18px;
+      background-color: var(--bg-color);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 2px solid #f29c38;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 64px;
+    }
+  }
+
+  .signup-form-title {
+    font-size: 1.6rem; /* Réduit légèrement la taille du titre */
+  }
+
+  .signup-input {
+    width: 61%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+    outline: none;
+    position: relative;
+    right: 57px;
+}
+
+.signup-form-inputs {
+    display: flex
+;
+    flex-direction: column;
+    gap: 0px;
+    text-align: left;
+    margin-left: 16px;
+}
+  .signup-button {
+    font-size: 1rem; /* Taille standard */
+    padding: 10px 20px; /* Ajuste légèrement le padding */
+  }
+
+/* ============================
+   Styles globaux
+============================= */
+body {
+  /* Styles pour le corps de la page */
+  font-family: 'Roboto', sans-serif; /* Police principale utilisée */
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0; /* Supprime les paddings internes */
+  color: var(--text-color); /* Applique la couleur du texte définie dans les variables */
+  display: flex; /* Flexbox pour organiser les sections principales */
+  flex-direction: column; /* Dispose les sections verticalement */
+  height: 100vh; /* Hauteur de la fenêtre visible */
+  width: 100vw; /* Largeur de la fenêtre visible */
+  overflow: hidden; /* Empêche le scroll */
+}
+
+
+/* ------------------------------------------------------- */
+
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.nav-links > .dropdown > a {
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 12px; /* Ajout du padding pour une meilleure zone de hover */
+}
+
+.dropdown {
+  position: relative;
+}
+
+/* Sous-menu principal */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: calc(100% + 20px); /* Espacement de 20px entre menu et sous-menu */
+  background-color: var(--bg-color);
+  min-width: 80px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+/* Zone tampon invisible qui couvre l'espacement */
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px; /* Couvre exactement l'espacement de 20px */
+  width: 20px;
+  height: 100%;
+  background: transparent; /* Invisible mais maintient le hover */
+}
+
+/* Les liens dans le sous-menu */
+.dropdown-content a {
+  display: block;
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+
+
+/* Afficher le sous-menu quand on survole le menu parent */
+.dropdown:hover > .dropdown-content {
+  display: block;
+
+
+
+}
+
+/* Maintenir l'affichage quand on survole le sous-menu */
+.dropdown-content:hover {
+  display: block;
+}
+
+/* Pour gérer les sous-sous-menus */
+.dropdown-content .dropdown {
+  position: relative;
+}
+
+.dropdown-content .dropdown-content {
+  top: 0;
+  left: calc(100% + 20px); /* Même espacement pour les sous-sous-menus */
+}
+
+.dropdown-content .dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 20px;
+  height: 100%;
+  background: transparent;
+}
+
+/* Alternative : utiliser un délai avant fermeture (optionnel) */
+.dropdown {
+  transition: all 0.1s ease;
+}
+
+.dropdown-content {
+  transition: opacity 0.1s ease;
+}
+
+
+/* --------------------------------------------- */
+a {
+  /* Styles pour les liens hypertexte */
+  text-decoration: none; /* Supprime le soulignement */
+  font-weight:auto; /* Texte en gras */
+  color: #fff; /* Couleur blanche pour les liens */
+}
+
+/* ============================
+   Header
+============================= */
+header {
+  /* Styles pour l'en-tête de la page */
+  background-color: #fff; /* Couleur de fond blanche */
+  display: flex; /* Flexbox pour aligner les éléments horizontalement */
+  justify-content: space-between; /* Espace entre le logo et la navigation */
+  align-items: center; /* Centre les éléments verticalement */
+  padding: 0.625rem 1.25rem; /* Padding de 10px en haut/bas, 20px sur les côtés */
+  box-sizing: border-box; /* Inclut padding et bordures dans les dimensions */
+}
+
+header .logo {
+  height: 2.5rem;
+  margin: 0;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* header {
+  position: relative;
+} */
+nav {
+  max-height: 48px; /* Limite la hauteur totale de la `nav` */
+  overflow: visible; /* Coupe tout débordement éventuel */
+}
+  /* —————————————————————————————
+   1) Conteneur profil centré
+   ————————————————————————————— */
+header .profile-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2rem;                
+}
+/* —————————————————————————————
+   2) Troncage nom / prénom si trop long
+   ————————————————————————————— */
+header .profile-balance {
+  white-space: nowrap;      /* pas de retour à la ligne */
+  text-overflow: ellipsis;  /* “…” si c’est trop long */
+  max-width: 550px;         /* à ajuster si besoin */
+  font-size: 1.3rem;
+  color: var(--text-color);
+  
+}
+
+header .total-balance {
+  white-space: nowrap;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+.error-message {
+  background: #ffe6e6;
+  color: #a00;
+  padding: 0.5rem 1rem;
+  border: 1px solid #f00;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+  appearance: none; /* enlève le style natif */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+/* les boutons de la page admin  */
+form button.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* les styles des transactions-list de la page admin  */
+.transaction-list {
+  max-height: 400px;  /* ou ajuste selon la hauteur que tu veux */
+  overflow-y: auto;
+
+  padding: 10px;
+}
+
+.transaction-item.revenu {
+  color: green;
+}
+
+.transaction-item.depense {
+  color: red;
+}
+
+.transaction-item {
+  margin-bottom: 5px;
+}
+
+/* style pour le bouton de suppression */
+
+.transaction-page {
+  max-width: 800px;
+  margin: 0 auto; /* centre horizontalement */
+  text-align: left;
+}
+
+.transaction-summary {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.transaction-list-container {
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.transaction-list-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-list-container li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction-list-container li:last-child {
+  border-bottom: none;
+}
+
+
+
+.transaction-text {
+  flex: 1;
+}
+
+form.delete-form {
+  margin-left: 10px;
+}
+
+form.delete-form button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form.delete-form button:hover {
+  background-color: #c0392b;
+}
+
+
+.revenu {
+  color: green;
+}
+
+.depense {
+  color: red;
+}
+/* bouton de modification de transaction */
+.edit-btn {
+  padding: 5px 10px;
+  background-color: #3498db; /* bleu */
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9; /* bleu foncé */
+}
+
+
+
+/* Style pour la page de modification */
+.transaction-edit-container {
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.transaction-edit-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333;
+}
+
+.field-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.field-line span {
+  flex: 1;
+  font-weight: 500;
+}
+
+.field-line input,
+.field-line select {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.transaction-edit-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #F29C35;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.transaction-edit-container button:hover {
+  background-color: #d57f28;
+}
+
+.transaction-edit-container a {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+  color: #AA1155;
+  text-decoration: none;
+}
+
+.transaction-edit-container a:hover {
+  color: #F29C38;
+}
+
+/* style pour la page des utilisateurs et admin  suppression de la transaction */
+
+.all-users-block {
+  width: 48%;
+    max-width: 378px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-height: 413px;
+    overflow-y: auto;
+    top: 1px;
+    position: relative;
+    height: 369px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: -10px;
+  color: #f29c38;
+  margin-top: 32px;
+}
+
+
+.user-line h2 {
+  margin: 0;
+}
+
+
+
+.revenu {
+  color: green;
+}
+
+.depense {
+  color: red;
+}
+
+.solde {
+  color: black;
+}
+
+.user-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.details-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 4px 8px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.details-btn:hover {
+  background-color: #2980b9;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+/* ============================
+   Navigation Dark-mode
+============================= */
+
+
+:root {
+  --bg-color: #ffffff;   /* Fond clair */
+  --text-color: #05204a; /* Texte noir */
+  --border-color:dd; /* Couleur de bordure orange */
+}
+
+body.dark {
+  --bg-color: #000000;   /* Fond noir */
+  --text-color: #ffffff; /* Texte blanc */
+  --border-color: #f29c38; /* Couleur de bordure orange */
+  --border-color1: #fff;  /* Couleur de bordure blanche */
+
+}
+body,
+header,
+main {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+  --border-color1: var(--border-color1);
+}
+.header-username,
+.header-balance,
+.welcome-message {
+  color: var(--text-color);
+}
+
+
+.theme-toggle-btn {
+  all: unset; /* Réinitialise tous les styles par défaut */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.2rem;
+  color: var(--text-color);
+  position: absolute;
+  top: 9px;
+  left: 79px;
+  z-index: 999;  /*// Permet de superposer le bouton au-dessus des autres éléments */
+}
+
+/* .theme-toggle-btn0 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.2rem;
+  color: var(--text-color);
+  position: absolute;
+  top: 2px;
+  left: 79px;
+  z-index: 999; 
+} */
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+.status-dot.actif {
+  background-color: green;
+}
+
+.status-dot.inactif {
+  background-color: red;
+}
+
+/* ============================
+   Navigation (liens du header)
+============================= */
+.nav-links {
+  /* Styles pour la barre de navigation */
+  position: relative; /* Positionnement relatif au header */
+  justify-content: flex-end; /* Aligne les liens à gauche */
+  display: flex; /* Flexbox pour aligner les liens horizontalement */
+  /* bottom: 38px; Décalage vertical (18px) */
+  right: 20px; /* Décalage horizontal du bord droit (20px) */
+  gap: 10px/* Espacement entre les liens (10px) */
+}
+
+
+
+.nav-links a {
+  padding: 0.25rem 0.375rem;
+  background-color: #f29c38;
+  color: #fff;
+  font-weight: bold;
+  border: 0.125rem solid #f29c38;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 10px;
+  position: relative;
+  bottom: 38px;
+}
+
+/* .nav-links a:hover {
+  /* Styles au survol des liens */
+  /*background-color: #fff; /* Fond blanc */
+  /*color: #f29c38; /* Texte orange */
+/*} */
+
+/* ============================
+   Main (contenu principal)
+============================= */
+main {
+  /* Styles pour la section principale */
+  padding: 9rem; /* Espacement vertical (48px), horizontal (16px) */
+  text-align: center; /* Centre le texte */
+  flex: 1; /* Prend tout l'espace disponible */
+  background-color: var(--bg-color); /* Fond blanc */
+}
+.hero-1 {
+  bottom: 334px;
+  right: 259px;
+  position: fixed;
+}
+.hero h1 {
+  /* Styles pour le titre principal */
+  /* font-size: 1rem ; Taille définie pour les grands titres */
+  color: #f29c38; /* Couleur orange */
+  margin-bottom: 0 rem;/* 1.25rem;  Espacement en bas (20px) */
+}
+.hero-subtitle {
+  position: relative;
+  top: 169px;
+  left: 95px;
+  font-size: 3.4rem;
+  text-align: center;
+  color: var(--text-color);
+  }
+
+
+.hero-image {
+  /* Styles pour l'image principale */
+  max-width: 58%;
+  top: 127px;
+  position: relative;
+  left: 85px;
+  
+}
+
+/* ============================
+   Footer
+============================= */
+footer {
+  /* Styles pour le pied de page */
+  background-color: #f29c38; /* Couleur orange */
+  color: white; /* Texte blanc */
+  display: flex; /* Flexbox pour organiser les colonnes */
+  flex-wrap: wrap; /* Passe à la ligne si nécessaire */
+  justify-content: space-between; /* Équilibre les colonnes gauche et droite */
+  align-items: flex-start; /* Alignement vertical en haut */
+  padding: 2.5rem 1.875rem; /* Espacement interne (40px haut/bas, 30px gauche/droite) */
+  font-weight: 400; /* Poids standard du texte */
+  font-size: 1rem; /* Taille standard du texte */
+  box-sizing: border-box; /* Inclut le padding et les bordures dans les dimensions */
+}
+
+.footer-content {
+  display: flex; /* Active Flexbox pour organiser les colonnes */
+  justify-content: space-between; /* Sépare les colonnes horizontalement */
+  align-items: flex-start; /* Aligne les colonnes en haut */
+  width: 99%; /* Étend le contenu presque sur toute la largeur */
+  position: relative; /* Nécessaire pour positionner "Tous droits réservés" au centre */
+  margin-top: 12px; /* Ajoute un espacement au-dessus du contenu */
+  font-size: 1rem; /* Définit une taille de texte standard (16px) */
+}
+
+/* ============================
+   Colonne gauche : Mentions légales et Politique de confidentialité
+============================= */
+.footer-left {
+  display: flex; /* Active Flexbox pour aligner les liens */
+  flex-direction: column; /* Les liens sont empilés verticalement */
+  gap: 10px; /* Ajoute un espacement entre les liens */
+  margin-left: 25px; /* Décalage à gauche des colonnes */
+}
+
+.footer-left a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: white; /* Couleur blanche pour les liens */
+  margin-bottom: 5px;
+}
+
+.footer-left a:hover {
+  text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+/* ============================
+   Section centrale : Tous droits réservés
+============================= */
+.footer-center {
+  position: absolute; /* Position absolue pour centrer le contenu */
+  top: 50%; /* Position verticale au centre */
+  left: 50%; /* Position horizontale au centre */
+  transform: translate(-50%, -50%); /* Centre précis grâce à une transformation */
+  font-size: 1.1rem; /* Légère augmentation de la taille du texte */
+  text-align: center; /* Centre le texte horizontalement */
+  margin: 0; /* Supprime tout espacement externe */
+}
+
+/* ============================
+   Colonne droite : Réseaux sociaux et Contact
+============================= */
+.footer-right {
+  display: flex; /* Active Flexbox pour organiser les éléments */
+  flex-direction: column; /* Empile les éléments verticalement */
+  gap: 15px; /* Ajoute un espacement entre les éléments */
+  margin-right: 10px; /* Décalage à droite des colonnes */
+}
+
+.footer-right a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: white; /* Texte blanc */
+}
+
+.footer-right a:hover {
+  text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+.social-media {
+  display: flex; /* Active Flexbox pour aligner les icônes horizontalement */
+  justify-content: flex-start; /* Aligne les éléments à gauche */
+  gap: 20px; /* Ajoute un espacement entre les icônes */
+  margin-bottom: 15px; /* Ajoute un espacement en bas */
+}
+
+.social-media a {
+  display: flex; /* Active Flexbox pour aligner le texte et l'icône */
+  align-items: center; /* Centre verticalement les icônes et le texte */
+  gap: 10px; /* Ajoute un espacement entre l'icône et le texte */
+  text-decoration: none; /* Supprime le soulignement des liens */
+  font-size: 1rem; /* Taille standard du texte */
+  color: white; /* Texte blanc */
+}
+
+.social-media a:hover {
+  text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+.social-media i {
+  font-size: 18px; /* Taille des icônes sociales */
+}
+
+.contact {
+  margin-top: -22px; /* Décalage vers le haut pour aligner le texte */
+}
+
+/* ============================
+   Media Queries
+============================= */
+/* Menu burger */
+.burger-menu {
+  display: block;/* Caché par défaut sur les grands écrans */
+  font-size: 3rem; /* Taille du menu burger (icône) */
+  cursor: pointer; /* Change le curseur en main au survol */
+  color: #f29c38; /* Couleur orange */
+  position: absolute; /* Permet de le positionner précisément */
+  right: 10px; /* Positionné à droite du header */
+  top: 20%; /* Position verticale dans le header */
+  transform: translateY(-40%); /* Ajuste la position verticale pour centrer */
+}
+
+/* Navigation (boutons par défaut) */
+.nav-links {
+  display: flex; /* Affiche les liens par défaut */
+  gap: 10px; /* Espacement entre les liens */
+  
+}
+
+/* ============================
+   Responsive : Menu burger actif
+============================= */
+
+.nav-links.active {
+  display: flex; /* Affiche les liens */
+  flex-direction: column; /* Empile les liens verticalement */
+  position: absolute; /* Position absolue dans le header */
+  top: 60px; /* Positionne les liens sous le header */
+  right: 20px; /* Aligne à droite */
+  background-color: #fff; /* Fond blanc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre douce */
+  padding: 10px; /* Espacement interne autour des liens */
+  border-radius: 5px; /* Coins arrondis */
+  z-index: 10; /* Place le menu au-dessus des autres éléments */
+}
+
+.nav-links.active a {
+  color: #ffffff; /* Texte blanc */
+  text-align: center; /* Centre le texte */
+  padding: 1px 0; /* Ajoute de l'espace entre les liens */
+  top: 0; /* Réinitialise le décalage vertical */
+}
+
+.nav-links.active a:last-child {
+  border-bottom: none; /* Supprime la bordure pour le dernier lien */
+}
+
+
+
+
+
+
+/* ============================
+   Responsive : Téléphone (max-width: 768px)
+============================= */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block; /* Affiche le menu burger */
+  }
+  .nav-links {
+    display: none; /* Masque les boutons */
+  }
+  .nav-links a {
+    bottom: 37px;
+  }
+ 
+  main {
+    padding: 2rem 1rem; /* Moins de padding sur mobile */
+}
+
+.hero-subtitle {
+  position: relative;
+  top: 139px;
+  left: 0px;
+  width: 200%;
+  font-size: 22px;
+}
+.hero-image {
+  max-width: 161%;
+  top: 93px;
+  position: relative;
+  left: 53px;
+  height: 204px;
+}
+
+  footer {
+    flex-direction: column; /* Colonne pour les petits écrans */
+    align-items: center;
+    text-align: center;
+    padding: 20px; /* Réduit le padding global */
+  }
+
+  .footer-left,
+  .footer-right {
+    margin: 10px 0; /* Espacement vertical entre les colonnes */
+  }
+
+  .footer-center {
+    display: none; /* Masque cet élément */
+  }
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 98%;
+    position: relative;
+    margin-bottom: -25px;
+    font-size: 0.8rem;
+    top: -17px;
+    }
+
+ 
+}
+
+/* ============================
+   Responsive : Tablette (769px à 992px)
+============================= */
+@media (min-width: 769px) and (max-width: 992px) {
+  .burger-menu {
+    display: block;
+  }
+
+  /* Réactiver la navigation */
+  .nav-links {
+    display: none; /* Masque les boutons */
+  }
+  .nav-links a {
+    bottom: 37px;
+  }
+
+  /* Ajustement du hero */
+  .hero-subtitle {
+    font-size: 2.5rem;
+    width: 133%;
+    text-align: center;
+    left: 0px;
+    top: 161px;
+  }
+
+  .hero-image {
+    max-width: 80%;
+    height: auto;
+    left: 130px;
+    top: 119px;
+  }
+
+  /* Ajustement du footer */
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 30px;
+  }
+
+  .footer-left,
+  .footer-right {
+    margin: 0;
+  }
+
+  .footer-center {
+    display: block; /* Réafficher l'élément masqué sur mobile */
+    text-align: center;
+  }
+}

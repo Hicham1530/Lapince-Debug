@@ -12,8 +12,7 @@ dotenv.config();
 // On créé l'application express
 const app = express();
 
-// Importation des contrôleurs pour les tests : 
-import {createTestUser,getUserByEmail,updateUser,deleteUser,} from "./app/controllers/userController.js";
+
 
 // Rends disponible la variable process.env.PORT, parce qu'on a dans le .env une chaine de caractère PORT=3000
 // Definition du port (soit celui du .env soit 3000)
@@ -99,24 +98,6 @@ app.use(router);
 
 
 
-// test : Fonction principale pour exécuter les tests après la synchronisation
-const runTests = async () => {
-  try {
-    // Test : Création d'un utilisateur
-    await createTestUser();
-
-    // // Test : Récupération d'un utilisateur
-    // await getUserByEmail("newtest@example.com");
-
-    // Test : Mise à jour d'un utilisateur
-    await updateUser("newtest@example.com", { first_name: "UpdatedName" });
-
-    // Test : Suppression d'un utilisateur
-    await deleteUser("newtest@example.com");
-  } catch (error) {
-    console.error("Erreur lors des tests :", error);
-  }
-};
 
 //  test : Synchronisation des modèles et lancement des tests
 (async () => {
@@ -129,8 +110,7 @@ const runTests = async () => {
     await sequelize.sync({ force: false });
     console.log("Les modèles sont synchronisés avec la base de données.");
 
-    // Lancement des tests
-    await runTests();
+  
   } catch (error) {
     console.error("Erreur lors de la synchronisation ou des tests :", error);
   }

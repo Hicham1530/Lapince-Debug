@@ -49,23 +49,23 @@
 
 <!-- Date de naissance -->
 <div class="form-row">
-  <span id="label-naissance" class="form-label">Date de naissance :</span>
-  <div class="date-group" aria-labelledby="label-naissance">
-    <select id="jour" name="jour" required>
-      <option value="" disabled>Jour</option>
+  <label for="jour">Date de naissance :</label>
+  <div class="date-group">
+    <select id="jour" name="jour" aria-label="Jour" required>
+      <option value="" disabled selected>Jour</option>
       <% for (let i = 1; i <= 31; i++) { %>
         <option value="<%= i %>" <%= user.date_of_birth && new Date(user.date_of_birth).getDate() === i ? 'selected' : '' %>><%= i %></option>
       <% } %>
     </select>
-    <select id="mois" name="mois" required>
-      <option value="" disabled>Mois</option>
+    <select id="mois" name="mois" aria-label="Mois" required>
+      <option value="" disabled selected>Mois</option>
       <% const moisMapping = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]; %>
       <% moisMapping.forEach((mois, index) => { %>
         <option value="<%= mois %>" <%= user.date_of_birth && new Date(user.date_of_birth).getMonth() === index ? 'selected' : '' %>><%= mois %></option>
       <% }) %>
     </select>
-    <select id="annee" name="annee" required>
-      <option value="" disabled>Année</option>
+    <select id="annee" name="annee" aria-label="Année" required>
+      <option value="" disabled selected>Année</option>
       <% for (let i = 1944; i <= 2006; i++) { %>
         <option value="<%= i %>" <%= user.date_of_birth && new Date(user.date_of_birth).getFullYear() === i ? 'selected' : '' %>><%= i %></option>
       <% } %>
