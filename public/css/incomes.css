@@ -392,13 +392,21 @@
 
 /* Added .top-nav-links rule */
 
-.top-nav-links {
+/* .top-nav-links {
   flex-direction: unset;
   position: relative;
   bottom: 68px;
   left: 356px;
   gap: 28px;
   display: flex;
+} */
+.top-nav-links {
+  position: relative;
+  bottom: 68px;
+  left: 356px;
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
 }
 /* =============================================================================================
    📊 Résumé en haut du formulaire
