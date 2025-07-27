@@ -1,6 +1,5 @@
 import { Sequelize } from "sequelize";
 import * as dotenv from "dotenv";
-
 dotenv.config();
 
 let sequelize;
@@ -22,16 +21,5 @@ if (process.env.DATABASE_URL) {
     }
   );
 }
-
-const testConnection = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log("✅ Connexion à la base de données réussie.");
-  } catch (error) {
-    console.error("❌ Impossible de se connecter à la base de données:", error);
-  }
-};
-
-testConnection();
 
 export default sequelize;

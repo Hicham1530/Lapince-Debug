@@ -5,7 +5,7 @@ import  sequelize  from "./config/database.js"; // On importe l'instance de sequ
 import session from "express-session"; // Importation du module express-session pour gérer les sessions
 import { soldeMiddleware, ensureAuthenticated } from './app/middlewares/authMiddleware.js'; // Importation du middleware d'authentification
 
-
+import sequelize from "./config/database.backup.js";
 
 dotenv.config();
 // console.log("🔍 MAILTRAP_USER =", process.env.MAILTRAP_USER || "NON DÉFINI");
