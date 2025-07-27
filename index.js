@@ -1,7 +1,7 @@
 import express from "express";// import session from "express-session";
 import * as dotenv from "dotenv"; // On importe dotenv pour pouvoir lire le fichier.env
 import router from "./app/router.js"; // On importe notre router créé et paramétré dans le fichier router.js
-import  sequelize  from "./config/database.js"; // On importe l'instance de sequelize créée dans le fichier database.js
+// import  sequelize  from "./config/database.js"; // On importe l'instance de sequelize créée dans le fichier database.js
 import session from "express-session"; // Importation du module express-session pour gérer les sessions
 import { soldeMiddleware, ensureAuthenticated } from './app/middlewares/authMiddleware.js'; // Importation du middleware d'authentification
 
