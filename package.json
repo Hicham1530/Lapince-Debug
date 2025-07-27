@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-     "test-mailer": "node \"utils/test-mailer.js\"",
+    "test-mailer": "node \"utils/test-mailer.js\"",
     "dev": "nodemon index.js"
   },
   "keywords": [],
@@ -29,7 +29,7 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.5",
     "slugify": "^1.6.6",
-    "validator": "^13.12.0",
+    "validator": "^13.15.15",
     "vite": "^6.0.6"
   },
   "devDependencies": {

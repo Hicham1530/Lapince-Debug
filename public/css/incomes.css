@@ -401,12 +401,12 @@
   display: flex;
 } */
 .top-nav-links {
-  position: relative;
-  bottom: 68px;
-  left: 356px;
-  display: inline-flex;
-  align-items: center;
-  gap: 28px;
+    position: relative;
+    bottom: 68px;
+    left: 277px;
+    display: inline-flex;
+    align-items: center;
+    gap: 43px;
 }
 /* =============================================================================================
    📊 Résumé en haut du formulaire
@@ -574,7 +574,7 @@
 @media (max-width: 768px) {
 
   .income-form {
-    width: 75%;
+    width: 79%;
     max-width: 756px;
     padding: 20px;
     position: relative;

@@ -29,18 +29,30 @@ const dashboardController = {
       const totalDepenses = depenses.reduce((sum, mouvement) => sum + parseFloat(mouvement.amount), 0);
       const soldeTotal = totalRevenus - totalDepenses;
   
-      // Calcul du pourcentage basé sur le salaire
+    // Calcul du pourcentage basé sur le salaire
       const pourcentageRevenus =
-        totalRevenus > 0 ? Math.max((1 - totalDepenses / totalRevenus) * 100, 0).toFixed(2) : 0;
-  
+      totalRevenus > 0 ? Math.max((1 - totalDepenses / totalRevenus) * 100, 0).toFixed(2): 0;
+            // Calcule le % d’argent restant après les dépenses par rapport aux revenus (pour le cercle)
+
+
+         // Explication du calcul :
+         // - totalDepenses / totalRevenus : part des revenus déjà dépensée
+         // - 1 - ... : ce qu’il reste après dépenses (ex. 80 %)
+         // - * 100 : conversion en pourcentage
+         // - Math.max(..., 0) : empêche un résultat négatif
+         // - .toFixed(2) : garde 2 chiffres après la virgule
+         // - Si pas de revenus → on retourne 0 %
+
       console.log("Pourcentage restant du salaire :", pourcentageRevenus);
+
+  
   
       // Rendre la vue avec les données nécessaires
       res.render("dashboard/overview", {
         user: req.session.user,
         totalRevenus,
         totalDepenses,
-        soldeTotal, // Assurez-vous de passer soldeTotal ici
+        soldeTotal, 
         pourcentageRevenus,
         soldeTotal,
       });

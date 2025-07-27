@@ -1,77 +1,69 @@
-<%- include('../partials/header-profiles') %> <!-- Inclut le fichier header dans cette page -->
+<%- include('../partials/header-profiles') %>
 <main class="global-container">
-<section class="hero">
-  <h1 class="title-settings">Modification des paramètres</h1>
-  <% if (successMessage) { %>
-    <div id="success-message" class="alert alert-success">
-      <%= successMessage %>
+  <section class="hero">
+    <h1 class="title-settings">Modification des paramètres</h1>
+<% if (successMessage) { %>
+  <div class="alert alert-success"><%= successMessage %></div>
+<% } %>
+<!-- etc, pour chaque champ que tu veux traiter -->
+
+
+
+    <div class="form-container4">
+      <form action="/profile/settings" method="post">
+        <!-- Langue de l'interface -->
+        <div class="form-row">
+          <label for="interface-langue">Langue de l'interface:</label>
+          <select id="interface-langue" name="interface-langue">
+            <option value="fr" <%= user.language === "fr" ? "selected" : "" %>>Français</option>
+            <option value="en" <%= user.language === "en" ? "selected" : "" %>>English</option>
+            <option value="es" <%= user.language === "es" ? "selected" : "" %>>Español</option>
+          </select>
+        </div>
+
+        <!-- Devise par défaut -->
+        <div class="form-row">
+          <label for="devise">Devise :</label>
+          <select id="devise" name="devise">
+            <option value="usd" <%= user.currency === "usd" ? "selected" : "" %>>🇺🇸 Dollar américain (USD)</option>
+            <option value="gbp" <%= user.currency === "gbp" ? "selected" : "" %>>🇬🇧 Livre sterling (GBP)</option>
+            <option value="cad" <%= user.currency === "cad" ? "selected" : "" %>>🇨🇦 Dollar canadien (CAD)</option>
+            <option value="try" <%= user.currency === "try" ? "selected" : "" %>>🇹🇷 Livre turque (TRY)</option>
+            <option value="cny" <%= user.currency === "cny" ? "selected" : "" %>>🇨🇳 Yuan chinois (CNY)</option>
+          </select>
+        </div>
+
+        <!-- Convertir tous les montants -->
+        <div class="form-row">
+          <label for="convert-montants">Conversion en devise :</label>
+          <input
+            type="checkbox"
+            id="convert-montants"
+            name="convertir_montants"
+            <%= user.convertir_montants ? "checked" : "" %> />
+        </div>
+
+        <!-- Bouton de confirmation -->
+        <div class="form-row-btn">
+          <button type="submit" class="btn-confirmer">Confirmer</button>
+        </div>
+      </form>
     </div>
-  <% } %> <!-- Affiche un message de succès si la variable successMessage est définie -->
-  
-  <div class="form-container4">
-    <form action="/settings" method="post">
-      <!-- Langue de l'interface -->
-      <div class="form-row">
-        <label for="interface-langue">Langue de l'interface:</label>
-        <select id="interface-langue" name="interface-langue">
-          <option value="fr" <%= user.language === "fr" ? "selected" : "" %>>Français</option>
-          <option value="en" <%= user.language === "en" ? "selected" : "" %>>English</option>
-          <option value="es" <%= user.language === "es" ? "selected" : "" %>>Español</option>
-        </select>
-      </div>
-  
-    <!-- Devise par défaut -->
-    <div class="form-row">
-      <label for="devise">Devise :</label>
-      <select id="devise" name="devise">
-        <option value="usd" <%= user.currency === "usd" ? "selected" : "" %>>🇺🇸 Dollar américain (USD)</option>
-        <option value="gbp" <%= user.currency === "gbp" ? "selected" : "" %>>🇬🇧 Livre sterling (GBP)</option>
-        <option value="cad" <%= user.currency === "cad" ? "selected" : "" %>>🇨🇦 Dollar canadien (CAD)</option>
-        <option value="try" <%= user.currency === "try" ? "selected" : "" %>>🇹🇷 Livre turque (TRY)</option>
-        <option value="cny" <%= user.currency === "cny" ? "selected" : "" %>>🇨🇳 Yuan chinois (CNY)</option>
-      </select>
-    </div>
-  
-  <!-- Convertir tous les montants -->
-  <div class="form-row">
-    <label for="convert-montants">Conversion en devise :</label>
-    <input
-  type="checkbox"
-  id="convert-montants"
-  name="convertir_montants"
-  <%= user.convertir_montants ? "checked" : "" %> />
-  </div>
-  
-    <!-- Bouton de confirmation -->
-    <div class="form-row-btn">
-      <button type="submit" class="btn-confirmer">Confirmer</button>
-    </div>
-  </form>
-  </div>
-</section>
+  </section>
 </main>
-<%- include('../partials/footer') %> <!-- Inclut le fichier footer dans cette page -->
+<%- include('../partials/footer') %>
 
-
-
-
-<!-- faire disparaître le message de confirmation de changement d information profile  après 2 secondes -->
 <script>
-  // Attendre que la page soit chargée
   document.addEventListener("DOMContentLoaded", () => {
-    const successMessage = document.querySelector(".alert.alert-success");
-
+    const successMessage = document.querySelector(".alert-success");
     if (successMessage) {
-      // Faire disparaître le message après  secondes
       setTimeout(() => {
-        successMessage.style.transition = "opacity 0.5s ease";
+        successMessage.style.transition = "opacity 0.5s";
         successMessage.style.opacity = "0";
-
-        // Supprimer complètement le message après l'animation (2.5s)
         setTimeout(() => {
           successMessage.remove();
-        }, 500);
-      }, 700);
+        }, 500); // Temps pour l’animation
+      }, 1500); // Durée d’affichage avant disparition
     }
   });
 </script>

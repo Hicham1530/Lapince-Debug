@@ -13,24 +13,18 @@ async function getAvailableCurrencies() {
 }
 
 const settingsController = {
-  settings: async (req, res) => {
-    if (!req.session.user) {
-      console.log("Session utilisateur dans settings :", req.session.user);
-      console.error("Erreur : utilisateur non connecté.");
-      return res.status(401).render("error", { message: "Accès interdit. Veuillez vous connecter." });
-    }
-  
-    const availableCurrencies = await getAvailableCurrencies();
+settings: async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).render("error", { message: "Accès interdit. Veuillez vous connecter." });
+  }
+  const availableCurrencies = await getAvailableCurrencies();
+  res.render("profile/settings", {
+    title: "Paramètres généraux",
+    user: req.session.user,
+    availableCurrencies
 
-    res.render("profile/settings", { 
-      title: "Paramètres généraux", 
-      user: req.session.user, 
-      successMessage: req.session.successMessage || null,
-      availableCurrencies  // ← ici !
-    });
-  
-    req.session.successMessage = null;
-  },
+  });
+},
 
   updateSettings: async (req, res) => {
     console.log("Requête reçue avec body :", req.body);

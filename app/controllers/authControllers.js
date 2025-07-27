@@ -202,9 +202,26 @@ const authController = {
   }
 
 };
+// ------------------------------------------------------------------------------
+function getPasswordResetEmailHtml(resetLink) {
+  return `
+    <div style="font-family: Arial, sans-serif; color: #222;">
+      <p>Bonjour,</p>
+      <p>Vous avez demandé la réinitialisation de votre mot de passe.<br>
+      Pour procéder, il vous suffit de cliquer sur le lien ci-dessous :</p>
+      <p>
+        👉 <a href="${resetLink}" style="color: #1976d2; font-weight: bold;">Réinitialiser mon mot de passe</a>
+      </p>
+      <p style="font-size: 0.95em; color: #555;">
+        Si vous n’êtes pas à l’origine de cette demande, vous pouvez ignorer ce message.<br>
+        Pour toute question ou assistance, n’hésitez pas à nous contacter.
+      </p>
+      <p style="margin-top: 24px;">Bien à vous,<br>L’équipe La Pince</p>
+    </div>
+  `;
+}
 
-
-
+// ------------------------------------------------------------------------------
  //Demande de réinitialisation
  const forgotPassword = async (req, res) => {
   console.log("Accès à la page /auth/forgot-password");
@@ -245,7 +262,7 @@ const authController = {
     await sendEmail({
       to: user.email,
       subject: "Réinitialisation de votre mot de passe",
-      html: `<p>Cliquez ici pour réinitialiser votre mot de passe : <a href="${resetLink}">${resetLink}</a></p>`,
+      html:getPasswordResetEmailHtml(resetLink),
     });
 
     req.session.successMessage = "Un email de réinitialisation a été envoyé. Veuillez vérifier votre boîte mail.";
@@ -385,11 +402,11 @@ const resetPasswordRequest = async (req, res) => {
     await user.save();
 
     const resetLink = `http://localhost:3000/auth/reset-password/${token}`;
-    await sendEmail({
-      to: user.email,
-      subject: "Réinitialisation de votre mot de passe",
-      html: `<p>Cliquez ici pour réinitialiser votre mot de passe : <a href="${resetLink}">${resetLink}</a></p>`,
-    });
+await sendEmail({
+  to: user.email,
+  subject: "Réinitialisation de votre mot de passe",
+  html: getPasswordResetEmailHtml(resetLink),
+});
 
     // Ajouter un message de succès dans la session
     req.session.successMessage = "Un email de réinitialisation a été envoyé. Veuillez vérifier votre boîte mail.";

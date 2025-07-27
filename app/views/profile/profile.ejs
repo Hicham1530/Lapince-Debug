@@ -2,11 +2,22 @@
 <main class="global-container">
 <section class="hero2">
   <h1>Modification du profil</h1>
-  <% if (successMessage) { %>
-  <div class="alert alert-success">
-    <%= successMessage %>
+<% if (successMessage) { %>
+  <div class="alert alert-success"><%= successMessage %></div>
+<% } %>
+<% if (errors && errors.email) { %>
+  <div class="alert alert-danger" style="margin-bottom: 16px; color: red;">
+    <%= errors.email %>
   </div>
-<% } %> <!-- Si un message de succès est présent, l'afficher dans une boîte d'alerte verte -->
+<% } %>
+<% if (errors && errors.password) { %>
+  <div class="alert alert-danger" style="margin-bottom: 16px; color: red;">
+    <%= errors.password %>
+  </div>
+<% } %>
+<!-- etc, pour chaque champ que tu veux traiter -->
+
+
   <div class="form-container-profile">
     <!-- Description pour les lecteurs d'écran -->
   
@@ -110,23 +121,18 @@
 <%- include('../partials/footer') %> <!-- Inclut le fichier footer dans cette page -->
 
 
-<!-- faire disparaître le message de confirmation de changement d information profile  après 2 secondes -->
 <script>
-  // Attendre que la page soit chargée
   document.addEventListener("DOMContentLoaded", () => {
-    const successMessage = document.querySelector(".alert.alert-success");
-
+    const successMessage = document.querySelector(".alert-success");
     if (successMessage) {
-      // Faire disparaître le message après  secondes
       setTimeout(() => {
-        successMessage.style.transition = "opacity 0.5s ease";
+        successMessage.style.transition = "opacity 0.5s";
         successMessage.style.opacity = "0";
-
-        // Supprimer complètement le message après l'animation (2.5s)
         setTimeout(() => {
           successMessage.remove();
         }, 500);
-      }, 700);
+      }, 1500);
     }
   });
 </script>
+

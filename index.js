@@ -8,7 +8,8 @@ import { soldeMiddleware, ensureAuthenticated } from './app/middlewares/authMidd
 
 
 dotenv.config();
-
+// console.log("🔍 MAILTRAP_USER =", process.env.MAILTRAP_USER || "NON DÉFINI");
+// console.log("📨 Envoi email depuis :", process.env.MAILTRAP_USER);
 // On créé l'application express
 const app = express();
 
@@ -25,7 +26,18 @@ app.use(session({
   saveUninitialized: false, // Ne pas sauvegarder les sessions non initialisées
   cookie: { secure: false } // Mettre `true` si vous utilisez HTTPS
 }));
+// ------------------------------
 
+// Middleware flash universel
+app.use((req, res, next) => {
+  res.locals.successMessage = req.session.successMessage || null;
+  res.locals.errors = req.session.errors || {};
+  req.session.successMessage = null;
+  req.session.errors = null;
+  next();
+});
+
+// ----------------------------------
 app.get('/test-session', (req, res) => {
   if (req.session.views) {
     req.session.views++;
@@ -56,13 +68,14 @@ app.use((req, res, next) => {
   console.log("Utilisateur connecté :", req.session.user);
   next();
 });
-app.use((req, res, next) => {
-  res.locals.successMessage = req.session.successMessage || null;
-  res.locals.errors = req.session.errors || null;
-  req.session.successMessage = null; // Réinitialiser après transmission
-  req.session.errors = null; // Réinitialiser après transmission
-  next();
-});
+// app.use((req, res, next) => {
+//   res.locals.successMessage = req.session.successMessage || null;
+//   res.locals.errors = req.session.errors || null;
+//   req.session.successMessage = null; // Réinitialiser après transmission
+//   req.session.errors = null; // Réinitialiser après transmission
+//   next();
+// });
+
 
 
 //
@@ -127,8 +140,8 @@ app.use((err, req, res, next) => {
 
   res.status(500).send("Erreur interne du serveur !");
 });
-
+ 
 // On demande à express d'ouvrir le serveur sur le port choisi.
-app.listen(port, () => {  // On utilise la méthode listen() pour ouvrir le serveur sur le port 3000.
+app.listen(port,() => {  // On utilise la méthode listen() pour ouvrir le serveur sur le port 3000.
   console.log(`serveur lancé à cette url http://localhost:${port}`);  // On affiche un message de confirmation dans la console.
 });

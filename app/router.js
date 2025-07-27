@@ -38,13 +38,14 @@ router.get("/dashboard/incomes", dashboardControllers.incomes);
 // Routes Profile
 router.use("/profile", ensureAuthenticated);
 router.get("/profile/settings", settingsController.settings);
-router.post("/settings", settingsController.updateSettings);
+router.post("/profile/settings", settingsController.updateSettings);
 router.get("/profile/email", profileController.email);
 router.post("/profile/email", profileController.updateEmail);
 router.get("/profile/password", profileController.password);
 router.post("/update-password", profileController.updatePassword);
 router.get("/profile/profile", profileController.showProfile);
 router.post("/profile/update", profileController.updateProfile);
+
 
 // Routes de réinitialisation du mot de passe
 // Routes publiques (sans middleware)
