@@ -1,5 +1,5 @@
 import User from "../models/user.js";
-import bcrypt from "bcrypt"; // Importation du module bcrypt pour chiffrer les mots de passe
+import bcrypt from 'bcryptjs'; // Importation du module bcrypt pour chiffrer les mots de passe
 import validator from 'validator'; // Ajout de cette ligne pour valider les emails
 
 const profileController = {

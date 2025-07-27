@@ -1,5 +1,5 @@
 import validator from 'validator'; // Pour valider les données des utilisateurs
-import bcrypt from 'bcrypt'; // Pour chiffrer les mots de passe
+import bcrypt from 'bcryptjs'; // Pour chiffrer les mots de passe
 import User from '../models/user.js'; // Importer le modèle User
 import crypto from "crypto"; // Pour générer des tokens
 import { sendEmail } from "../../utils/mailer.js"; // Importer la fonction sendEmail

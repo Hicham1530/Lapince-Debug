@@ -1,4 +1,5 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
+
 const password = 'securepassword'; // Remplacez par votre mot de passe à hacher
 const saltRounds = 10;
 
