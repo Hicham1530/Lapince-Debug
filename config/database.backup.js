@@ -23,7 +23,6 @@ if (process.env.DATABASE_URL) {
   );
 }
 
-
 const testConnection = async () => {
   try {
     await sequelize.authenticate();
