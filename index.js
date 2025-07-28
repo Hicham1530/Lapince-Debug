@@ -8,6 +8,7 @@ import { soldeMiddleware, ensureAuthenticated } from './app/middlewares/authMidd
 import sequelize from "./config/database.backup.js";
 
 dotenv.config();
+
 // console.log("🔍 MAILTRAP_USER =", process.env.MAILTRAP_USER || "NON DÉFINI");
 // console.log("📨 Envoi email depuis :", process.env.MAILTRAP_USER);
 // On créé l'application express

@@ -2,6 +2,9 @@ import { Sequelize } from "sequelize";
 import * as dotenv from "dotenv";
 dotenv.config();
 
+console.log("Chargement .env réussi");
+console.log("DATABASE_URL =", process.env.DATABASE_URL);
+
 let sequelize;
 
 if (process.env.DATABASE_URL) {
