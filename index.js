@@ -1,15 +1,13 @@
 import express from "express";// import session from "express-session";
 import * as dotenv from "dotenv"; // On importe dotenv pour pouvoir lire le fichier.env
 import router from "./app/router.js"; // On importe notre router créé et paramétré dans le fichier router.js
-// import  sequelize  from "./config/database.js"; // On importe l'instance de sequelize créée dans le fichier database.js
+import  sequelize  from "./config/database.js"; // On importe l'instance de sequelize créée dans le fichier database.js
 import session from "express-session"; // Importation du module express-session pour gérer les sessions
 import { soldeMiddleware, ensureAuthenticated } from './app/middlewares/authMiddleware.js'; // Importation du middleware d'authentification
 
-import connectPgSimple from 'connect-pg-simple';
-import sequelize from "./config/database.backup.js";
+
 
 dotenv.config();
-
 // console.log("🔍 MAILTRAP_USER =", process.env.MAILTRAP_USER || "NON DÉFINI");
 // console.log("📨 Envoi email depuis :", process.env.MAILTRAP_USER);
 // On créé l'application express
@@ -20,24 +18,14 @@ const app = express();
 // Rends disponible la variable process.env.PORT, parce qu'on a dans le .env une chaine de caractère PORT=3000
 // Definition du port (soit celui du .env soit 3000)
 const port = process.env.PORT || 3000;
-// configuration railway
-const PgSession = connectPgSimple(session);
-app.use(session({
-  store: new PgSession({
-    conString: process.env.DATABASE_URL,
-  }),
-  secret: process.env.JWT_SECRET || 'defaultSecret',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 }
-}));
+
 // Configuration de la session
-// app.use(session({
-//   secret: process.env.SECRET || 'defaultSecret', // Remplace 'defaultSecret' par une clé plus sécurisée en prod
-//   resave: false, // Ne pas sauvegarder la session si elle n'a pas été modifiée
-//   saveUninitialized: false, // Ne pas sauvegarder les sessions non initialisées
-//   cookie: { secure: false } // Mettre `true` si vous utilisez HTTPS
-// }));
+app.use(session({
+  secret: process.env.SECRET || 'defaultSecret', // Remplace 'defaultSecret' par une clé plus sécurisée en prod
+  resave: false, // Ne pas sauvegarder la session si elle n'a pas été modifiée
+  saveUninitialized: false, // Ne pas sauvegarder les sessions non initialisées
+  cookie: { secure: false } // Mettre `true` si vous utilisez HTTPS
+}));
 // ------------------------------
 
 // Middleware flash universel
@@ -152,7 +140,7 @@ app.use((err, req, res, next) => {
 
   res.status(500).send("Erreur interne du serveur !");
 });
- 
+
 // On demande à express d'ouvrir le serveur sur le port choisi.
 app.listen(port,() => {  // On utilise la méthode listen() pour ouvrir le serveur sur le port 3000.
   console.log(`serveur lancé à cette url http://localhost:${port}`);  // On affiche un message de confirmation dans la console.

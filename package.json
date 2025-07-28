@@ -5,31 +5,27 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
     "test-mailer": "node \"utils/test-mailer.js\"",
-    "postinstall": "npm rebuild bcrypt --build-from-source"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "Guelzim Hicham",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "bcryptjs": "^3.0.2",
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
-    "connect-pg-simple": "^10.0.0",
     "connect-session-sequelize": "^7.1.7",
     "crypto": "^1.0.1",
     "dayjs": "^1.11.13",
-    "dotenv": "^16.6.1",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
     "express-validator": "^7.2.1",
     "jsonwebtoken": "^9.0.2",
-    "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.16",
     "pg": "^8.13.1",
-    "pg-connection-string": "^2.9.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.5",
     "slugify": "^1.6.6",
@@ -37,7 +33,7 @@
     "vite": "^6.0.6"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10",
+    "nodemon": "^3.1.7",
     "sequelize-cli": "^6.6.2"
   }
 }
