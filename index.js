@@ -5,6 +5,7 @@ import router from "./app/router.js"; // On importe notre router créé et param
 import session from "express-session"; // Importation du module express-session pour gérer les sessions
 import { soldeMiddleware, ensureAuthenticated } from './app/middlewares/authMiddleware.js'; // Importation du middleware d'authentification
 
+import connectPgSimple from 'connect-pg-simple';
 import sequelize from "./config/database.backup.js";
 
 dotenv.config();
@@ -19,14 +20,24 @@ const app = express();
 // Rends disponible la variable process.env.PORT, parce qu'on a dans le .env une chaine de caractère PORT=3000
 // Definition du port (soit celui du .env soit 3000)
 const port = process.env.PORT || 3000;
-
-// Configuration de la session
+// configuration railway
+const PgSession = connectPgSimple(session);
 app.use(session({
-  secret: process.env.SECRET || 'defaultSecret', // Remplace 'defaultSecret' par une clé plus sécurisée en prod
-  resave: false, // Ne pas sauvegarder la session si elle n'a pas été modifiée
-  saveUninitialized: false, // Ne pas sauvegarder les sessions non initialisées
-  cookie: { secure: false } // Mettre `true` si vous utilisez HTTPS
+  store: new PgSession({
+    conString: process.env.DATABASE_URL,
+  }),
+  secret: process.env.JWT_SECRET || 'defaultSecret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 }
 }));
+// Configuration de la session
+// app.use(session({
+//   secret: process.env.SECRET || 'defaultSecret', // Remplace 'defaultSecret' par une clé plus sécurisée en prod
+//   resave: false, // Ne pas sauvegarder la session si elle n'a pas été modifiée
+//   saveUninitialized: false, // Ne pas sauvegarder les sessions non initialisées
+//   cookie: { secure: false } // Mettre `true` si vous utilisez HTTPS
+// }));
 // ------------------------------
 
 // Middleware flash universel
